@@ -14,14 +14,12 @@
 		<url>https://silnith.org/</url>
 	</organization>
 	<scm>
-		<url>https://svn.silnith.org/svn/repos/java/libraries/HTML5Parser/trunk</url>
-		<connection>scm:svn:https://svn.silnith.org/svn/repos/java/libraries/HTML5Parser/trunk</connection>
-		<developerConnection>scm:svn:https://svn.silnith.org/svn/repos/java/libraries/HTML5Parser/trunk</developerConnection>
+		<url>https://github.com/silnith-org/html5-parser</url>
+		<connection>scm:git:https://github.com/silnith-org/html5-parser.git</connection>
+		<developerConnection>scm:git:git@github.com:silnith-org/html5-parser.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 	<ciManagement>
-		<system>jenkins</system>
-		<url>https://jenkins.silnith.org/jenkins/job/HTML5%20Parser/</url>
 	</ciManagement>
 	<developers>
 		<developer>
@@ -65,28 +63,10 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 	<build>
-		<resources>
-			<resource>
-				<directory>src/main/java</directory>
-				<excludes>
-					<exclude>**/*.java</exclude>
-				</excludes>
-			</resource>
-			<resource>
-				<directory>src/main/resources</directory>
-				<excludes>
-					<exclude>**/*.java</exclude>
-				</excludes>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.0</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
