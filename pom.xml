@@ -16,11 +16,11 @@
 	<scm>
 		<url>https://github.com/silnith-org/html5-parser</url>
 		<connection>scm:git:https://github.com/silnith-org/html5-parser.git</connection>
-		<developerConnection>scm:git:git@github.com:silnith-org/html5-parser.git</developerConnection>
+		<developerConnection>scm:git:https://github.com/silnith-org/html5-parser.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
-	<ciManagement>
-	</ciManagement>
+	<ciManagement />
+
 	<developers>
 		<developer>
 			<name>Kent Rosenkoetter</name>
