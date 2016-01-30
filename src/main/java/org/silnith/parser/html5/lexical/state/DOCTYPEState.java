@@ -13,6 +13,7 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
  * @see <a href="http://www.w3.org/TR/html5/syntax.html#doctype-state">8.2.4.52
  *      DOCTYPE state</a>
@@ -47,8 +48,7 @@ public class DOCTYPEState extends TokenizerState {
                 doctypeToken.setForceQuirks();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in DOCTYPE.");
+                throw new ParseErrorException("Unexpected end-of-file in DOCTYPE.");
             }
         } // break;
         default: {
@@ -57,8 +57,7 @@ public class DOCTYPEState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.BEFORE_DOCTYPE_NAME);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected character in DOCTYPE: " + (char) ch);
+                throw new ParseErrorException("Unexpected character in DOCTYPE: " + (char) ch);
             }
         } // break;
         }

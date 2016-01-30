@@ -13,9 +13,10 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.EndOfFileToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * Implements <a
- * href="http://www.w3.org/TR/html5/syntax.html#data-state">8.2.4.1 Data
+ * Implements
+ * <a href="http://www.w3.org/TR/html5/syntax.html#data-state">8.2.4.1 Data
  * state</a>.
  *
  * @see <a href="http://www.w3.org/TR/html5/syntax.html#data-state">8.2.4.1 Data

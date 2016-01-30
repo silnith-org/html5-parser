@@ -7,10 +7,11 @@ import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Element;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intemplate">8.2.5.4.18
- *      The "in template" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-intemplate">8.2.5.4
+ *      .18 The "in template" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InTemplateInsertionMode extends InsertionMode {
@@ -91,16 +92,14 @@ public class InTemplateInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag token in template: "
-                                    + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag token in template: " + endTagToken);
                 }
             } // break;
             }
         } // break;
         case EOF: {
             // if no template on stack of open elements, stop parsing
-            if (!isStackOfOpenElementsContains("template")) {
+            if ( !isStackOfOpenElementsContains("template")) {
                 stopParsing();
                 return TOKEN_HANDLED;
             }
@@ -108,14 +107,13 @@ public class InTemplateInsertionMode extends InsertionMode {
                 Element popped;
                 do {
                     popped = popCurrentNode();
-                } while (!isElementA(popped, "template"));
+                } while ( !isElementA(popped, "template"));
                 clearListOfActiveFormattingElementsUpToLastMarker();
                 popCurrentTemplateInsertionMode();
                 resetInsertionModeAppropriately();
                 return REPROCESS_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in template.");
+                throw new ParseErrorException("Unexpected end-of-file in template.");
             }
         } // break;
         default: {

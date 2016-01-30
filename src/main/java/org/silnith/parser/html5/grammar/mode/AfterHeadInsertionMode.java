@@ -15,10 +15,11 @@ import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Element;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#the-after-head-insertion-mode">8.2.5.4.6
- *      The "after head" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#the-after-head-insertion-mode">8
+ *      .2.5.4.6 The "after head" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterHeadInsertionMode extends InsertionMode {
@@ -56,8 +57,7 @@ public class AfterHeadInsertionMode extends InsertionMode {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException("Unexpected DOCTYPE after head: "
-                        + token);
+                throw new ParseErrorException("Unexpected DOCTYPE after head: " + token);
             }
         } // break;
         case START_TAG: {
@@ -91,8 +91,7 @@ public class AfterHeadInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     assert getHeadElementPointer() != null;
                     addToStackOfOpenElements(getHeadElementPointer());
-                    final boolean returnValue = processUsingRulesFor(
-                            Parser.Mode.IN_HEAD, startTagToken);
+                    final boolean returnValue = processUsingRulesFor(Parser.Mode.IN_HEAD, startTagToken);
                     Element popped;
                     do {
                         // TODO: remove all elements above this, or only this
@@ -101,18 +100,14 @@ public class AfterHeadInsertionMode extends InsertionMode {
                     } while (popped != getHeadElementPointer());
                     return returnValue;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token after head: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token after head: " + startTagToken);
                 }
             } // break;
             case "head": {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token after head: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token after head: " + startTagToken);
                 }
             } // break;
             default: {
@@ -136,9 +131,7 @@ public class AfterHeadInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag token after head: "
-                                    + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag token after head: " + endTagToken);
                 }
             } // break;
             }

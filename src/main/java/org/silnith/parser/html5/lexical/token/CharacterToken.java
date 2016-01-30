@@ -3,6 +3,7 @@ package org.silnith.parser.html5.lexical.token;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * A token representing a single character of text in a document.
  *
@@ -15,8 +16,7 @@ public class CharacterToken extends Token {
      * Converts an array of characters into a list of character tokens. This is
      * a literal conversion, no additional processing is done on the array.
      * 
-     * @param characters
-     *            the array of characters to convert
+     * @param characters the array of characters to convert
      * @return a list of tokens representing the characters in the array, in
      *         order
      */
@@ -32,8 +32,7 @@ public class CharacterToken extends Token {
      * Converts a string into a list of character tokens. This is a literal
      * conversion, no additional processing is done on the string.
      * 
-     * @param string
-     *            the string to convert
+     * @param string the string to convert
      * @return a list of tokens representing the characters in the string, in
      *         order
      */
@@ -46,8 +45,7 @@ public class CharacterToken extends Token {
      * is a literal conversion, no additional processing is done on the
      * sequence.
      * 
-     * @param charSequence
-     *            the sequence of characters to convert
+     * @param charSequence the sequence of characters to convert
      * @return a list of tokens representing the characters in the sequence, in
      *         order
      */

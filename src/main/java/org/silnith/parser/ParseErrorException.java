@@ -19,8 +19,8 @@ public class ParseErrorException extends RuntimeException {
         super(message, cause);
     }
     
-    public ParseErrorException(final String message, final Throwable cause,
-            final boolean enableSuppression, final boolean writableStackTrace) {
+    public ParseErrorException(final String message, final Throwable cause, final boolean enableSuppression,
+            final boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
     

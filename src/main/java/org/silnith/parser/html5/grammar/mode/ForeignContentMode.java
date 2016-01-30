@@ -17,10 +17,10 @@ import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.TagToken.Attribute;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inforeign">8.2.5.5
- *      The rules for parsing tokens in foreign content</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inforeign">
+ *      8.2.5.5 The rules for parsing tokens in foreign content</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ForeignContentMode extends InsertionMode {
@@ -41,8 +41,7 @@ public class ForeignContentMode extends InsertionMode {
                     insertCharacter(REPLACEMENT_CHARACTER);
                     return TOKEN_HANDLED;
                 } else {
-                    throw new ParseErrorException(
-                            "Null character in foreign content.");
+                    throw new ParseErrorException("Null character in foreign content.");
                 }
             } // break;
             case CHARACTER_TABULATION: // fall through
@@ -69,8 +68,7 @@ public class ForeignContentMode extends InsertionMode {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected DOCTYPE token in foreign content: " + token);
+                throw new ParseErrorException("Unexpected DOCTYPE token in foreign content: " + token);
             }
         } // break;
         case START_TAG: {
@@ -124,14 +122,10 @@ public class ForeignContentMode extends InsertionMode {
                 throw new ParseErrorException();
             } // break;
             case "font": {
-                final Attribute colorAttribute = getAttributeNamed(
-                        startTagToken, "color");
-                final Attribute faceAttribute = getAttributeNamed(
-                        startTagToken, "face");
-                final Attribute sizeAttribute = getAttributeNamed(
-                        startTagToken, "size");
-                if (colorAttribute != null || faceAttribute != null
-                        || sizeAttribute != null) {
+                final Attribute colorAttribute = getAttributeNamed(startTagToken, "color");
+                final Attribute faceAttribute = getAttributeNamed(startTagToken, "face");
+                final Attribute sizeAttribute = getAttributeNamed(startTagToken, "size");
+                if (colorAttribute != null || faceAttribute != null || sizeAttribute != null) {
                     throw new ParseErrorException();
                 } else {
                     return anyOtherStartTag(startTagToken);

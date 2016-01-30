@@ -12,6 +12,7 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.EndOfFileToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
  * Currently unused.
  *

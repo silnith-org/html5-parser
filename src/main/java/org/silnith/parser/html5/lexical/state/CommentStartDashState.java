@@ -13,10 +13,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CommentToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#comment-start-dash-state">8.2.4.47
- *      Comment start dash state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#comment-start-dash-state">8.2.4.
+ *      47 Comment start dash state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class CommentStartDashState extends TokenizerState {
@@ -44,8 +45,7 @@ public class CommentStartDashState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.COMMENT);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character in comment start dash state.");
+                throw new ParseErrorException("Null character in comment start dash state.");
             }
         } // break;
         case GREATER_THAN_SIGN: {
@@ -54,8 +54,7 @@ public class CommentStartDashState extends TokenizerState {
                 final CommentToken commentToken = clearCommentToken();
                 return one(commentToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected '>' in comment start dash state.");
+                throw new ParseErrorException("Unexpected '>' in comment start dash state.");
             }
         } // break;
         case EOF: {
@@ -64,8 +63,7 @@ public class CommentStartDashState extends TokenizerState {
                 final CommentToken commentToken = clearCommentToken();
                 return one(commentToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in comment start dash state.");
+                throw new ParseErrorException("Unexpected end-of-file in comment start dash state.");
             }
         } // break;
         default: {

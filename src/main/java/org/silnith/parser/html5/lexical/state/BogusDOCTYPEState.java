@@ -9,10 +9,10 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#bogus-doctype-state">8.2.4.67
- *      Bogus DOCTYPE state</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#bogus-doctype-state">8.2
+ *      .4.67 Bogus DOCTYPE state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class BogusDOCTYPEState extends TokenizerState {

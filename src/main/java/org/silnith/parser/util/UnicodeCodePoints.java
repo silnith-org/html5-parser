@@ -3,11 +3,9 @@ package org.silnith.parser.util;
 /**
  * Constants representing significant Unicode code points, mostly in the ASCII
  * range.
- *
  * <p>
  * Why did I create these obvious constants? Surely the code is just as readable
  * with the actual character literals used instead of these!
- *
  * <p>
  * Yes, it is, and the initial implementation used the character literals.
  * However, I want the implementation to look as much like the "spec" as
@@ -15,10 +13,8 @@ package org.silnith.parser.util;
  * such as (') and (`) when reading the code, and not everybody knows the
  * difference between U+000A and U+000C and U+000D off the top of their head.
  * Being pedantic makes it easier to catch mistakes.
- *
  * <p>
  * Am I really this pedantic?
- *
  * <p>
  * Yes. Yes I am.
  *

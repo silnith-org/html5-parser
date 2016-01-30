@@ -2,6 +2,7 @@ package org.silnith.parser.html5.grammar.dom;
 
 import org.w3c.dom.Node;
 
+
 public class AfterLastChildInsertionPosition implements InsertionPosition {
     
     private final Node parentNode;

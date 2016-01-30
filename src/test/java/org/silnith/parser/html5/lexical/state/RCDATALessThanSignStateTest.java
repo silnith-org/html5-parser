@@ -13,6 +13,7 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class RCDATALessThanSignStateTest {
     
     private Tokenizer tokenizer;
@@ -36,7 +37,7 @@ public class RCDATALessThanSignStateTest {
         assertEquals('f', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         assertEquals("", tokenizer.getTemporaryBuffer());
     }
@@ -55,7 +56,7 @@ public class RCDATALessThanSignStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.RCDATA_END_TAG_OPEN, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         assertEquals("", tokenizer.getTemporaryBuffer());
     }
@@ -99,7 +100,7 @@ public class RCDATALessThanSignStateTest {
         assertEquals('<', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
 }

@@ -9,10 +9,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#script-data-escape-start-state">8.2.4.20
- *      Script data escape start state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#script-data-escape-start-state">
+ *      8.2.4.20 Script data escape start state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ScriptDataEscapeStartState extends TokenizerState {

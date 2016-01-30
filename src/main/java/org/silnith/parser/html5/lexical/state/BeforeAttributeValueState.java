@@ -22,10 +22,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#before-attribute-value-state">8.2.4.37
- *      Before attribute value state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#before-attribute-value-state">8.
+ *      2.4.37 Before attribute value state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class BeforeAttributeValueState extends TokenizerState {
@@ -69,8 +70,7 @@ public class BeforeAttributeValueState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.ATTRIBUTE_VALUE_UNQUOTED);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character before attribute value.");
+                throw new ParseErrorException("Null character before attribute value.");
             }
         } // break;
         case GREATER_THAN_SIGN: {
@@ -79,8 +79,7 @@ public class BeforeAttributeValueState extends TokenizerState {
                 final TagToken pendingToken = clearPendingTag();
                 return one(pendingToken);
             } else {
-                throw new ParseErrorException(
-                        "Illegal character before attribute value: >");
+                throw new ParseErrorException("Illegal character before attribute value: >");
             }
         } // break;
         case LESS_THAN_SIGN: // fall through
@@ -89,9 +88,7 @@ public class BeforeAttributeValueState extends TokenizerState {
             if (isAllowParseErrors()) {
                 return defaultCase(ch);
             } else {
-                throw new ParseErrorException(
-                        "Illegal character before attribute value: "
-                                + (char) ch);
+                throw new ParseErrorException("Illegal character before attribute value: " + (char) ch);
             }
         } // break;
         case EOF: {
@@ -99,8 +96,7 @@ public class BeforeAttributeValueState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file before attribute value.");
+                throw new ParseErrorException("Unexpected end-of-file before attribute value.");
             }
         } // break;
         default: {

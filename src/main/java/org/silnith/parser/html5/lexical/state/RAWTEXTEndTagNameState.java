@@ -15,10 +15,11 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#rawtext-end-tag-name-state">8.2.4.16
- *      RAWTEXT end tag name state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#rawtext-end-tag-name-state">8.2.
+ *      4.16 RAWTEXT end tag name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class RAWTEXTEndTagNameState extends TokenizerState {

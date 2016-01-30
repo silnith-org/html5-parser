@@ -21,10 +21,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#before-attribute-name-state">8.2.4.34
- *      Before attribute name state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#before-attribute-name-state">8.2
+ *      .4.34 Before attribute name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class BeforeAttributeNameState extends TokenizerState {
@@ -95,8 +96,7 @@ public class BeforeAttributeNameState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.ATTRIBUTE_NAME);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character in before attribute name state.");
+                throw new ParseErrorException("Null character in before attribute name state.");
             }
         } // break;
         case QUOTATION_MARK: // fall through
@@ -106,8 +106,7 @@ public class BeforeAttributeNameState extends TokenizerState {
             if (isAllowParseErrors()) {
                 return defaultCase(ch);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected token before attribute name: " + (char) ch);
+                throw new ParseErrorException("Unexpected token before attribute name: " + (char) ch);
             }
         } // break;
         case EOF: {
@@ -116,8 +115,7 @@ public class BeforeAttributeNameState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file before attribute name.");
+                throw new ParseErrorException("Unexpected end-of-file before attribute name.");
             }
         } // break;
         default: {

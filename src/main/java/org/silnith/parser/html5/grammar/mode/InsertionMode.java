@@ -26,53 +26,53 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.Text;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">insertion
- *      mode</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">
+ *      insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public abstract class InsertionMode {
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/infrastructure.html#html-namespace-0">HTML
-     *      namespace</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/infrastructure.html#html-namespace-0">
+     *      HTML namespace</a>
      */
     public static final String HTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/infrastructure.html#mathml-namespace">MathML
-     *      namespace</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/infrastructure.html#mathml-namespace">
+     *      MathML namespace</a>
      */
     public static final String MATHML_NAMESPACE = "http://www.w3.org/1998/Math/MathML";
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/infrastructure.html#svg-namespace">SVG
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/infrastructure.html#svg-namespace">SVG
      *      namespace</a>
      */
     public static final String SVG_NAMESPACE = "http://www.w3.org/2000/svg";
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/infrastructure.html#xlink-namespace">XLink
-     *      namespace</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/infrastructure.html#xlink-namespace">
+     *      XLink namespace</a>
      */
     public static final String XLINK_NAMESPACE = "http://www.w3.org/1999/xlink";
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/infrastructure.html#xml-namespace">XMLNS
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/infrastructure.html#xml-namespace">XMLNS
      *      namespace</a>
      */
     public static final String XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace";
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/infrastructure.html#xmlns-namespace">XMLNS
-     *      namespace</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/infrastructure.html#xmlns-namespace">
+     *      XMLNS namespace</a>
      */
     public static final String XMLNS_NAMESPACE = "http://www.w3.org/2000/xmlns/";
     
@@ -93,9 +93,8 @@ public abstract class InsertionMode {
     protected static final boolean REPROCESS_TOKEN = false;
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#frameset-ok-flag">frameset-ok
-     *      flag</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#frameset-ok-flag">
+     *      frameset-ok flag</a>
      */
     protected static final boolean NOT_OK = false;
     
@@ -114,9 +113,8 @@ public abstract class InsertionMode {
     private static final Set<String> FORMATTING_ELEMENTS;
     
     static {
-        SPECIFIC_SCOPE = Collections.unmodifiableSet(new HashSet<>(Arrays
-                .asList("applet", "caption", "html", "table", "td", "th",
-                        "marquee", "object", "template")));
+        SPECIFIC_SCOPE = Collections.unmodifiableSet(new HashSet<>(
+                Arrays.asList("applet", "caption", "html", "table", "td", "th", "marquee", "object", "template")));
         final Set<String> buttonScope = new HashSet<>(SPECIFIC_SCOPE);
         buttonScope.add("button");
         BUTTON_SCOPE = Collections.unmodifiableSet(buttonScope);
@@ -124,30 +122,20 @@ public abstract class InsertionMode {
         listItemScope.add("ol");
         listItemScope.add("ul");
         LIST_ITEM_SCOPE = Collections.unmodifiableSet(listItemScope);
-        TABLE_SCOPE = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
-                "html", "table", "template")));
-        IMPLIED_END_TAGS = Collections.unmodifiableSet(new HashSet<>(
-                Arrays.asList("dd", "dt", "li", "option", "optgroup", "p",
-                        "rp", "rt")));
-        SPECIAL_ELEMENTS = Collections.unmodifiableSet(new HashSet<>(Arrays
-                .asList("address", "applet", "area", "article", "aside",
-                        "base", "basefont", "bgsound", "blockquote", "body",
-                        "br", "button", "caption", "center", "col", "colgroup",
-                        "dd", "details", "dir", "div", "dl", "dt", "embed",
-                        "fieldset", "figcaption", "figure", "footer", "form",
-                        "frame", "frameset", "h1", "h2", "h3", "h4", "h5",
-                        "h6", "head", "header", "hgroup", "hr", "html",
-                        "iframe", "img", "input", "isindex", "li", "link",
-                        "listing", "main", "marquee", "menu", "menuitem",
-                        "meta", "nav", "noembed", "noframes", "noscript",
-                        "object", "ol", "p", "param", "plaintext", "pre",
-                        "script", "section", "select", "source", "style",
-                        "summary", "table", "tbody", "td", "template",
-                        "textarea", "tfoot", "th", "thead", "title", "tr",
-                        "track", "ul", "wbr", "xmp")));
-        FORMATTING_ELEMENTS = Collections.unmodifiableSet(new HashSet<>(Arrays
-                .asList("a", "b", "big", "code", "em", "font", "i", "nobr",
-                        "s", "small", "strike", "strong", "tt", "u")));
+        TABLE_SCOPE = Collections.unmodifiableSet(new HashSet<>(Arrays.asList("html", "table", "template")));
+        IMPLIED_END_TAGS = Collections.unmodifiableSet(
+                new HashSet<>(Arrays.asList("dd", "dt", "li", "option", "optgroup", "p", "rp", "rt")));
+        SPECIAL_ELEMENTS = Collections.unmodifiableSet(new HashSet<>(Arrays.asList("address", "applet", "area",
+                "article", "aside", "base", "basefont", "bgsound", "blockquote", "body", "br", "button", "caption",
+                "center", "col", "colgroup", "dd", "details", "dir", "div", "dl", "dt", "embed", "fieldset",
+                "figcaption", "figure", "footer", "form", "frame", "frameset", "h1", "h2", "h3", "h4", "h5", "h6",
+                "head", "header", "hgroup", "hr", "html", "iframe", "img", "input", "isindex", "li", "link", "listing",
+                "main", "marquee", "menu", "menuitem", "meta", "nav", "noembed", "noframes", "noscript", "object", "ol",
+                "p", "param", "plaintext", "pre", "script", "section", "select", "source", "style", "summary", "table",
+                "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "title", "tr", "track", "ul", "wbr",
+                "xmp")));
+        FORMATTING_ELEMENTS = Collections.unmodifiableSet(new HashSet<>(Arrays.asList("a", "b", "big", "code", "em",
+                "font", "i", "nobr", "s", "small", "strike", "strong", "tt", "u")));
     }
     
     /**
@@ -164,8 +152,7 @@ public abstract class InsertionMode {
     /**
      * Insert the given token into the document.
      * 
-     * @param token
-     *            the token to insert into the document
+     * @param token the token to insert into the document
      * @return whether the token was handled. {@code false} means the token has
      *         not been handled and needs to be passed to the next insertion
      *         mode.
@@ -175,14 +162,12 @@ public abstract class InsertionMode {
     /**
      * Process the token using the rules for the given insertion mode.
      * 
-     * @param mode
-     *            the mode to use to process the token
-     * @param token
-     *            the token to process
+     * @param mode the mode to use to process the token
+     * @param token the token to process
      * @return whether the token was handled. {@code false} means the token
      *         needs to be passed to the next insertion mode.
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#using-the-rules-for">using
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#using-the-rules-for">using
      *      the rules for</a>
      */
     protected boolean processUsingRulesFor(final Mode mode, final Token token) {
@@ -202,12 +187,11 @@ public abstract class InsertionMode {
     
     /**
      * @return whether this is the HTML fragment parsing algorithm
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#html-fragment-parsing-algorithm">HTML
-     *      fragment parsing algorithm</a>
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#fragment-case">fragment
-     *      case</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#html-fragment-parsing-algorithm">
+     *      HTML fragment parsing algorithm</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#fragment-case">
+     *      fragment case</a>
      */
     protected boolean isHTMLFragmentParsingAlgorithm() {
         return parser.isHTMLFragmentParsingAlgorithm();
@@ -217,9 +201,8 @@ public abstract class InsertionMode {
      * Whether scripting is enabled for this parser.
      * 
      * @return whether scripting is enabled.
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#scripting-flag">scripting
-     *      flag</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#scripting-flag">
+     *      scripting flag</a>
      */
     protected boolean isScriptingEnabled() {
         return parser.isScriptingEnabled();
@@ -227,8 +210,8 @@ public abstract class InsertionMode {
     
     /**
      * @return whether this is quirks mode
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/infrastructure.html#quirks-mode">quirks
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/infrastructure.html#quirks-mode">quirks
      *      mode</a>
      */
     protected boolean isQuirksMode() {
@@ -246,27 +229,24 @@ public abstract class InsertionMode {
     
     /**
      * @return whether foster parenting is enabled
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#foster-parent">foster
-     *      parenting</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#foster-parent">
+     *      foster parenting</a>
      */
     protected boolean isFosterParentingEnabled() {
         return parser.isFosterParentingEnabled();
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#foster-parent">foster
-     *      parenting</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#foster-parent">
+     *      foster parenting</a>
      */
     protected void enableFosterParenting() {
         parser.setFosterParentingEnabled(true);
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#foster-parent">foster
-     *      parenting</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#foster-parent">
+     *      foster parenting</a>
      */
     protected void disableFosterParenting() {
         parser.setFosterParentingEnabled(false);
@@ -274,9 +254,8 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#frameset-ok-flag">frameset-ok
-     *      flag</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#frameset-ok-flag">
+     *      frameset-ok flag</a>
      */
     protected boolean isFramesetOkFlag() {
         return parser.isFramesetOkFlag();
@@ -284,9 +263,8 @@ public abstract class InsertionMode {
     
     /**
      * @param isOK
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#frameset-ok-flag">frameset-ok
-     *      flag</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#frameset-ok-flag">
+     *      frameset-ok flag</a>
      */
     protected void setFramesetOKFlag(final boolean isOK) {
         parser.setFramesetOKFlag(isOK);
@@ -294,9 +272,9 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#head-element-pointer"><code>head</code>
-     *      element pointer</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#head-element-pointer">
+     *      <code>head</code> element pointer</a>
      */
     protected Element getHeadElementPointer() {
         return parser.getHeadElementPointer();
@@ -304,9 +282,9 @@ public abstract class InsertionMode {
     
     /**
      * @param element
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#head-element-pointer"><code>head</code>
-     *      element pointer</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#head-element-pointer">
+     *      <code>head</code> element pointer</a>
      */
     protected void setHeadElementPointer(final Element element) {
         parser.setHeadElementPointer(element);
@@ -314,9 +292,9 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#form-element-pointer"><code>form</code>
-     *      element pointer</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#form-element-pointer">
+     *      <code>form</code> element pointer</a>
      */
     protected Element getFormElementPointer() {
         return parser.getFormElementPointer();
@@ -324,9 +302,9 @@ public abstract class InsertionMode {
     
     /**
      * @param formElement
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#form-element-pointer"><code>form</code>
-     *      element pointer</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#form-element-pointer">
+     *      <code>form</code> element pointer</a>
      */
     protected void setFormElementPointer(final Element formElement) {
         parser.setFormElementPointer(formElement);
@@ -336,9 +314,8 @@ public abstract class InsertionMode {
      * Returns the current insertion mode.
      * 
      * @return the current insertion mode
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">insertion
-     *      mode</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">
+     *      insertion mode</a>
      */
     protected Mode getInsertionMode() {
         return parser.getInsertionMode();
@@ -347,11 +324,9 @@ public abstract class InsertionMode {
     /**
      * Changes the insertion mode for the current parser.
      * 
-     * @param insertionMode
-     *            the mode to shift into
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">insertion
-     *      mode</a>
+     * @param insertionMode the mode to shift into
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">
+     *      insertion mode</a>
      */
     protected void setInsertionMode(final Mode insertionMode) {
         parser.setInsertionMode(insertionMode);
@@ -366,32 +341,30 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#reconstruct-the-active-formatting-elements">reconstruct
-     *      the active formatting elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#reconstruct-the-active-formatting-elements">
+     *      reconstruct the active formatting elements</a>
      */
     protected void reconstructActiveFormattingElements() {
         if (parser.listOfActiveFormattingElements.isEmpty()) {
             return;
         }
-        if (parser.isMarker(parser.listOfActiveFormattingElements
-                .get(parser.listOfActiveFormattingElements.size() - 1))) {
+        if (parser.isMarker(
+                parser.listOfActiveFormattingElements.get(parser.listOfActiveFormattingElements.size() - 1))) {
             return;
         }
-        if (parser.containsOpenElement(parser.listOfActiveFormattingElements
-                .get(parser.listOfActiveFormattingElements.size() - 1)
-                .getValue())) {
+        if (parser.containsOpenElement(parser.listOfActiveFormattingElements.get(
+                parser.listOfActiveFormattingElements.size() - 1).getValue())) {
             return;
         }
         
-        final ListIterator<FormattingElement> entryIter = parser.listOfActiveFormattingElements
-                .listIterator(parser.listOfActiveFormattingElements.size());
+        final ListIterator<FormattingElement> entryIter =
+                parser.listOfActiveFormattingElements.listIterator(parser.listOfActiveFormattingElements.size());
         assert entryIter.hasPrevious();
         FormattingElement entry = null;
         while (entryIter.hasPrevious()) {
             entry = entryIter.previous();
-            if (parser.isMarker(entry)
-                    || parser.containsOpenElement(entry.getValue())) {
+            if (parser.isMarker(entry) || parser.containsOpenElement(entry.getValue())) {
                 entry = entryIter.next();
                 break;
             }
@@ -401,7 +374,7 @@ public abstract class InsertionMode {
             final StartTagToken startTagToken = entry.getKey();
             final Element newElement = insertHTMLElement(startTagToken);
             entryIter.set(new FormattingElement(startTagToken, newElement));
-            if (!entryIter.hasNext()) {
+            if ( !entryIter.hasNext()) {
                 return;
             }
             entry = entryIter.next();
@@ -412,12 +385,12 @@ public abstract class InsertionMode {
      * Resets the insertion mode appropriately based on the stack of open
      * elements.
      * 
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#reset-the-insertion-mode-appropriately">reset
-     *      the insertion mode appropriately</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#reset-the-insertion-mode-appropriately">
+     *      reset the insertion mode appropriately</a>
      */
     protected void resetInsertionModeAppropriately() {
-        for (int index = getStackOfOpenElementsSize() - 1; index >= 0; index--) {
+        for (int index = getStackOfOpenElementsSize() - 1; index >= 0; index-- ) {
             final Element node = getOpenElement(index);
             final boolean last = (index == 0);
             // TODO: fragment -> context
@@ -426,7 +399,7 @@ public abstract class InsertionMode {
                     setInsertionMode(Mode.IN_SELECT);
                     return;
                 }
-                for (int ancestorIndex = index; ancestorIndex >= 0; ancestorIndex--) {
+                for (int ancestorIndex = index; ancestorIndex >= 0; ancestorIndex-- ) {
                     final Element ancestor = getOpenElement(ancestorIndex);
                     if (isElementA(ancestor, "template")) {
                         break;
@@ -494,8 +467,7 @@ public abstract class InsertionMode {
             }
         }
         assert false;
-        throw new IllegalStateException(
-                "Should have exited loop in the last check of the loop above.");
+        throw new IllegalStateException("Should have exited loop in the last check of the loop above.");
     }
     
     protected void setTokenizerState(final Tokenizer.State state) {
@@ -504,13 +476,12 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#adjusted-current-node">adjusted
-     *      current node</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#adjusted-current-node">
+     *      adjusted current node</a>
      */
     protected Element getAdjustedCurrentNode() {
-        if (getStackOfOpenElementsSize() == 1
-                && isHTMLFragmentParsingAlgorithm()) {
+        if (getStackOfOpenElementsSize() == 1 && isHTMLFragmentParsingAlgorithm()) {
             throw new UnsupportedOperationException();
         } else {
             return getCurrentNode();
@@ -519,12 +490,11 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#current-node">current
-     *      node</a>
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#current-node">
+     *      current node</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
     protected Element getCurrentNode() {
         return parser.getCurrentOpenElement();
@@ -532,12 +502,11 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#current-node">current
-     *      node</a>
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#current-node">
+     *      current node</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
     protected Element popCurrentNode() {
         return parser.popOpenElement();
@@ -545,9 +514,9 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
     protected int getStackOfOpenElementsSize() {
         return parser.getNumOpenElements();
@@ -555,9 +524,9 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
     protected Element getFirstElementInStackOfOpenElements() {
         return getOpenElement(0);
@@ -566,9 +535,9 @@ public abstract class InsertionMode {
     /**
      * @param tagName
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
     protected boolean isStackOfOpenElementsContains(final String tagName) {
         for (final Element element : parser.getOpenElementsIterable()) {
@@ -581,9 +550,9 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
     protected Element getNodeImmediatelyBeforeCurrentNode() {
         return getOpenElement(getStackOfOpenElementsSize() - 2);
@@ -591,9 +560,9 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
     protected boolean isStackOfOpenElementsHasOnlyOneNode() {
         return getStackOfOpenElementsSize() == 1;
@@ -601,9 +570,9 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
     protected Element getSecondElementOfStackOfOpenElements() {
         return getOpenElement(1);
@@ -611,9 +580,9 @@ public abstract class InsertionMode {
     
     /**
      * @param element
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
     protected void removeNodeFromStackOfOpenElements(final Element element) {
         parser.removeOpenElement(element);
@@ -622,14 +591,13 @@ public abstract class InsertionMode {
     /**
      * @param tagNames
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
-    protected boolean isStackOfOpenElementsContainsOtherThan(
-            final Collection<String> tagNames) {
+    protected boolean isStackOfOpenElementsContainsOtherThan(final Collection<String> tagNames) {
         for (final Element element : parser.getOpenElementsIterable()) {
-            if (!isElementA(element, tagNames)) {
+            if ( !isElementA(element, tagNames)) {
                 return true;
             }
         }
@@ -639,9 +607,9 @@ public abstract class InsertionMode {
     /**
      * @param index
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
     protected Element getOpenElement(final int index) {
         return parser.getOpenElement(index);
@@ -649,18 +617,18 @@ public abstract class InsertionMode {
     
     /**
      * @param element
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">stack
-     *      of open elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
+     *      stack of open elements</a>
      */
     protected void addToStackOfOpenElements(final Element element) {
         parser.pushOpenElement(element);
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#clear-the-stack-back-to-a-table-context">clear
-     *      the stack back to a table context</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#clear-the-stack-back-to-a-table-context">
+     *      clear the stack back to a table context</a>
      */
     protected void clearStackBackToTableContext() {
         while (isElementA(getCurrentNode(), "table", "template", "html")) {
@@ -669,21 +637,20 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#clear-the-stack-back-to-a-table-body-context">clear
-     *      the stack back to a table body context</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#clear-the-stack-back-to-a-table-body-context">
+     *      clear the stack back to a table body context</a>
      */
     protected void clearStackBackToTableBodyContext() {
-        while (isElementA(getCurrentNode(), "tbody", "tfoot", "thead",
-                "template", "html")) {
+        while (isElementA(getCurrentNode(), "tbody", "tfoot", "thead", "template", "html")) {
             popCurrentNode();
         }
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#clear-the-stack-back-to-a-table-row-context">clear
-     *      the stack back to a table row context</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#clear-the-stack-back-to-a-table-row-context">
+     *      clear the stack back to a table row context</a>
      */
     protected void clearStackBackToTableRowContext() {
         while (isElementA(getCurrentNode(), "tr", "template", "html")) {
@@ -693,9 +660,9 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-template-insertion-modes">stack
-     *      of template insertion modes</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-template-insertion-modes">
+     *      stack of template insertion modes</a>
      */
     protected boolean isStackOfTemplateInsertionModesEmpty() {
         return parser.getNumTemplateInsertionModes() == 0;
@@ -703,9 +670,9 @@ public abstract class InsertionMode {
     
     /**
      * @param mode
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#stack-of-template-insertion-modes">stack
-     *      of template insertion modes</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-template-insertion-modes">
+     *      stack of template insertion modes</a>
      */
     protected void pushOntoStackOfTemplateInsertionModes(final Parser.Mode mode) {
         parser.pushTemplateInsertionMode(mode);
@@ -713,9 +680,9 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#current-template-insertion-mode">current
-     *      template insertion mode</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#current-template-insertion-mode">
+     *      current template insertion mode</a>
      */
     protected Parser.Mode popCurrentTemplateInsertionMode() {
         return parser.popTemplateInsertionMode();
@@ -723,36 +690,32 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#current-template-insertion-mode">current
-     *      template insertion mode</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#current-template-insertion-mode">
+     *      current template insertion mode</a>
      */
     protected Parser.Mode getCurrentTemplateInsertionMode() {
         return parser.getCurrentTemplateInsertionMode();
     }
     
-    protected boolean isListOfActiveFormattingElementsContainsAfterLastMarker(
-            final String... tagNames) {
-        return isListOfActiveFormattingElementsContainsAfterLastMarker(Arrays
-                .asList(tagNames));
+    protected boolean isListOfActiveFormattingElementsContainsAfterLastMarker(final String... tagNames) {
+        return isListOfActiveFormattingElementsContainsAfterLastMarker(Arrays.asList(tagNames));
     }
     
-    protected boolean isListOfActiveFormattingElementsContainsAfterLastMarker(
-            final Collection<String> tagNames) {
+    protected boolean isListOfActiveFormattingElementsContainsAfterLastMarker(final Collection<String> tagNames) {
         // TODO: ??
         return false;
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#list-of-active-formatting-elements">list
-     *      of active formatting elements</a>
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#push-onto-the-list-of-active-formatting-elements">push
-     *      onto the list of active formatting elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#list-of-active-formatting-elements">
+     *      list of active formatting elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#push-onto-the-list-of-active-formatting-elements">
+     *      push onto the list of active formatting elements</a>
      */
-    protected void pushOntoListOfActiveFormattingElements(
-            final StartTagToken startTagToken, final Element element) {
+    protected void pushOntoListOfActiveFormattingElements(final StartTagToken startTagToken, final Element element) {
         if (startTagToken == null) {
             throw new NullPointerException();
         }
@@ -763,30 +726,31 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#list-of-active-formatting-elements">list
-     *      of active formatting elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#list-of-active-formatting-elements">
+     *      list of active formatting elements</a>
      */
     protected void insertMarkerAtEndOfListOfActiveFormattingElements() {
         parser.addMarkerToListOfActiveFormattingElements();
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#clear-the-list-of-active-formatting-elements-up-to-the-last-marker">clear
-     *      the list of active formatting elements up to the last marker</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#clear-the-list-of-active-formatting-elements-up-to-the-last-marker">
+     *      clear the list of active formatting elements up to the last
+     *      marker</a>
      */
     protected void clearListOfActiveFormattingElementsUpToLastMarker() {
         parser.clearActiveFormattingElements();
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#pending-table-character-tokens">pending
-     *      table character tokens</a>
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/infrastructure.html#space-character">space
-     *      characters</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#pending-table-character-tokens">
+     *      pending table character tokens</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/infrastructure.html#space-character">
+     *      space characters</a>
      */
     protected boolean isPendingTableCharacterTokensListContainsCharactersThatAreNotSpaceCharacters() {
         // TODO
@@ -805,12 +769,11 @@ public abstract class InsertionMode {
     
     /**
      * @param characterToken
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#pending-table-character-tokens">pending
-     *      table character tokens</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#pending-table-character-tokens">
+     *      pending table character tokens</a>
      */
-    protected void appendToPendingTableCharacterTokens(
-            final CharacterToken characterToken) {
+    protected void appendToPendingTableCharacterTokens(final CharacterToken characterToken) {
         // TODO
         throw new UnsupportedOperationException();
     }
@@ -825,9 +788,9 @@ public abstract class InsertionMode {
     
     /**
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#appropriate-place-for-inserting-a-node">appropriate
-     *      place for inserting a node</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#appropriate-place-for-inserting-a-node">
+     *      appropriate place for inserting a node</a>
      */
     protected InsertionPosition getAppropriatePlaceForInsertingNode() {
         return getAppropriatePlaceForInsertingNode(getCurrentNode());
@@ -836,32 +799,27 @@ public abstract class InsertionMode {
     /**
      * @param overrideTarget
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#appropriate-place-for-inserting-a-node">appropriate
-     *      place for inserting a node</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#appropriate-place-for-inserting-a-node">
+     *      appropriate place for inserting a node</a>
      */
-    protected InsertionPosition getAppropriatePlaceForInsertingNode(
-            final Node overrideTarget) {
+    protected InsertionPosition getAppropriatePlaceForInsertingNode(final Node overrideTarget) {
         final Node target = overrideTarget;
         
         final InsertionPosition adjustedInsertionLocation;
         
-        final Set<String> tableContainers = new HashSet<>(Arrays.asList(
-                "table", "tbody", "tfoot", "thead", "tr"));
-        if (isFosterParentingEnabled()
-                && target.getNodeType() == Node.ELEMENT_NODE
+        final Set<String> tableContainers = new HashSet<>(Arrays.asList("table", "tbody", "tfoot", "thead", "tr"));
+        if (isFosterParentingEnabled() && target.getNodeType() == Node.ELEMENT_NODE
                 && tableContainers.contains(target.getNodeName())) {
             // find last template in stack of open elements
             // find last table in stack of open elements
             throw new UnsupportedOperationException();
         } else {
-            adjustedInsertionLocation = new AfterLastChildInsertionPosition(
-                    target);
+            adjustedInsertionLocation = new AfterLastChildInsertionPosition(target);
         }
         
         if (adjustedInsertionLocation.getContainingNode().getNodeType() == Node.ELEMENT_NODE
-                && adjustedInsertionLocation.getContainingNode().getNodeName()
-                        .equals("template")) {
+                && adjustedInsertionLocation.getContainingNode().getNodeName().equals("template")) {
             // return position inside "template contents", after last child
             throw new UnsupportedOperationException();
         } else {
@@ -871,9 +829,8 @@ public abstract class InsertionMode {
     
     /**
      * @param characterToken
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#insert-a-character">insert
-     *      a character</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insert-a-character">
+     *      insert a character</a>
      */
     protected void insertCharacter(final CharacterToken characterToken) {
         insertCharacter(characterToken.getCharacter());
@@ -881,9 +838,8 @@ public abstract class InsertionMode {
     
     /**
      * @param character
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#insert-a-character">insert
-     *      a character</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insert-a-character">
+     *      insert a character</a>
      */
     protected void insertCharacter(final char character) {
         final String data = String.valueOf(character);
@@ -892,24 +848,20 @@ public abstract class InsertionMode {
             // abort
             return;
         }
-        final Node nodeImmediatelyBefore = adjustedInsertionLocation
-                .getNodeImmediatelyBefore();
-        if (nodeImmediatelyBefore != null
-                && nodeImmediatelyBefore.getNodeType() == Node.TEXT_NODE) {
+        final Node nodeImmediatelyBefore = adjustedInsertionLocation.getNodeImmediatelyBefore();
+        if (nodeImmediatelyBefore != null && nodeImmediatelyBefore.getNodeType() == Node.TEXT_NODE) {
             final Text textNode = (Text) nodeImmediatelyBefore;
             textNode.appendData(data);
         } else {
-            final Text textNode = adjustedInsertionLocation.getContainingNode()
-                    .getOwnerDocument().createTextNode(data);
+            final Text textNode = adjustedInsertionLocation.getContainingNode().getOwnerDocument().createTextNode(data);
             adjustedInsertionLocation.insert(textNode);
         }
     }
     
     /**
      * @param commentToken
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#insert-a-comment">insert
-     *      a comment</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insert-a-comment">
+     *      insert a comment</a>
      */
     protected void insertComment(final CommentToken commentToken) {
         insertComment(commentToken, getAppropriatePlaceForInsertingNode());
@@ -918,16 +870,13 @@ public abstract class InsertionMode {
     /**
      * @param commentToken
      * @param position
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#insert-a-comment">insert
-     *      a comment</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insert-a-comment">
+     *      insert a comment</a>
      */
-    protected void insertComment(final CommentToken commentToken,
-            final InsertionPosition position) {
+    protected void insertComment(final CommentToken commentToken, final InsertionPosition position) {
         final String data = commentToken.getContent();
         final InsertionPosition adjustedInsertionLocation = position;
-        final Document ownerDocument = adjustedInsertionLocation
-                .getContainingNode().getOwnerDocument();
+        final Document ownerDocument = adjustedInsertionLocation.getContainingNode().getOwnerDocument();
         final Comment commentNode = ownerDocument.createComment(data);
         adjustedInsertionLocation.insert(commentNode);
         
@@ -940,15 +889,14 @@ public abstract class InsertionMode {
      * @param givenNamespace
      * @param intendedParent
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#create-an-element-for-the-token">create
-     *      an element for a token</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#create-an-element-for-the-token">
+     *      create an element for a token</a>
      */
-    protected Element createElementForToken(final StartTagToken startTagToken,
-            final String givenNamespace, final Node intendedParent) {
+    protected Element createElementForToken(final StartTagToken startTagToken, final String givenNamespace,
+            final Node intendedParent) {
         final Document document = intendedParent.getOwnerDocument();
-        final Element element = document.createElementNS(givenNamespace,
-                startTagToken.getTagName());
+        final Element element = document.createElementNS(givenNamespace, startTagToken.getTagName());
         for (final TagToken.Attribute attribute : startTagToken.getAttributes()) {
             final String name = attribute.getName();
             final String value = attribute.getValue();
@@ -973,15 +921,14 @@ public abstract class InsertionMode {
      * @param startTagToken
      * @param givenNamespace
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#insert-a-foreign-element">insert
-     *      a foreign element</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#insert-a-foreign-element">
+     *      insert a foreign element</a>
      */
-    protected Element insertForeignElement(final StartTagToken startTagToken,
-            final String givenNamespace) {
+    protected Element insertForeignElement(final StartTagToken startTagToken, final String givenNamespace) {
         final InsertionPosition adjustedInsertionLocation = getAppropriatePlaceForInsertingNode();
-        final Element element = createElementForToken(startTagToken,
-                givenNamespace, adjustedInsertionLocation.getContainingNode());
+        final Element element =
+                createElementForToken(startTagToken, givenNamespace, adjustedInsertionLocation.getContainingNode());
         // if Document, drop on floor instead
         adjustedInsertionLocation.insert(element);
         addToStackOfOpenElements(element);
@@ -992,13 +939,12 @@ public abstract class InsertionMode {
     /**
      * @param startTagToken
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#insert-an-html-element">insert
-     *      an HTML element</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#insert-an-html-element">
+     *      insert an HTML element</a>
      */
     protected Element insertHTMLElement(final StartTagToken startTagToken) {
-        final Element element = insertForeignElement(startTagToken,
-                HTML_NAMESPACE);
+        final Element element = insertForeignElement(startTagToken, HTML_NAMESPACE);
         // TODO: It is unclear from the CSS DOM whether this is supposed to
 // happen automatically or not.
 //        if (element.hasAttributeNS(null, "style") && element.isSupported("CSS",
@@ -1014,9 +960,9 @@ public abstract class InsertionMode {
     /**
      * @param tagName
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#insert-an-html-element">insert
-     *      an HTML element</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#insert-an-html-element">
+     *      insert an HTML element</a>
      */
     protected Element insertHTMLElement(final String tagName) {
         final StartTagToken startTagToken = new StartTagToken();
@@ -1028,12 +974,11 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#generate-implied-end-tags">generate
-     *      implied end tags</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#generate-implied-end-tags">
+     *      generate implied end tags</a>
      */
-    protected void generateImpliedEndTagsExcept(
-            final Collection<String> excludedTags) {
+    protected void generateImpliedEndTagsExcept(final Collection<String> excludedTags) {
         final Set<String> implied = new HashSet<>(IMPLIED_END_TAGS);
         implied.removeAll(excludedTags);
         while (implied.contains(getCurrentNode().getTagName())) {
@@ -1042,18 +987,18 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#generate-implied-end-tags">generate
-     *      implied end tags</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#generate-implied-end-tags">
+     *      generate implied end tags</a>
      */
     protected void generateImpliedEndTagsExcept(final String... excludedTags) {
         generateImpliedEndTagsExcept(Arrays.asList(excludedTags));
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#generate-implied-end-tags">generate
-     *      implied end tags</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#generate-implied-end-tags">
+     *      generate implied end tags</a>
      */
     protected void generateImpliedEndTags() {
         while (IMPLIED_END_TAGS.contains(getCurrentNode().getTagName())) {
@@ -1062,38 +1007,35 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#close-the-cell">close
-     *      the cell</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#close-the-cell">
+     *      close the cell</a>
      */
     protected void closeCell() {
         generateImpliedEndTags();
-        if (!isElementA(getCurrentNode(), "td", "th")) {
+        if ( !isElementA(getCurrentNode(), "td", "th")) {
             if (isAllowParseErrors()) {
                 // do nothing?
             } else {
                 throw new ParseErrorException(
-                        "Expected current node to be a table cell, instead it was: "
-                                + getCurrentNode().getTagName());
+                        "Expected current node to be a table cell, instead it was: " + getCurrentNode().getTagName());
             }
         }
         // pop stack until popped "td" or "th"
         Element popped;
         do {
             popped = popCurrentNode();
-        } while (!isElementA(popped, "td", "th"));
+        } while ( !isElementA(popped, "td", "th"));
         clearListOfActiveFormattingElementsUpToLastMarker();
         setInsertionMode(Parser.Mode.IN_ROW);
     }
     
     /**
      * @param startTagToken
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#generic-raw-text-element-parsing-algorithm">generic
-     *      raw text element parsing algorithm</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#generic-raw-text-element-parsing-algorithm">
+     *      generic raw text element parsing algorithm</a>
      */
-    protected void genericRawTextElementParsingAlgorithm(
-            final StartTagToken startTagToken) {
+    protected void genericRawTextElementParsingAlgorithm(final StartTagToken startTagToken) {
         insertHTMLElement(startTagToken);
         setTokenizerState(Tokenizer.State.RAWTEXT);
         setOriginalInsertionMode(getInsertionMode());
@@ -1102,12 +1044,11 @@ public abstract class InsertionMode {
     
     /**
      * @param startTagToken
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#generic-rcdata-element-parsing-algorithm">generic
-     *      RCDATA element parsing algorithm</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#generic-rcdata-element-parsing-algorithm">
+     *      generic RCDATA element parsing algorithm</a>
      */
-    protected void genericRCDATAElementParsingAlgorithm(
-            final StartTagToken startTagToken) {
+    protected void genericRCDATAElementParsingAlgorithm(final StartTagToken startTagToken) {
         insertHTMLElement(startTagToken);
         setTokenizerState(Tokenizer.State.RCDATA);
         setOriginalInsertionMode(getInsertionMode());
@@ -1116,9 +1057,9 @@ public abstract class InsertionMode {
     
     /**
      * @param startTagToken
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#adjust-mathml-attributes">adjust
-     *      MathML attributes</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#adjust-mathml-attributes">
+     *      adjust MathML attributes</a>
      */
     protected void adjustMathMLAttributes(final StartTagToken startTagToken) {
         // TODO
@@ -1127,9 +1068,9 @@ public abstract class InsertionMode {
     
     /**
      * @param startTagToken
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#adjust-foreign-attributes">adjust
-     *      foreign attributes</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#adjust-foreign-attributes">
+     *      adjust foreign attributes</a>
      */
     protected void adjustForeignAttributes(final StartTagToken startTagToken) {
         // TODO
@@ -1138,9 +1079,9 @@ public abstract class InsertionMode {
     
     /**
      * @param startTagToken
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#adjust-svg-attributes">adjust
-     *      SVG attributes</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#adjust-svg-attributes">
+     *      adjust SVG attributes</a>
      */
     protected void adjustSVGAttributes(final StartTagToken startTagToken) {
         // TODO
@@ -1151,13 +1092,12 @@ public abstract class InsertionMode {
      * @param target
      * @param elementTypes
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#has-an-element-in-the-specific-scope">have
-     *      an element <var>target node</var> in a specific scope</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#has-an-element-in-the-specific-scope">
+     *      have an element <var>target node</var> in a specific scope</a>
      */
-    protected boolean hasElementInScope(final String target,
-            final Collection<String> elementTypes) {
-        for (int index = getStackOfOpenElementsSize() - 1; index >= 0; index--) {
+    protected boolean hasElementInScope(final String target, final Collection<String> elementTypes) {
+        for (int index = getStackOfOpenElementsSize() - 1; index >= 0; index-- ) {
             final Element node = getOpenElement(index);
             if (isElementA(node, target)) {
                 return true;
@@ -1166,29 +1106,27 @@ public abstract class InsertionMode {
                 return false;
             }
         }
-        throw new ParseErrorException(
-                "Should have found an html element in the stack of open elements.");
+        throw new ParseErrorException("Should have found an html element in the stack of open elements.");
     }
     
     /**
      * @param target
      * @param elementTypes
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#has-an-element-in-the-specific-scope">have
-     *      an element <var>target node</var> in a specific scope</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#has-an-element-in-the-specific-scope">
+     *      have an element <var>target node</var> in a specific scope</a>
      */
-    protected boolean hasElementInScope(final String target,
-            final String... elementTypes) {
+    protected boolean hasElementInScope(final String target, final String... elementTypes) {
         return hasElementInScope(target, Arrays.asList(elementTypes));
     }
     
     /**
      * @param target
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#has-an-element-in-scope">have
-     *      a particular element in scope</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#has-an-element-in-scope">
+     *      have a particular element in scope</a>
      */
     protected boolean hasParticularElementInScope(final String target) {
         return hasElementInScope(target, SPECIFIC_SCOPE);
@@ -1209,38 +1147,34 @@ public abstract class InsertionMode {
     /**
      * @param target
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#has-an-element-in-select-scope">have
-     *      a particular element in select scope</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#has-an-element-in-select-scope">
+     *      have a particular element in select scope</a>
      */
     protected boolean hasParticularElementInSelectScope(final String target) {
-        for (int index = getStackOfOpenElementsSize() - 1; index >= 0; index--) {
+        for (int index = getStackOfOpenElementsSize() - 1; index >= 0; index-- ) {
             final Element node = getOpenElement(index);
             if (isElementA(node, target)) {
                 return true;
             }
-            if (!isElementA(node, "option", "optgroup")) {
+            if ( !isElementA(node, "option", "optgroup")) {
                 return false;
             }
         }
-        throw new ParseErrorException(
-                "Should have found an html element in the stack of open elements.");
+        throw new ParseErrorException("Should have found an html element in the stack of open elements.");
     }
     
-    protected void acknowledgeTokenSelfClosingFlag(
-            final StartTagToken startTagToken) {
+    protected void acknowledgeTokenSelfClosingFlag(final StartTagToken startTagToken) {
         if (startTagToken.isSelfClosing()) {
             parser.acknowledgeSelfClosingFlag();
         }
     }
     
-    protected boolean isElementA(final Element element,
-            final Collection<String> tagNames) {
+    protected boolean isElementA(final Element element, final Collection<String> tagNames) {
         return tagNames.contains(element.getTagName());
     }
     
-    protected boolean isElementA(final Element element,
-            final String... tagNames) {
+    protected boolean isElementA(final Element element, final String... tagNames) {
         return isElementA(element, Arrays.asList(tagNames));
     }
     
@@ -1252,15 +1186,13 @@ public abstract class InsertionMode {
         return SPECIAL_ELEMENTS.contains(tagName);
     }
     
-    protected boolean isSpecialCategoryExcept(final String tagName,
-            final Collection<String> excluded) {
+    protected boolean isSpecialCategoryExcept(final String tagName, final Collection<String> excluded) {
         final Set<String> set = new HashSet<>(SPECIAL_ELEMENTS);
         set.removeAll(excluded);
         return set.contains(tagName);
     }
     
-    protected boolean isSpecialCategoryExcept(final String tagName,
-            final String... excluded) {
+    protected boolean isSpecialCategoryExcept(final String tagName, final String... excluded) {
         return isSpecialCategoryExcept(tagName, Arrays.asList(excluded));
     }
     
@@ -1271,9 +1203,8 @@ public abstract class InsertionMode {
     /**
      * @param element
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/forms.html#category-reset">resettable
-     *      elements</a>
+     * @see <a href="http://www.w3.org/TR/html5/forms.html#category-reset">
+     *      resettable elements</a>
      */
     protected boolean isResettable(final Element element) {
         // TODO
@@ -1282,9 +1213,9 @@ public abstract class InsertionMode {
     
     /**
      * @param element
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/forms.html#concept-form-reset-control">reset
-     *      algorithm</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/forms.html#concept-form-reset-control">
+     *      reset algorithm</a>
      */
     protected void invokeResetAlgorithm(final Element element) {
         // TODO
@@ -1294,17 +1225,16 @@ public abstract class InsertionMode {
     /**
      * @param element
      * @return
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/forms.html#form-associated-element">form-associated
-     *      elements</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/forms.html#form-associated-element">form
+     *      -associated elements</a>
      */
     protected boolean isFormAssociatedElement(final Element element) {
         // TODO
         return false;
     }
     
-    protected TagToken.Attribute getAttributeNamed(
-            final StartTagToken startTagToken, final String attributeName) {
+    protected TagToken.Attribute getAttributeNamed(final StartTagToken startTagToken, final String attributeName) {
         for (final TagToken.Attribute attribute : startTagToken.getAttributes()) {
             final String name = attribute.getName();
             if (name.equals(attributeName)) {

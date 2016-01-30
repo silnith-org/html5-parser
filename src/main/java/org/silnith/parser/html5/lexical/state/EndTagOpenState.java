@@ -13,10 +13,10 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.EndTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#end-tag-open-state">8.2.4.9
- *      End tag open state</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#end-tag-open-state">8.2.
+ *      4.9 End tag open state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class EndTagOpenState extends TokenizerState {
@@ -101,8 +101,7 @@ public class EndTagOpenState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected '>' while parsing end tag.");
+                throw new ParseErrorException("Unexpected '>' while parsing end tag.");
             }
         } // break;
         case EOF: {
@@ -110,8 +109,7 @@ public class EndTagOpenState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return CharacterToken.toTokens(LESS_THAN_SIGN, SOLIDUS);
             } else {
-                throw new ParseErrorException(
-                        "End-of-file reached while parsing end tag.");
+                throw new ParseErrorException("End-of-file reached while parsing end tag.");
             }
         } // break;
         default: {
@@ -119,9 +117,7 @@ public class EndTagOpenState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.BOGUS_COMMENT);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected character while parsing end tag: '"
-                                + (char) ch + "'.");
+                throw new ParseErrorException("Unexpected character while parsing end tag: '" + (char) ch + "'.");
             }
         } // break;
         }

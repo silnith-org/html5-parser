@@ -16,10 +16,10 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#doctype-name-state">8.2.4.54
- *      DOCTYPE name state</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#doctype-name-state">8.2.
+ *      4.54 DOCTYPE name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class DOCTYPENameState extends TokenizerState {
@@ -93,8 +93,7 @@ public class DOCTYPENameState extends TokenizerState {
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in DOCTYPE name.");
+                throw new ParseErrorException("Unexpected end-of-file in DOCTYPE name.");
             }
         } // break;
         default: {

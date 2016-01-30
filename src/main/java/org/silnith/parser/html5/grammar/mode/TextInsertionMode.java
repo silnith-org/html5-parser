@@ -9,10 +9,10 @@ import org.silnith.parser.html5.lexical.token.EndTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Element;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-incdata">8.2.5.4.8
- *      The "text" insertion mode</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-incdata">8.
+ *      2.5.4.8 The "text" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class TextInsertionMode extends InsertionMode {
@@ -37,8 +37,7 @@ public class TextInsertionMode extends InsertionMode {
                 setInsertionMode(getOriginalInsertionMode());
                 return REPROCESS_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in text inserting mode.");
+                throw new ParseErrorException("Unexpected end-of-file in text inserting mode.");
             }
         } // break;
         case END_TAG: {
@@ -76,8 +75,7 @@ public class TextInsertionMode extends InsertionMode {
     }
     
     private boolean defaultCase(final Token token) {
-        throw new ParseErrorException(
-                "Unexpected token in text insertion mode: " + token);
+        throw new ParseErrorException("Unexpected token in text insertion mode: " + token);
 //        return false;
     }
     

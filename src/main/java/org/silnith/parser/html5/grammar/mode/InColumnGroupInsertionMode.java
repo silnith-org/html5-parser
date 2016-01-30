@@ -14,10 +14,11 @@ import org.silnith.parser.html5.lexical.token.EndTagToken;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-incolgroup">8.2.5.4.12
- *      The "in column group" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-incolgroup">8.2.5.4
+ *      .12 The "in column group" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InColumnGroupInsertionMode extends InsertionMode {
@@ -55,8 +56,7 @@ public class InColumnGroupInsertionMode extends InsertionMode {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected DOCTYPE token in column group: " + token);
+                throw new ParseErrorException("Unexpected DOCTYPE token in column group: " + token);
             }
         } // break;
         case START_TAG: {
@@ -85,13 +85,12 @@ public class InColumnGroupInsertionMode extends InsertionMode {
             final String tagName = endTagToken.getTagName();
             switch (tagName) {
             case "colgroup": {
-                if (!isElementA(getCurrentNode(), "colgroup")) {
+                if ( !isElementA(getCurrentNode(), "colgroup")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Expected current node to be a colgroup element, instead it was: "
-                                        + getCurrentNode().getTagName());
+                        throw new ParseErrorException("Expected current node to be a colgroup element, instead it was: "
+                                + getCurrentNode().getTagName());
                     }
                 }
                 popCurrentNode();
@@ -102,9 +101,7 @@ public class InColumnGroupInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag token in column group: "
-                                    + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag token in column group: " + endTagToken);
                 }
             } // break;
             case "template": {
@@ -125,13 +122,12 @@ public class InColumnGroupInsertionMode extends InsertionMode {
     }
     
     private boolean anythingElse(final Token token) {
-        if (!isElementA(getCurrentNode(), "colgroup")) {
+        if ( !isElementA(getCurrentNode(), "colgroup")) {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Expected current node to be a colgroup element, instead it was: "
-                                + getCurrentNode().getTagName());
+                throw new ParseErrorException("Expected current node to be a colgroup element, instead it was: "
+                        + getCurrentNode().getTagName());
             }
         }
         popCurrentNode();

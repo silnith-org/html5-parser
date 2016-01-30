@@ -7,10 +7,10 @@ import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Element;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-incaption">8.2.5.4.11
- *      The "in caption" insertion mode</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-incaption">
+ *      8.2.5.4.11 The "in caption" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InCaptionInsertionMode extends InsertionMode {
@@ -35,7 +35,7 @@ public class InCaptionInsertionMode extends InsertionMode {
             case "th": // fall through
             case "thead": // fall through
             case "tr": {
-                if (!hasParticularElementInTableScope("caption")) {
+                if ( !hasParticularElementInTableScope("caption")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
@@ -49,14 +49,13 @@ public class InCaptionInsertionMode extends InsertionMode {
                     if (isAllowParseErrors()) {
                         // do nothing?
                     } else {
-                        throw new ParseErrorException(
-                                "Expected current node to be a caption element.");
+                        throw new ParseErrorException("Expected current node to be a caption element.");
                     }
                 }
                 Element popped;
                 do {
                     popped = popCurrentNode();
-                } while (!isElementA(popped, "caption"));
+                } while ( !isElementA(popped, "caption"));
                 clearListOfActiveFormattingElementsUpToLastMarker();
                 setInsertionMode(Parser.Mode.IN_TABLE);
                 return REPROCESS_TOKEN;
@@ -71,13 +70,12 @@ public class InCaptionInsertionMode extends InsertionMode {
             final String tagName = endTagToken.getTagName();
             switch (tagName) {
             case "caption": {
-                if (!hasParticularElementInTableScope("caption")) {
+                if ( !hasParticularElementInTableScope("caption")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
                         throw new ParseErrorException(
-                                "Unexpected end tag token outside of caption element in table scope: "
-                                        + endTagToken);
+                                "Unexpected end tag token outside of caption element in table scope: " + endTagToken);
                     }
                 }
                 generateImpliedEndTags();
@@ -85,26 +83,24 @@ public class InCaptionInsertionMode extends InsertionMode {
                     if (isAllowParseErrors()) {
                         // do nothing?
                     } else {
-                        throw new ParseErrorException(
-                                "Expected current node to be a caption element.");
+                        throw new ParseErrorException("Expected current node to be a caption element.");
                     }
                 }
                 Element popped;
                 do {
                     popped = popCurrentNode();
-                } while (!isElementA(popped, "caption"));
+                } while ( !isElementA(popped, "caption"));
                 clearListOfActiveFormattingElementsUpToLastMarker();
                 setInsertionMode(Parser.Mode.IN_TABLE);
                 return TOKEN_HANDLED;
             } // break;
             case "table": {
-                if (!hasParticularElementInTableScope("caption")) {
+                if ( !hasParticularElementInTableScope("caption")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
                         throw new ParseErrorException(
-                                "Unexpected end tag token outside of caption element in table scope: "
-                                        + endTagToken);
+                                "Unexpected end tag token outside of caption element in table scope: " + endTagToken);
                     }
                 }
                 generateImpliedEndTags();
@@ -112,14 +108,13 @@ public class InCaptionInsertionMode extends InsertionMode {
                     if (isAllowParseErrors()) {
                         // do nothing?
                     } else {
-                        throw new ParseErrorException(
-                                "Expected current node to be a caption element.");
+                        throw new ParseErrorException("Expected current node to be a caption element.");
                     }
                 }
                 Element popped;
                 do {
                     popped = popCurrentNode();
-                } while (!isElementA(popped, "caption"));
+                } while ( !isElementA(popped, "caption"));
                 clearListOfActiveFormattingElementsUpToLastMarker();
                 setInsertionMode(Parser.Mode.IN_TABLE);
                 return REPROCESS_TOKEN;
@@ -137,9 +132,7 @@ public class InCaptionInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag token in caption: "
-                                    + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag token in caption: " + endTagToken);
                 }
             } // break;
             default: {

@@ -14,6 +14,7 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class ScriptDataStateTest {
     
     private Tokenizer tokenizer;
@@ -33,9 +34,8 @@ public class ScriptDataStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.SCRIPT_DATA_LESS_THAN_SIGN,
-                tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals(Tokenizer.State.SCRIPT_DATA_LESS_THAN_SIGN, tokenizer.getState());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -50,8 +50,7 @@ public class ScriptDataStateTest {
     }
     
     @Test
-    public void testGetNextTokensNullCharacterAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNullCharacterAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("\u0000"));
         tokenizer.setState(Tokenizer.State.SCRIPT_DATA);
         tokenizer.setAllowParseErrors(true);
@@ -68,7 +67,7 @@ public class ScriptDataStateTest {
         assertEquals('\uFFFD', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.SCRIPT_DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -87,7 +86,7 @@ public class ScriptDataStateTest {
         assertEquals(Token.Type.EOF, token.getType());
         
         assertEquals(Tokenizer.State.SCRIPT_DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -108,7 +107,7 @@ public class ScriptDataStateTest {
         assertEquals('a', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.SCRIPT_DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
 }

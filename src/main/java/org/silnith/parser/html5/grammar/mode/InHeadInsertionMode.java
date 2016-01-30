@@ -17,10 +17,10 @@ import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Element;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inhead">8.2.5.4.4
- *      The "in head" insertion mode</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inhead">8.2
+ *      .5.4.4 The "in head" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InHeadInsertionMode extends InsertionMode {
@@ -58,8 +58,7 @@ public class InHeadInsertionMode extends InsertionMode {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException("Unexpected DOCTYPE in head: "
-                        + token);
+                throw new ParseErrorException("Unexpected DOCTYPE in head: " + token);
             }
         } // break;
         case START_TAG: {
@@ -108,8 +107,7 @@ public class InHeadInsertionMode extends InsertionMode {
             } // break;
             case "script": {
                 final InsertionPosition adjustedInsertionLocation = getAppropriatePlaceForInsertingNode();
-                final Element element = createElementForToken(startTagToken,
-                        HTML_NAMESPACE,
+                final Element element = createElementForToken(startTagToken, HTML_NAMESPACE,
                         adjustedInsertionLocation.getContainingNode());
                 // mark as parser-inserted
                 // unset "force-async" flag
@@ -134,9 +132,7 @@ public class InHeadInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in head: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in head: " + startTagToken);
                 }
             } // break;
             default: {
@@ -161,7 +157,7 @@ public class InHeadInsertionMode extends InsertionMode {
             } // break;
             case "template": {
                 // confirm stack of open elements contains a "template"
-                if (!isStackOfOpenElementsContains("template")) {
+                if ( !isStackOfOpenElementsContains("template")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
@@ -170,16 +166,14 @@ public class InHeadInsertionMode extends InsertionMode {
                     }
                 }
                 generateImpliedEndTags();
-                if (isAllowParseErrors()
-                        && !isElementA(getCurrentNode(), "template")) {
+                if (isAllowParseErrors() && !isElementA(getCurrentNode(), "template")) {
                     throw new ParseErrorException(
-                            "Expected current element to be a template element, was: "
-                                    + getCurrentNode().getTagName());
+                            "Expected current element to be a template element, was: " + getCurrentNode().getTagName());
                 }
                 Element popped;
                 do {
                     popped = popCurrentNode();
-                } while (!isElementA(popped, "template"));
+                } while ( !isElementA(popped, "template"));
                 clearListOfActiveFormattingElementsUpToLastMarker();
                 popCurrentTemplateInsertionMode();
                 resetInsertionModeAppropriately();
@@ -189,8 +183,7 @@ public class InHeadInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag token in head: " + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag token in head: " + endTagToken);
                 }
             } // break;
             }

@@ -6,10 +6,10 @@ import org.silnith.parser.html5.lexical.token.EndTagToken;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intbody">8.2.5.4.13
- *      The "in table body" insertion mode</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intbody">8.
+ *      2.5.4.13 The "in table body" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InTableBodyInsertionMode extends InsertionMode {
@@ -39,9 +39,7 @@ public class InTableBodyInsertionMode extends InsertionMode {
                     setInsertionMode(Parser.Mode.IN_ROW);
                     return REPROCESS_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in table body: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in table body: " + startTagToken);
                 }
             } // break;
             case "caption": // fall through
@@ -50,8 +48,7 @@ public class InTableBodyInsertionMode extends InsertionMode {
             case "tbody": // fall through
             case "tfoot": // fall through
             case "thead": {
-                if (!hasParticularElementInTableScope("tbody")
-                        && !hasParticularElementInTableScope("tfoot")
+                if ( !hasParticularElementInTableScope("tbody") && !hasParticularElementInTableScope("tfoot")
                         && !hasParticularElementInTableScope("thead")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
@@ -78,13 +75,12 @@ public class InTableBodyInsertionMode extends InsertionMode {
             case "thead": {
                 // verify stack of open elements has matching start tag in table
 // scope
-                if (!hasParticularElementInTableScope(tagName)) {
+                if ( !hasParticularElementInTableScope(tagName)) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
                         throw new ParseErrorException(
-                                "Unexpected end tag token with no matching element in table scope: "
-                                        + endTagToken);
+                                "Unexpected end tag token with no matching element in table scope: " + endTagToken);
                     }
                 }
                 clearStackBackToTableBodyContext();
@@ -93,8 +89,7 @@ public class InTableBodyInsertionMode extends InsertionMode {
                 return TOKEN_HANDLED;
             } // break;
             case "table": {
-                if (!hasParticularElementInTableScope("tbody")
-                        && !hasParticularElementInTableScope("tfoot")
+                if ( !hasParticularElementInTableScope("tbody") && !hasParticularElementInTableScope("tfoot")
                         && !hasParticularElementInTableScope("thead")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
@@ -118,9 +113,7 @@ public class InTableBodyInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag token in table body: "
-                                    + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag token in table body: " + endTagToken);
                 }
             } // break;
             default: {

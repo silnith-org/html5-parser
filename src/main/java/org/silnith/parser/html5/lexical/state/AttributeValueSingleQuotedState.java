@@ -13,10 +13,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#attribute-value-%28single-quoted%29-state">8.2.4.39
- *      Attribute value (single-quoted) state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#attribute-value-%28single-quoted%29-state">
+ *      8.2.4.39 Attribute value (single-quoted) state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AttributeValueSingleQuotedState extends TokenizerState {
@@ -25,8 +26,7 @@ public class AttributeValueSingleQuotedState extends TokenizerState {
     
     public AttributeValueSingleQuotedState(final Tokenizer tokenizer) {
         super(tokenizer);
-        this.characterReferenceState = new CharacterReferenceState(tokenizer,
-                APOSTROPHE);
+        this.characterReferenceState = new CharacterReferenceState(tokenizer, APOSTROPHE);
     }
     
     @Override
@@ -43,8 +43,7 @@ public class AttributeValueSingleQuotedState extends TokenizerState {
             return NOTHING;
         } // break;
         case AMPERSAND: {
-            List<Token> characterReferences = characterReferenceState
-                    .getNextTokens();
+            List<Token> characterReferences = characterReferenceState.getNextTokens();
             if (characterReferences == null || characterReferences.isEmpty()) {
                 characterReferences = one(new CharacterToken(AMPERSAND));
             }
@@ -61,8 +60,7 @@ public class AttributeValueSingleQuotedState extends TokenizerState {
                 appendToAttributeValue(REPLACEMENT_CHARACTER);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character in single-quoted attribute value.");
+                throw new ParseErrorException("Null character in single-quoted attribute value.");
             }
         } // break;
         case EOF: {
@@ -70,8 +68,7 @@ public class AttributeValueSingleQuotedState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in single-quoted attribute value.");
+                throw new ParseErrorException("Unexpected end-of-file in single-quoted attribute value.");
             }
         } // break;
         default: {

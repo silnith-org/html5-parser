@@ -11,10 +11,10 @@ import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Element;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inselect">8.2.5.4.16
- *      The "in select" insertion mode</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inselect">8
+ *      .2.5.4.16 The "in select" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InSelectInsertionMode extends InsertionMode {
@@ -52,8 +52,7 @@ public class InSelectInsertionMode extends InsertionMode {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected DOCTYPE token in select: " + token);
+                throw new ParseErrorException("Unexpected DOCTYPE token in select: " + token);
             }
         } // break;
         case START_TAG: {
@@ -85,32 +84,28 @@ public class InSelectInsertionMode extends InsertionMode {
                     Element popped;
                     do {
                         popped = popCurrentNode();
-                    } while (!isElementA(popped, "select"));
+                    } while ( !isElementA(popped, "select"));
                     resetInsertionModeAppropriately();
                     return TOKEN_HANDLED;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in select: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in select: " + startTagToken);
                 }
             } // break;
             case "input": // fall through
             case "keygen": // fall through
             case "textarea": {
                 if (isAllowParseErrors()) {
-                    if (!hasParticularElementInSelectScope("select")) {
+                    if ( !hasParticularElementInSelectScope("select")) {
                         return IGNORE_TOKEN;
                     }
                     Element popped;
                     do {
                         popped = popCurrentNode();
-                    } while (!isElementA(popped, "select"));
+                    } while ( !isElementA(popped, "select"));
                     resetInsertionModeAppropriately();
                     return REPROCESS_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in select: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in select: " + startTagToken);
                 }
             } // break;
             case "template": // fall through
@@ -128,8 +123,7 @@ public class InSelectInsertionMode extends InsertionMode {
             switch (tagName) {
             case "optgroup": {
                 if (isElementA(getCurrentNode(), "option")
-                        && isElementA(getNodeImmediatelyBeforeCurrentNode(),
-                                "optgroup")) {
+                        && isElementA(getNodeImmediatelyBeforeCurrentNode(), "optgroup")) {
                     popCurrentNode();
                 }
                 if (isElementA(getCurrentNode(), "optgroup")) {
@@ -139,9 +133,8 @@ public class InSelectInsertionMode extends InsertionMode {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Expected current node to be an optgroup element, instead was: "
-                                        + getCurrentNode().getTagName());
+                        throw new ParseErrorException("Expected current node to be an optgroup element, instead was: "
+                                + getCurrentNode().getTagName());
                     }
                 }
             } // break;
@@ -153,27 +146,25 @@ public class InSelectInsertionMode extends InsertionMode {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Expected current node to be an option element, instead was: "
-                                        + getCurrentNode().getTagName());
+                        throw new ParseErrorException("Expected current node to be an option element, instead was: "
+                                + getCurrentNode().getTagName());
                     }
                 }
             } // break;
             case "select": {
                 // verify stack of open elements has select element in select
 // scope
-                if (!hasParticularElementInSelectScope("select")) {
+                if ( !hasParticularElementInSelectScope("select")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Expected select element in select scope.");
+                        throw new ParseErrorException("Expected select element in select scope.");
                     }
                 }
                 Element poppedElement;
                 do {
                     poppedElement = popCurrentNode();
-                } while (!isElementA(poppedElement, "select"));
+                } while ( !isElementA(poppedElement, "select"));
                 resetInsertionModeAppropriately();
                 return TOKEN_HANDLED;
             } // break;
@@ -198,8 +189,7 @@ public class InSelectInsertionMode extends InsertionMode {
         if (isAllowParseErrors()) {
             return true;
         } else {
-            throw new ParseErrorException("Unexpected token in select: "
-                    + token);
+            throw new ParseErrorException("Unexpected token in select: " + token);
         }
     }
     

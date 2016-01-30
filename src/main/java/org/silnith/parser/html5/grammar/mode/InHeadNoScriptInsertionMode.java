@@ -15,10 +15,11 @@ import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Element;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inheadnoscript">8.2.5.4.5
- *      The "in head noscript" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-inheadnoscript">8.2
+ *      .5.4.5 The "in head noscript" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InHeadNoScriptInsertionMode extends InsertionMode {
@@ -34,8 +35,7 @@ public class InHeadNoScriptInsertionMode extends InsertionMode {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected DOCTYPE in head (no script): " + token);
+                throw new ParseErrorException("Unexpected DOCTYPE in head (no script): " + token);
             }
         } // break;
         case START_TAG: {
@@ -58,9 +58,7 @@ public class InHeadNoScriptInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in head (no script): "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in head (no script): " + startTagToken);
                 }
             } // break;
             default: {
@@ -86,9 +84,7 @@ public class InHeadNoScriptInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag token in head (no script): "
-                                    + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag token in head (no script): " + endTagToken);
                 }
             } // break;
             }
@@ -127,8 +123,7 @@ public class InHeadNoScriptInsertionMode extends InsertionMode {
             setInsertionMode(Parser.Mode.IN_HEAD);
             return REPROCESS_TOKEN;
         } else {
-            throw new ParseErrorException(
-                    "Unexpected token in head (no script): " + token);
+            throw new ParseErrorException("Unexpected token in head (no script): " + token);
         }
     }
     

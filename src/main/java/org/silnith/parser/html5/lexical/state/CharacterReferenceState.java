@@ -19,18 +19,18 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#tokenizing-character-references">8.2.4.69
- *      Tokenizing character references</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#tokenizing-character-references">
+ *      8.2.4.69 Tokenizing character references</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class CharacterReferenceState extends TokenizerState {
     
     private final int additionalAllowedCharacter;
     
-    public CharacterReferenceState(final Tokenizer tokenizer,
-            final char additionalAllowedCharacter) {
+    public CharacterReferenceState(final Tokenizer tokenizer, final char additionalAllowedCharacter) {
         super(tokenizer);
         this.additionalAllowedCharacter = additionalAllowedCharacter;
     }
@@ -46,25 +46,22 @@ public class CharacterReferenceState extends TokenizerState {
     }
     
     private void unreadCharArray(final char... characters) throws IOException {
-        for (int i = characters.length - 1; i >= 0; i--) {
+        for (int i = characters.length - 1; i >= 0; i-- ) {
             unconsume(characters[i]);
         }
     }
     
-    private List<Token> handlePrefix(final int ch, final String name)
-            throws IOException {
+    private List<Token> handlePrefix(final int ch, final String name) throws IOException {
         final String prefix = findPrefixMatch(name);
         if (prefix == null) {
             unreadCharArray(name.toCharArray());
             return null;
         } else {
             // return the prefix, unconsume the unused
-            final String unused = name
-                    .substring(prefix.length(), name.length());
+            final String unused = name.substring(prefix.length(), name.length());
             unreadCharArray(unused.toCharArray());
             final StringBuilder characters = new StringBuilder();
-            for (final int codePoint : CharacterReferenceData.entityMap
-                    .get(prefix)) {
+            for (final int codePoint : CharacterReferenceData.entityMap.get(prefix)) {
                 characters.append(Character.toChars(codePoint));
             }
             return toTokens(characters.toString().toCharArray());
@@ -72,7 +69,7 @@ public class CharacterReferenceState extends TokenizerState {
     }
     
     private String findPrefixMatch(final String name) {
-        for (int i = name.length() - 2; i > 0; i--) {
+        for (int i = name.length() - 2; i > 0; i-- ) {
             final String substring = name.substring(0, i);
             if (CharacterReferenceData.entityMap.containsKey(substring)) {
                 return substring;
@@ -84,11 +81,9 @@ public class CharacterReferenceState extends TokenizerState {
     private char[] replaceDisallowedCharacters(final int codePoint) {
         if (CharacterReferenceData.replacementMap.containsKey(codePoint)) {
             if (isAllowParseErrors()) {
-                return Character.toChars(CharacterReferenceData.replacementMap
-                        .get(codePoint));
+                return Character.toChars(CharacterReferenceData.replacementMap.get(codePoint));
             } else {
-                throw new ParseErrorException(
-                        "Disallowed character: (code point " + codePoint + ")");
+                throw new ParseErrorException("Disallowed character: (code point " + codePoint + ")");
             }
         }
         
@@ -96,8 +91,7 @@ public class CharacterReferenceState extends TokenizerState {
             if (isAllowParseErrors()) {
                 return Character.toChars(REPLACEMENT_CHARACTER);
             } else {
-                throw new ParseErrorException(
-                        "Disallowed character: (code point " + codePoint + ")");
+                throw new ParseErrorException("Disallowed character: (code point " + codePoint + ")");
             }
         }
         
@@ -105,8 +99,7 @@ public class CharacterReferenceState extends TokenizerState {
 //            if (isAllowParseErrors()) {
 //                return Character.toChars(REPLACEMENT_CHARACTER);
 //            } else {
-            throw new ParseErrorException("Disallowed character: (code point "
-                    + codePoint + ")");
+            throw new ParseErrorException("Disallowed character: (code point " + codePoint + ")");
 //        }
         }
         
@@ -139,8 +132,7 @@ public class CharacterReferenceState extends TokenizerState {
                 x = 'x'; // fall through
             case 'X': {
                 ch = consume();
-                while (ch >= '0' && ch <= '9' || ch >= 'a' && ch <= 'f'
-                        || ch >= 'A' && ch <= 'F') {
+                while (ch >= '0' && ch <= '9' || ch >= 'a' && ch <= 'f' || ch >= 'A' && ch <= 'F') {
                     content.append((char) ch);
                     ch = consume();
                 }
@@ -150,9 +142,7 @@ public class CharacterReferenceState extends TokenizerState {
                         unreadCharArray(NUMBER_SIGN, x, (char) ch);
                         return null;
                     } else {
-                        throw new ParseErrorException(
-                                "Expected number after \"&#\"" + x
-                                        + ", found: " + (char) ch);
+                        throw new ParseErrorException("Expected number after \"&#\"" + x + ", found: " + (char) ch);
                     }
                 }
                 if (ch != SEMICOLON) {
@@ -160,8 +150,7 @@ public class CharacterReferenceState extends TokenizerState {
                         unconsume(ch);
                     } else {
                         throw new ParseErrorException(
-                                "Missing semicolon after numeric character reference: &#"
-                                        + x + content);
+                                "Missing semicolon after numeric character reference: &#" + x + content);
                     }
                 }
                 // parse hex number
@@ -178,9 +167,7 @@ public class CharacterReferenceState extends TokenizerState {
                         unreadCharArray(NUMBER_SIGN, (char) ch);
                         return null;
                     } else {
-                        throw new ParseErrorException(
-                                "Expected number after \"&#\"" + x
-                                        + ", found: " + (char) ch);
+                        throw new ParseErrorException("Expected number after \"&#\"" + x + ", found: " + (char) ch);
                     }
                 }
                 if (ch != SEMICOLON) {
@@ -188,8 +175,7 @@ public class CharacterReferenceState extends TokenizerState {
                         unconsume(ch);
                     } else {
                         throw new ParseErrorException(
-                                "Missing semicolon after numeric character reference: &#"
-                                        + content);
+                                "Missing semicolon after numeric character reference: &#" + content);
                     }
                 }
                 // parse decimal number
@@ -216,8 +202,7 @@ public class CharacterReferenceState extends TokenizerState {
                 return null;
             }
             
-            while (ch >= '0' && ch <= '9' || ch >= 'a' && ch <= 'z'
-                    || ch >= 'A' && ch <= 'Z') {
+            while (ch >= '0' && ch <= '9' || ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z') {
                 content.append((char) ch);
                 ch = consume();
                 if (content.length() >= CharacterReferenceData.longestEntityName) {
@@ -231,15 +216,13 @@ public class CharacterReferenceState extends TokenizerState {
                 return null;
             }
             if (ch == SEMICOLON) {
-                final int[] codePoints = CharacterReferenceData.entityMap
-                        .get(name);
+                final int[] codePoints = CharacterReferenceData.entityMap.get(name);
                 if (codePoints == null) {
                     if (isAllowParseErrors()) {
                         unconsume(ch);
                         return handlePrefix(ch, name);
                     } else {
-                        throw new ParseErrorException(
-                                "Unrecognized entity reference: &" + name + ";");
+                        throw new ParseErrorException("Unrecognized entity reference: &" + name + ";");
                     }
                 } else {
                     final StringBuilder characters = new StringBuilder();
@@ -253,9 +236,7 @@ public class CharacterReferenceState extends TokenizerState {
                     unconsume(ch);
                     return handlePrefix(ch, name);
                 } else {
-                    throw new ParseErrorException(
-                            "Entity reference is not closed by a semicolon: &"
-                                    + name);
+                    throw new ParseErrorException("Entity reference is not closed by a semicolon: &" + name);
                 }
             }
         } // break;

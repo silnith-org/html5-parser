@@ -85,9 +85,10 @@ import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * This class handles tokenization as described in <a
- * href="http://www.w3.org/TR/html5/syntax.html#tokenization">8.2.4
+ * This class handles tokenization as described in
+ * <a href="http://www.w3.org/TR/html5/syntax.html#tokenization">8.2.4
  * Tokenization</a>.
  *
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
@@ -193,136 +194,85 @@ public class Tokenizer {
         this.emittedSelfClosingStartTag = false;
         
         this.stateTokenizer.put(State.DATA, new DataState(this));
-        this.stateTokenizer.put(State.CHARACTER_REFERENCE_IN_DATA,
-                new CharacterReferenceInDataState(this));
+        this.stateTokenizer.put(State.CHARACTER_REFERENCE_IN_DATA, new CharacterReferenceInDataState(this));
         this.stateTokenizer.put(State.RCDATA, new RCDATAState(this));
-        this.stateTokenizer.put(State.CHARACTER_REFERENCE_IN_RCDATA,
-                new CharacterReferenceInRCDATAState(this));
+        this.stateTokenizer.put(State.CHARACTER_REFERENCE_IN_RCDATA, new CharacterReferenceInRCDATAState(this));
         this.stateTokenizer.put(State.RAWTEXT, new RAWTEXTState(this));
         this.stateTokenizer.put(State.SCRIPT_DATA, new ScriptDataState(this));
         this.stateTokenizer.put(State.PLAINTEXT, new PLAINTEXTState(this));
         this.stateTokenizer.put(State.TAG_OPEN, new TagOpenState(this));
         this.stateTokenizer.put(State.END_TAG_OPEN, new EndTagOpenState(this));
         this.stateTokenizer.put(State.TAG_NAME, new TagNameState(this));
-        this.stateTokenizer.put(State.RCDATA_LESS_THAN_SIGN,
-                new RCDATALessThanSignState(this));
-        this.stateTokenizer.put(State.RCDATA_END_TAG_OPEN,
-                new RCDATAEndTagOpenState(this));
-        this.stateTokenizer.put(State.RCDATA_END_TAG_NAME,
-                new RCDATAEndTagNameState(this));
-        this.stateTokenizer.put(State.RAWTEXT_LESS_THAN_SIGN,
-                new RAWTEXTLessThanSignState(this));
-        this.stateTokenizer.put(State.RAWTEXT_END_TAG_OPEN,
-                new RAWTEXTEndTagOpenState(this));
-        this.stateTokenizer.put(State.RAWTEXT_END_TAG_NAME,
-                new RAWTEXTEndTagNameState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_LESS_THAN_SIGN,
-                new ScriptDataLessThanSignState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_END_TAG_OPEN,
-                new ScriptDataEndTagOpenState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_END_TAG_NAME,
-                new ScriptDataEndTagNameState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPE_START,
-                new ScriptDataEscapeStartState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPE_START_DASH,
-                new ScriptDataEscapeStartDashState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED,
-                new ScriptDataEscapedState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED_DASH,
-                new ScriptDataEscapedDashState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED_DASH_DASH,
-                new ScriptDataEscapedDashDashState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED_LESS_THAN_SIGN,
-                new ScriptDataEscapedLessThanSignState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED_END_TAG_OPEN,
-                new ScriptDataEscapedEndTagOpenState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED_END_TAG_NAME,
-                new ScriptDataEscapedEndTagNameState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_DOUBLE_ESCAPE_START,
-                new ScriptDataDoubleEscapeStartState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_DOUBLE_ESCAPED,
-                new ScriptDataDoubleEscapedState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_DOUBLE_ESCAPED_DASH,
-                new ScriptDataDoubleEscapedDashState(this));
+        this.stateTokenizer.put(State.RCDATA_LESS_THAN_SIGN, new RCDATALessThanSignState(this));
+        this.stateTokenizer.put(State.RCDATA_END_TAG_OPEN, new RCDATAEndTagOpenState(this));
+        this.stateTokenizer.put(State.RCDATA_END_TAG_NAME, new RCDATAEndTagNameState(this));
+        this.stateTokenizer.put(State.RAWTEXT_LESS_THAN_SIGN, new RAWTEXTLessThanSignState(this));
+        this.stateTokenizer.put(State.RAWTEXT_END_TAG_OPEN, new RAWTEXTEndTagOpenState(this));
+        this.stateTokenizer.put(State.RAWTEXT_END_TAG_NAME, new RAWTEXTEndTagNameState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_LESS_THAN_SIGN, new ScriptDataLessThanSignState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_END_TAG_OPEN, new ScriptDataEndTagOpenState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_END_TAG_NAME, new ScriptDataEndTagNameState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPE_START, new ScriptDataEscapeStartState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPE_START_DASH, new ScriptDataEscapeStartDashState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED, new ScriptDataEscapedState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED_DASH, new ScriptDataEscapedDashState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED_DASH_DASH, new ScriptDataEscapedDashDashState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED_LESS_THAN_SIGN, new ScriptDataEscapedLessThanSignState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED_END_TAG_OPEN, new ScriptDataEscapedEndTagOpenState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_ESCAPED_END_TAG_NAME, new ScriptDataEscapedEndTagNameState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_DOUBLE_ESCAPE_START, new ScriptDataDoubleEscapeStartState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_DOUBLE_ESCAPED, new ScriptDataDoubleEscapedState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_DOUBLE_ESCAPED_DASH, new ScriptDataDoubleEscapedDashState(this));
         this.stateTokenizer.put(State.SCRIPT_DATA_DOUBLE_ESCAPED_DASH_DASH,
                 new ScriptDataDoubleEscapedDashDashState(this));
-        this.stateTokenizer.put(
-                State.SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN,
+        this.stateTokenizer.put(State.SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN,
                 new ScriptDataDoubleEscapedLessThanSignState(this));
-        this.stateTokenizer.put(State.SCRIPT_DATA_DOUBLE_ESCAPE_END,
-                new ScriptDataDoubleEscapeEndState(this));
-        this.stateTokenizer.put(State.BEFORE_ATTRIBUTE_NAME,
-                new BeforeAttributeNameState(this));
-        this.stateTokenizer.put(State.ATTRIBUTE_NAME, new AttributeNameState(
-                this));
-        this.stateTokenizer.put(State.AFTER_ATTRIBUTE_NAME,
-                new AfterAttributeNameState(this));
-        this.stateTokenizer.put(State.BEFORE_ATTRIBUTE_VALUE,
-                new BeforeAttributeValueState(this));
-        this.stateTokenizer.put(State.ATTRIBUTE_VALUE_DOUBLE_QUOTED,
-                new AttributeValueDoubleQuotedState(this));
-        this.stateTokenizer.put(State.ATTRIBUTE_VALUE_SINGLE_QUOTED,
-                new AttributeValueSingleQuotedState(this));
-        this.stateTokenizer.put(State.ATTRIBUTE_VALUE_UNQUOTED,
-                new AttributeValueUnquotedState(this));
-        this.stateTokenizer.put(State.AFTER_ATTRIBUTE_VALUE_QUOTED,
-                new AfterAttributeValueQuotedState(this));
-        this.stateTokenizer.put(State.SELF_CLOSING_START_TAG,
-                new SelfClosingStartTagState(this));
-        this.stateTokenizer.put(State.BOGUS_COMMENT,
-                new BogusCommentState(this));
-        this.stateTokenizer.put(State.MARKUP_DECLARATION_OPEN,
-                new MarkupDeclarationOpenState(this));
-        this.stateTokenizer.put(State.COMMENT_START,
-                new CommentStartState(this));
-        this.stateTokenizer.put(State.COMMENT_START_DASH,
-                new CommentStartDashState(this));
+        this.stateTokenizer.put(State.SCRIPT_DATA_DOUBLE_ESCAPE_END, new ScriptDataDoubleEscapeEndState(this));
+        this.stateTokenizer.put(State.BEFORE_ATTRIBUTE_NAME, new BeforeAttributeNameState(this));
+        this.stateTokenizer.put(State.ATTRIBUTE_NAME, new AttributeNameState(this));
+        this.stateTokenizer.put(State.AFTER_ATTRIBUTE_NAME, new AfterAttributeNameState(this));
+        this.stateTokenizer.put(State.BEFORE_ATTRIBUTE_VALUE, new BeforeAttributeValueState(this));
+        this.stateTokenizer.put(State.ATTRIBUTE_VALUE_DOUBLE_QUOTED, new AttributeValueDoubleQuotedState(this));
+        this.stateTokenizer.put(State.ATTRIBUTE_VALUE_SINGLE_QUOTED, new AttributeValueSingleQuotedState(this));
+        this.stateTokenizer.put(State.ATTRIBUTE_VALUE_UNQUOTED, new AttributeValueUnquotedState(this));
+        this.stateTokenizer.put(State.AFTER_ATTRIBUTE_VALUE_QUOTED, new AfterAttributeValueQuotedState(this));
+        this.stateTokenizer.put(State.SELF_CLOSING_START_TAG, new SelfClosingStartTagState(this));
+        this.stateTokenizer.put(State.BOGUS_COMMENT, new BogusCommentState(this));
+        this.stateTokenizer.put(State.MARKUP_DECLARATION_OPEN, new MarkupDeclarationOpenState(this));
+        this.stateTokenizer.put(State.COMMENT_START, new CommentStartState(this));
+        this.stateTokenizer.put(State.COMMENT_START_DASH, new CommentStartDashState(this));
         this.stateTokenizer.put(State.COMMENT, new CommentState(this));
-        this.stateTokenizer.put(State.COMMENT_END_DASH,
-                new CommentEndDashState(this));
+        this.stateTokenizer.put(State.COMMENT_END_DASH, new CommentEndDashState(this));
         this.stateTokenizer.put(State.COMMENT_END, new CommentEndState(this));
-        this.stateTokenizer.put(State.COMMENT_END_BANG,
-                new CommentEndBangState(this));
+        this.stateTokenizer.put(State.COMMENT_END_BANG, new CommentEndBangState(this));
         this.stateTokenizer.put(State.DOCTYPE, new DOCTYPEState(this));
-        this.stateTokenizer.put(State.BEFORE_DOCTYPE_NAME,
-                new BeforeDOCTYPENameState(this));
+        this.stateTokenizer.put(State.BEFORE_DOCTYPE_NAME, new BeforeDOCTYPENameState(this));
         this.stateTokenizer.put(State.DOCTYPE_NAME, new DOCTYPENameState(this));
-        this.stateTokenizer.put(State.AFTER_DOCTYPE_NAME,
-                new AfterDOCTYPENameState(this));
-        this.stateTokenizer.put(State.AFTER_DOCTYPE_PUBLIC_KEYWORD,
-                new AfterDOCTYPEPublicKeywordState(this));
-        this.stateTokenizer.put(State.BEFORE_DOCTYPE_PUBLIC_IDENTIFIER,
-                new BeforeDOCTYPEPublicIdentifierState(this));
+        this.stateTokenizer.put(State.AFTER_DOCTYPE_NAME, new AfterDOCTYPENameState(this));
+        this.stateTokenizer.put(State.AFTER_DOCTYPE_PUBLIC_KEYWORD, new AfterDOCTYPEPublicKeywordState(this));
+        this.stateTokenizer.put(State.BEFORE_DOCTYPE_PUBLIC_IDENTIFIER, new BeforeDOCTYPEPublicIdentifierState(this));
         this.stateTokenizer.put(State.DOCTYPE_PUBLIC_IDENTIFIER_DOUBLE_QUOTED,
                 new DOCTYPEPublicIdentifierDoubleQuotedState(this));
         this.stateTokenizer.put(State.DOCTYPE_PUBLIC_IDENTIFIER_SINGLE_QUOTED,
                 new DOCTYPEPublicIdentifierSingleQuotedState(this));
-        this.stateTokenizer.put(State.AFTER_DOCTYPE_PUBLIC_IDENTIFIER,
-                new AfterDOCTYPEPublicIdentifierState(this));
-        this.stateTokenizer.put(
-                State.BETWEEN_DOCTYPE_PUBLIC_AND_SYSTEM_IDENTIFIERS,
+        this.stateTokenizer.put(State.AFTER_DOCTYPE_PUBLIC_IDENTIFIER, new AfterDOCTYPEPublicIdentifierState(this));
+        this.stateTokenizer.put(State.BETWEEN_DOCTYPE_PUBLIC_AND_SYSTEM_IDENTIFIERS,
                 new BetweenDOCTYPEPublicAndSystemIdentifiersState(this));
-        this.stateTokenizer.put(State.AFTER_DOCTYPE_SYSTEM_KEYWORD,
-                new AfterDOCTYPESystemKeywordState(this));
-        this.stateTokenizer.put(State.BEFORE_DOCTYPE_SYSTEM_IDENTIFIER,
-                new BeforeDOCTYPESystemIdentifierState(this));
+        this.stateTokenizer.put(State.AFTER_DOCTYPE_SYSTEM_KEYWORD, new AfterDOCTYPESystemKeywordState(this));
+        this.stateTokenizer.put(State.BEFORE_DOCTYPE_SYSTEM_IDENTIFIER, new BeforeDOCTYPESystemIdentifierState(this));
         this.stateTokenizer.put(State.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED,
                 new DOCTYPESystemIdentifierDoubleQuotedState(this));
         this.stateTokenizer.put(State.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED,
                 new DOCTYPESystemIdentifierSingleQuotedState(this));
-        this.stateTokenizer.put(State.AFTER_DOCTYPE_SYSTEM_IDENTIFIER,
-                new AfterDOCTYPESystemIdentifierState(this));
-        this.stateTokenizer.put(State.BOGUS_DOCTYPE,
-                new BogusDOCTYPEState(this));
-        this.stateTokenizer.put(State.CDATA_SECTION,
-                new CDATASectionState(this));
+        this.stateTokenizer.put(State.AFTER_DOCTYPE_SYSTEM_IDENTIFIER, new AfterDOCTYPESystemIdentifierState(this));
+        this.stateTokenizer.put(State.BOGUS_DOCTYPE, new BogusDOCTYPEState(this));
+        this.stateTokenizer.put(State.CDATA_SECTION, new CDATASectionState(this));
         
         int maxPushback = 1;
         for (final TokenizerState state : this.stateTokenizer.values()) {
             maxPushback = Math.max(maxPushback, state.getMaxPushback());
         }
-        this.in = new PushbackReader(new InputStreamPreprocessor(in),
-                maxPushback);
+        this.in = new PushbackReader(new InputStreamPreprocessor(in), maxPushback);
     }
     
     public void setAllowParseErrors(final boolean allowParseErrors) {
@@ -344,8 +294,7 @@ public class Tokenizer {
         return in.read(buf, 0, len);
     }
     
-    public int consume(final char[] buf, final int offset, final int len)
-            throws IOException {
+    public int consume(final char[] buf, final int offset, final int len) throws IOException {
         if (len + offset > buf.length) {
             throw new IllegalStateException();
         }
@@ -369,8 +318,7 @@ public class Tokenizer {
     
     public Token getNextToken() throws IOException {
         if (emittedSelfClosingStartTag && !isAllowParseErrors()) {
-            throw new ParseErrorException(
-                    "Emitted a self-closing start tag that was not acknowledged.");
+            throw new ParseErrorException("Emitted a self-closing start tag that was not acknowledged.");
         }
         
         int count = 0;
@@ -392,14 +340,11 @@ public class Tokenizer {
             }
         } else if (nextToken.getType() == Token.Type.END_TAG) {
             final EndTagToken endTagToken = (EndTagToken) nextToken;
-            if (!endTagToken.getAttributes().isEmpty()) {
-                throw new ParseErrorException(
-                        "Emitted end tag token with attributes: " + endTagToken);
+            if ( !endTagToken.getAttributes().isEmpty()) {
+                throw new ParseErrorException("Emitted end tag token with attributes: " + endTagToken);
             }
             if (endTagToken.isSelfClosing()) {
-                throw new ParseErrorException(
-                        "Emitted end tag token with the self-closing flag set: "
-                                + endTagToken);
+                throw new ParseErrorException("Emitted end tag token with the self-closing flag set: " + endTagToken);
             }
         }
         
@@ -407,7 +352,7 @@ public class Tokenizer {
     }
     
     public void acknowledgeSelfClosingFlag() {
-        if (!emittedSelfClosingStartTag && !isAllowParseErrors()) {
+        if ( !emittedSelfClosingStartTag && !isAllowParseErrors()) {
             throw new ParseErrorException(
                     "Acknowledged a self-closing tag when the last tag to be emitted did not have the self-closing flag set.");
         }
@@ -497,12 +442,11 @@ public class Tokenizer {
      * tokenizer, if any. If no start tag has been emitted from this tokenizer,
      * then no end tag token is appropriate.
      * 
-     * @param tagToken
-     *            the end tag token to check for appropriateness
+     * @param tagToken the end tag token to check for appropriateness
      * @return whether the end tag is appropriate
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#appropriate-end-tag-token">appropriate
-     *      end tag token</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#appropriate-end-tag-token">
+     *      appropriate end tag token</a>
      */
     public boolean isAppropriateEndTagToken(final TagToken tagToken) {
         if (tagToken == null) {
@@ -510,8 +454,7 @@ public class Tokenizer {
         }
         if (tagToken.getType() != Token.Type.END_TAG) {
             throw new IllegalStateException(
-                    "The pending token should be an end tag token, instead it is: "
-                            + tagToken.getType());
+                    "The pending token should be an end tag token, instead it is: " + tagToken.getType());
         }
         final String startTagName = lastStartTag.getTagName();
         final String endTagName = tagToken.getTagName();

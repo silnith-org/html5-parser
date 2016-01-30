@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.silnith.parser.ParseErrorException;
 
+
 public abstract class TagToken extends Token {
     
     public static class Attribute {
@@ -114,8 +115,7 @@ public abstract class TagToken extends Token {
                      * intentional.
                      */
                 } else {
-                    throw new ParseErrorException("Duplicate attribute name: "
-                            + name);
+                    throw new ParseErrorException("Duplicate attribute name: " + name);
                 }
             }
         }

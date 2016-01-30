@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+
 public class CharacterTokenTest {
     
     private CharacterToken characterToken;
@@ -156,8 +157,7 @@ public class CharacterTokenTest {
     
     @Test
     public void testToTokensCharSequenceSingle() {
-        final List<Token> tokens = CharacterToken.toTokens(new StringBuilder(
-                "a"));
+        final List<Token> tokens = CharacterToken.toTokens(new StringBuilder("a"));
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -170,8 +170,7 @@ public class CharacterTokenTest {
     
     @Test
     public void testToTokensCharSequenceMultiple() {
-        final List<Token> tokens = CharacterToken.toTokens(new StringBuilder(
-                "a9\ufffd"));
+        final List<Token> tokens = CharacterToken.toTokens(new StringBuilder("a9\ufffd"));
         
         assertNotNull(tokens);
         assertEquals(3, tokens.size());

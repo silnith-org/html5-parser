@@ -25,10 +25,10 @@ import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inbody">8.2.5.4.7
- *      The "in body" insertion mode</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inbody">8.2
+ *      .5.4.7 The "in body" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InBodyInsertionMode extends InsertionMode {
@@ -77,8 +77,7 @@ public class InBodyInsertionMode extends InsertionMode {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException("Unexpected DOCTYPE in body: "
-                        + token);
+                throw new ParseErrorException("Unexpected DOCTYPE in body: " + token);
             }
         } // break;
         case START_TAG: {
@@ -90,20 +89,16 @@ public class InBodyInsertionMode extends InsertionMode {
                     if (isStackOfOpenElementsContains("template")) {
                         return IGNORE_TOKEN;
                     }
-                    for (final TagToken.Attribute attribute : startTagToken
-                            .getAttributes()) {
+                    for (final TagToken.Attribute attribute : startTagToken.getAttributes()) {
                         final String name = attribute.getName();
                         final Element htmlElement = getFirstElementInStackOfOpenElements();
-                        if (!htmlElement.hasAttribute(name)) {
-                            htmlElement
-                                    .setAttribute(name, attribute.getValue());
+                        if ( !htmlElement.hasAttribute(name)) {
+                            htmlElement.setAttribute(name, attribute.getValue());
                         }
                     }
                     return TOKEN_HANDLED;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in body: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in body: " + startTagToken);
                 }
             } // break;
             case "base": // fall through
@@ -124,26 +119,22 @@ public class InBodyInsertionMode extends InsertionMode {
                         return IGNORE_TOKEN;
                     }
                     final Element bodyElement = getSecondElementOfStackOfOpenElements();
-                    if (!isElementA(bodyElement, "body")) {
+                    if ( !isElementA(bodyElement, "body")) {
                         return IGNORE_TOKEN;
                     }
                     if (isStackOfOpenElementsContains("template")) {
                         return IGNORE_TOKEN;
                     }
                     setFramesetOKFlag(NOT_OK);
-                    for (final TagToken.Attribute attribute : startTagToken
-                            .getAttributes()) {
+                    for (final TagToken.Attribute attribute : startTagToken.getAttributes()) {
                         final String name = attribute.getName();
-                        if (!bodyElement.hasAttribute(name)) {
-                            bodyElement
-                                    .setAttribute(name, attribute.getValue());
+                        if ( !bodyElement.hasAttribute(name)) {
+                            bodyElement.setAttribute(name, attribute.getValue());
                         }
                     }
                     return TOKEN_HANDLED;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in body: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in body: " + startTagToken);
                 }
             } // break;
             case "frameset": {
@@ -152,10 +143,10 @@ public class InBodyInsertionMode extends InsertionMode {
                         return IGNORE_TOKEN;
                     }
                     final Element bodyElement = getSecondElementOfStackOfOpenElements();
-                    if (!isElementA(bodyElement, "body")) {
+                    if ( !isElementA(bodyElement, "body")) {
                         return IGNORE_TOKEN;
                     }
-                    if (!isFramesetOkFlag()) {
+                    if ( !isFramesetOkFlag()) {
                         return IGNORE_TOKEN;
                     }
                     if (bodyElement.getParentNode() != null) {
@@ -169,8 +160,7 @@ public class InBodyInsertionMode extends InsertionMode {
                     setInsertionMode(Parser.Mode.IN_FRAMESET);
                     return TOKEN_HANDLED;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in body: " + token);
+                    throw new ParseErrorException("Unexpected start tag token in body: " + token);
                 }
             } // break;
             case "address": // fall through
@@ -214,15 +204,12 @@ public class InBodyInsertionMode extends InsertionMode {
                 }
                 // if current node is h1, h2, h3, h4, h5, h6 element, parse
 // error
-                if (isElementA(getCurrentNode(), "h1", "h2", "h3", "h4", "h5",
-                        "h6")) {
+                if (isElementA(getCurrentNode(), "h1", "h2", "h3", "h4", "h5", "h6")) {
                     if (isAllowParseErrors()) {
                         popCurrentNode();
                         break;
                     } else {
-                        throw new ParseErrorException("Found "
-                                + startTagToken.getTagName()
-                                + " nested inside "
+                        throw new ParseErrorException("Found " + startTagToken.getTagName() + " nested inside "
                                 + getCurrentNode().getTagName());
                     }
                 }
@@ -240,8 +227,7 @@ public class InBodyInsertionMode extends InsertionMode {
                 return TOKEN_HANDLED;
             } // break;
             case "form": {
-                if (getFormElementPointer() != null
-                        && !isStackOfOpenElementsContains("template")) {
+                if (getFormElementPointer() != null && !isStackOfOpenElementsContains("template")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
@@ -252,7 +238,7 @@ public class InBodyInsertionMode extends InsertionMode {
                     closePElement();
                 }
                 final Element formElement = insertHTMLElement(startTagToken);
-                if (!isStackOfOpenElementsContains("template")) {
+                if ( !isStackOfOpenElementsContains("template")) {
                     setFormElementPointer(formElement);
                 }
                 return TOKEN_HANDLED;
@@ -264,26 +250,24 @@ public class InBodyInsertionMode extends InsertionMode {
                     final Element node = getOpenElement(index);
                     if (isElementA(node, "li")) {
                         generateImpliedEndTagsExcept("li");
-                        if (!isElementA(getCurrentNode(), "li")) {
+                        if ( !isElementA(getCurrentNode(), "li")) {
                             if (isAllowParseErrors()) {
                                 // do nothing?
                             } else {
                                 throw new ParseErrorException(
-                                        "Unclosed element inside li element: "
-                                                + getCurrentNode().getTagName());
+                                        "Unclosed element inside li element: " + getCurrentNode().getTagName());
                             }
                         }
                         Element popped = popCurrentNode();
                         do {
                             popped = popCurrentNode();
-                        } while (!isElementA(popped, "li"));
+                        } while ( !isElementA(popped, "li"));
                         break;
-                    } else if (isSpecialCategoryExcept(node.getTagName(),
-                            "address", "div", "p")) {
+                    } else if (isSpecialCategoryExcept(node.getTagName(), "address", "div", "p")) {
                         break;
                     } else {
                         // loop
-                        index--;
+                        index-- ;
                     }
                 }
                 if (hasParticularElementInButtonScope("p")) {
@@ -300,42 +284,39 @@ public class InBodyInsertionMode extends InsertionMode {
                     final Element node = getOpenElement(index);
                     if (isElementA(node, "dd")) {
                         generateImpliedEndTagsExcept("dd");
-                        if (!isElementA(getCurrentNode(), "dd")) {
+                        if ( !isElementA(getCurrentNode(), "dd")) {
                             if (isAllowParseErrors()) {
                                 // do nothing?
                             } else {
                                 throw new ParseErrorException(
-                                        "Unclosed element inside dd element: "
-                                                + getCurrentNode().getTagName());
+                                        "Unclosed element inside dd element: " + getCurrentNode().getTagName());
                             }
                         }
                         Element popped = popCurrentNode();
                         do {
                             popped = popCurrentNode();
-                        } while (!isElementA(popped, "dd"));
+                        } while ( !isElementA(popped, "dd"));
                         break;
                     } else if (isElementA(node, "dt")) {
                         generateImpliedEndTagsExcept("dt");
-                        if (!isElementA(getCurrentNode(), "dt")) {
+                        if ( !isElementA(getCurrentNode(), "dt")) {
                             if (isAllowParseErrors()) {
                                 // do nothing?
                             } else {
                                 throw new ParseErrorException(
-                                        "Unclosed element inside dt element: "
-                                                + getCurrentNode().getTagName());
+                                        "Unclosed element inside dt element: " + getCurrentNode().getTagName());
                             }
                         }
                         Element popped = popCurrentNode();
                         do {
                             popped = popCurrentNode();
-                        } while (!isElementA(popped, "dt"));
+                        } while ( !isElementA(popped, "dt"));
                         break;
-                    } else if (isSpecialCategoryExcept(node.getTagName(),
-                            "address", "div", "p")) {
+                    } else if (isSpecialCategoryExcept(node.getTagName(), "address", "div", "p")) {
                         break;
                     } else {
                         // loop
-                        index--;
+                        index-- ;
                     }
                 }
                 if (hasParticularElementInButtonScope("p")) {
@@ -363,10 +344,9 @@ public class InBodyInsertionMode extends InsertionMode {
                         Element popped;
                         do {
                             popped = popCurrentNode();
-                        } while (!isElementA(popped, "button"));
+                        } while ( !isElementA(popped, "button"));
                     } else {
-                        throw new ParseErrorException(
-                                "Attempt to nest button element inside another button element.");
+                        throw new ParseErrorException("Attempt to nest button element inside another button element.");
                     }
                 }
                 reconstructActiveFormattingElements();
@@ -390,8 +370,7 @@ public class InBodyInsertionMode extends InsertionMode {
                 }
                 reconstructActiveFormattingElements();
                 final Element anchorElement = insertHTMLElement(startTagToken);
-                pushOntoListOfActiveFormattingElements(startTagToken,
-                        anchorElement);
+                pushOntoListOfActiveFormattingElements(startTagToken, anchorElement);
                 return TOKEN_HANDLED;
             } // break;
             case "b": // fall through
@@ -408,8 +387,7 @@ public class InBodyInsertionMode extends InsertionMode {
             case "u": {
                 reconstructActiveFormattingElements();
                 final Element formattingElement = insertHTMLElement(startTagToken);
-                pushOntoListOfActiveFormattingElements(startTagToken,
-                        formattingElement);
+                pushOntoListOfActiveFormattingElements(startTagToken, formattingElement);
                 return TOKEN_HANDLED;
             } // break;
             case "nobr": {
@@ -419,13 +397,11 @@ public class InBodyInsertionMode extends InsertionMode {
                         adoptionAgencyAlgorithm("nobr");
                         reconstructActiveFormattingElements();
                     } else {
-                        throw new ParseErrorException(
-                                "Attempt to nest nobr elements in body.");
+                        throw new ParseErrorException("Attempt to nest nobr elements in body.");
                     }
                 }
                 final Element nobrElement = insertHTMLElement(startTagToken);
-                pushOntoListOfActiveFormattingElements(startTagToken,
-                        nobrElement);
+                pushOntoListOfActiveFormattingElements(startTagToken, nobrElement);
                 return TOKEN_HANDLED;
             } // break;
             case "applet": // fall through
@@ -438,7 +414,7 @@ public class InBodyInsertionMode extends InsertionMode {
                 return TOKEN_HANDLED;
             } // break;
             case "table": {
-                if (!isQuirksMode() && hasParticularElementInButtonScope("p")) {
+                if ( !isQuirksMode() && hasParticularElementInButtonScope("p")) {
                     closePElement();
                 }
                 insertHTMLElement(startTagToken);
@@ -464,10 +440,8 @@ public class InBodyInsertionMode extends InsertionMode {
                 insertHTMLElement(startTagToken);
                 popCurrentNode();
                 acknowledgeTokenSelfClosingFlag(startTagToken);
-                final TagToken.Attribute typeAttribute = getAttributeNamed(
-                        startTagToken, "type");
-                if (typeAttribute == null
-                        || !typeAttribute.getValue().equalsIgnoreCase("hidden")) {
+                final TagToken.Attribute typeAttribute = getAttributeNamed(startTagToken, "type");
+                if (typeAttribute == null || !typeAttribute.getValue().equalsIgnoreCase("hidden")) {
                     setFramesetOKFlag(NOT_OK);
                 }
                 return TOKEN_HANDLED;
@@ -492,14 +466,11 @@ public class InBodyInsertionMode extends InsertionMode {
                 return TOKEN_HANDLED;
             } // break;
             case "image": {
-                throw new ParseErrorException(
-                        "Unrecognized start tag token (did you mean \"img\"?): "
-                                + startTagToken);
+                throw new ParseErrorException("Unrecognized start tag token (did you mean \"img\"?): " + startTagToken);
             } // break;
             case "isindex": {
                 if (isAllowParseErrors()) {
-                    if (!isStackOfOpenElementsContains("template")
-                            && getFormElementPointer() != null) {
+                    if ( !isStackOfOpenElementsContains("template") && getFormElementPointer() != null) {
                         return IGNORE_TOKEN;
                     }
                     acknowledgeTokenSelfClosingFlag(startTagToken);
@@ -508,30 +479,25 @@ public class InBodyInsertionMode extends InsertionMode {
                         closePElement();
                     }
                     final Element formElement = insertHTMLElement("form");
-                    if (!isStackOfOpenElementsContains("template")) {
+                    if ( !isStackOfOpenElementsContains("template")) {
                         setFormElementPointer(formElement);
                     }
-                    final TagToken.Attribute actionAttribute = getAttributeNamed(
-                            startTagToken, "action");
+                    final TagToken.Attribute actionAttribute = getAttributeNamed(startTagToken, "action");
                     if (actionAttribute != null) {
-                        formElement.setAttribute("action",
-                                actionAttribute.getValue());
+                        formElement.setAttribute("action", actionAttribute.getValue());
                     }
                     insertHTMLElement("hr");
                     popCurrentNode();
                     reconstructActiveFormattingElements();
                     insertHTMLElement("label");
                     // TODO: localize string below
-                    for (final char ch : "This is a searchable index. Enter search keywords: "
-                            .toCharArray()) {
+                    for (final char ch : "This is a searchable index. Enter search keywords: ".toCharArray()) {
                         insertCharacter(ch);
                     }
                     final Element inputElement = insertHTMLElement("input");
-                    for (final TagToken.Attribute attr : startTagToken
-                            .getAttributes()) {
+                    for (final TagToken.Attribute attr : startTagToken.getAttributes()) {
                         final String name = attr.getName();
-                        if (!name.equals("name") && !name.equals("action")
-                                && !name.equals("prompt")) {
+                        if ( !name.equals("name") && !name.equals("action") && !name.equals("prompt")) {
                             inputElement.setAttribute(name, attr.getValue());
                         }
                     }
@@ -542,14 +508,12 @@ public class InBodyInsertionMode extends InsertionMode {
                     insertHTMLElement("hr");
                     popCurrentNode();
                     popCurrentNode();
-                    if (!isStackOfOpenElementsContains("template")) {
+                    if ( !isStackOfOpenElementsContains("template")) {
                         setFormElementPointer(null);
                     }
                     return TOKEN_HANDLED;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in body: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in body: " + startTagToken);
                 }
             } // break;
             case "textarea": {
@@ -619,8 +583,7 @@ public class InBodyInsertionMode extends InsertionMode {
                 if (hasParticularElementInScope("ruby")) {
                     generateImpliedEndTags();
                 }
-                if (isAllowParseErrors()
-                        && !isElementA(getCurrentNode(), "ruby")) {
+                if (isAllowParseErrors() && !isElementA(getCurrentNode(), "ruby")) {
                     throw new ParseErrorException();
                 }
                 insertHTMLElement(startTagToken);
@@ -662,9 +625,7 @@ public class InBodyInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in body: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in body: " + startTagToken);
                 }
             } // break;
             default: {
@@ -680,21 +641,17 @@ public class InBodyInsertionMode extends InsertionMode {
                 return processUsingRulesFor(Parser.Mode.IN_HEAD, endTagToken);
             } // break;
             case "body": {
-                if (!hasParticularElementInScope("body")) {
+                if ( !hasParticularElementInScope("body")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Body end tag token encountered without body start tag token.");
+                        throw new ParseErrorException("Body end tag token encountered without body start tag token.");
                     }
                 }
-                final Set<String> acceptable = new HashSet<>(Arrays.asList(
-                        "dd", "dt", "li", "optgroup", "option", "p", "rp",
-                        "rt", "tbody", "td", "tfoot", "th", "thead", "tr",
-                        "body", "html"));
+                final Set<String> acceptable = new HashSet<>(Arrays.asList("dd", "dt", "li", "optgroup", "option", "p",
+                        "rp", "rt", "tbody", "td", "tfoot", "th", "thead", "tr", "body", "html"));
                 if (isStackOfOpenElementsContainsOtherThan(acceptable)) {
-                    throw new ParseErrorException(
-                            "Unclosed element at body end.");
+                    throw new ParseErrorException("Unclosed element at body end.");
                 }
 //                for (final Element openElement : getStackOfOpenElements()) {
 //                    if ( !acceptable.contains(openElement.getTagName())) {
@@ -706,21 +663,17 @@ public class InBodyInsertionMode extends InsertionMode {
                 return TOKEN_HANDLED;
             } // break;
             case "html": {
-                if (!hasParticularElementInScope("body")) {
+                if ( !hasParticularElementInScope("body")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Body end tag token encountered without body start tag token.");
+                        throw new ParseErrorException("Body end tag token encountered without body start tag token.");
                     }
                 }
-                final Set<String> acceptable = new HashSet<>(Arrays.asList(
-                        "dd", "dt", "li", "optgroup", "option", "p", "rp",
-                        "rt", "tbody", "td", "tfoot", "th", "thead", "tr",
-                        "body", "html"));
+                final Set<String> acceptable = new HashSet<>(Arrays.asList("dd", "dt", "li", "optgroup", "option", "p",
+                        "rp", "rt", "tbody", "td", "tfoot", "th", "thead", "tr", "body", "html"));
                 if (isStackOfOpenElementsContainsOtherThan(acceptable)) {
-                    throw new ParseErrorException(
-                            "Unclosed element at body end.");
+                    throw new ParseErrorException("Unclosed element at body end.");
                 }
 //                for (final Element openElement : getStackOfOpenElements()) {
 //                    if ( !acceptable.contains(openElement.getTagName())) {
@@ -757,39 +710,34 @@ public class InBodyInsertionMode extends InsertionMode {
             case "section": // fall through
             case "summary": // fall through
             case "ul": {
-                if (!hasParticularElementInScope(tagName)) {
+                if ( !hasParticularElementInScope(tagName)) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "End tag token without matching open element: "
-                                        + endTagToken);
+                        throw new ParseErrorException("End tag token without matching open element: " + endTagToken);
                     }
                 }
                 generateImpliedEndTags();
-                if (!isElementA(getCurrentNode(), tagName)) {
+                if ( !isElementA(getCurrentNode(), tagName)) {
                     if (isAllowParseErrors()) {
                         // do nothing?
                     } else {
-                        throw new ParseErrorException(
-                                "End tag token does not match current open element ("
-                                        + getCurrentNode().getTagName() + "): "
-                                        + endTagToken);
+                        throw new ParseErrorException("End tag token does not match current open element ("
+                                + getCurrentNode().getTagName() + "): " + endTagToken);
                     }
                 }
                 Element popped;
                 do {
                     popped = popCurrentNode();
-                } while (!isElementA(popped, tagName));
+                } while ( !isElementA(popped, tagName));
                 return TOKEN_HANDLED;
             } // break;
             case "form": {
                 // do wacky shit
-                if (!isStackOfOpenElementsContains("template")) {
+                if ( !isStackOfOpenElementsContains("template")) {
                     final Element node = getFormElementPointer();
                     setFormElementPointer(null);
-                    if (node == null
-                            || !hasParticularElementInScope(node.getTagName())) {
+                    if (node == null || !hasParticularElementInScope(node.getTagName())) {
                         if (isAllowParseErrors()) {
                             return IGNORE_TOKEN;
                         } else {
@@ -802,7 +750,7 @@ public class InBodyInsertionMode extends InsertionMode {
                     }
                     removeNodeFromStackOfOpenElements(node);
                 } else {
-                    if (!hasParticularElementInScope("form")) {
+                    if ( !hasParticularElementInScope("form")) {
                         if (isAllowParseErrors()) {
                             return IGNORE_TOKEN;
                         } else {
@@ -810,7 +758,7 @@ public class InBodyInsertionMode extends InsertionMode {
                         }
                     }
                     generateImpliedEndTags();
-                    if (!isElementA(getCurrentNode(), "form")) {
+                    if ( !isElementA(getCurrentNode(), "form")) {
                         if (isAllowParseErrors()) {
                             // do nothing?
                         } else {
@@ -820,12 +768,12 @@ public class InBodyInsertionMode extends InsertionMode {
                     Element popped;
                     do {
                         popped = popCurrentNode();
-                    } while (!isElementA(popped, "form"));
+                    } while ( !isElementA(popped, "form"));
                 }
                 return TOKEN_HANDLED;
             } // break;
             case "p": {
-                if (!hasParticularElementInButtonScope("p")) {
+                if ( !hasParticularElementInButtonScope("p")) {
                     if (isAllowParseErrors()) {
                         insertHTMLElement("p");
                     } else {
@@ -837,56 +785,51 @@ public class InBodyInsertionMode extends InsertionMode {
                 return TOKEN_HANDLED;
             } // break;
             case "li": {
-                if (!hasParticularElementInListItemScope("li")) {
+                if ( !hasParticularElementInListItemScope("li")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "End tag token for li with no matching li element in scope.");
+                        throw new ParseErrorException("End tag token for li with no matching li element in scope.");
                     }
                 }
                 generateImpliedEndTagsExcept("li");
-                if (!isElementA(getCurrentNode(), "li")) {
+                if ( !isElementA(getCurrentNode(), "li")) {
                     if (isAllowParseErrors()) {
                         // do nothing?
                     } else {
-                        throw new ParseErrorException(
-                                "End tag token for li element when current element is: "
-                                        + getCurrentNode().getTagName());
-                    }
-                }
-                Element popped;
-                do {
-                    popped = popCurrentNode();
-                } while (!isElementA(popped, "li"));
-                return TOKEN_HANDLED;
-            } // break;
-            case "dd": // fall through
-            case "dt": {
-                if (!hasParticularElementInListItemScope(tagName)) {
-                    if (isAllowParseErrors()) {
-                        return IGNORE_TOKEN;
-                    } else {
-                        throw new ParseErrorException("End tag token for "
-                                + tagName + " with no matching " + tagName
-                                + " element in scope.");
-                    }
-                }
-                generateImpliedEndTagsExcept(tagName);
-                if (!isElementA(getCurrentNode(), tagName)) {
-                    if (isAllowParseErrors()) {
-                        // do nothing?
-                    } else {
-                        throw new ParseErrorException("End tag token for "
-                                + tagName
-                                + " element when current element is: "
+                        throw new ParseErrorException("End tag token for li element when current element is: "
                                 + getCurrentNode().getTagName());
                     }
                 }
                 Element popped;
                 do {
                     popped = popCurrentNode();
-                } while (!isElementA(popped, tagName));
+                } while ( !isElementA(popped, "li"));
+                return TOKEN_HANDLED;
+            } // break;
+            case "dd": // fall through
+            case "dt": {
+                if ( !hasParticularElementInListItemScope(tagName)) {
+                    if (isAllowParseErrors()) {
+                        return IGNORE_TOKEN;
+                    } else {
+                        throw new ParseErrorException(
+                                "End tag token for " + tagName + " with no matching " + tagName + " element in scope.");
+                    }
+                }
+                generateImpliedEndTagsExcept(tagName);
+                if ( !isElementA(getCurrentNode(), tagName)) {
+                    if (isAllowParseErrors()) {
+                        // do nothing?
+                    } else {
+                        throw new ParseErrorException("End tag token for " + tagName
+                                + " element when current element is: " + getCurrentNode().getTagName());
+                    }
+                }
+                Element popped;
+                do {
+                    popped = popCurrentNode();
+                } while ( !isElementA(popped, tagName));
                 return TOKEN_HANDLED;
             } // break;
             case "h1": // fall through
@@ -895,35 +838,29 @@ public class InBodyInsertionMode extends InsertionMode {
             case "h4": // fall through
             case "h5": // fall through
             case "h6": {
-                if (!hasParticularElementInScope("h1")
-                        && !hasParticularElementInScope("h2")
-                        && !hasParticularElementInScope("h3")
-                        && !hasParticularElementInScope("h4")
-                        && !hasParticularElementInScope("h5")
-                        && !hasParticularElementInScope("h6")) {
+                if ( !hasParticularElementInScope("h1") && !hasParticularElementInScope("h2")
+                        && !hasParticularElementInScope("h3") && !hasParticularElementInScope("h4")
+                        && !hasParticularElementInScope("h5") && !hasParticularElementInScope("h6")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException("End tag token for "
-                                + tagName
-                                + " element with no heading element in scope.");
+                        throw new ParseErrorException(
+                                "End tag token for " + tagName + " element with no heading element in scope.");
                     }
                 }
                 generateImpliedEndTags();
-                if (!isElementA(getCurrentNode(), tagName)) {
+                if ( !isElementA(getCurrentNode(), tagName)) {
                     if (isAllowParseErrors()) {
                         // do nothing?
                     } else {
-                        throw new ParseErrorException("End tag token for "
-                                + tagName
-                                + " element when current element is: "
-                                + getCurrentNode().getTagName());
+                        throw new ParseErrorException("End tag token for " + tagName
+                                + " element when current element is: " + getCurrentNode().getTagName());
                     }
                 }
                 Element popped;
                 do {
                     popped = popCurrentNode();
-                } while (!isElementA(popped, "h1", "h2", "h3", "h4", "h5", "h6"));
+                } while ( !isElementA(popped, "h1", "h2", "h3", "h4", "h5", "h6"));
                 return TOKEN_HANDLED;
             } // break;
             case "a": // fall through
@@ -946,17 +883,15 @@ public class InBodyInsertionMode extends InsertionMode {
             case "applet": // fall through
             case "marquee": // fall through
             case "object": {
-                if (!isStackOfOpenElementsContains(tagName)) {
+                if ( !isStackOfOpenElementsContains(tagName)) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Unexpected end tag token in body: "
-                                        + endTagToken);
+                        throw new ParseErrorException("Unexpected end tag token in body: " + endTagToken);
                     }
                 }
                 generateImpliedEndTags();
-                if (!isElementA(getCurrentNode(), tagName)) {
+                if ( !isElementA(getCurrentNode(), tagName)) {
                     if (isAllowParseErrors()) {
                         // do nothing?
                     } else {
@@ -966,7 +901,7 @@ public class InBodyInsertionMode extends InsertionMode {
                 Element popped;
                 do {
                     popped = popCurrentNode();
-                } while (!isElementA(popped, tagName));
+                } while ( !isElementA(popped, tagName));
                 clearListOfActiveFormattingElementsUpToLastMarker();
                 return TOKEN_HANDLED;
             } // break;
@@ -988,15 +923,13 @@ public class InBodyInsertionMode extends InsertionMode {
         } // break;
         case EOF: {
             // handle stack of open elements
-            final Set<String> acceptable = new HashSet<>(Arrays.asList("dd",
-                    "dt", "li", "p", "tbody", "td", "tfoot", "th", "thead",
-                    "tr", "body", "html"));
+            final Set<String> acceptable = new HashSet<>(
+                    Arrays.asList("dd", "dt", "li", "p", "tbody", "td", "tfoot", "th", "thead", "tr", "body", "html"));
             if (isStackOfOpenElementsContainsOtherThan(acceptable)) {
                 if (isAllowParseErrors()) {
                     // do nothing?
                 } else {
-                    throw new ParseErrorException(
-                            "Unclosed element at end-of-file.");
+                    throw new ParseErrorException("Unclosed element at end-of-file.");
                 }
             }
 //            for (final Element openElement : getStackOfOpenElements()) {
@@ -1009,7 +942,7 @@ public class InBodyInsertionMode extends InsertionMode {
 //                    }
 //                }
 //            }
-            if (!isStackOfTemplateInsertionModesEmpty()) {
+            if ( !isStackOfTemplateInsertionModesEmpty()) {
                 return processUsingRulesFor(Parser.Mode.IN_TEMPLATE, token);
             }
             stopParsing();
@@ -1050,7 +983,7 @@ public class InBodyInsertionMode extends InsertionMode {
                     }
                 } else {
                     // loop
-                    index--;
+                    index-- ;
                 }
             }
         }
@@ -1059,15 +992,14 @@ public class InBodyInsertionMode extends InsertionMode {
     
     /**
      * @param subject
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#adoption-agency-algorithm">adoption
-     *      agency algorithm</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#adoption-agency-algorithm">
+     *      adoption agency algorithm</a>
      */
     protected void adoptionAgencyAlgorithm(final String subject) {
         // 1
         final Element currentNode = getCurrentNode();
-        if (isElementA(currentNode, subject)
-                && !listOfActiveFormattingElementsContains(currentNode)) {
+        if (isElementA(currentNode, subject) && !listOfActiveFormattingElementsContains(currentNode)) {
             popCurrentNode();
             return;
         }
@@ -1075,20 +1007,18 @@ public class InBodyInsertionMode extends InsertionMode {
 //        int outerLoopCounter = 0;
         // 3
         // OUTER LOOP:
-        for (int outerLoopCounter = 0; outerLoopCounter < 8; outerLoopCounter++) {
+        for (int outerLoopCounter = 0; outerLoopCounter < 8; outerLoopCounter++ ) {
 //            if (outerLoopCounter >= 8) {
 //                return;
 //            }
             // 4
 //            outerLoopCounter++;
             // 5
-            int formattingElementIndexInList = parser.listOfActiveFormattingElements
-                    .size() - 1;
+            int formattingElementIndexInList = parser.listOfActiveFormattingElements.size() - 1;
             StartTagToken formattingElementToken = null;
             Element formattingElement = null;
             while (formattingElementIndexInList >= 0) {
-                final FormattingElement temp = parser.listOfActiveFormattingElements
-                        .get(formattingElementIndexInList);
+                final FormattingElement temp = parser.listOfActiveFormattingElements.get(formattingElementIndexInList);
                 if (parser.isMarker(temp)) {
                     break;
                 }
@@ -1099,21 +1029,18 @@ public class InBodyInsertionMode extends InsertionMode {
                     formattingElement = el;
                     break;
                 }
-                formattingElementIndexInList--;
+                formattingElementIndexInList-- ;
             }
             if (formattingElement == null) {
                 anyOtherEndTag(subject);
                 return;
             }
             // 6
-            final int formattingElementIndexInStack = parser
-                    .getIndexOfOpenElement(formattingElement);
+            final int formattingElementIndexInStack = parser.getIndexOfOpenElement(formattingElement);
             if (formattingElementIndexInStack == -1) {
                 if (isAllowParseErrors()) {
-                    assert parser.listOfActiveFormattingElements
-                            .get(formattingElementIndexInList) == formattingElement;
-                    parser.listOfActiveFormattingElements
-                            .remove(formattingElementIndexInList);
+                    assert parser.listOfActiveFormattingElements.get(formattingElementIndexInList) == formattingElement;
+                    parser.listOfActiveFormattingElements.remove(formattingElementIndexInList);
                     return;
                 } else {
                     throw new ParseErrorException();
@@ -1121,7 +1048,7 @@ public class InBodyInsertionMode extends InsertionMode {
             }
             // 7
             assert parser.containsOpenElement(formattingElement);
-            if (!hasParticularElementInScope(subject)) {
+            if ( !hasParticularElementInScope(subject)) {
                 if (isAllowParseErrors()) {
                     return;
                 } else {
@@ -1141,7 +1068,7 @@ public class InBodyInsertionMode extends InsertionMode {
                     furthestBlock = temp;
                     break;
                 }
-                furthestBlockIndex++;
+                furthestBlockIndex++ ;
             }
             // 10
             if (furthestBlock == null) {
@@ -1149,27 +1076,23 @@ public class InBodyInsertionMode extends InsertionMode {
                 do {
                     popped = popCurrentNode();
                 } while (popped != formattingElement);
-                parser.listOfActiveFormattingElements
-                        .remove(formattingElementIndexInList);
+                parser.listOfActiveFormattingElements.remove(formattingElementIndexInList);
                 return;
             }
             // 11
             final int commonAncestorIndex = formattingElementIndexInStack - 1;
-            final Element commonAncestor = parser
-                    .getOpenElement(commonAncestorIndex);
+            final Element commonAncestor = parser.getOpenElement(commonAncestorIndex);
             // 12
             int bookmark = indexOfInActiveList(formattingElement);
             FormattingElement beforeBookmark;
             if (bookmark > 0) {
-                beforeBookmark = parser.listOfActiveFormattingElements
-                        .get(bookmark - 1);
+                beforeBookmark = parser.listOfActiveFormattingElements.get(bookmark - 1);
             } else {
                 beforeBookmark = null;
             }
             FormattingElement afterBookmark;
             if (bookmark + 1 < parser.listOfActiveFormattingElements.size()) {
-                afterBookmark = parser.listOfActiveFormattingElements
-                        .get(bookmark + 1);
+                afterBookmark = parser.listOfActiveFormattingElements.get(bookmark + 1);
             } else {
                 afterBookmark = null;
             }
@@ -1182,9 +1105,9 @@ public class InBodyInsertionMode extends InsertionMode {
             // 13.2
             // INNER LOOP:
             while (true) {
-                innerLoopCounter++;
+                innerLoopCounter++ ;
                 // 13.3
-                nodeIndex--;
+                nodeIndex-- ;
                 Element node = parser.getOpenElement(nodeIndex);
                 // 13.4
                 if (node == formattingElement) {
@@ -1192,28 +1115,23 @@ public class InBodyInsertionMode extends InsertionMode {
                     break;
                 }
                 // 13.5
-                if (innerLoopCounter > 3
-                        && listOfActiveFormattingElementsContains(node)) {
+                if (innerLoopCounter > 3 && listOfActiveFormattingElementsContains(node)) {
                     removeFromListOfActiveFormattingElements(node);
                 }
                 // 13.6
-                if (!listOfActiveFormattingElementsContains(node)) {
+                if ( !listOfActiveFormattingElementsContains(node)) {
                     parser.removeOpenElement(node);
                     // go to INNER LOOP:
                     continue;
                 }
                 // 13.7
                 int indexInFormattingList = indexOfInActiveList(node);
-                final FormattingElement wrapped = parser.listOfActiveFormattingElements
-                        .get(indexInFormattingList);
+                final FormattingElement wrapped = parser.listOfActiveFormattingElements.get(indexInFormattingList);
                 final StartTagToken nodeToken = wrapped.getKey();
-                final Element newElement = createElementForToken(nodeToken,
-                        HTML_NAMESPACE, commonAncestor);
-                final FormattingElement wrapper = new FormattingElement(
-                        nodeToken, newElement);
+                final Element newElement = createElementForToken(nodeToken, HTML_NAMESPACE, commonAncestor);
+                final FormattingElement wrapper = new FormattingElement(nodeToken, newElement);
                 indexInFormattingList = indexOfInActiveList(node);
-                parser.listOfActiveFormattingElements.set(
-                        indexInFormattingList, wrapper);
+                parser.listOfActiveFormattingElements.set(indexInFormattingList, wrapper);
                 parser.setOpenElement(nodeIndex, newElement);
                 node = newElement;
                 // 13.8
@@ -1222,15 +1140,12 @@ public class InBodyInsertionMode extends InsertionMode {
 // parser.listOfActiveFormattingElements
                     bookmark = indexInFormattingList;
                     if (bookmark > 0) {
-                        beforeBookmark = parser.listOfActiveFormattingElements
-                                .get(bookmark - 1);
+                        beforeBookmark = parser.listOfActiveFormattingElements.get(bookmark - 1);
                     } else {
                         beforeBookmark = null;
                     }
-                    if (bookmark + 1 < parser.listOfActiveFormattingElements
-                            .size()) {
-                        afterBookmark = parser.listOfActiveFormattingElements
-                                .get(bookmark + 1);
+                    if (bookmark + 1 < parser.listOfActiveFormattingElements.size()) {
+                        afterBookmark = parser.listOfActiveFormattingElements.get(bookmark + 1);
                     } else {
                         afterBookmark = null;
                     }
@@ -1244,14 +1159,12 @@ public class InBodyInsertionMode extends InsertionMode {
                 // go to INNER LOOP:
             }
             // 14
-            getAppropriatePlaceForInsertingNode(commonAncestor)
-                    .insert(lastNode);
+            getAppropriatePlaceForInsertingNode(commonAncestor).insert(lastNode);
             // 15
-            final Element thatNewElement = createElementForToken(
-                    formattingElementToken, HTML_NAMESPACE, furthestBlock);
+            final Element thatNewElement = createElementForToken(formattingElementToken, HTML_NAMESPACE, furthestBlock);
             // 16
             final NodeList childrenToMove = furthestBlock.getChildNodes();
-            for (int i = 0; i < childrenToMove.getLength(); i++) {
+            for (int i = 0; i < childrenToMove.getLength(); i++ ) {
                 thatNewElement.appendChild(childrenToMove.item(i));
             }
             // 17
@@ -1259,18 +1172,13 @@ public class InBodyInsertionMode extends InsertionMode {
             // 18
             removeFromListOfActiveFormattingElements(formattingElement);
             // insert thatNewElement at bookmark
-            final FormattingElement thatNewWrapper = new FormattingElement(
-                    formattingElementToken, thatNewElement);
+            final FormattingElement thatNewWrapper = new FormattingElement(formattingElementToken, thatNewElement);
             if (beforeBookmark != null) {
-                final int indexOfBefore = parser.listOfActiveFormattingElements
-                        .indexOf(beforeBookmark);
-                parser.listOfActiveFormattingElements.add(indexOfBefore + 1,
-                        thatNewWrapper);
+                final int indexOfBefore = parser.listOfActiveFormattingElements.indexOf(beforeBookmark);
+                parser.listOfActiveFormattingElements.add(indexOfBefore + 1, thatNewWrapper);
             } else {
-                final int indexOfAfter = parser.listOfActiveFormattingElements
-                        .indexOf(afterBookmark);
-                parser.listOfActiveFormattingElements.add(indexOfAfter,
-                        thatNewWrapper);
+                final int indexOfAfter = parser.listOfActiveFormattingElements.indexOf(afterBookmark);
+                parser.listOfActiveFormattingElements.add(indexOfAfter, thatNewWrapper);
             }
             // 19
             parser.removeOpenElement(formattingElement);
@@ -1282,9 +1190,8 @@ public class InBodyInsertionMode extends InsertionMode {
     }
     
     private int indexOfInActiveList(final Element formattingElement) {
-        for (int i = 0; i < parser.listOfActiveFormattingElements.size(); i++) {
-            final FormattingElement wrapper = parser.listOfActiveFormattingElements
-                    .get(i);
+        for (int i = 0; i < parser.listOfActiveFormattingElements.size(); i++ ) {
+            final FormattingElement wrapper = parser.listOfActiveFormattingElements.get(i);
             if (parser.isMarker(wrapper)) {
                 continue;
             }
@@ -1296,8 +1203,7 @@ public class InBodyInsertionMode extends InsertionMode {
         return -1;
     }
     
-    private boolean listOfActiveFormattingElementsContains(
-            final Element formattingElement) {
+    private boolean listOfActiveFormattingElementsContains(final Element formattingElement) {
         for (final FormattingElement wrapper : parser.listOfActiveFormattingElements) {
             if (parser.isMarker(wrapper)) {
                 continue;
@@ -1310,10 +1216,8 @@ public class InBodyInsertionMode extends InsertionMode {
         return false;
     }
     
-    private void removeFromListOfActiveFormattingElements(
-            final Element formattingElement) {
-        final Iterator<FormattingElement> iterator = parser.listOfActiveFormattingElements
-                .iterator();
+    private void removeFromListOfActiveFormattingElements(final Element formattingElement) {
+        final Iterator<FormattingElement> iterator = parser.listOfActiveFormattingElements.iterator();
         while (iterator.hasNext()) {
             final FormattingElement wrapper = iterator.next();
             if (parser.isMarker(wrapper)) {
@@ -1329,25 +1233,23 @@ public class InBodyInsertionMode extends InsertionMode {
     
     /**
      * @param target
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#close-a-p-element">close
-     *      a p element</a>
+     * @see <a href="http://www.w3.org/TR/html5/syntax.html#close-a-p-element">
+     *      close a p element</a>
      */
     private void closePElement() {
         generateImpliedEndTagsExcept("p");
-        if (!getCurrentNode().getTagName().equals("p")) {
+        if ( !getCurrentNode().getTagName().equals("p")) {
             if (isAllowParseErrors()) {
                 // do nothing?
             } else {
-                throw new ParseErrorException(
-                        "Expected current node to be a p element when closing element, was: "
-                                + getCurrentNode().getTagName());
+                throw new ParseErrorException("Expected current node to be a p element when closing element, was: "
+                        + getCurrentNode().getTagName());
             }
         }
         Element popped;
         do {
             popped = popCurrentNode();
-        } while (!isElementA(popped, "p"));
+        } while ( !isElementA(popped, "p"));
     }
     
 }

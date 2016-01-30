@@ -14,10 +14,10 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CommentToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#comment-end-state">8.2.4.50
- *      Comment end state</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#comment-end-state">8.2.4
+ *      .50 Comment end state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class CommentEndState extends TokenizerState {
@@ -43,8 +43,7 @@ public class CommentEndState extends TokenizerState {
         case NULL: {
             if (isAllowParseErrors()) {
                 setTokenizerState(Tokenizer.State.COMMENT);
-                appendToCommentToken(HYPHEN_MINUS, HYPHEN_MINUS,
-                        REPLACEMENT_CHARACTER);
+                appendToCommentToken(HYPHEN_MINUS, HYPHEN_MINUS, REPLACEMENT_CHARACTER);
                 return NOTHING;
             } else {
                 throw new ParseErrorException("Null character in comment end.");
@@ -55,8 +54,7 @@ public class CommentEndState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.COMMENT_END_BANG);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected exclamation mark in comment end.");
+                throw new ParseErrorException("Unexpected exclamation mark in comment end.");
             }
         } // break;
         case HYPHEN_MINUS: {
@@ -73,8 +71,7 @@ public class CommentEndState extends TokenizerState {
                 final CommentToken commentToken = clearCommentToken();
                 return one(commentToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in comment end.");
+                throw new ParseErrorException("Unexpected end-of-file in comment end.");
             }
         } // break;
         default: {
@@ -83,8 +80,7 @@ public class CommentEndState extends TokenizerState {
                 appendToCommentToken(HYPHEN_MINUS, HYPHEN_MINUS, (char) ch);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected character in comment end: " + (char) ch);
+                throw new ParseErrorException("Unexpected character in comment end: " + (char) ch);
             }
         } // break;
         }

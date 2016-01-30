@@ -15,19 +15,19 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * Implements <a
- * href="http://www.w3.org/TR/html5/syntax.html#rcdata-end-tag-name-state"
- * >8.2.4.13 RCDATA end tag name state</a>.
- *
+ * Implements
+ * <a href="http://www.w3.org/TR/html5/syntax.html#rcdata-end-tag-name-state" >8
+ * .2.4.13 RCDATA end tag name state</a>.
  * <p>
  * This state assumes that there is a pending token in the tokenizer, and that
  * it is a {@link org.silnith.parser.html5.lexical.token.StartTagToken}.
  *
  * @see org.silnith.parser.html5.lexical.Tokenizer.State#RCDATA_END_TAG_NAME
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#rcdata-end-tag-name-state">8.2.4.13
- *      RCDATA end tag name state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#rcdata-end-tag-name-state">8.2.4
+ *      .13 RCDATA end tag name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class RCDATAEndTagNameState extends TokenizerState {

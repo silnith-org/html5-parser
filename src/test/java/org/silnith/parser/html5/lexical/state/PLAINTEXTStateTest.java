@@ -13,6 +13,7 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class PLAINTEXTStateTest {
     
     private Tokenizer tokenizer;
@@ -31,8 +32,7 @@ public class PLAINTEXTStateTest {
     }
     
     @Test
-    public void testGetNextTokensNullCharacterAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNullCharacterAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("\u0000"));
         tokenizer.setState(Tokenizer.State.PLAINTEXT);
         tokenizer.setAllowParseErrors(true);
@@ -49,7 +49,7 @@ public class PLAINTEXTStateTest {
         assertEquals('\uFFFD', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.PLAINTEXT, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -68,7 +68,7 @@ public class PLAINTEXTStateTest {
         assertEquals(Token.Type.EOF, token.getType());
         
         assertEquals(Tokenizer.State.PLAINTEXT, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -91,7 +91,7 @@ public class PLAINTEXTStateTest {
         assertEquals(Tokenizer.State.PLAINTEXT, tokenizer.getState());
         assertEquals('b', tokenizer.consume());
         assertEquals('c', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -112,7 +112,7 @@ public class PLAINTEXTStateTest {
         assertEquals('a', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.PLAINTEXT, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
 }

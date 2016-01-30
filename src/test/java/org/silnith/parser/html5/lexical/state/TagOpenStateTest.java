@@ -15,6 +15,7 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class TagOpenStateTest {
     
     private Tokenizer tokenizer;
@@ -34,9 +35,8 @@ public class TagOpenStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.MARKUP_DECLARATION_OPEN,
-                tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals(Tokenizer.State.MARKUP_DECLARATION_OPEN, tokenizer.getState());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -53,7 +53,7 @@ public class TagOpenStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.END_TAG_OPEN, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -70,7 +70,7 @@ public class TagOpenStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.TAG_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         final TagToken pendingToken = tokenizer.getPendingToken();
         assertEquals(Token.Type.START_TAG, pendingToken.getType());
@@ -91,7 +91,7 @@ public class TagOpenStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.TAG_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         final TagToken pendingToken = tokenizer.getPendingToken();
         assertEquals(Token.Type.START_TAG, pendingToken.getType());
@@ -110,8 +110,7 @@ public class TagOpenStateTest {
     }
     
     @Test
-    public void testGetNextTokensQuestionMarkAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensQuestionMarkAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("?"));
         tokenizer.setState(Tokenizer.State.TAG_OPEN);
         tokenizer.setAllowParseErrors(true);
@@ -124,7 +123,7 @@ public class TagOpenStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.BOGUS_COMMENT, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -139,8 +138,7 @@ public class TagOpenStateTest {
     }
     
     @Test
-    public void testGetNextTokensInvalidCharacterAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensInvalidCharacterAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader(" "));
         tokenizer.setState(Tokenizer.State.TAG_OPEN);
         tokenizer.setAllowParseErrors(true);
@@ -158,7 +156,7 @@ public class TagOpenStateTest {
         
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
         assertEquals(' ', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
 }

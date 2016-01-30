@@ -14,10 +14,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#after-doctype-system-identifier-state">8.2.4.66
- *      After DOCTYPE system identifier state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#after-doctype-system-identifier-state">
+ *      8.2.4.66 After DOCTYPE system identifier state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterDOCTYPESystemIdentifierState extends TokenizerState {
@@ -54,8 +55,7 @@ public class AfterDOCTYPESystemIdentifierState extends TokenizerState {
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file after DOCTYPE system identifier.");
+                throw new ParseErrorException("Unexpected end-of-file after DOCTYPE system identifier.");
             }
         } // break;
         default: {
@@ -65,9 +65,7 @@ public class AfterDOCTYPESystemIdentifierState extends TokenizerState {
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected character after DOCTYPE system identifier: "
-                                + (char) ch);
+                throw new ParseErrorException("Unexpected character after DOCTYPE system identifier: " + (char) ch);
             }
         } // break;
         }

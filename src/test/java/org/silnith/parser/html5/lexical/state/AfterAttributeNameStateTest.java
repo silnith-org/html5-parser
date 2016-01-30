@@ -16,6 +16,7 @@ import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class AfterAttributeNameStateTest {
     
     private Tokenizer tokenizer;
@@ -35,7 +36,7 @@ public class AfterAttributeNameStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.AFTER_ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -51,7 +52,7 @@ public class AfterAttributeNameStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.AFTER_ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -67,7 +68,7 @@ public class AfterAttributeNameStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.AFTER_ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -83,7 +84,7 @@ public class AfterAttributeNameStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.AFTER_ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -98,9 +99,8 @@ public class AfterAttributeNameStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.SELF_CLOSING_START_TAG,
-                tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals(Tokenizer.State.SELF_CLOSING_START_TAG, tokenizer.getState());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -115,9 +115,8 @@ public class AfterAttributeNameStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.BEFORE_ATTRIBUTE_VALUE,
-                tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals(Tokenizer.State.BEFORE_ATTRIBUTE_VALUE, tokenizer.getState());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -137,7 +136,7 @@ public class AfterAttributeNameStateTest {
         assertSame(pendingTagToken, tokens.get(0));
         
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -158,7 +157,7 @@ public class AfterAttributeNameStateTest {
         assertEquals("m", pendingTagToken.getCurrentAttribute().getName());
         
         assertEquals(Tokenizer.State.ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -192,7 +191,7 @@ public class AfterAttributeNameStateTest {
         assertEquals("\uFFFD", pendingTagToken.getCurrentAttribute().getName());
         
         assertEquals(Tokenizer.State.ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -226,7 +225,7 @@ public class AfterAttributeNameStateTest {
         assertEquals("\"", pendingTagToken.getCurrentAttribute().getName());
         
         assertEquals(Tokenizer.State.ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -260,7 +259,7 @@ public class AfterAttributeNameStateTest {
         assertEquals("'", pendingTagToken.getCurrentAttribute().getName());
         
         assertEquals(Tokenizer.State.ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -294,7 +293,7 @@ public class AfterAttributeNameStateTest {
         assertEquals("<", pendingTagToken.getCurrentAttribute().getName());
         
         assertEquals(Tokenizer.State.ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -326,7 +325,7 @@ public class AfterAttributeNameStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -347,7 +346,7 @@ public class AfterAttributeNameStateTest {
         assertEquals("m", pendingTagToken.getCurrentAttribute().getName());
         
         assertEquals(Tokenizer.State.ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -368,7 +367,7 @@ public class AfterAttributeNameStateTest {
         assertEquals("\u014D", pendingTagToken.getCurrentAttribute().getName());
         
         assertEquals(Tokenizer.State.ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -389,7 +388,7 @@ public class AfterAttributeNameStateTest {
         assertEquals(":", pendingTagToken.getCurrentAttribute().getName());
         
         assertEquals(Tokenizer.State.ATTRIBUTE_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
 }

@@ -7,10 +7,11 @@ import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Element;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inselectintable">8.2.5.4.17
- *      The "in select in table" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-inselectintable">8.
+ *      2.5.4.17 The "in select in table" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InSelectInTableInsertionMode extends InsertionMode {
@@ -38,13 +39,11 @@ public class InSelectInTableInsertionMode extends InsertionMode {
                     Element popped;
                     do {
                         popped = popCurrentNode();
-                    } while (!isElementA(popped, "select"));
+                    } while ( !isElementA(popped, "select"));
                     resetInsertionModeAppropriately();
                     return REPROCESS_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in select in table: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in select in table: " + startTagToken);
                 }
             } // break;
             default: {
@@ -65,19 +64,17 @@ public class InSelectInTableInsertionMode extends InsertionMode {
             case "td": // fall through
             case "th": {
                 if (isAllowParseErrors()) {
-                    if (!hasParticularElementInTableScope(tagName)) {
+                    if ( !hasParticularElementInTableScope(tagName)) {
                         return IGNORE_TOKEN;
                     }
                     Element popped;
                     do {
                         popped = popCurrentNode();
-                    } while (!isElementA(popped, "select"));
+                    } while ( !isElementA(popped, "select"));
                     resetInsertionModeAppropriately();
                     return REPROCESS_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag token in select in table: "
-                                    + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag token in select in table: " + endTagToken);
                 }
             } // break;
             default: {

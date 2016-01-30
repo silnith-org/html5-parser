@@ -14,6 +14,7 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
  * @see <a href="http://www.w3.org/TR/html5/syntax.html#tag-open-state">8.2.4.8
  *      Tag open state</a>
@@ -109,8 +110,7 @@ public class TagOpenState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.BOGUS_COMMENT);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Illegal question mark character in tag open.");
+                throw new ParseErrorException("Illegal question mark character in tag open.");
             }
         } // break;
         default: {
@@ -119,8 +119,7 @@ public class TagOpenState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return one(new CharacterToken(LESS_THAN_SIGN));
             } else {
-                throw new ParseErrorException(
-                        "Illegal character in tag open: '" + (char) ch + "'.");
+                throw new ParseErrorException("Illegal character in tag open: '" + (char) ch + "'.");
             }
         } // break;
         }

@@ -14,10 +14,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#after-doctype-name-state">8.2.4.55
- *      After DOCTYPE name state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#after-doctype-name-state">8.2.4.
+ *      55 After DOCTYPE name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterDOCTYPENameState extends TokenizerState {
@@ -54,8 +55,7 @@ public class AfterDOCTYPENameState extends TokenizerState {
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file after DOCTYPE name.");
+                throw new ParseErrorException("Unexpected end-of-file after DOCTYPE name.");
             }
         } // break;
         default: {
@@ -63,23 +63,17 @@ public class AfterDOCTYPENameState extends TokenizerState {
             buf[0] = (char) ch;
             final int numRead = consume(buf, 1, 5);
             
-            if (numRead == 5 && (buf[0] == 'p' || buf[0] == 'P')
-                    && (buf[1] == 'u' || buf[1] == 'U')
-                    && (buf[2] == 'b' || buf[2] == 'B')
-                    && (buf[3] == 'l' || buf[3] == 'L')
-                    && (buf[4] == 'i' || buf[4] == 'I')
-                    && (buf[5] == 'c' || buf[5] == 'C')) {
+            if (numRead == 5 && (buf[0] == 'p' || buf[0] == 'P') && (buf[1] == 'u' || buf[1] == 'U')
+                    && (buf[2] == 'b' || buf[2] == 'B') && (buf[3] == 'l' || buf[3] == 'L')
+                    && (buf[4] == 'i' || buf[4] == 'I') && (buf[5] == 'c' || buf[5] == 'C')) {
                 setTokenizerState(Tokenizer.State.AFTER_DOCTYPE_PUBLIC_KEYWORD);
                 
                 return NOTHING;
             }
             
-            if (numRead == 5 && (buf[0] == 's' || buf[0] == 'S')
-                    && (buf[1] == 'y' || buf[1] == 'Y')
-                    && (buf[2] == 's' || buf[2] == 'S')
-                    && (buf[3] == 't' || buf[3] == 'T')
-                    && (buf[4] == 'e' || buf[4] == 'E')
-                    && (buf[5] == 'm' || buf[5] == 'M')) {
+            if (numRead == 5 && (buf[0] == 's' || buf[0] == 'S') && (buf[1] == 'y' || buf[1] == 'Y')
+                    && (buf[2] == 's' || buf[2] == 'S') && (buf[3] == 't' || buf[3] == 'T')
+                    && (buf[4] == 'e' || buf[4] == 'E') && (buf[5] == 'm' || buf[5] == 'M')) {
                 setTokenizerState(Tokenizer.State.AFTER_DOCTYPE_SYSTEM_KEYWORD);
                 
                 return NOTHING;
@@ -87,7 +81,7 @@ public class AfterDOCTYPENameState extends TokenizerState {
             
             if (isAllowParseErrors()) {
                 // i = numRead - 1 + 1 due to already-consumed ch
-                for (int i = numRead; i >= 0; i--) {
+                for (int i = numRead; i >= 0; i-- ) {
                     unconsume(buf[i]);
                 }
                 setForceQuirks();
@@ -95,8 +89,7 @@ public class AfterDOCTYPENameState extends TokenizerState {
                 return NOTHING;
             } else {
                 throw new ParseErrorException(
-                        "Unknown keyword after DOCTYPE name: "
-                                + String.valueOf(buf, 0, numRead + 1));
+                        "Unknown keyword after DOCTYPE name: " + String.valueOf(buf, 0, numRead + 1));
             }
         } // break;
         }

@@ -17,6 +17,7 @@ import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.TagToken.Attribute;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class TagNameStateTest {
     
     private Tokenizer tokenizer;
@@ -36,9 +37,8 @@ public class TagNameStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.BEFORE_ATTRIBUTE_NAME,
-                tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals(Tokenizer.State.BEFORE_ATTRIBUTE_NAME, tokenizer.getState());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -54,9 +54,8 @@ public class TagNameStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.BEFORE_ATTRIBUTE_NAME,
-                tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals(Tokenizer.State.BEFORE_ATTRIBUTE_NAME, tokenizer.getState());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -72,9 +71,8 @@ public class TagNameStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.BEFORE_ATTRIBUTE_NAME,
-                tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals(Tokenizer.State.BEFORE_ATTRIBUTE_NAME, tokenizer.getState());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -90,9 +88,8 @@ public class TagNameStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.BEFORE_ATTRIBUTE_NAME,
-                tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals(Tokenizer.State.BEFORE_ATTRIBUTE_NAME, tokenizer.getState());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -108,9 +105,8 @@ public class TagNameStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.SELF_CLOSING_START_TAG,
-                tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals(Tokenizer.State.SELF_CLOSING_START_TAG, tokenizer.getState());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -141,7 +137,7 @@ public class TagNameStateTest {
         assertTrue(attributes.isEmpty());
         
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -172,7 +168,7 @@ public class TagNameStateTest {
         assertTrue(attributes.isEmpty());
         
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -195,7 +191,7 @@ public class TagNameStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.TAG_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         assertEquals("fook", pendingToken.getTagName());
     }
@@ -220,7 +216,7 @@ public class TagNameStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.TAG_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         assertEquals("fook", pendingToken.getTagName());
     }
@@ -243,8 +239,7 @@ public class TagNameStateTest {
     }
     
     @Test
-    public void testGetNextTokensNullCharacterStartTagAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNullCharacterStartTagAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("\u0000"));
         tokenizer.setState(Tokenizer.State.TAG_NAME);
         tokenizer.setAllowParseErrors(true);
@@ -263,7 +258,7 @@ public class TagNameStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.TAG_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         assertEquals("foo\uFFFD", pendingToken.getTagName());
     }
@@ -286,8 +281,7 @@ public class TagNameStateTest {
     }
     
     @Test
-    public void testGetNextTokensEndOfFileStartTagAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensEndOfFileStartTagAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader(""));
         tokenizer.setState(Tokenizer.State.TAG_NAME);
         tokenizer.setAllowParseErrors(true);
@@ -306,7 +300,7 @@ public class TagNameStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -329,7 +323,7 @@ public class TagNameStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.TAG_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         assertEquals("foo\u201c", pendingToken.getTagName());
     }

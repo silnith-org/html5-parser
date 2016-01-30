@@ -10,10 +10,10 @@ import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Element;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intable">8.2.5.4.9
- *      The "in table" insertion mode</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intable">8.
+ *      2.5.4.9 The "in table" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InTableInsertionMode extends InsertionMode {
@@ -53,8 +53,7 @@ public class InTableInsertionMode extends InsertionMode {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected DOCTYPE token in table: " + token);
+                throw new ParseErrorException("Unexpected DOCTYPE token in table: " + token);
             }
         } // break;
         case START_TAG: {
@@ -98,19 +97,17 @@ public class InTableInsertionMode extends InsertionMode {
             } // break;
             case "table": {
                 if (isAllowParseErrors()) {
-                    if (!hasParticularElementInTableScope("table")) {
+                    if ( !hasParticularElementInTableScope("table")) {
                         return IGNORE_TOKEN;
                     }
                     Element popped;
                     do {
                         popped = popCurrentNode();
-                    } while (!isElementA(popped, "table"));
+                    } while ( !isElementA(popped, "table"));
                     resetInsertionModeAppropriately();
                     return REPROCESS_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in table: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in table: " + startTagToken);
                 }
             } // break;
             case "style": // fall through
@@ -119,10 +116,8 @@ public class InTableInsertionMode extends InsertionMode {
                 return processUsingRulesFor(Parser.Mode.IN_HEAD, startTagToken);
             } // break;
             case "input": {
-                final TagToken.Attribute typeAttribute = getAttributeNamed(
-                        startTagToken, "type");
-                if (typeAttribute == null
-                        || typeAttribute.getValue().equalsIgnoreCase("hidden")) {
+                final TagToken.Attribute typeAttribute = getAttributeNamed(startTagToken, "type");
+                if (typeAttribute == null || typeAttribute.getValue().equalsIgnoreCase("hidden")) {
                     return anythingElse(startTagToken);
                 }
                 if (isAllowParseErrors()) {
@@ -131,15 +126,12 @@ public class InTableInsertionMode extends InsertionMode {
                     acknowledgeTokenSelfClosingFlag(startTagToken);
                     return TOKEN_HANDLED;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in table: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in table: " + startTagToken);
                 }
             } // break;
             case "form": {
                 if (isAllowParseErrors()) {
-                    if (isStackOfOpenElementsContains("template")
-                            || getFormElementPointer() != null) {
+                    if (isStackOfOpenElementsContains("template") || getFormElementPointer() != null) {
                         return IGNORE_TOKEN;
                     }
                     final Element formElement = insertHTMLElement(startTagToken);
@@ -147,9 +139,7 @@ public class InTableInsertionMode extends InsertionMode {
                     popCurrentNode();
                     return TOKEN_HANDLED;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected start tag token in table: "
-                                    + startTagToken);
+                    throw new ParseErrorException("Unexpected start tag token in table: " + startTagToken);
                 }
             } // break;
             default: {
@@ -162,7 +152,7 @@ public class InTableInsertionMode extends InsertionMode {
             final String tagName = endTagToken.getTagName();
             switch (tagName) {
             case "table": {
-                if (!hasParticularElementInTableScope("table")) {
+                if ( !hasParticularElementInTableScope("table")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
@@ -173,7 +163,7 @@ public class InTableInsertionMode extends InsertionMode {
                 Element poppedElement;
                 do {
                     poppedElement = popCurrentNode();
-                } while (!isElementA(poppedElement, "table"));
+                } while ( !isElementA(poppedElement, "table"));
                 resetInsertionModeAppropriately();
                 return TOKEN_HANDLED;
             } // break;
@@ -191,8 +181,7 @@ public class InTableInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag token in table: " + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag token in table: " + endTagToken);
                 }
             } // break;
             case "template": {
@@ -215,8 +204,7 @@ public class InTableInsertionMode extends InsertionMode {
     private boolean anythingElse(final Token token) {
         if (isAllowParseErrors()) {
             enableFosterParenting();
-            final boolean returnValue = processUsingRulesFor(
-                    Parser.Mode.IN_BODY, token);
+            final boolean returnValue = processUsingRulesFor(Parser.Mode.IN_BODY, token);
             disableFosterParenting();
             return returnValue;
         } else {

@@ -16,10 +16,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#before-doctype-name-state">8.2.4.53
- *      Before DOCTYPE name state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#before-doctype-name-state">8.2.4
+ *      .53 Before DOCTYPE name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class BeforeDOCTYPENameState extends TokenizerState {

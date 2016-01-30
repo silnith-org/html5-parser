@@ -16,10 +16,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#after-doctype-public-identifier-state">8.2.4.60
- *      After DOCTYPE public identifier state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#after-doctype-public-identifier-state">
+ *      8.2.4.60 After DOCTYPE public identifier state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterDOCTYPEPublicIdentifierState extends TokenizerState {
@@ -55,8 +56,7 @@ public class AfterDOCTYPEPublicIdentifierState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected quotation mark after DOCTYPE public identifier.");
+                throw new ParseErrorException("Unexpected quotation mark after DOCTYPE public identifier.");
             }
         } // break;
         case APOSTROPHE: {
@@ -65,8 +65,7 @@ public class AfterDOCTYPEPublicIdentifierState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected apostrophe after DOCTYPE public identifier.");
+                throw new ParseErrorException("Unexpected apostrophe after DOCTYPE public identifier.");
             }
         } // break;
         case EOF: {
@@ -76,8 +75,7 @@ public class AfterDOCTYPEPublicIdentifierState extends TokenizerState {
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file after DOCTYPE public identifier.");
+                throw new ParseErrorException("Unexpected end-of-file after DOCTYPE public identifier.");
             }
         } // break;
         default: {

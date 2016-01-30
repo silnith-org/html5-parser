@@ -14,10 +14,11 @@ import org.silnith.parser.html5.lexical.token.CommentToken;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#the-after-after-body-insertion-mode">8.2.5.4.22
- *      The "after after body" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#the-after-after-body-insertion-mode">
+ *      8.2.5.4.22 The "after after body" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterAfterBodyInsertionMode extends InsertionMode {
@@ -31,8 +32,7 @@ public class AfterAfterBodyInsertionMode extends InsertionMode {
         switch (token.getType()) {
         case COMMENT: {
             final CommentToken commentToken = (CommentToken) token;
-            insertComment(commentToken, new AfterLastChildInsertionPosition(
-                    getDocument()));
+            insertComment(commentToken, new AfterLastChildInsertionPosition(getDocument()));
             return TOKEN_HANDLED;
         } // break;
         case DOCTYPE: {
@@ -81,8 +81,7 @@ public class AfterAfterBodyInsertionMode extends InsertionMode {
             setInsertionMode(Parser.Mode.IN_BODY);
             return REPROCESS_TOKEN;
         } else {
-            throw new ParseErrorException(
-                    "Unexpected token in after after body mode: " + token);
+            throw new ParseErrorException("Unexpected token in after after body mode: " + token);
         }
     }
     

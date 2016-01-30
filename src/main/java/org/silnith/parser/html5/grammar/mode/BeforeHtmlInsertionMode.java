@@ -18,10 +18,11 @@ import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#the-before-html-insertion-mode">8.2.5.4.2
- *      The "before html" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#the-before-html-insertion-mode">
+ *      8.2.5.4.2 The "before html" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class BeforeHtmlInsertionMode extends InsertionMode {
@@ -37,14 +38,12 @@ public class BeforeHtmlInsertionMode extends InsertionMode {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected DOCTYPE token before html: " + token);
+                throw new ParseErrorException("Unexpected DOCTYPE token before html: " + token);
             }
         } // break;
         case COMMENT: {
             final CommentToken commentToken = (CommentToken) token;
-            insertComment(commentToken, new AfterLastChildInsertionPosition(
-                    getDocument()));
+            insertComment(commentToken, new AfterLastChildInsertionPosition(getDocument()));
             return TOKEN_HANDLED;
         } // break;
         case CHARACTER: {
@@ -76,8 +75,7 @@ public class BeforeHtmlInsertionMode extends InsertionMode {
 //                setInsertionMode(Parser.Mode.BEFORE_HEAD);
                 
                 final Element htmlElement = createHtmlElement();
-                for (final TagToken.Attribute attribute : startTagToken
-                        .getAttributes()) {
+                for (final TagToken.Attribute attribute : startTagToken.getAttributes()) {
                     final String name = attribute.getName();
                     final String value = attribute.getValue();
                     htmlElement.setAttribute(name, value);
@@ -103,8 +101,7 @@ public class BeforeHtmlInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag before html: " + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag before html: " + endTagToken);
                 }
             } // break;
             }

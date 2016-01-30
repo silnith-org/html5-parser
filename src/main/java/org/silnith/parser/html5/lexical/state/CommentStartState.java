@@ -13,10 +13,10 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CommentToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#comment-start-state">8.2.4.46
- *      Comment start state</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#comment-start-state">8.2
+ *      .4.46 Comment start state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class CommentStartState extends TokenizerState {
@@ -44,8 +44,7 @@ public class CommentStartState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.COMMENT);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character in comment start.");
+                throw new ParseErrorException("Null character in comment start.");
             }
         } // break;
         case GREATER_THAN_SIGN: {
@@ -54,8 +53,7 @@ public class CommentStartState extends TokenizerState {
                 final CommentToken commentToken = clearCommentToken();
                 return one(commentToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected '>' in comment start.");
+                throw new ParseErrorException("Unexpected '>' in comment start.");
             }
         } // break;
         case EOF: {
@@ -64,8 +62,7 @@ public class CommentStartState extends TokenizerState {
                 final CommentToken commentToken = clearCommentToken();
                 return one(commentToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in comment start.");
+                throw new ParseErrorException("Unexpected end-of-file in comment start.");
             }
         } // break;
         default: {

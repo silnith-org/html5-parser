@@ -15,10 +15,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#after-attribute-value-%28quoted%29-state">8.2.4.42
- *      After attribute value (quoted) state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#after-attribute-value-%28quoted%29-state">
+ *      8.2.4.42 After attribute value (quoted) state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterAttributeValueQuotedState extends TokenizerState {
@@ -57,8 +58,7 @@ public class AfterAttributeValueQuotedState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file after quoted attribute value.");
+                throw new ParseErrorException("Unexpected end-of-file after quoted attribute value.");
             }
         } // break;
         default: {
@@ -67,9 +67,7 @@ public class AfterAttributeValueQuotedState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.BEFORE_ATTRIBUTE_NAME);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Illegal character after quoted attribute value: "
-                                + (char) ch);
+                throw new ParseErrorException("Illegal character after quoted attribute value: " + (char) ch);
             }
         } // break;
         }

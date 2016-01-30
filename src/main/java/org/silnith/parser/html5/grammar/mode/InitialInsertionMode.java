@@ -14,10 +14,11 @@ import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Document;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#the-initial-insertion-mode">8.2.5.4.1
- *      The "initial" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#the-initial-insertion-mode">8.2.
+ *      5.4.1 The "initial" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InitialInsertionMode extends InsertionMode {
@@ -49,8 +50,7 @@ public class InitialInsertionMode extends InsertionMode {
         } // break;
         case COMMENT: {
             final CommentToken commentToken = (CommentToken) token;
-            insertComment(commentToken, new AfterLastChildInsertionPosition(
-                    document));
+            insertComment(commentToken, new AfterLastChildInsertionPosition(document));
             return TOKEN_HANDLED;
         } // break;
         case DOCTYPE: {
@@ -63,32 +63,26 @@ public class InitialInsertionMode extends InsertionMode {
                 // valid
             } else if (publicIdentifier != null) {
                 // valid
-            } else if (systemIdentifier != null
-                    && !systemIdentifier.equals("about:legacy-compat")) {
+            } else if (systemIdentifier != null && !systemIdentifier.equals("about:legacy-compat")) {
                 // valid
             } else if (name.equals("html")
-                    && (publicIdentifier != null && publicIdentifier
-                            .equals("-//W3C//DTD HTML 4.0//EN"))
-                    && (systemIdentifier == null || systemIdentifier
-                            .equals("http://www.w3.org/TR/REC-html40/strict.dtd"))) {
+                    && (publicIdentifier != null && publicIdentifier.equals("-//W3C//DTD HTML 4.0//EN"))
+                    && (systemIdentifier == null
+                            || systemIdentifier.equals("http://www.w3.org/TR/REC-html40/strict.dtd"))) {
                 // valid
             } else if (name.equals("html")
-                    && (publicIdentifier != null && publicIdentifier
-                            .equals("-//W3C//DTD HTML 4.01//EN"))
-                    && (systemIdentifier == null || systemIdentifier
-                            .equals("http://www.w3.org/TR/html4/strict.dtd"))) {
+                    && (publicIdentifier != null && publicIdentifier.equals("-//W3C//DTD HTML 4.01//EN"))
+                    && (systemIdentifier == null || systemIdentifier.equals("http://www.w3.org/TR/html4/strict.dtd"))) {
                 // valid
             } else if (name.equals("html")
-                    && (publicIdentifier != null && publicIdentifier
-                            .equals("-//W3C//DTD XHTML 1.0 Strict//EN"))
-                    && (systemIdentifier != null && systemIdentifier
-                            .equals("http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"))) {
+                    && (publicIdentifier != null && publicIdentifier.equals("-//W3C//DTD XHTML 1.0 Strict//EN"))
+                    && (systemIdentifier != null
+                            && systemIdentifier.equals("http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"))) {
                 // valid
             } else if (name.equals("html")
-                    && (publicIdentifier != null && publicIdentifier
-                            .equals("-//W3C//DTD XHTML 1.1//EN"))
-                    && (systemIdentifier != null && systemIdentifier
-                            .equals("http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"))) {
+                    && (publicIdentifier != null && publicIdentifier.equals("-//W3C//DTD XHTML 1.1//EN"))
+                    && (systemIdentifier != null
+                            && systemIdentifier.equals("http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"))) {
                 // valid
             } else {
                 // parse error

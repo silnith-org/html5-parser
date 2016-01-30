@@ -10,6 +10,7 @@ import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
@@ -40,7 +41,6 @@ public abstract class TokenizerState {
      * tokenizer is responsible for making sure it can handle unconsuming this
      * many characters, and the state is responsible for never pushing back more
      * than this number of characters.
-     * 
      * <p>
      * The value returned by this method must be constant for the lifetime of
      * the tokenizer.
@@ -55,8 +55,7 @@ public abstract class TokenizerState {
      * may never be {@code null}.
      * 
      * @return a list of tokens
-     * @throws IOException
-     *             if there was an error reading the input stream
+     * @throws IOException if there was an error reading the input stream
      */
     public abstract List<Token> getNextTokens() throws IOException;
     
@@ -64,8 +63,7 @@ public abstract class TokenizerState {
      * A convenience function for when a state wants to return only a single
      * token.
      * 
-     * @param token
-     *            the token to return
+     * @param token the token to return
      * @return a list containing only that token
      */
     protected List<Token> one(final Token token) {
@@ -79,8 +77,7 @@ public abstract class TokenizerState {
      * including English. For natural languages, use
      * {@link String#toLowerCase(java.util.Locale)}.
      * 
-     * @param ch
-     *            the uppercase ASCII letter
+     * @param ch the uppercase ASCII letter
      * @return the lowercase ASCII letter
      */
     protected char toLower(final char ch) {
@@ -91,8 +88,7 @@ public abstract class TokenizerState {
      * Consume the next character from the input stream.
      * 
      * @return the next character, or -1 if there is no more input
-     * @throws IOException
-     *             if there was an error reading the input stream
+     * @throws IOException if there was an error reading the input stream
      */
     protected int consume() throws IOException {
         return tokenizer.consume();
@@ -102,8 +98,7 @@ public abstract class TokenizerState {
         return tokenizer.consume(buf, len);
     }
     
-    protected int consume(final char[] buf, final int offset, final int len)
-            throws IOException {
+    protected int consume(final char[] buf, final int offset, final int len) throws IOException {
         return tokenizer.consume(buf, offset, len);
     }
     
@@ -126,8 +121,7 @@ public abstract class TokenizerState {
     /**
      * Switches the tokenizer to the given state.
      * 
-     * @param state
-     *            the new state for the tokenizer
+     * @param state the new state for the tokenizer
      */
     protected void setTokenizerState(final Tokenizer.State state) {
         tokenizer.setState(state);
@@ -151,8 +145,7 @@ public abstract class TokenizerState {
     }
     
     protected void createAttribute(final char firstCharacterOfName) {
-        tokenizer.getPendingToken().createNewAttribute()
-                .appendToName(firstCharacterOfName);
+        tokenizer.getPendingToken().createNewAttribute().appendToName(firstCharacterOfName);
     }
     
     protected void appendToAttributeName(final char ch) {
@@ -181,8 +174,7 @@ public abstract class TokenizerState {
      * @return {@code true} if there is a pending start tag token
      */
     protected boolean isPendingStartTag() {
-        return hasPendingTag()
-                && tokenizer.getPendingToken().getType() == Token.Type.START_TAG;
+        return hasPendingTag() && tokenizer.getPendingToken().getType() == Token.Type.START_TAG;
     }
     
     /**
@@ -192,8 +184,7 @@ public abstract class TokenizerState {
      * @return {@code true} if there is a pending end tag token
      */
     protected boolean isPendingEndTag() {
-        return hasPendingTag()
-                && tokenizer.getPendingToken().getType() == Token.Type.END_TAG;
+        return hasPendingTag() && tokenizer.getPendingToken().getType() == Token.Type.END_TAG;
     }
     
     /**
@@ -204,9 +195,9 @@ public abstract class TokenizerState {
      * 
      * @return whether the end tag is appropriate
      * @see Tokenizer#isAppropriateEndTagToken(TagToken)
-     * @see <a
-     *      href="http://www.w3.org/TR/html5/syntax.html#appropriate-end-tag-token">appropriate
-     *      end tag token</a>
+     * @see <a href=
+     *      "http://www.w3.org/TR/html5/syntax.html#appropriate-end-tag-token">
+     *      appropriate end tag token</a>
      */
     protected boolean isAppropriateEndTag() {
         return tokenizer.isAppropriateEndTagToken(tokenizer.getPendingToken());

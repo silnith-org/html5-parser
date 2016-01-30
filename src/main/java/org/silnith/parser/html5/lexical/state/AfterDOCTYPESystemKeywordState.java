@@ -16,10 +16,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#after-doctype-system-keyword-state">8.2.4.62
- *      After DOCTYPE system keyword state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#after-doctype-system-keyword-state">
+ *      8.2.4.62 After DOCTYPE system keyword state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterDOCTYPESystemKeywordState extends TokenizerState {
@@ -50,8 +51,7 @@ public class AfterDOCTYPESystemKeywordState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected quotation mark after DOCTYPE system keyword.");
+                throw new ParseErrorException("Unexpected quotation mark after DOCTYPE system keyword.");
             }
         } // break;
         case APOSTROPHE: {
@@ -60,8 +60,7 @@ public class AfterDOCTYPESystemKeywordState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected apostrophe after DOCTYPE system keyword.");
+                throw new ParseErrorException("Unexpected apostrophe after DOCTYPE system keyword.");
             }
         } // break;
         case GREATER_THAN_SIGN: {
@@ -71,8 +70,7 @@ public class AfterDOCTYPESystemKeywordState extends TokenizerState {
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected '>' after DOCTYPE system keyword.");
+                throw new ParseErrorException("Unexpected '>' after DOCTYPE system keyword.");
             }
         } // break;
         case EOF: {
@@ -82,8 +80,7 @@ public class AfterDOCTYPESystemKeywordState extends TokenizerState {
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file after DOCTYPE system keyword.");
+                throw new ParseErrorException("Unexpected end-of-file after DOCTYPE system keyword.");
             }
         } // break;
         default: {
@@ -92,9 +89,7 @@ public class AfterDOCTYPESystemKeywordState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.BOGUS_DOCTYPE);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected character after DOCTYPE system keyword: "
-                                + (char) ch);
+                throw new ParseErrorException("Unexpected character after DOCTYPE system keyword: " + (char) ch);
             }
         } // break;
         }

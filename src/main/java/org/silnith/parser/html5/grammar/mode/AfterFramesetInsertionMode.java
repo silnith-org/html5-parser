@@ -14,10 +14,11 @@ import org.silnith.parser.html5.lexical.token.EndTagToken;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-afterframeset">8.2.5.4.21
- *      The "after frameset" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-afterframeset">8.2.
+ *      5.4.21 The "after frameset" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterFramesetInsertionMode extends InsertionMode {
@@ -55,8 +56,7 @@ public class AfterFramesetInsertionMode extends InsertionMode {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected DOCTYPE token after frameset: " + token);
+                throw new ParseErrorException("Unexpected DOCTYPE token after frameset: " + token);
             }
         } // break;
         case START_TAG: {
@@ -101,8 +101,7 @@ public class AfterFramesetInsertionMode extends InsertionMode {
         if (isAllowParseErrors()) {
             return IGNORE_TOKEN;
         } else {
-            throw new ParseErrorException("Unexpected token after frameset: "
-                    + token);
+            throw new ParseErrorException("Unexpected token after frameset: " + token);
         }
     }
     

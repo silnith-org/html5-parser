@@ -13,10 +13,10 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.EndOfFileToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#script-data-state">8.2.4.6
- *      Script data state</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#script-data-state">8.2.4
+ *      .6 Script data state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ScriptDataState extends TokenizerState {

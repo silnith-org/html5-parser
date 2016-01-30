@@ -13,10 +13,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#doctype-system-identifier-%28double-quoted%29-state">8.2.4.64
- *      DOCTYPE system identifier (double-quoted) state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#doctype-system-identifier-%28double-quoted%29-state">
+ *      8.2.4.64 DOCTYPE system identifier (double-quoted) state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class DOCTYPESystemIdentifierDoubleQuotedState extends TokenizerState {
@@ -43,8 +44,7 @@ public class DOCTYPESystemIdentifierDoubleQuotedState extends TokenizerState {
                 appendToSystemIdentifier(REPLACEMENT_CHARACTER);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character in DOCTYPE system identifier (double-quoted).");
+                throw new ParseErrorException("Null character in DOCTYPE system identifier (double-quoted).");
             }
         } // break;
         case GREATER_THAN_SIGN: {
@@ -54,8 +54,7 @@ public class DOCTYPESystemIdentifierDoubleQuotedState extends TokenizerState {
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected '>' in DOCTYPE system identifier (double-quoted).");
+                throw new ParseErrorException("Unexpected '>' in DOCTYPE system identifier (double-quoted).");
             }
         } // break;
         case EOF: {
@@ -65,8 +64,7 @@ public class DOCTYPESystemIdentifierDoubleQuotedState extends TokenizerState {
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in DOCTYPE system identifier (double-quoted).");
+                throw new ParseErrorException("Unexpected end-of-file in DOCTYPE system identifier (double-quoted).");
             }
         } // break;
         default: {

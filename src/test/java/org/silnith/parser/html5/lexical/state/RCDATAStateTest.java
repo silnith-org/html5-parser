@@ -14,6 +14,7 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class RCDATAStateTest {
     
     private Tokenizer tokenizer;
@@ -33,8 +34,7 @@ public class RCDATAStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA,
-                tokenizer.getState());
+        assertEquals(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA, tokenizer.getState());
         assertEquals('a', tokenizer.consume());
     }
     
@@ -51,8 +51,7 @@ public class RCDATAStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.RCDATA_LESS_THAN_SIGN,
-                tokenizer.getState());
+        assertEquals(Tokenizer.State.RCDATA_LESS_THAN_SIGN, tokenizer.getState());
         assertEquals('a', tokenizer.consume());
     }
     
@@ -68,8 +67,7 @@ public class RCDATAStateTest {
     }
     
     @Test
-    public void testGetNextTokensNullCharacterAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNullCharacterAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("\u0000"));
         tokenizer.setState(Tokenizer.State.RCDATA);
         tokenizer.setAllowParseErrors(true);
@@ -86,7 +84,7 @@ public class RCDATAStateTest {
         assertEquals('\uFFFD', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -105,7 +103,7 @@ public class RCDATAStateTest {
         assertEquals(Token.Type.EOF, token.getType());
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -125,7 +123,7 @@ public class RCDATAStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals('a', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
 }

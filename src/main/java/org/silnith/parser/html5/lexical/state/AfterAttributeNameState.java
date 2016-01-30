@@ -21,10 +21,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#after-attribute-name-state">8.2.4.36
- *      After attribute name state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#after-attribute-name-state">8.2.
+ *      4.36 After attribute name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterAttributeNameState extends TokenizerState {
@@ -98,8 +99,7 @@ public class AfterAttributeNameState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.ATTRIBUTE_NAME);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character after attribute name.");
+                throw new ParseErrorException("Null character after attribute name.");
             }
         } // break;
         case QUOTATION_MARK: // fall through
@@ -108,8 +108,7 @@ public class AfterAttributeNameState extends TokenizerState {
             if (isAllowParseErrors()) {
                 return defaultCase(ch);
             } else {
-                throw new ParseErrorException(
-                        "Illegal character after attribute name: " + (char) ch);
+                throw new ParseErrorException("Illegal character after attribute name: " + (char) ch);
             }
         } // break;
         case EOF: {
@@ -117,8 +116,7 @@ public class AfterAttributeNameState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file after attribute name.");
+                throw new ParseErrorException("Unexpected end-of-file after attribute name.");
             }
         } // break;
         default: {

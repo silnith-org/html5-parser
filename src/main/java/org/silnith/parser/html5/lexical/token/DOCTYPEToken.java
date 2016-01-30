@@ -65,8 +65,7 @@ public class DOCTYPEToken extends Token {
     }
     
     public void setPublicIdentifier(final char[] publicIdentifier) {
-        this.publicIdentifier = new StringBuilder(
-                String.valueOf(publicIdentifier));
+        this.publicIdentifier = new StringBuilder(String.valueOf(publicIdentifier));
     }
     
     public void appendToPublicIdentifier(final char ch) {
@@ -120,8 +119,7 @@ public class DOCTYPEToken extends Token {
     
     @Override
     public String toString() {
-        return "DOCTYPEToken <!DOCTYPE PUBLIC '" + publicIdentifier + "' '"
-                + systemIdentifier + "'>";
+        return "DOCTYPEToken <!DOCTYPE PUBLIC '" + publicIdentifier + "' '" + systemIdentifier + "'>";
     }
     
 }

@@ -6,10 +6,10 @@ import org.silnith.parser.html5.lexical.token.EndTagToken;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intr">8.2.5.4.14
- *      The "in row" insertion mode</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intr">8.2.5
+ *      .4.14 The "in row" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InRowInsertionMode extends InsertionMode {
@@ -40,12 +40,11 @@ public class InRowInsertionMode extends InsertionMode {
             case "tfoot": // fall through
             case "thead": // fall through
             case "tr": {
-                if (!hasParticularElementInTableScope("tr")) {
+                if ( !hasParticularElementInTableScope("tr")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Expected to find tr element in table scope.");
+                        throw new ParseErrorException("Expected to find tr element in table scope.");
                     }
                 }
                 clearStackBackToTableRowContext();
@@ -64,12 +63,11 @@ public class InRowInsertionMode extends InsertionMode {
             final String tagName = endTagToken.getTagName();
             switch (tagName) {
             case "tr": {
-                if (!hasParticularElementInTableScope("tr")) {
+                if ( !hasParticularElementInTableScope("tr")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Expected to find tr element in table scope.");
+                        throw new ParseErrorException("Expected to find tr element in table scope.");
                     }
                 }
                 clearStackBackToTableRowContext();
@@ -79,12 +77,11 @@ public class InRowInsertionMode extends InsertionMode {
                 return TOKEN_HANDLED;
             } // break;
             case "table": {
-                if (!hasParticularElementInTableScope("tr")) {
+                if ( !hasParticularElementInTableScope("tr")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Expected to find tr element in table scope.");
+                        throw new ParseErrorException("Expected to find tr element in table scope.");
                     }
                 }
                 clearStackBackToTableRowContext();
@@ -96,15 +93,14 @@ public class InRowInsertionMode extends InsertionMode {
             case "tbody": // fall through
             case "tfoot": // fall through
             case "thead": {
-                if (!hasParticularElementInTableScope(tagName)) {
+                if ( !hasParticularElementInTableScope(tagName)) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException("Expected to find "
-                                + tagName + " element in table scope.");
+                        throw new ParseErrorException("Expected to find " + tagName + " element in table scope.");
                     }
                 }
-                if (!hasParticularElementInTableScope("tr")) {
+                if ( !hasParticularElementInTableScope("tr")) {
                     return IGNORE_TOKEN;
                 }
                 clearStackBackToTableRowContext();
@@ -123,8 +119,7 @@ public class InRowInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag token in row: " + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag token in row: " + endTagToken);
                 }
             } // break;
             default: {

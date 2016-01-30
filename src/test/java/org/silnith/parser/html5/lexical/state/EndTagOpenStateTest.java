@@ -15,6 +15,7 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class EndTagOpenStateTest {
     
     private Tokenizer tokenizer;
@@ -37,7 +38,7 @@ public class EndTagOpenStateTest {
         assertEquals(Tokenizer.State.TAG_NAME, tokenizer.getState());
         assertEquals('b', tokenizer.consume());
         assertEquals('c', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         final TagToken pendingToken = tokenizer.getPendingToken();
         assertNotNull(pendingToken);
@@ -59,7 +60,7 @@ public class EndTagOpenStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.TAG_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         final TagToken pendingToken = tokenizer.getPendingToken();
         assertNotNull(pendingToken);
@@ -83,7 +84,7 @@ public class EndTagOpenStateTest {
         assertEquals(Tokenizer.State.TAG_NAME, tokenizer.getState());
         assertEquals('B', tokenizer.consume());
         assertEquals('C', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         final TagToken pendingToken = tokenizer.getPendingToken();
         assertNotNull(pendingToken);
@@ -105,7 +106,7 @@ public class EndTagOpenStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.TAG_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         final TagToken pendingToken = tokenizer.getPendingToken();
         assertNotNull(pendingToken);
@@ -125,8 +126,7 @@ public class EndTagOpenStateTest {
     }
     
     @Test
-    public void testGetNextTokensGreaterThanSignAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensGreaterThanSignAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader(">foo"));
         tokenizer.setState(Tokenizer.State.END_TAG_OPEN);
         tokenizer.setAllowParseErrors(true);
@@ -142,12 +142,11 @@ public class EndTagOpenStateTest {
         assertEquals('f', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensGreaterThanSignEndOfFileAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensGreaterThanSignEndOfFileAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader(">"));
         tokenizer.setState(Tokenizer.State.END_TAG_OPEN);
         tokenizer.setAllowParseErrors(true);
@@ -160,7 +159,7 @@ public class EndTagOpenStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -196,7 +195,7 @@ public class EndTagOpenStateTest {
         assertEquals('/', secondCharacter.getCharacter());
         
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -211,8 +210,7 @@ public class EndTagOpenStateTest {
     }
     
     @Test
-    public void testGetNextTokensIllegalCharacterAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensIllegalCharacterAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("<foo"));
         tokenizer.setState(Tokenizer.State.END_TAG_OPEN);
         tokenizer.setAllowParseErrors(true);
@@ -228,12 +226,11 @@ public class EndTagOpenStateTest {
         assertEquals('f', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensIllegalCharacterEndOfFileAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensIllegalCharacterEndOfFileAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("<"));
         tokenizer.setState(Tokenizer.State.END_TAG_OPEN);
         tokenizer.setAllowParseErrors(true);
@@ -246,7 +243,7 @@ public class EndTagOpenStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.BOGUS_COMMENT, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
 }

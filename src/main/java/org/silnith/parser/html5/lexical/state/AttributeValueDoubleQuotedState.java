@@ -13,10 +13,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#attribute-value-%28double-quoted%29-state">8.2.4.38
- *      Attribute value (double-quoted) state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#attribute-value-%28double-quoted%29-state">
+ *      8.2.4.38 Attribute value (double-quoted) state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AttributeValueDoubleQuotedState extends TokenizerState {
@@ -25,8 +26,7 @@ public class AttributeValueDoubleQuotedState extends TokenizerState {
     
     public AttributeValueDoubleQuotedState(final Tokenizer tokenizer) {
         super(tokenizer);
-        this.characterReferenceState = new CharacterReferenceState(tokenizer,
-                QUOTATION_MARK);
+        this.characterReferenceState = new CharacterReferenceState(tokenizer, QUOTATION_MARK);
     }
     
     @Override
@@ -43,8 +43,7 @@ public class AttributeValueDoubleQuotedState extends TokenizerState {
             return NOTHING;
         } // break;
         case AMPERSAND: {
-            List<Token> characterReferences = characterReferenceState
-                    .getNextTokens();
+            List<Token> characterReferences = characterReferenceState.getNextTokens();
             if (characterReferences == null || characterReferences.isEmpty()) {
                 characterReferences = one(new CharacterToken(AMPERSAND));
             }
@@ -61,8 +60,7 @@ public class AttributeValueDoubleQuotedState extends TokenizerState {
                 appendToAttributeValue(REPLACEMENT_CHARACTER);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character in double-quoted attribute value.");
+                throw new ParseErrorException("Null character in double-quoted attribute value.");
             }
         } // break;
         case EOF: {
@@ -70,8 +68,7 @@ public class AttributeValueDoubleQuotedState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in double-quoted attribute value.");
+                throw new ParseErrorException("Unexpected end-of-file in double-quoted attribute value.");
             }
         } // break;
         default: {

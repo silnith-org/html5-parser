@@ -10,10 +10,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#self-closing-start-tag-state">8.2.4.43
- *      Self-closing start tag state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#self-closing-start-tag-state">8.
+ *      2.4.43 Self-closing start tag state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class SelfClosingStartTagState extends TokenizerState {

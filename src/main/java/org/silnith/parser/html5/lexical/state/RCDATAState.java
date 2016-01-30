@@ -14,6 +14,7 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.EndOfFileToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
  * @see <a href="http://www.w3.org/TR/html5/syntax.html#rcdata-state">8.2.4.3
  *      RCDATA state</a>

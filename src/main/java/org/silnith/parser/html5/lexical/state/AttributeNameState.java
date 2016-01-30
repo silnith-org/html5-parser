@@ -21,10 +21,10 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#attribute-name-state">8.2.4.35
- *      Attribute name state</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#attribute-name-state">8.
+ *      2.4.35 Attribute name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AttributeNameState extends TokenizerState {
@@ -96,8 +96,7 @@ public class AttributeNameState extends TokenizerState {
                 appendToAttributeName(REPLACEMENT_CHARACTER);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character in attribute name.");
+                throw new ParseErrorException("Null character in attribute name.");
             }
         } // break;
         case QUOTATION_MARK: // fall through
@@ -106,8 +105,7 @@ public class AttributeNameState extends TokenizerState {
             if (isAllowParseErrors()) {
                 return defaultCase(ch);
             } else {
-                throw new ParseErrorException(
-                        "Illegal character in attribute name: " + (char) ch);
+                throw new ParseErrorException("Illegal character in attribute name: " + (char) ch);
             }
         } // break;
         case EOF: {
@@ -115,8 +113,7 @@ public class AttributeNameState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in attribute name.");
+                throw new ParseErrorException("Unexpected end-of-file in attribute name.");
             }
         } // break;
         default: {

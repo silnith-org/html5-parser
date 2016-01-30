@@ -24,6 +24,7 @@ import org.silnith.parser.html5.lexical.token.EndTagToken;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 @RunWith(MockitoJUnitRunner.class)
 public class RCDATAEndTagNameStateTest {
     
@@ -36,15 +37,12 @@ public class RCDATAEndTagNameStateTest {
     private RCDATAEndTagNameState rcdataEndTagNameState;
     
     @Test
-    public void testGetNextTokensCharacterTabulationWithAppropriateEndTag()
-            throws IOException {
-        when(tokenizer.getState()).thenReturn(
-                Tokenizer.State.RCDATA_END_TAG_NAME);
+    public void testGetNextTokensCharacterTabulationWithAppropriateEndTag() throws IOException {
+        when(tokenizer.getState()).thenReturn(Tokenizer.State.RCDATA_END_TAG_NAME);
         when(tokenizer.isAllowParseErrors()).thenReturn(false);
         
         when(tokenizer.consume()).thenReturn((int) '\t', -1);
-        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class)))
-                .thenReturn(true);
+        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class))).thenReturn(true);
         when(tokenizer.getPendingToken()).thenReturn(endTagToken);
         when(endTagToken.getType()).thenReturn(Token.Type.END_TAG);
         
@@ -62,15 +60,12 @@ public class RCDATAEndTagNameStateTest {
     }
     
     @Test
-    public void testGetNextTokensCharacterTabulationInappropriateEndTag()
-            throws IOException {
-        when(tokenizer.getState()).thenReturn(
-                Tokenizer.State.RCDATA_END_TAG_NAME);
+    public void testGetNextTokensCharacterTabulationInappropriateEndTag() throws IOException {
+        when(tokenizer.getState()).thenReturn(Tokenizer.State.RCDATA_END_TAG_NAME);
         when(tokenizer.isAllowParseErrors()).thenReturn(false);
         
         when(tokenizer.consume()).thenReturn((int) '\t', -1);
-        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class)))
-                .thenReturn(false);
+        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class))).thenReturn(false);
         when(tokenizer.getPendingToken()).thenReturn(endTagToken);
         when(endTagToken.getType()).thenReturn(Token.Type.END_TAG);
         
@@ -117,15 +112,12 @@ public class RCDATAEndTagNameStateTest {
     }
     
     @Test
-    public void testGetNextTokensLineFeedWithAppropriateEndTag()
-            throws IOException {
-        when(tokenizer.getState()).thenReturn(
-                Tokenizer.State.RCDATA_END_TAG_NAME);
+    public void testGetNextTokensLineFeedWithAppropriateEndTag() throws IOException {
+        when(tokenizer.getState()).thenReturn(Tokenizer.State.RCDATA_END_TAG_NAME);
         when(tokenizer.isAllowParseErrors()).thenReturn(false);
         
         when(tokenizer.consume()).thenReturn((int) '\n', -1);
-        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class)))
-                .thenReturn(true);
+        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class))).thenReturn(true);
         when(tokenizer.getPendingToken()).thenReturn(endTagToken);
         when(endTagToken.getType()).thenReturn(Token.Type.END_TAG);
         
@@ -143,15 +135,12 @@ public class RCDATAEndTagNameStateTest {
     }
     
     @Test
-    public void testGetNextTokensLineFeedInappropriateEndTag()
-            throws IOException {
-        when(tokenizer.getState()).thenReturn(
-                Tokenizer.State.RCDATA_END_TAG_NAME);
+    public void testGetNextTokensLineFeedInappropriateEndTag() throws IOException {
+        when(tokenizer.getState()).thenReturn(Tokenizer.State.RCDATA_END_TAG_NAME);
         when(tokenizer.isAllowParseErrors()).thenReturn(false);
         
         when(tokenizer.consume()).thenReturn((int) '\n', -1);
-        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class)))
-                .thenReturn(false);
+        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class))).thenReturn(false);
         when(tokenizer.getPendingToken()).thenReturn(endTagToken);
         when(endTagToken.getType()).thenReturn(Token.Type.END_TAG);
         
@@ -198,15 +187,12 @@ public class RCDATAEndTagNameStateTest {
     }
     
     @Test
-    public void testGetNextTokensFormFeedWithAppropriateEndTag()
-            throws IOException {
-        when(tokenizer.getState()).thenReturn(
-                Tokenizer.State.RCDATA_END_TAG_NAME);
+    public void testGetNextTokensFormFeedWithAppropriateEndTag() throws IOException {
+        when(tokenizer.getState()).thenReturn(Tokenizer.State.RCDATA_END_TAG_NAME);
         when(tokenizer.isAllowParseErrors()).thenReturn(false);
         
         when(tokenizer.consume()).thenReturn((int) '\f', -1);
-        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class)))
-                .thenReturn(true);
+        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class))).thenReturn(true);
         when(tokenizer.getPendingToken()).thenReturn(endTagToken);
         when(endTagToken.getType()).thenReturn(Token.Type.END_TAG);
         
@@ -224,15 +210,12 @@ public class RCDATAEndTagNameStateTest {
     }
     
     @Test
-    public void testGetNextTokensFormFeedInappropriateEndTag()
-            throws IOException {
-        when(tokenizer.getState()).thenReturn(
-                Tokenizer.State.RCDATA_END_TAG_NAME);
+    public void testGetNextTokensFormFeedInappropriateEndTag() throws IOException {
+        when(tokenizer.getState()).thenReturn(Tokenizer.State.RCDATA_END_TAG_NAME);
         when(tokenizer.isAllowParseErrors()).thenReturn(false);
         
         when(tokenizer.consume()).thenReturn((int) '\f', -1);
-        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class)))
-                .thenReturn(false);
+        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class))).thenReturn(false);
         when(tokenizer.getPendingToken()).thenReturn(endTagToken);
         when(endTagToken.getType()).thenReturn(Token.Type.END_TAG);
         
@@ -279,15 +262,12 @@ public class RCDATAEndTagNameStateTest {
     }
     
     @Test
-    public void testGetNextTokensSpaceWithAppropriateEndTag()
-            throws IOException {
-        when(tokenizer.getState()).thenReturn(
-                Tokenizer.State.RCDATA_END_TAG_NAME);
+    public void testGetNextTokensSpaceWithAppropriateEndTag() throws IOException {
+        when(tokenizer.getState()).thenReturn(Tokenizer.State.RCDATA_END_TAG_NAME);
         when(tokenizer.isAllowParseErrors()).thenReturn(false);
         
         when(tokenizer.consume()).thenReturn((int) ' ', -1);
-        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class)))
-                .thenReturn(true);
+        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class))).thenReturn(true);
         when(tokenizer.getPendingToken()).thenReturn(endTagToken);
         when(endTagToken.getType()).thenReturn(Token.Type.END_TAG);
         
@@ -306,13 +286,11 @@ public class RCDATAEndTagNameStateTest {
     
     @Test
     public void testGetNextTokensSpaceInappropriateEndTag() throws IOException {
-        when(tokenizer.getState()).thenReturn(
-                Tokenizer.State.RCDATA_END_TAG_NAME);
+        when(tokenizer.getState()).thenReturn(Tokenizer.State.RCDATA_END_TAG_NAME);
         when(tokenizer.isAllowParseErrors()).thenReturn(false);
         
         when(tokenizer.consume()).thenReturn((int) ' ', -1);
-        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class)))
-                .thenReturn(false);
+        when(tokenizer.isAppropriateEndTagToken(any(TagToken.class))).thenReturn(false);
         when(tokenizer.getPendingToken()).thenReturn(endTagToken);
         when(endTagToken.getType()).thenReturn(Token.Type.END_TAG);
         

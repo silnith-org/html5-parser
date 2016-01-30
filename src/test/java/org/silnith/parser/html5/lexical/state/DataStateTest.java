@@ -14,6 +14,7 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class DataStateTest {
     
     private Tokenizer tokenizer;
@@ -33,12 +34,11 @@ public class DataStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA,
-                tokenizer.getState());
+        assertEquals(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA, tokenizer.getState());
         assertEquals('f', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -54,9 +54,8 @@ public class DataStateTest {
         assertNotNull(tokens);
         assertTrue(tokens.isEmpty());
         
-        assertEquals(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA,
-                tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA, tokenizer.getState());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -76,7 +75,7 @@ public class DataStateTest {
         assertEquals('f', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -93,7 +92,7 @@ public class DataStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.TAG_OPEN, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -112,7 +111,7 @@ public class DataStateTest {
         assertEquals(Token.Type.EOF, token.getType());
         
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -135,7 +134,7 @@ public class DataStateTest {
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
         assertEquals('b', tokenizer.consume());
         assertEquals('c', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -156,7 +155,7 @@ public class DataStateTest {
         assertEquals('a', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -171,8 +170,7 @@ public class DataStateTest {
     }
     
     @Test
-    public void testGetNextTokensNullCharacterAllowParseError()
-            throws IOException {
+    public void testGetNextTokensNullCharacterAllowParseError() throws IOException {
         tokenizer = new Tokenizer(new StringReader("\u0000foo"));
         tokenizer.setState(Tokenizer.State.DATA);
         tokenizer.setAllowParseErrors(true);
@@ -192,12 +190,11 @@ public class DataStateTest {
         assertEquals('f', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
         assertEquals('o', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensNullCharacterEndOfFileAllowParseError()
-            throws IOException {
+    public void testGetNextTokensNullCharacterEndOfFileAllowParseError() throws IOException {
         tokenizer = new Tokenizer(new StringReader("\u0000"));
         tokenizer.setState(Tokenizer.State.DATA);
         tokenizer.setAllowParseErrors(true);
@@ -214,7 +211,7 @@ public class DataStateTest {
         assertEquals('\u0000', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.DATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
 }

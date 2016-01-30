@@ -14,10 +14,11 @@ import org.silnith.parser.html5.lexical.token.CommentToken;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#the-after-after-frameset-insertion-mode">8.2.5.4.23
- *      The "after after frameset" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#the-after-after-frameset-insertion-mode">
+ *      8.2.5.4.23 The "after after frameset" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterAfterFramesetInsertionMode extends InsertionMode {
@@ -31,8 +32,7 @@ public class AfterAfterFramesetInsertionMode extends InsertionMode {
         switch (token.getType()) {
         case COMMENT: {
             final CommentToken commentToken = (CommentToken) token;
-            insertComment(commentToken, new AfterLastChildInsertionPosition(
-                    getDocument()));
+            insertComment(commentToken, new AfterLastChildInsertionPosition(getDocument()));
             return TOKEN_HANDLED;
         } // break;
         case DOCTYPE: {
@@ -83,8 +83,7 @@ public class AfterAfterFramesetInsertionMode extends InsertionMode {
         if (isAllowParseErrors()) {
             return IGNORE_TOKEN;
         } else {
-            throw new ParseErrorException(
-                    "Unexpected token after after frameset: " + token);
+            throw new ParseErrorException("Unexpected token after after frameset: " + token);
         }
     }
     

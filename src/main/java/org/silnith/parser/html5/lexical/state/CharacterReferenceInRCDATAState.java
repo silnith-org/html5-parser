@@ -9,10 +9,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#character-reference-in-rcdata-state">8.2.4.4
- *      Character reference in RCDATA state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#character-reference-in-rcdata-state">
+ *      8.2.4.4 Character reference in RCDATA state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class CharacterReferenceInRCDATAState extends TokenizerState {
@@ -32,8 +33,7 @@ public class CharacterReferenceInRCDATAState extends TokenizerState {
     @Override
     public List<Token> getNextTokens() throws IOException {
         setTokenizerState(Tokenizer.State.RCDATA);
-        final List<Token> characterReference = characterReferenceState
-                .getNextTokens();
+        final List<Token> characterReference = characterReferenceState.getNextTokens();
         if (characterReference == null || characterReference.isEmpty()) {
             return one(new CharacterToken(AMPERSAND));
         } else {

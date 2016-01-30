@@ -14,6 +14,7 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class CharacterReferenceStateTest {
     
     private Tokenizer tokenizer;
@@ -122,12 +123,11 @@ public class CharacterReferenceStateTest {
         
         assertNull(tokens);
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensAdditionalAllowedCharacter()
-            throws IOException {
+    public void testGetNextTokensAdditionalAllowedCharacter() throws IOException {
         tokenizer = new Tokenizer(new StringReader("a"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -159,7 +159,7 @@ public class CharacterReferenceStateTest {
         assertEquals(' ', characterToken.getCharacter());
         
         assertEquals('0', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -179,12 +179,11 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals(' ', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensNumberSignNumberLeadingZeros()
-            throws IOException {
+    public void testGetNextTokensNumberSignNumberLeadingZeros() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#032;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -200,14 +199,12 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals(' ', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensNumberSignNumberVeryLongNumber()
-            throws IOException {
-        tokenizer = new Tokenizer(new StringReader(
-                "#0000000000000000000000000000000000000000032;"));
+    public void testGetNextTokensNumberSignNumberVeryLongNumber() throws IOException {
+        tokenizer = new Tokenizer(new StringReader("#0000000000000000000000000000000000000000032;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
         
@@ -222,7 +219,7 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals(' ', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -237,8 +234,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test
-    public void testGetNextTokensNumberSignNotANumberAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNumberSignNotANumberAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#a;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true); // SEE HERE
@@ -255,8 +251,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test(expected = ParseErrorException.class)
-    public void testGetNextTokensNumberSignNumberNotANumber()
-            throws IOException {
+    public void testGetNextTokensNumberSignNumberNotANumber() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#32a;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -267,8 +262,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test
-    public void testGetNextTokensNumberSignNumberNotANumberAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNumberSignNumberNotANumberAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#32a;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true);
@@ -288,8 +282,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test(expected = ParseErrorException.class)
-    public void testGetNextTokensNumberSignNumberMissingSemicolon()
-            throws IOException {
+    public void testGetNextTokensNumberSignNumberMissingSemicolon() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#32"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -300,8 +293,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test
-    public void testGetNextTokensNumberSignNumberMissingSemicolonAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNumberSignNumberMissingSemicolonAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#32"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true);
@@ -317,12 +309,11 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals(' ', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensNumberSignLowercaseXNumber()
-            throws IOException {
+    public void testGetNextTokensNumberSignLowercaseXNumber() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#xc;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -338,12 +329,11 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals('\f', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensNumberSignUppercaseXNumber()
-            throws IOException {
+    public void testGetNextTokensNumberSignUppercaseXNumber() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#Xc;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -359,12 +349,11 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals('\f', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensNumberSignLowercaseXNumberLeadingZeros()
-            throws IOException {
+    public void testGetNextTokensNumberSignLowercaseXNumberLeadingZeros() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#x0c;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -380,12 +369,11 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals('\f', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensNumberSignUppercaseXNumberLeadingZeros()
-            throws IOException {
+    public void testGetNextTokensNumberSignUppercaseXNumberLeadingZeros() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#X0c;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -401,14 +389,12 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals('\f', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensNumberSignLowercaseXNumberVeryLongNumber()
-            throws IOException {
-        tokenizer = new Tokenizer(new StringReader(
-                "#x00000000000000000000000000000000000000000c;"));
+    public void testGetNextTokensNumberSignLowercaseXNumberVeryLongNumber() throws IOException {
+        tokenizer = new Tokenizer(new StringReader("#x00000000000000000000000000000000000000000c;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
         
@@ -423,14 +409,12 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals('\f', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensNumberSignUppercaseXNumberVeryLongNumber()
-            throws IOException {
-        tokenizer = new Tokenizer(new StringReader(
-                "#X00000000000000000000000000000000000000000c;"));
+    public void testGetNextTokensNumberSignUppercaseXNumberVeryLongNumber() throws IOException {
+        tokenizer = new Tokenizer(new StringReader("#X00000000000000000000000000000000000000000c;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
         
@@ -445,12 +429,11 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals('\f', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
-    public void testGetNextTokensNumberSignLowercaseXNotANumber()
-            throws IOException {
+    public void testGetNextTokensNumberSignLowercaseXNotANumber() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#xg;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -461,8 +444,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test(expected = ParseErrorException.class)
-    public void testGetNextTokensNumberSignUppercaseXNotANumber()
-            throws IOException {
+    public void testGetNextTokensNumberSignUppercaseXNotANumber() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#Xg;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -473,8 +455,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test
-    public void testGetNextTokensNumberSignLowercaseXNotANumberAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNumberSignLowercaseXNotANumberAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#xg;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true); // SEE HERE
@@ -492,8 +473,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test
-    public void testGetNextTokensNumberSignUppercaseXNotANumberAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNumberSignUppercaseXNotANumberAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#Xg;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true); // SEE HERE
@@ -511,8 +491,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test(expected = ParseErrorException.class)
-    public void testGetNextTokensNumberLowercaseXSignNumberNotANumber()
-            throws IOException {
+    public void testGetNextTokensNumberLowercaseXSignNumberNotANumber() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#x20g;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -523,8 +502,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test(expected = ParseErrorException.class)
-    public void testGetNextTokensNumberUppercaseXSignNumberNotANumber()
-            throws IOException {
+    public void testGetNextTokensNumberUppercaseXSignNumberNotANumber() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#X20g;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -535,8 +513,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test
-    public void testGetNextTokensNumberSignLowercaseXNumberNotANumberAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNumberSignLowercaseXNumberNotANumberAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#x20g;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true);
@@ -556,8 +533,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test
-    public void testGetNextTokensNumberSignUppercaseXNumberNotANumberAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNumberSignUppercaseXNumberNotANumberAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#X20g;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true);
@@ -577,8 +553,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test(expected = ParseErrorException.class)
-    public void testGetNextTokensNumberSignLowercaseXNumberMissingSemicolon()
-            throws IOException {
+    public void testGetNextTokensNumberSignLowercaseXNumberMissingSemicolon() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#xc"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -589,8 +564,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test(expected = ParseErrorException.class)
-    public void testGetNextTokensNumberSignUppercaseXNumberMissingSemicolon()
-            throws IOException {
+    public void testGetNextTokensNumberSignUppercaseXNumberMissingSemicolon() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#Xc"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -601,8 +575,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test
-    public void testGetNextTokensNumberSignLowercaseXNumberMissingSemicolonAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNumberSignLowercaseXNumberMissingSemicolonAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#xc"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true);
@@ -618,12 +591,11 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals('\f', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
-    public void testGetNextTokensNumberSignUppercaseXNumberMissingSemicolonAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensNumberSignUppercaseXNumberMissingSemicolonAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#Xc"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true);
@@ -639,7 +611,7 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals('\f', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -654,8 +626,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test
-    public void testGetNextTokensReplacedCharacterEuroSignAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensReplacedCharacterEuroSignAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#x80;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true);
@@ -671,12 +642,11 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals('\u20ac', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
-    public void testGetNextTokensDisallowedCharacterReplacementCharacter()
-            throws IOException {
+    public void testGetNextTokensDisallowedCharacterReplacementCharacter() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#xD800;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(false);
@@ -687,8 +657,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test
-    public void testGetNextTokensDisallowedCharacterReplacementCharacterAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensDisallowedCharacterReplacementCharacterAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#xD800;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true);
@@ -704,7 +673,7 @@ public class CharacterReferenceStateTest {
         final CharacterToken characterToken = (CharacterToken) token;
         assertEquals('\ufffd', characterToken.getCharacter());
         
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -719,8 +688,7 @@ public class CharacterReferenceStateTest {
     }
     
     @Test(expected = ParseErrorException.class)
-    public void testGetNextTokensDisallowedCharacterAllowParseErrors()
-            throws IOException {
+    public void testGetNextTokensDisallowedCharacterAllowParseErrors() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#xE;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_DATA);
         tokenizer.setAllowParseErrors(true);

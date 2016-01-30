@@ -16,17 +16,16 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#between-doctype-public-and-system-identifiers-state">8.2.4.61
- *      Between DOCTYPE public and system identifiers state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#between-doctype-public-and-system-identifiers-state">
+ *      8.2.4.61 Between DOCTYPE public and system identifiers state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
-public class BetweenDOCTYPEPublicAndSystemIdentifiersState extends
-        TokenizerState {
+public class BetweenDOCTYPEPublicAndSystemIdentifiersState extends TokenizerState {
     
-    public BetweenDOCTYPEPublicAndSystemIdentifiersState(
-            final Tokenizer tokenizer) {
+    public BetweenDOCTYPEPublicAndSystemIdentifiersState(final Tokenizer tokenizer) {
         super(tokenizer);
     }
     
@@ -68,8 +67,7 @@ public class BetweenDOCTYPEPublicAndSystemIdentifiersState extends
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file between DOCTYPE public and system identifiers.");
+                throw new ParseErrorException("Unexpected end-of-file between DOCTYPE public and system identifiers.");
             }
         } // break;
         default: {
@@ -79,8 +77,7 @@ public class BetweenDOCTYPEPublicAndSystemIdentifiersState extends
                 return NOTHING;
             } else {
                 throw new ParseErrorException(
-                        "Unexpected character between DOCTYPE public and system identifiers: "
-                                + (char) ch);
+                        "Unexpected character between DOCTYPE public and system identifiers: " + (char) ch);
             }
         } // break;
         }

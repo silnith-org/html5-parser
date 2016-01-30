@@ -13,10 +13,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#script-data-escaped-dash-state">8.2.4.23
- *      Script data escaped dash state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#script-data-escaped-dash-state">
+ *      8.2.4.23 Script data escaped dash state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ScriptDataEscapedDashState extends TokenizerState {
@@ -47,8 +48,7 @@ public class ScriptDataEscapedDashState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.SCRIPT_DATA_ESCAPED);
                 return one(new CharacterToken(REPLACEMENT_CHARACTER));
             } else {
-                throw new ParseErrorException(
-                        "Null character inside script escaped dash state.");
+                throw new ParseErrorException("Null character inside script escaped dash state.");
             }
         } // break;
         case EOF: {
@@ -56,8 +56,7 @@ public class ScriptDataEscapedDashState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file inside script escaped dash state.");
+                throw new ParseErrorException("Unexpected end-of-file inside script escaped dash state.");
             }
         } // break;
         default: {

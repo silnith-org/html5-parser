@@ -23,10 +23,11 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#attribute-value-%28unquoted%29-state">8.2.4.40
- *      Attribute value (unquoted) state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#attribute-value-%28unquoted%29-state">
+ *      8.2.4.40 Attribute value (unquoted) state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AttributeValueUnquotedState extends TokenizerState {
@@ -35,8 +36,7 @@ public class AttributeValueUnquotedState extends TokenizerState {
     
     public AttributeValueUnquotedState(final Tokenizer tokenizer) {
         super(tokenizer);
-        this.characterReferenceState = new CharacterReferenceState(tokenizer,
-                GREATER_THAN_SIGN);
+        this.characterReferenceState = new CharacterReferenceState(tokenizer, GREATER_THAN_SIGN);
     }
     
     @Override
@@ -56,8 +56,7 @@ public class AttributeValueUnquotedState extends TokenizerState {
             return NOTHING;
         } // break;
         case AMPERSAND: {
-            List<Token> characterReferences = characterReferenceState
-                    .getNextTokens();
+            List<Token> characterReferences = characterReferenceState.getNextTokens();
             if (characterReferences == null || characterReferences.isEmpty()) {
                 characterReferences = one(new CharacterToken(AMPERSAND));
             }
@@ -79,8 +78,7 @@ public class AttributeValueUnquotedState extends TokenizerState {
                 appendToAttributeValue(REPLACEMENT_CHARACTER);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character in unquoted attribute value.");
+                throw new ParseErrorException("Null character in unquoted attribute value.");
             }
         } // break;
         case QUOTATION_MARK: // fall through
@@ -92,9 +90,7 @@ public class AttributeValueUnquotedState extends TokenizerState {
             if (isAllowParseErrors()) {
                 return defaultCase(ch);
             } else {
-                throw new ParseErrorException(
-                        "Illegal character in unquoted attribute value: "
-                                + (char) ch);
+                throw new ParseErrorException("Illegal character in unquoted attribute value: " + (char) ch);
             }
         } // break;
         case EOF: {
@@ -102,8 +98,7 @@ public class AttributeValueUnquotedState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in unquoted attribute value.");
+                throw new ParseErrorException("Unexpected end-of-file in unquoted attribute value.");
             }
         } // break;
         default: {

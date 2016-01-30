@@ -14,10 +14,11 @@ import org.silnith.parser.html5.lexical.token.EndTagToken;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inframeset">8.2.5.4.20
- *      The "in frameset" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-inframeset">8.2.5.4
+ *      .20 The "in frameset" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InFramesetInsertionMode extends InsertionMode {
@@ -55,8 +56,7 @@ public class InFramesetInsertionMode extends InsertionMode {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected DOCTYPE token in frameset: " + token);
+                throw new ParseErrorException("Unexpected DOCTYPE token in frameset: " + token);
             }
         } // break;
         case START_TAG: {
@@ -94,14 +94,11 @@ public class InFramesetInsertionMode extends InsertionMode {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Unexpected end tag token in document fragment: "
-                                        + endTagToken);
+                        throw new ParseErrorException("Unexpected end tag token in document fragment: " + endTagToken);
                     }
                 }
                 popCurrentNode();
-                if (!isHTMLFragmentParsingAlgorithm()
-                        && !isElementA(getCurrentNode(), "frameset")) {
+                if ( !isHTMLFragmentParsingAlgorithm() && !isElementA(getCurrentNode(), "frameset")) {
                     setInsertionMode(Parser.Mode.AFTER_FRAMESET);
                 }
                 return TOKEN_HANDLED;
@@ -112,12 +109,11 @@ public class InFramesetInsertionMode extends InsertionMode {
             }
         } // break;
         case EOF: {
-            if (!isElementA(getCurrentNode(), "html")) {
+            if ( !isElementA(getCurrentNode(), "html")) {
                 if (isAllowParseErrors()) {
                     // do nothing?
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end-of-file with unclosed elements.");
+                    throw new ParseErrorException("Unexpected end-of-file with unclosed elements.");
                 }
             }
             stopParsing();
@@ -133,8 +129,7 @@ public class InFramesetInsertionMode extends InsertionMode {
         if (isAllowParseErrors()) {
             return IGNORE_TOKEN;
         } else {
-            throw new ParseErrorException("Unexpected token in frameset: "
-                    + token);
+            throw new ParseErrorException("Unexpected token in frameset: " + token);
         }
     }
     

@@ -7,10 +7,11 @@ import org.silnith.parser.html5.Parser;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intabletext">8.2.5.4.10
- *      The "in table text" insertion mode</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-intabletext">8.2.5.
+ *      4.10 The "in table text" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InTableTextInsertionMode extends InsertionMode {
@@ -30,8 +31,7 @@ public class InTableTextInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Null character in table text.");
+                    throw new ParseErrorException("Null character in table text.");
                 }
             } // break;
             default: {
@@ -53,13 +53,11 @@ public class InTableTextInsertionMode extends InsertionMode {
             // "anything else" case of the IN_TABLE mode
             if (isAllowParseErrors()) {
                 enableFosterParenting();
-                final boolean returnValue = processUsingRulesFor(
-                        Parser.Mode.IN_BODY, token);
+                final boolean returnValue = processUsingRulesFor(Parser.Mode.IN_BODY, token);
                 disableFosterParenting();
                 return returnValue;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected token in table text: " + token);
+                throw new ParseErrorException("Unexpected token in table text: " + token);
             }
         }
         for (final CharacterToken characterToken : getPendingTableCharacterTokens()) {

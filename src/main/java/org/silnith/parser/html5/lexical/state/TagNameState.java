@@ -17,6 +17,7 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
  * @see <a href="http://www.w3.org/TR/html5/syntax.html#tag-name-state">8.2.4.10
  *      Tag name state</a>
@@ -66,8 +67,7 @@ public class TagNameState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.DATA);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file while parsing tag name.");
+                throw new ParseErrorException("Unexpected end-of-file while parsing tag name.");
             }
         } // break;
         case 'A': // fall through

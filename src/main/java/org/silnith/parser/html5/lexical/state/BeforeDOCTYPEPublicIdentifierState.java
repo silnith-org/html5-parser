@@ -16,10 +16,11 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.DOCTYPEToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#before-doctype-public-identifier-state">8.2.4.57
- *      Before DOCTYPE public identifier state</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#before-doctype-public-identifier-state">
+ *      8.2.4.57 Before DOCTYPE public identifier state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class BeforeDOCTYPEPublicIdentifierState extends TokenizerState {
@@ -61,8 +62,7 @@ public class BeforeDOCTYPEPublicIdentifierState extends TokenizerState {
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected '>' before DOCTYPE public identifier.");
+                throw new ParseErrorException("Unexpected '>' before DOCTYPE public identifier.");
             }
         } // break;
         case EOF: {
@@ -72,8 +72,7 @@ public class BeforeDOCTYPEPublicIdentifierState extends TokenizerState {
                 final DOCTYPEToken doctypeToken = clearDOCTYPEToken();
                 return one(doctypeToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file before DOCTYPE public identifier.");
+                throw new ParseErrorException("Unexpected end-of-file before DOCTYPE public identifier.");
             }
         } // break;
         default: {
@@ -82,9 +81,7 @@ public class BeforeDOCTYPEPublicIdentifierState extends TokenizerState {
                 setTokenizerState(Tokenizer.State.BOGUS_DOCTYPE);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected character before DOCTYPE public identifier: "
-                                + (char) ch);
+                throw new ParseErrorException("Unexpected character before DOCTYPE public identifier: " + (char) ch);
             }
         } // break;
         }

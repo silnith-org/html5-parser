@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+
 /**
  * Contains collections of entity reference names, disallowed characters, and
  * characters that should be mapped to replacements.
@@ -53,21 +54,21 @@ import java.util.TreeMap;
         replacementMap.put(0x9C, '\u0153');
         replacementMap.put(0x9E, '\u017E');
         replacementMap.put(0x9F, '\u0178');
-        for (int i = 0xD800; i <= 0xDFFF; i++) {
+        for (int i = 0xD800; i <= 0xDFFF; i++ ) {
             replacementMap.put(i, '\uFFFD');
         }
         
         disallowedCharacters = new HashSet<>();
-        for (int i = 0x0001; i <= 0x0008; i++) {
+        for (int i = 0x0001; i <= 0x0008; i++ ) {
             disallowedCharacters.add(i);
         }
-        for (int i = 0x000D; i <= 0x001F; i++) {
+        for (int i = 0x000D; i <= 0x001F; i++ ) {
             disallowedCharacters.add(i);
         }
-        for (int i = 0x007F; i <= 0x009F; i++) {
+        for (int i = 0x007F; i <= 0x009F; i++ ) {
             disallowedCharacters.add(i);
         }
-        for (int i = 0xFDD0; i <= 0xFDEF; i++) {
+        for (int i = 0xFDD0; i <= 0xFDEF; i++ ) {
             disallowedCharacters.add(i);
         }
         disallowedCharacters.add(0x000B);
@@ -2365,7 +2366,7 @@ import java.util.TreeMap;
 //        for (final String key : new TreeSet<>(keySet)) {
 //            final JSONObject value = json.getJSONObject(key);
 //            final JSONArray codepoints = value.getJSONArray("codepoints");
-//            
+//
 //            String truncatedKey = key;
 //            if (truncatedKey.startsWith("&")) {
 //                truncatedKey = truncatedKey.substring(1, truncatedKey.length());
@@ -2387,7 +2388,7 @@ import java.util.TreeMap;
 //                System.out.println();
 //                continue;
 //            }
-//            
+//
 //            System.out.print("entityMap.put(\"");
 //            System.out.print(truncatedKey);
 //            System.out.print("\", new int[] {");
@@ -2400,5 +2401,5 @@ import java.util.TreeMap;
 //            System.out.println("});");
 //        }
 //    }
-    
+
 }

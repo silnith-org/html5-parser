@@ -14,6 +14,7 @@ import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.TagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class RCDATAEndTagOpenStateTest {
     
     private Tokenizer tokenizer;
@@ -38,7 +39,7 @@ public class RCDATAEndTagOpenStateTest {
         assertEquals(Tokenizer.State.RCDATA_END_TAG_NAME, tokenizer.getState());
         assertEquals('b', tokenizer.consume());
         assertEquals('c', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         final TagToken pendingToken = tokenizer.getPendingToken();
         assertEquals(Token.Type.END_TAG, pendingToken.getType());
@@ -62,7 +63,7 @@ public class RCDATAEndTagOpenStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.RCDATA_END_TAG_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         final TagToken pendingToken = tokenizer.getPendingToken();
         assertEquals(Token.Type.END_TAG, pendingToken.getType());
@@ -88,7 +89,7 @@ public class RCDATAEndTagOpenStateTest {
         assertEquals(Tokenizer.State.RCDATA_END_TAG_NAME, tokenizer.getState());
         assertEquals('B', tokenizer.consume());
         assertEquals('C', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         final TagToken pendingToken = tokenizer.getPendingToken();
         assertEquals(Token.Type.END_TAG, pendingToken.getType());
@@ -112,7 +113,7 @@ public class RCDATAEndTagOpenStateTest {
         assertTrue(tokens.isEmpty());
         
         assertEquals(Tokenizer.State.RCDATA_END_TAG_NAME, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
         
         final TagToken pendingToken = tokenizer.getPendingToken();
         assertEquals(Token.Type.END_TAG, pendingToken.getType());
@@ -146,7 +147,7 @@ public class RCDATAEndTagOpenStateTest {
         assertEquals('/', secondCharacter.getCharacter());
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -176,7 +177,7 @@ public class RCDATAEndTagOpenStateTest {
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
         assertEquals('!', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -208,7 +209,7 @@ public class RCDATAEndTagOpenStateTest {
         assertEquals('!', tokenizer.consume());
         assertEquals('a', tokenizer.consume());
         assertEquals('b', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
 }

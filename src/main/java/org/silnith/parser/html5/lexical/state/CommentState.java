@@ -12,6 +12,7 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CommentToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
  * @see <a href="http://www.w3.org/TR/html5/syntax.html#comment-state">8.2.4.48
  *      Comment state</a>

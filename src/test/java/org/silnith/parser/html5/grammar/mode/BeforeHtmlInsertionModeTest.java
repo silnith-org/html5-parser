@@ -11,6 +11,7 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.w3c.dom.bootstrap.DOMImplementationRegistry;
 
+
 public class BeforeHtmlInsertionModeTest {
     
     private DOMImplementationRegistry registry;
@@ -22,16 +23,15 @@ public class BeforeHtmlInsertionModeTest {
     private BeforeHtmlInsertionMode beforeHtmlInsertionMode;
     
     @Before
-    public void setUp() throws ClassNotFoundException, InstantiationException,
-            IllegalAccessException, ClassCastException {
+    public void setUp()
+            throws ClassNotFoundException, InstantiationException, IllegalAccessException, ClassCastException {
         registry = DOMImplementationRegistry.newInstance();
     }
     
     @Test
     public void testInsert() {
         tokenizer = new Tokenizer(new StringReader("<html lang='la'>"));
-        parser = new Parser(tokenizer,
-                registry.getDOMImplementation("Core 2.0"));
+        parser = new Parser(tokenizer, registry.getDOMImplementation("Core 2.0"));
         beforeHtmlInsertionMode = new BeforeHtmlInsertionMode(parser);
         
         final StartTagToken startTagToken = new StartTagToken();

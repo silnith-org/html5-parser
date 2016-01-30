@@ -6,15 +6,16 @@ import static org.silnith.parser.util.UnicodeCodePoints.LINE_FEED;
 import java.io.IOException;
 import java.io.Reader;
 
+
 /**
  * This class handles preprocessing the input stream as described in <a href=
- * "http://www.w3.org/TR/html5/syntax.html#preprocessing-the-input-stream"
- * >8.2.2.5 Preprocessing the input stream</a>.
+ * "http://www.w3.org/TR/html5/syntax.html#preprocessing-the-input-stream" >8.2.
+ * 2.5 Preprocessing the input stream</a>.
  *
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#preprocessing-the-input-stream">8.2.2.5
- *      Preprocessing the input stream</a>
+ * @see <a href=
+ *      "http://www.w3.org/TR/html5/syntax.html#preprocessing-the-input-stream">
+ *      8.2.2.5 Preprocessing the input stream</a>
  */
 public class InputStreamPreprocessor extends Reader {
     
@@ -71,14 +72,13 @@ public class InputStreamPreprocessor extends Reader {
                 break;
             }
             cbuf[count] = (char) ch;
-            count++;
+            count++ ;
         }
         return count;
     }
     
     @Override
-    public int read(final char[] cbuf, final int off, final int len)
-            throws IOException {
+    public int read(final char[] cbuf, final int off, final int len) throws IOException {
         if (len < 0) {
             throw new IllegalArgumentException();
         }
@@ -97,7 +97,7 @@ public class InputStreamPreprocessor extends Reader {
                 break;
             }
             cbuf[off + count] = (char) ch;
-            count++;
+            count++ ;
         }
         return count;
     }
@@ -113,7 +113,7 @@ public class InputStreamPreprocessor extends Reader {
             if (ch == -1) {
                 break;
             }
-            count++;
+            count++ ;
         }
         return count;
     }

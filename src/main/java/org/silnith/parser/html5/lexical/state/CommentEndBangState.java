@@ -14,10 +14,10 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CommentToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#comment-end-bang-state">8.2.4.51
- *      Comment end bang state</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#comment-end-bang-state">
+ *      8.2.4.51 Comment end bang state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class CommentEndBangState extends TokenizerState {
@@ -47,13 +47,11 @@ public class CommentEndBangState extends TokenizerState {
         } // break;
         case NULL: {
             if (isAllowParseErrors()) {
-                appendToCommentToken(HYPHEN_MINUS, HYPHEN_MINUS,
-                        EXCLAMATION_MARK, REPLACEMENT_CHARACTER);
+                appendToCommentToken(HYPHEN_MINUS, HYPHEN_MINUS, EXCLAMATION_MARK, REPLACEMENT_CHARACTER);
                 setTokenizerState(Tokenizer.State.COMMENT);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character in comment end bang state.");
+                throw new ParseErrorException("Null character in comment end bang state.");
             }
         } // break;
         case EOF: {
@@ -62,13 +60,11 @@ public class CommentEndBangState extends TokenizerState {
                 final CommentToken commentToken = clearCommentToken();
                 return one(commentToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in comment end bang state.");
+                throw new ParseErrorException("Unexpected end-of-file in comment end bang state.");
             }
         } // break;
         default: {
-            appendToCommentToken(HYPHEN_MINUS, HYPHEN_MINUS, EXCLAMATION_MARK,
-                    (char) ch);
+            appendToCommentToken(HYPHEN_MINUS, HYPHEN_MINUS, EXCLAMATION_MARK, (char) ch);
             setTokenizerState(Tokenizer.State.COMMENT);
             return NOTHING;
         } // break;

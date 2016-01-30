@@ -7,10 +7,10 @@ import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 import org.w3c.dom.Element;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intd">8.2.5.4.15
- *      The "in cell" insertion mode</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intd">8.2.5
+ *      .4.15 The "in cell" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InCellInsertionMode extends InsertionMode {
@@ -35,13 +35,11 @@ public class InCellInsertionMode extends InsertionMode {
             case "th": // fall through
             case "thead": // fall through
             case "tr": {
-                if (!hasParticularElementInTableScope("td")
-                        && !hasParticularElementInTableScope("th")) {
+                if ( !hasParticularElementInTableScope("td") && !hasParticularElementInTableScope("th")) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException(
-                                "Expected to find table cell in table scope.");
+                        throw new ParseErrorException("Expected to find table cell in table scope.");
                     }
                 }
                 closeCell();
@@ -58,29 +56,26 @@ public class InCellInsertionMode extends InsertionMode {
             switch (tagName) {
             case "td": // fall through
             case "th": {
-                if (!hasParticularElementInTableScope(tagName)) {
+                if ( !hasParticularElementInTableScope(tagName)) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException("Expected to find "
-                                + tagName + " element in table scope.");
+                        throw new ParseErrorException("Expected to find " + tagName + " element in table scope.");
                     }
                 }
                 generateImpliedEndTags();
-                if (!isElementA(getCurrentNode(), tagName)) {
+                if ( !isElementA(getCurrentNode(), tagName)) {
                     if (isAllowParseErrors()) {
                         // do nothing?
                     } else {
-                        throw new ParseErrorException(
-                                "Expected current node to be a " + tagName
-                                        + ", instead it was: "
-                                        + getCurrentNode().getTagName());
+                        throw new ParseErrorException("Expected current node to be a " + tagName + ", instead it was: "
+                                + getCurrentNode().getTagName());
                     }
                 }
                 Element popped;
                 do {
                     popped = popCurrentNode();
-                } while (!isElementA(popped, tagName));
+                } while ( !isElementA(popped, tagName));
                 clearListOfActiveFormattingElementsUpToLastMarker();
                 setInsertionMode(Parser.Mode.IN_ROW);
                 return TOKEN_HANDLED;
@@ -93,9 +88,7 @@ public class InCellInsertionMode extends InsertionMode {
                 if (isAllowParseErrors()) {
                     return IGNORE_TOKEN;
                 } else {
-                    throw new ParseErrorException(
-                            "Unexpected end tag token in table cell: "
-                                    + endTagToken);
+                    throw new ParseErrorException("Unexpected end tag token in table cell: " + endTagToken);
                 }
             } // break;
             case "table": // fall through
@@ -103,12 +96,11 @@ public class InCellInsertionMode extends InsertionMode {
             case "tfoot": // fall through
             case "thead": // fall through
             case "tr": {
-                if (!hasParticularElementInTableScope(tagName)) {
+                if ( !hasParticularElementInTableScope(tagName)) {
                     if (isAllowParseErrors()) {
                         return IGNORE_TOKEN;
                     } else {
-                        throw new ParseErrorException("Expected to find "
-                                + tagName + " element in table scope.");
+                        throw new ParseErrorException("Expected to find " + tagName + " element in table scope.");
                     }
                 }
                 closeCell();

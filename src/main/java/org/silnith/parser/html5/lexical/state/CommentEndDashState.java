@@ -12,10 +12,10 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CommentToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#comment-end-dash-state">8.2.4.49
- *      Comment end dash state</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#comment-end-dash-state">
+ *      8.2.4.49 Comment end dash state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class CommentEndDashState extends TokenizerState {
@@ -43,8 +43,7 @@ public class CommentEndDashState extends TokenizerState {
                 appendToCommentToken(HYPHEN_MINUS, REPLACEMENT_CHARACTER);
                 return NOTHING;
             } else {
-                throw new ParseErrorException(
-                        "Null character in comment end dash state.");
+                throw new ParseErrorException("Null character in comment end dash state.");
             }
         } // break;
         case EOF: {
@@ -53,8 +52,7 @@ public class CommentEndDashState extends TokenizerState {
                 final CommentToken commentToken = clearCommentToken();
                 return one(commentToken);
             } else {
-                throw new ParseErrorException(
-                        "Unexpected end-of-file in comment end dash state.");
+                throw new ParseErrorException("Unexpected end-of-file in comment end dash state.");
             }
         } // break;
         default: {

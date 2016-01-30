@@ -15,10 +15,10 @@ import org.silnith.parser.html5.lexical.token.EndTagToken;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 /**
- * @see <a
- *      href="http://www.w3.org/TR/html5/syntax.html#parsing-main-afterbody">8.2.5.4.19
- *      The "after body" insertion mode</a>
+ * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-afterbody">
+ *      8.2.5.4.19 The "after body" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterBodyInsertionMode extends InsertionMode {
@@ -48,16 +48,14 @@ public class AfterBodyInsertionMode extends InsertionMode {
         } // break;
         case COMMENT: {
             final CommentToken commentToken = (CommentToken) token;
-            insertComment(commentToken, new AfterLastChildInsertionPosition(
-                    getFirstElementInStackOfOpenElements()));
+            insertComment(commentToken, new AfterLastChildInsertionPosition(getFirstElementInStackOfOpenElements()));
             return TOKEN_HANDLED;
         } // break;
         case DOCTYPE: {
             if (isAllowParseErrors()) {
                 return IGNORE_TOKEN;
             } else {
-                throw new ParseErrorException(
-                        "Unexpected DOCTYPE token after body: " + token);
+                throw new ParseErrorException("Unexpected DOCTYPE token after body: " + token);
             }
         } // break;
         case START_TAG: {
@@ -101,8 +99,7 @@ public class AfterBodyInsertionMode extends InsertionMode {
             setInsertionMode(Parser.Mode.IN_BODY);
             return REPROCESS_TOKEN;
         } else {
-            throw new ParseErrorException("Unexpected token after body: "
-                    + token);
+            throw new ParseErrorException("Unexpected token after body: " + token);
         }
     }
     

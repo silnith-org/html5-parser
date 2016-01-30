@@ -13,6 +13,7 @@ import org.silnith.parser.html5.lexical.Tokenizer;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.Token;
 
+
 public class CharacterReferenceInRCDATAStateTest {
     
     private Tokenizer tokenizer;
@@ -24,11 +25,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("amp;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -38,7 +37,7 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals('&', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -46,11 +45,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("lt;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -60,7 +57,7 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals('<', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -68,11 +65,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("ldquo;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -82,7 +77,7 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals('\u201C', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -90,11 +85,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("Afr;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         final char[] expectedChars = Character.toChars(0x1D504);
         
@@ -110,7 +103,7 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals(expectedChars[1], secondCharacterToken.getCharacter());
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -118,11 +111,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader(";"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -133,7 +124,7 @@ public class CharacterReferenceInRCDATAStateTest {
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
         assertEquals(';', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -141,8 +132,7 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("#;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
         characterReferenceInRCDATAState.getNextTokens();
     }
@@ -152,11 +142,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("#;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(true);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -168,7 +156,7 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
         assertEquals('#', tokenizer.consume());
         assertEquals(';', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -176,11 +164,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("#97;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -190,7 +176,7 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals('a', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -198,8 +184,7 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("#97 "));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
         characterReferenceInRCDATAState.getNextTokens();
     }
@@ -209,11 +194,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("#97 "));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(true);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -224,7 +207,7 @@ public class CharacterReferenceInRCDATAStateTest {
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
         assertEquals(' ', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -232,8 +215,7 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("#x;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
         characterReferenceInRCDATAState.getNextTokens();
     }
@@ -243,11 +225,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("#x;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(true);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -260,7 +240,7 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals('#', tokenizer.consume());
         assertEquals('x', tokenizer.consume());
         assertEquals(';', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -268,11 +248,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("#x201c;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -282,32 +260,27 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals('\u201C', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
-    public void testGetNextTokenHexadecimalLowercaseUnclosed()
-            throws IOException {
+    public void testGetNextTokenHexadecimalLowercaseUnclosed() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#x201c "));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
         characterReferenceInRCDATAState.getNextTokens();
     }
     
     @Test
-    public void testGetNextTokenHexadecimalLowercaseUnclosedLenient()
-            throws IOException {
+    public void testGetNextTokenHexadecimalLowercaseUnclosedLenient() throws IOException {
         tokenizer = new Tokenizer(new StringReader("#x201c "));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(true);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -318,7 +291,7 @@ public class CharacterReferenceInRCDATAStateTest {
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
         assertEquals(' ', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test
@@ -326,11 +299,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("#X201C;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -340,7 +311,7 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals('\u201C', characterToken.getCharacter());
         
         assertEquals(Tokenizer.State.RCDATA, tokenizer.getState());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -348,8 +319,7 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("fake;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
         characterReferenceInRCDATAState.getNextTokens();
     }
@@ -359,11 +329,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("fake;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(true);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -378,7 +346,7 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals('k', tokenizer.consume());
         assertEquals('e', tokenizer.consume());
         assertEquals(';', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -386,8 +354,7 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("notit;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
         characterReferenceInRCDATAState.getNextTokens();
     }
@@ -397,11 +364,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("notit;"));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(true);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -414,7 +379,7 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals('i', tokenizer.consume());
         assertEquals('t', tokenizer.consume());
         assertEquals(';', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
     @Test(expected = ParseErrorException.class)
@@ -422,8 +387,7 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("notit "));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(false);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
         characterReferenceInRCDATAState.getNextTokens();
     }
@@ -433,11 +397,9 @@ public class CharacterReferenceInRCDATAStateTest {
         tokenizer = new Tokenizer(new StringReader("notit "));
         tokenizer.setState(Tokenizer.State.CHARACTER_REFERENCE_IN_RCDATA);
         tokenizer.setAllowParseErrors(true);
-        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(
-                tokenizer);
+        characterReferenceInRCDATAState = new CharacterReferenceInRCDATAState(tokenizer);
         
-        final List<Token> tokens = characterReferenceInRCDATAState
-                .getNextTokens();
+        final List<Token> tokens = characterReferenceInRCDATAState.getNextTokens();
         
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
@@ -450,7 +412,7 @@ public class CharacterReferenceInRCDATAStateTest {
         assertEquals('i', tokenizer.consume());
         assertEquals('t', tokenizer.consume());
         assertEquals(' ', tokenizer.consume());
-        assertEquals(-1, tokenizer.consume());
+        assertEquals( -1, tokenizer.consume());
     }
     
 }
