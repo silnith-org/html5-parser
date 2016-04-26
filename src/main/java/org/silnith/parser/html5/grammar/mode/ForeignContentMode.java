@@ -19,8 +19,7 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inforeign">
- *      8.2.5.5 The rules for parsing tokens in foreign content</a>
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inforeign">8.2.5.5 The rules for parsing tokens in foreign content</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ForeignContentMode extends InsertionMode {

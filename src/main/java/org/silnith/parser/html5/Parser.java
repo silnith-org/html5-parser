@@ -49,153 +49,105 @@ import org.w3c.dom.Element;
  * stream to be parsed should instantiate a new parser.
  *
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#tree-construction">8.2.5
- *      Tree construction</a>
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#tree-construction">8.2.5 Tree construction</a>
  */
 public class Parser {
     
     /**
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">
-     *      insertion mode</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insertion-mode">insertion mode</a>
      * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
      */
     public enum Mode {
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#the-initial-insertion-mode">
-         *      8.2.5.4.1 The "initial" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-initial-insertion-mode">8.2.5.4.1 The "initial" insertion mode</a>
          */
         INITIAL,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#the-before-html-insertion-mode">
-         *      8.2.5.4.2 The "before html" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-before-html-insertion-mode">8.2.5.4.2 The "before html" insertion mode</a>
          */
         BEFORE_HTML,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#the-before-head-insertion-mode">
-         *      8.2.5.4.3 The "before head" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-before-head-insertion-mode">8.2.5.4.3 The "before head" insertion mode</a>
          */
         BEFORE_HEAD,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-inhead">8.2
-         *      .5.4.4 The "in head" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inhead">8.2.5.4.4 The "in head" insertion mode</a>
          */
         IN_HEAD,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-inheadnoscript">
-         *      8.2.5.4.5 The "in head noscript" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inheadnoscript">8.2.5.4.5 The "in head noscript" insertion mode</a>
          */
         IN_HEAD_NOSCRIPT,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#the-after-head-insertion-mode">
-         *      8.2.5.4.6 The "after head" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-after-head-insertion-mode">8.2.5.4.6 The "after head" insertion mode</a>
          */
         AFTER_HEAD,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-inbody">8.2
-         *      .5.4.7 The "in body" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inbody">8.2.5.4.7 The "in body" insertion mode</a>
          */
         IN_BODY,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-incdata">8.
-         *      2.5.4.8 The "text" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-incdata">8.2.5.4.8 The "text" insertion mode</a>
          */
         TEXT,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-intable">8.
-         *      2.5.4.9 The "in table" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-intable">8.2.5.4.9 The "in table" insertion mode</a>
          */
         IN_TABLE,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-intabletext">
-         *      8.2.5.4.10 The "in table text" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-intabletext">8.2.5.4.10 The "in table text" insertion mode</a>
          */
         IN_TABLE_TEXT,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-incaption">
-         *      8.2.5.4.11 The "in caption" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-incaption">8.2.5.4.11 The "in caption" insertion mode</a>
          */
         IN_CAPTION,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-incolgroup">
-         *      8.2.5.4.12 The "in column group" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-incolgroup">8.2.5.4.12 The "in column group" insertion mode</a>
          */
         IN_COLUMN_GROUP,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-intbody">8.
-         *      2.5.4.13 The "in table body" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-intbody">8.2.5.4.13 The "in table body" insertion mode</a>
          */
         IN_TABLE_BODY,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-intr">8.2.5
-         *      .4.14 The "in row" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-intr">8.2.5.4.14 The "in row" insertion mode</a>
          */
         IN_ROW,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-intd">8.2.5
-         *      .4.15 The "in cell" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-intd">8.2.5.4.15 The "in cell" insertion mode</a>
          */
         IN_CELL,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-inselect">8
-         *      .2.5.4.16 The "in select" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inselect">8.2.5.4.16 The "in select" insertion mode</a>
          */
         IN_SELECT,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-inselectintable">
-         *      8.2.5.4.17 The "in select in table" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inselectintable">8.2.5.4.17 The "in select in table" insertion mode</a>
          */
         IN_SELECT_IN_TABLE,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-intemplate">
-         *      8.2.5.4.18 The "in template" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-intemplate">8.2.5.4.18 The "in template" insertion mode</a>
          */
         IN_TEMPLATE,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-afterbody">
-         *      8.2.5.4.19 The "after body" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-afterbody">8.2.5.4.19 The "after body" insertion mode</a>
          */
         AFTER_BODY,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-inframeset">
-         *      8.2.5.4.20 The "in frameset" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inframeset">8.2.5.4.20 The "in frameset" insertion mode</a>
          */
         IN_FRAMESET,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-afterframeset">
-         *      8.2.5.4.21 The "after frameset" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-afterframeset">8.2.5.4.21 The "after frameset" insertion mode</a>
          */
         AFTER_FRAMESET,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#the-after-after-body-insertion-mode">
-         *      8.2.5.4.22 The "after after body" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-after-after-body-insertion-mode">8.2.5.4.22 The "after after body" insertion mode</a>
          */
         AFTER_AFTER_BODY,
         /**
-         * @see <a href=
-         *      "http://www.w3.org/TR/html5/syntax.html#the-after-after-frameset-insertion-mode">
-         *      8.2.5.4.23 The "after after frameset" insertion mode</a>
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-after-after-frameset-insertion-mode">8.2.5.4.23 The "after after frameset" insertion mode</a>
          */
         AFTER_AFTER_FRAMESET
     }
@@ -325,8 +277,7 @@ public class Parser {
      * Whether to allow parse errors and use error-handling behavior.
      * 
      * @return whether parse errors will be suppressed
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#parse-error">parse
-     *      errors</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parse-error">parse errors</a>
      */
     public boolean isAllowParseErrors() {
         return allowParseErrors;
@@ -337,11 +288,8 @@ public class Parser {
      * full document.
      * 
      * @return {@code true} if this parser is parsing a fragment
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#html-fragment-parsing-algorithm">
-     *      HTML fragment parsing algorithm</a>
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#fragment-case">
-     *      fragment case</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#html-fragment-parsing-algorithm">HTML fragment parsing algorithm</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#fragment-case">fragment case</a>
      */
     public boolean isHTMLFragmentParsingAlgorithm() {
         return false;
@@ -351,8 +299,7 @@ public class Parser {
      * Whether scripting is enabled for this parser.
      * 
      * @return whether scripting is enabled.
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#scripting-flag">
-     *      scripting flag</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#scripting-flag">scripting flag</a>
      */
     public boolean isScriptingEnabled() {
         return scriptingEnabled;
@@ -360,8 +307,7 @@ public class Parser {
     
     /**
      * @return {@code true} if foster parenting is enabled
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#foster-parent">
-     *      foster parenting</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#foster-parent">foster parenting</a>
      */
     public boolean isFosterParentingEnabled() {
         return fosterParenting;
@@ -369,8 +315,7 @@ public class Parser {
     
     /**
      * @param enabled whether foster parenting should be enabled
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#foster-parent">
-     *      foster parenting</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#foster-parent">foster parenting</a>
      */
     public void setFosterParentingEnabled(final boolean enabled) {
         this.fosterParenting = enabled;
@@ -378,8 +323,7 @@ public class Parser {
     
     /**
      * @return {@code true} if frameset is OK
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#frameset-ok-flag">
-     *      frameset-ok flag</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#frameset-ok-flag">frameset-ok flag</a>
      */
     public boolean isFramesetOkFlag() {
         return framesetOK;
@@ -387,8 +331,7 @@ public class Parser {
     
     /**
      * @param isOK whether frameset is OK
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#frameset-ok-flag">
-     *      frameset-ok flag</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#frameset-ok-flag">frameset-ok flag</a>
      */
     public void setFramesetOKFlag(final boolean isOK) {
         this.framesetOK = isOK;
@@ -396,9 +339,7 @@ public class Parser {
     
     /**
      * @return {@code true} if the parser is in quirks mode
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/infrastructure.html#quirks-mode">quirks
-     *      mode</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/infrastructure.html#quirks-mode">quirks mode</a>
      */
     public boolean isQuirksMode() {
         return quirksMode;
@@ -406,9 +347,7 @@ public class Parser {
     
     /**
      * @param quirksMode whether to set the parser in quirks mode
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/infrastructure.html#quirks-mode">quirks
-     *      mode</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/infrastructure.html#quirks-mode">quirks mode</a>
      */
     public void setQuirksMode(final boolean quirksMode) {
         this.quirksMode = quirksMode;
@@ -418,8 +357,7 @@ public class Parser {
      * Returns the current insertion mode.
      * 
      * @return the current insertion mode
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">
-     *      insertion mode</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insertion-mode">insertion mode</a>
      */
     public Mode getInsertionMode() {
         return insertionMode;
@@ -430,8 +368,7 @@ public class Parser {
      * parse the next token to be emitted.
      * 
      * @param insertionMode the insertion mode for the next token
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">
-     *      insertion mode</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insertion-mode">insertion mode</a>
      */
     public void setInsertionMode(final Mode insertionMode) {
         if (insertionMode == null) {
@@ -443,10 +380,18 @@ public class Parser {
         this.insertionMode = insertionMode;
     }
     
+    /**
+     * @return the original insertion mode
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#original-insertion-mode">original insertion mode</a>
+     */
     public Mode getOriginalInsertionMode() {
         return originalInsertionMode;
     }
     
+    /**
+     * @param originalInsertionMode the original insertion mode
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#original-insertion-mode">original insertion mode</a>
+     */
     public void setOriginalInsertionMode(final Mode originalInsertionMode) {
         if (originalInsertionMode == null) {
             throw new NullPointerException();
@@ -455,8 +400,7 @@ public class Parser {
     }
     
     /**
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#stop-parsing">stop
-     *      parsing</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stop-parsing">stop parsing</a>
      */
     public void stopParsing() {
         stop = true;
@@ -468,9 +412,7 @@ public class Parser {
     
     /**
      * @return the {@code head} element, if any
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#head-element-pointer">
-     *      <code>head</code> element pointer</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#head-element-pointer"><code>head</code> element pointer</a>
      */
     public Element getHeadElementPointer() {
         return headElementPointer;
@@ -478,19 +420,15 @@ public class Parser {
     
     /**
      * @param element the {@code head} element
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#head-element-pointer">
-     *      <code>head</code> element pointer</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#head-element-pointer"><code>head</code> element pointer</a>
      */
     public void setHeadElementPointer(final Element element) {
         this.headElementPointer = element;
     }
     
     /**
-     * @return the current {@code form} element
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#form-element-pointer">
-     *      <code>form</code> element pointer</a>
+     * @return the current {@code form} element, if any
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#form-element-pointer"><code>form</code> element pointer</a>
      */
     public Element getFormElementPointer() {
         return formElementPointer;
@@ -498,9 +436,7 @@ public class Parser {
     
     /**
      * @param formElement the current {@code form} element
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#form-element-pointer">
-     *      <code>form</code> element pointer</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#form-element-pointer"><code>form</code> element pointer</a>
      */
     public void setFormElementPointer(final Element formElement) {
         this.formElementPointer = formElement;
@@ -510,9 +446,7 @@ public class Parser {
      * Returns the number of elements on the stack of open elements.
      * 
      * @return the number of elements on the stack of open elements
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
-     *      stack of open elements</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>
      */
     public int getNumOpenElements() {
         return stackOfOpenElements.size();
@@ -523,9 +457,7 @@ public class Parser {
      * direction of iteration is not guaranteed.
      * 
      * @return an {@link Iterable} over the stack of open elements
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
-     *      stack of open elements</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>
      */
     public Iterable<Element> getOpenElementsIterable() {
         return stackOfOpenElements;
@@ -536,11 +468,8 @@ public class Parser {
      * new current open element.
      * 
      * @param element the element to add to the stack of open elements
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#current-node">
-     *      current node</a>
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
-     *      stack of open elements</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#current-node">current node</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>
      */
     public void pushOpenElement(final Element element) {
         if (element == null) {
@@ -554,11 +483,8 @@ public class Parser {
      * elements.
      * 
      * @return the current open element
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#current-node">
-     *      current node</a>
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
-     *      stack of open elements</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#current-node">current node</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>
      */
     public Element popOpenElement() {
         return stackOfOpenElements.remove(getNumOpenElements() - 1);
@@ -568,8 +494,7 @@ public class Parser {
      * Retrieves, but does not remove, the current open element.
      * 
      * @return the current open element
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#current-node">
-     *      current node</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#current-node">current node</a>
      */
     public Element getCurrentOpenElement() {
         return getOpenElement(getNumOpenElements() - 1);
@@ -582,9 +507,7 @@ public class Parser {
      * 
      * @param index the index of the open element to return
      * @return the open element at the given index
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
-     *      stack of open elements</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>
      */
     public Element getOpenElement(final int index) {
         return stackOfOpenElements.get(index);
@@ -607,9 +530,7 @@ public class Parser {
      * 
      * @param element the element to find
      * @return whether the given element appears in the stack of open elements
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
-     *      stack of open elements</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>
      */
     public boolean containsOpenElement(final Element element) {
         if (element == null) {
@@ -629,9 +550,7 @@ public class Parser {
      * Removes the given element from the stack of open elements.
      * 
      * @param element the element to remove
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
-     *      stack of open elements</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>
      */
     public void removeOpenElement(final Element element) {
         if (element == null) {
@@ -642,9 +561,7 @@ public class Parser {
     
     /**
      * @return the adjusted current {@link org.w3c.dom.Node}
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#adjusted-current-node">
-     *      adjusted current node</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#adjusted-current-node">adjusted current node</a>
      */
     public Element getAdjustedCurrentNode() {
         if (getNumOpenElements() == 1 && isHTMLFragmentParsingAlgorithm()) {
@@ -705,11 +622,28 @@ public class Parser {
     }
     
     /**
+     * Pushes an element onto the list of active formatting elements.
+     * <p>
+     * When the steps below require the UA to push onto the list of active
+     * formatting elements an element <var>element</var>, the UA must perform
+     * the following steps:
+     * <ol>
+     *   <li>If there are already three elements in the list of active
+     *     formatting elements after the last list marker, if any, or anywhere
+     *     in the list if there are no list markers, that have the same tag
+     *     name, namespace, and attributes as <var>element</var>, then remove
+     *     the earliest such element from the list of active formatting
+     *     elements. For these purposes, the attributes must be compared as they
+     *     were when the elements were created by the parser; two elements have
+     *     the same attributes if all their parsed attributes can be paired such
+     *     that the two attributes in each pair have identical names,
+     *     namespaces, and values (the order of the attributes does not matter).</li>
+     *   <li>Add <var>element</var> to the list of active formatting elements.</li>
+     * </ol>
+     * 
      * @param startTagToken the start tag for the new element
      * @param element the new element
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#push-onto-the-list-of-active-formatting-elements">
-     *      push onto the list of active formatting elements</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#push-onto-the-list-of-active-formatting-elements">push onto the list of active formatting elements</a>
      */
     public void pushOntoListOfActiveFormattingElements(final StartTagToken startTagToken, final Element element) {
         final StartTokenComparable expected = new StartTokenComparable(startTagToken, element);
@@ -759,10 +693,7 @@ public class Parser {
     }
     
     /**
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#clear-the-list-of-active-formatting-elements-up-to-the-last-marker">
-     *      clear the list of active formatting elements up to the last
-     *      marker</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#clear-the-list-of-active-formatting-elements-up-to-the-last-marker">clear the list of active formatting elements up to the last marker</a>
      */
     public void clearActiveFormattingElements() {
         FormattingElement popped;
@@ -804,9 +735,7 @@ public class Parser {
     /**
      * @param element the element to check
      * @return {@code true} if it is a MathML integration point
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#mathml-text-integration-point">
-     *      MathML text integration point</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#mathml-text-integration-point">MathML text integration point</a>
      */
     public boolean isMathMLTextIntegrationPoint(final Element element) {
         if (element == null) {
@@ -837,9 +766,7 @@ public class Parser {
     /**
      * @param element the element to check
      * @return {@code true} if it is an HTML integration point
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#html-integration-point">HTML
-     *      integration point</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#html-integration-point">HTML integration point</a>
      */
     public boolean isHTMLIntegrationPoint(final Element element) {
         if (element == null) {
@@ -874,9 +801,7 @@ public class Parser {
      * not used.
      * 
      * @param token the token to dispatch
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#tree-construction-dispatcher">
-     *      tree construction dispatcher</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#tree-construction-dispatcher">tree construction dispatcher</a>
      */
     protected boolean treeConstructionDispatcher(final Token token) {
         if (token == null) {
@@ -885,25 +810,25 @@ public class Parser {
         final Element adjustedCurrentNode = getAdjustedCurrentNode();
         
         if (adjustedCurrentNode == null) {
-            return insertHTML(token);
+            return processUsingRulesFor(insertionMode, token);
         }
         
         final String namespace = adjustedCurrentNode.getNamespaceURI();
         
         if (InsertionMode.HTML_NAMESPACE.equals(namespace)) {
-            return insertHTML(token);
+            return processUsingRulesFor(insertionMode, token);
         }
         
         if (isMathMLTextIntegrationPoint(adjustedCurrentNode) && token.getType() == Token.Type.START_TAG) {
             final StartTagToken startTagToken = (StartTagToken) token;
             final String tagName = startTagToken.getTagName();
             if ( !"mglyph".equals(tagName) && !"malignmark".equals(tagName)) {
-                return insertHTML(token);
+                return processUsingRulesFor(insertionMode, token);
             }
         }
         
         if (isMathMLTextIntegrationPoint(adjustedCurrentNode) && token.getType() == Token.Type.CHARACTER) {
-            return insertHTML(token);
+            return processUsingRulesFor(insertionMode, token);
         }
         
         if (InsertionMode.MATHML_NAMESPACE.equals(namespace)
@@ -912,31 +837,23 @@ public class Parser {
             final StartTagToken startTagToken = (StartTagToken) token;
             final String tagName = startTagToken.getTagName();
             if ("svg".equals(tagName)) {
-                return insertHTML(token);
+                return processUsingRulesFor(insertionMode, token);
             }
         }
         
         if (isHTMLIntegrationPoint(adjustedCurrentNode) && token.getType() == Token.Type.START_TAG) {
-            return insertHTML(token);
+            return processUsingRulesFor(insertionMode, token);
         }
         
         if (isHTMLIntegrationPoint(adjustedCurrentNode) && token.getType() == Token.Type.CHARACTER) {
-            return insertHTML(token);
+            return processUsingRulesFor(insertionMode, token);
         }
         
         if (token.getType() == Token.Type.EOF) {
-            return insertHTML(token);
+            return processUsingRulesFor(insertionMode, token);
         }
         
         return insertForeignContent(token);
-    }
-    
-    private boolean insertHTML(final Token token) {
-        if (token == null) {
-            throw new NullPointerException();
-        }
-        final InsertionMode modeHandler = insertionModeMap.get(insertionMode);
-        return modeHandler.insert(token);
     }
     
     private boolean insertForeignContent(final Token token) {
@@ -946,6 +863,13 @@ public class Parser {
         return foreignContentMode.insert(token);
     }
     
+    /**
+     * Acknowledge the self-closing flag.
+     * <p>
+     * When a start tag token is emitted with its self-closing flag set, if the flag is not acknowledged when it is processed by the tree construction stage, that is a parse error.
+     * 
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#acknowledge-self-closing-flag">acknowledge the token&#x27;s self-closing flag</a>
+     */
     public void acknowledgeSelfClosingFlag() {
         tokenizer.acknowledgeSelfClosingFlag();
     }
@@ -956,7 +880,7 @@ public class Parser {
         boolean accepted;
         do {
 //            accepted = treeConstructionDispatcher(token);
-            accepted = insertHTML(token);
+            accepted = processUsingRulesFor(insertionMode, token);
             if (count++ > 1024) {
                 System.out.println(count + " : " + token);
                 throw new ParseErrorException("Too many stack frames emitting token in parser.");
@@ -977,9 +901,7 @@ public class Parser {
      * @param token the token to process
      * @return whether the token was handled. {@code false} means the token
      *         needs to be passed to the next insertion mode.
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#using-the-rules-for">using
-     *      the rules for</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#using-the-rules-for">using the rules for</a>
      */
     public boolean processUsingRulesFor(final Mode mode, final Token token) {
         if (mode == null) {
@@ -988,7 +910,8 @@ public class Parser {
         if (token == null) {
             throw new NullPointerException();
         }
-        return this.insertionModeMap.get(mode).insert(token);
+        final InsertionMode modeHandler = insertionModeMap.get(mode);
+        return modeHandler.insert(token);
     }
     
     public Document parse() {
