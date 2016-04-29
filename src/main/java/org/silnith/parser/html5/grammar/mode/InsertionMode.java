@@ -28,8 +28,7 @@ import org.w3c.dom.Text;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">
- *      insertion mode</a>
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insertion-mode">insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public abstract class InsertionMode {
@@ -291,10 +290,12 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @return
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#form-element-pointer">
-     *      <code>form</code> element pointer</a>
+     * Returns the form element pointer.
+     * <p>
+     * The form element pointer points to the last form element that was opened and whose end tag has not yet been seen. It is used to make form controls associate with forms in the face of dramatically bad markup, for historical reasons. It is ignored inside template elements.
+     * 
+     * @return the current form element, if any
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#form-element-pointer"><code>form</code> element pointer</a>
      */
     protected Element getFormElementPointer() {
         return parser.getFormElementPointer();
@@ -314,8 +315,7 @@ public abstract class InsertionMode {
      * Returns the current insertion mode.
      * 
      * @return the current insertion mode
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">
-     *      insertion mode</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insertion-mode">insertion mode</a>
      */
     protected Mode getInsertionMode() {
         return parser.getInsertionMode();
@@ -325,8 +325,7 @@ public abstract class InsertionMode {
      * Changes the insertion mode for the current parser.
      * 
      * @param insertionMode the mode to shift into
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insertion-mode">
-     *      insertion mode</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insertion-mode">insertion mode</a>
      */
     protected void setInsertionMode(final Mode insertionMode) {
         parser.setInsertionMode(insertionMode);
@@ -346,20 +345,21 @@ public abstract class InsertionMode {
      *      reconstruct the active formatting elements</a>
      */
     protected void reconstructActiveFormattingElements() {
-        if (parser.listOfActiveFormattingElements.isEmpty()) {
+        final List<FormattingElement> listOfActiveFormattingElements = parser.listOfActiveFormattingElements;
+        if (listOfActiveFormattingElements.isEmpty()) {
             return;
         }
         if (parser.isMarker(
-                parser.listOfActiveFormattingElements.get(parser.listOfActiveFormattingElements.size() - 1))) {
+                listOfActiveFormattingElements.get(listOfActiveFormattingElements.size() - 1))) {
             return;
         }
-        if (parser.containsOpenElement(parser.listOfActiveFormattingElements.get(
-                parser.listOfActiveFormattingElements.size() - 1).getValue())) {
+        if (parser.containsOpenElement(listOfActiveFormattingElements.get(
+                listOfActiveFormattingElements.size() - 1).getValue())) {
             return;
         }
         
         final ListIterator<FormattingElement> entryIter =
-                parser.listOfActiveFormattingElements.listIterator(parser.listOfActiveFormattingElements.size());
+                listOfActiveFormattingElements.listIterator(listOfActiveFormattingElements.size());
         assert entryIter.hasPrevious();
         FormattingElement entry = null;
         while (entryIter.hasPrevious()) {
@@ -535,9 +535,7 @@ public abstract class InsertionMode {
     /**
      * @param tagName
      * @return
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
-     *      stack of open elements</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>
      */
     protected boolean isStackOfOpenElementsContains(final String tagName) {
         for (final Element element : parser.getOpenElementsIterable()) {
@@ -617,9 +615,7 @@ public abstract class InsertionMode {
     
     /**
      * @param element
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
-     *      stack of open elements</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>
      */
     protected void addToStackOfOpenElements(final Element element) {
         parser.pushOpenElement(element);
@@ -896,13 +892,25 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @param startTagToken
-     * @param givenNamespace
-     * @param intendedParent
-     * @return
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#create-an-element-for-the-token">
-     *      create an element for a token</a>
+     * Creates an element for the given token.
+     * <p>When the steps below require the UA to create an element for a token in a particular <var>given namespace</var> and with a particular <var>intended parent</var>, the UA must run the following steps:
+     * <ol>
+     *   <li>
+     *     Create a node implementing the interface appropriate for the element type corresponding to the tag name of the token in given namespace (as given in the specification that defines that element, e.g. for an a element in the HTML namespace, this specification defines it to be the HTMLAnchorElement interface), with the tag name being the name of that element, with the node being in the given namespace, and with the attributes on the node being those given in the given token.
+     *     <p>The interface appropriate for an element in the HTML namespace that is not defined in this specification (or other applicable specifications) is HTMLUnknownElement. Elements in other namespaces whose interface is not defined by that namespace's specification must use the interface Element.
+     *     <p>The ownerDocument of the newly created element must be the same as that of the intended parent.
+     *   </li>
+     *   <li>If the newly created element has an xmlns attribute in the XMLNS namespace whose value is not exactly the same as the element's namespace, that is a parse error. Similarly, if the newly created element has an xmlns:xlink attribute in the XMLNS namespace whose value is not the XLink Namespace, that is a parse error.
+     *   <li>If the newly created element is a resettable element, invoke its reset algorithm. (This initializes the element's value and checkedness based on the element's attributes.)
+     *   <li>If the element is a form-associated element, and the form element pointer is not null, and there is no template element on the stack of open elements, and the newly created element is either not reassociateable or doesn't have a form attribute, and the intended parent is in the same home subtree as the element pointed to by the form element pointer, associate the newly created element with the form element pointed to by the form element pointer, and suppress the running of the reset the form owner algorithm when the parser subsequently attempts to insert the element.
+     *   <li>Return the newly created element.
+     * </ol>
+     * 
+     * @param startTagToken the token to create the element for
+     * @param givenNamespace the namespace for the new element
+     * @param intendedParent the element that will have the new element as a child
+     * @return the newly created element
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#create-an-element-for-the-token">create an element for a token</a>
      */
     protected Element createElementForToken(final StartTagToken startTagToken, final String givenNamespace,
             final Node intendedParent) {
@@ -1212,21 +1220,50 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @param element
-     * @return
-     * @see <a href="http://www.w3.org/TR/html5/forms.html#category-reset">
-     *      resettable elements</a>
+     * Returns whether an element can be affected by a form reset.
+     * <p>
+     * Denotes elements that can be affected when a form element is reset.
+     * <ul>
+     *   <li>input
+     *   <li>keygen
+     *   <li>output
+     *   <li>select
+     *   <li>textarea
+     * </ul>
+     * 
+     * @param element the element to check
+     * @return {@code true} if the element can be affected by a form reset
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/forms.html#category-reset">Resettable elements</a>
      */
     protected boolean isResettable(final Element element) {
-        // TODO
+        final String namespaceURI = element.getNamespaceURI();
+        final String localName = element.getLocalName();
+        if (HTML_NAMESPACE.equals(namespaceURI)) {
+            switch (localName) {
+            case "input": // fall through
+            case "keygen": // fall through
+            case "output": // fall through
+            case "select": // fall through
+            case "textarea": {
+                return true;
+            }
+            default: {
+                return false;
+            }
+            }
+        }
         return false;
     }
     
     /**
+     * Resets a form element.
+     * <p>
+     * When a form element <var>form</var> is reset, the user agent must fire a simple event named reset, that bubbles and is cancelable, at <var>form</var>, and then, if that event is not canceled, must invoke the reset algorithm of each resettable element whose form owner is <var>form</var>.
+     * <p>
+     * Each resettable element defines its own reset algorithm. Changes made to form controls as part of these algorithms do not count as changes caused by the user (and thus, e.g., do not cause input events to fire).
+     * 
      * @param element
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/forms.html#concept-form-reset-control">
-     *      reset algorithm</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/forms.html#concept-form-reset-control">4.10.23 Resetting a form</a>
      */
     protected void invokeResetAlgorithm(final Element element) {
         // TODO
@@ -1234,14 +1271,92 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @param element
-     * @return
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/forms.html#form-associated-element">form
-     *      -associated elements</a>
+     * Returns whether an element can be associated with a form.
+     * <p>
+     * A number of the elements are form-associated elements, which means they can have a form owner.
+     * <ul>
+     *   <li>button
+     *   <li>fieldset
+     *   <li>input
+     *   <li>keygen
+     *   <li>label
+     *   <li>object
+     *   <li>output
+     *   <li>select
+     *   <li>textarea
+     *   <li>img
+     * </ul> 
+     * 
+     * @param element the element to check
+     * @return {@code true} if the element can be associated with a form
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/forms.html#form-associated-element">form-associated elements</a>
      */
     protected boolean isFormAssociatedElement(final Element element) {
-        // TODO
+        final String namespaceURI = element.getNamespaceURI();
+        final String localName = element.getLocalName();
+        if (HTML_NAMESPACE.equals(namespaceURI)) {
+            switch (localName) {
+            case "button": // fall through
+            case "fieldset": // fall through
+            case "input": // fall through
+            case "keygen": // fall through
+            case "label": // fall through
+            case "object": // fall through
+            case "output": // fall through
+            case "select": // fall through
+            case "textarea": // fall through
+            case "img": {
+                return true;
+            }
+            default: {
+                return false;
+            }
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * Returns whether an element is reassociateable.
+     * <p>
+     * Denotes elements that have a form content attribute, and a matching form IDL attribute, that allow authors to specify an explicit form owner.
+     * <ul>
+     *   <li>button
+     *   <li>fieldset
+     *   <li>input
+     *   <li>keygen
+     *   <li>label
+     *   <li>object
+     *   <li>output
+     *   <li>select
+     *   <li>textarea
+     * </ul> 
+     * 
+     * @param element the element to check
+     * @return {@code true} if the element is reassociateable
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/forms.html#category-form-attr">Reassociateable elements</a>
+     */
+    protected boolean isReassociateableElement(final Element element) {
+        final String namespaceURI = element.getNamespaceURI();
+        final String localName = element.getLocalName();
+        if (HTML_NAMESPACE.equals(namespaceURI)) {
+            switch (localName) {
+            case "button": // fall through
+            case "fieldset": // fall through
+            case "input": // fall through
+            case "keygen": // fall through
+            case "label": // fall through
+            case "object": // fall through
+            case "output": // fall through
+            case "select": // fall through
+            case "textarea": {
+                return true;
+            }
+            default: {
+                return false;
+            }
+            }
+        }
         return false;
     }
     
