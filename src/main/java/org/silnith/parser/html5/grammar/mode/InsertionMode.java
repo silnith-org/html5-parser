@@ -34,9 +34,9 @@ import org.w3c.dom.Text;
 public abstract class InsertionMode {
     
     /**
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/infrastructure.html#html-namespace-0">
-     *      HTML namespace</a>
+     * The HTML namespace.
+     * 
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/infrastructure.html#html-namespace-0">HTML namespace</a>
      */
     public static final String HTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
     
@@ -160,14 +160,14 @@ public abstract class InsertionMode {
     
     /**
      * Process the token using the rules for the given insertion mode.
+     * <p>
+     * Several of these modes, namely "in head", "in body", "in table", and "in select", are special, in that the other modes defer to them at various times. When the algorithm below says that the user agent is to do something "using the rules for the <var>m</var> insertion mode", where <var>m</var> is one of these modes, the user agent must use the rules described under the <var>m</var> insertion mode's section, but must leave the insertion mode unchanged unless the rules in <var>m</var> themselves switch the insertion mode to a new value.
      * 
      * @param mode the mode to use to process the token
      * @param token the token to process
      * @return whether the token was handled. {@code false} means the token
      *         needs to be passed to the next insertion mode.
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#using-the-rules-for">using
-     *      the rules for</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#using-the-rules-for">using the rules for</a>
      */
     protected boolean processUsingRulesFor(final Mode mode, final Token token) {
         return parser.processUsingRulesFor(mode, token);
@@ -270,20 +270,24 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @return
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#head-element-pointer">
-     *      <code>head</code> element pointer</a>
+     * Returns the head element pointer.
+     * <p>
+     * Once a head element has been parsed (whether implicitly or explicitly) the head element pointer gets set to point to this node.
+     * 
+     * @return the current head element, if any
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#head-element-pointer"><code>head</code> element pointer</a>
      */
     protected Element getHeadElementPointer() {
         return parser.getHeadElementPointer();
     }
     
     /**
-     * @param element
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#head-element-pointer">
-     *      <code>head</code> element pointer</a>
+     * Sets the head element pointer.
+     * <p>
+     * Once a head element has been parsed (whether implicitly or explicitly) the head element pointer gets set to point to this node.
+     * 
+     * @param element the current head element, if any
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#head-element-pointer"><code>head</code> element pointer</a>
      */
     protected void setHeadElementPointer(final Element element) {
         parser.setHeadElementPointer(element);
@@ -302,10 +306,12 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @param formElement
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#form-element-pointer">
-     *      <code>form</code> element pointer</a>
+     * Sets the form element pointer.
+     * <p>
+     * The form element pointer points to the last form element that was opened and whose end tag has not yet been seen. It is used to make form controls associate with forms in the face of dramatically bad markup, for historical reasons. It is ignored inside template elements.
+     * 
+     * @param formElement the current form element
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#form-element-pointer"><code>form</code> element pointer</a>
      */
     protected void setFormElementPointer(final Element formElement) {
         parser.setFormElementPointer(formElement);
@@ -489,12 +495,13 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @return
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#current-node">
-     *      current node</a>
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
-     *      stack of open elements</a>
+     * Returns the current node.
+     * <p>
+     * The current node is the bottommost node in this
+     * <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>.
+     * 
+     * @return the current node
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#current-node">current node</a>
      */
     protected Element getCurrentNode() {
         return parser.getCurrentOpenElement();
@@ -614,6 +621,12 @@ public abstract class InsertionMode {
     }
     
     /**
+     * Adds the element to the stack of open elements.
+     * <p>
+     * Initially, the stack of open elements is empty. The stack grows downwards; the topmost node on the stack is the first one added to the stack, and the bottommost node of the stack is the most recently added node in the stack (notwithstanding when the stack is manipulated in a random access fashion as part of the handling for misnested tags).
+     * <p>
+     * The html node, however it is created, is the topmost node of the stack. It only gets popped off the stack when the parser finishes.
+     * 
      * @param element
      * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>
      */
@@ -783,21 +796,81 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @return
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#appropriate-place-for-inserting-a-node">
-     *      appropriate place for inserting a node</a>
+     * Returns the appropriate place for inserting a node into the document.
+     * <p>
+     * The appropriate place for inserting a node, optionally using a particular <var>override target</var>, is the position in an element returned by running the following steps:
+     * <ol>
+     *   <li>
+     *     If there was an <var>override target</var> specified, then let <var>target</var> be the <var>override target</var>.
+     *     <p>Otherwise, let <var>target</var> be the current node.
+     *   </li>
+     *   <li>
+     *     Determine the <var>adjusted insertion location</var> using the first matching steps from the following list:
+     *     <dl>
+     *       <dt>If foster parenting is enabled and target is a table, tbody, tfoot, thead, or tr element
+     *       <dd>
+     *         Run these substeps:
+     *         <ol>
+     *           <li>Let <var>last template</var> be the last template element in the stack of open elements, if any.
+     *           <li>Let <var>last table</var> be the last table element in the stack of open elements, if any.
+     *           <li>If there is a <var>last template</var> and either there is no <var>last table</var>, or there is one, but <var>last template</var> is lower (more recently added) than <var>last table</var> in the stack of open elements, then: let <var>adjusted insertion location</var> be inside <var>last template</var>'s template contents, after its last child (if any), and abort these substeps.
+     *           <li>If there is no <var>last table</var>, then let <var>adjusted insertion location</var> be inside the first element in the stack of open elements (the html element), after its last child (if any), and abort these substeps. (fragment case)
+     *           <li>If <var>last table</var> has a parent element, then let <var>adjusted insertion location</var> be inside <var>last table</var>'s parent element, immediately before <var>last table</var>, and abort these substeps.
+     *           <li>Let <var>previous element</var> be the element immediately above <var>last table</var> in the stack of open elements.
+     *           <li>Let <var>adjusted insertion location</var> be inside <var>previous element</var>, after its last child (if any).
+     *         </ol>
+     *       </dd>
+     *       <dt>Otherwise
+     *       <dd>Let <var>adjusted insertion location</var> be inside <var>target</var>, after its last child (if any).
+     *     </dl>
+     *   </li>
+     *   <li>If the <var>adjusted insertion location</var> is inside a template element, let it instead be inside the template element's template contents, after its last child (if any).
+     *   <li>Return the <var>adjusted insertion location</var>.
+     * </ol>
+     * 
+     * @return an insertion position
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#appropriate-place-for-inserting-a-node">appropriate place for inserting a node</a>
      */
     protected InsertionPosition getAppropriatePlaceForInsertingNode() {
         return getAppropriatePlaceForInsertingNode(getCurrentNode());
     }
     
     /**
-     * @param overrideTarget
-     * @return
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#appropriate-place-for-inserting-a-node">
-     *      appropriate place for inserting a node</a>
+     * Returns the appropriate place for inserting a node into the document.
+     * <p>
+     * The appropriate place for inserting a node, optionally using a particular <var>override target</var>, is the position in an element returned by running the following steps:
+     * <ol>
+     *   <li>
+     *     If there was an <var>override target</var> specified, then let <var>target</var> be the <var>override target</var>.
+     *     <p>Otherwise, let <var>target</var> be the current node.
+     *   </li>
+     *   <li>
+     *     Determine the <var>adjusted insertion location</var> using the first matching steps from the following list:
+     *     <dl>
+     *       <dt>If foster parenting is enabled and target is a table, tbody, tfoot, thead, or tr element
+     *       <dd>
+     *         Run these substeps:
+     *         <ol>
+     *           <li>Let <var>last template</var> be the last template element in the stack of open elements, if any.
+     *           <li>Let <var>last table</var> be the last table element in the stack of open elements, if any.
+     *           <li>If there is a <var>last template</var> and either there is no <var>last table</var>, or there is one, but <var>last template</var> is lower (more recently added) than <var>last table</var> in the stack of open elements, then: let <var>adjusted insertion location</var> be inside <var>last template</var>'s template contents, after its last child (if any), and abort these substeps.
+     *           <li>If there is no <var>last table</var>, then let <var>adjusted insertion location</var> be inside the first element in the stack of open elements (the html element), after its last child (if any), and abort these substeps. (fragment case)
+     *           <li>If <var>last table</var> has a parent element, then let <var>adjusted insertion location</var> be inside <var>last table</var>'s parent element, immediately before <var>last table</var>, and abort these substeps.
+     *           <li>Let <var>previous element</var> be the element immediately above <var>last table</var> in the stack of open elements.
+     *           <li>Let <var>adjusted insertion location</var> be inside <var>previous element</var>, after its last child (if any).
+     *         </ol>
+     *       </dd>
+     *       <dt>Otherwise
+     *       <dd>Let <var>adjusted insertion location</var> be inside <var>target</var>, after its last child (if any).
+     *     </dl>
+     *   </li>
+     *   <li>If the <var>adjusted insertion location</var> is inside a template element, let it instead be inside the template element's template contents, after its last child (if any).
+     *   <li>Return the <var>adjusted insertion location</var>.
+     * </ol>
+     * 
+     * @param overrideTarget the override target
+     * @return an insertion position
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#appropriate-place-for-inserting-a-node">appropriate place for inserting a node</a>
      */
     protected InsertionPosition getAppropriatePlaceForInsertingNode(final Node overrideTarget) {
         final Node target = overrideTarget;
@@ -855,19 +928,39 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @param commentToken
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insert-a-comment">
-     *      insert a comment</a>
+     * Insert a comment.
+     * <p>
+     * When the steps below require the user agent to insert a comment while processing a comment token, optionally with an explicitly insertion position <var>position</var>, the user agent must run the following steps:
+     * <ol>
+     *   <li>Let <var>data</var> be the data given in the comment token being processed.
+     *   <li>If <var>position</var> was specified, then let the <var>adjusted insertion location</var> be <var>position</var>. Otherwise, let <var>adjusted insertion location</var> be the appropriate place for inserting a node.
+     *   <li>Create a Comment node whose data attribute is set to <var>data</var> and whose ownerDocument is the same as that of the node in which the <var>adjusted insertion location</var> finds itself.
+     *   <li>Insert the newly created node at the <var>adjusted insertion location</var>.
+     * </ol>
+     * <p>DOM mutation events must not fire for changes caused by the UA parsing the document. This includes the parsing of any content inserted using document.write() and document.writeln() calls.
+     * <p>However, mutation observers <em>do</em> fire, as required by the DOM specification.
+     * 
+     * @param commentToken the comment token to insert
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insert-a-comment">insert a comment</a>
      */
     protected void insertComment(final CommentToken commentToken) {
         insertComment(commentToken, getAppropriatePlaceForInsertingNode());
     }
     
     /**
-     * @param commentToken
-     * @param position
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insert-a-comment">
-     *      insert a comment</a>
+     * Insert a comment.
+     * <p>
+     * When the steps below require the user agent to insert a comment while processing a comment token, optionally with an explicitly insertion position <var>position</var>, the user agent must run the following steps:
+     * <ol>
+     *   <li>Let <var>data</var> be the data given in the comment token being processed.
+     *   <li>If <var>position</var> was specified, then let the <var>adjusted insertion location</var> be <var>position</var>. Otherwise, let <var>adjusted insertion location</var> be the appropriate place for inserting a node.
+     *   <li>Create a Comment node whose data attribute is set to <var>data</var> and whose ownerDocument is the same as that of the node in which the <var>adjusted insertion location</var> finds itself.
+     *   <li>Insert the newly created node at the <var>adjusted insertion location</var>.
+     * </ol>
+     * 
+     * @param commentToken the comment token to insert
+     * @param position the position to insert the comment
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insert-a-comment">insert a comment</a>
      */
     protected void insertComment(final CommentToken commentToken, final InsertionPosition position) {
         final String data = commentToken.getContent();
@@ -937,30 +1030,45 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @param startTagToken
-     * @param givenNamespace
-     * @return
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#insert-a-foreign-element">
-     *      insert a foreign element</a>
+     * Inserts a foreign element.
+     * <p>
+     * When the steps below require the user agent to insert a foreign element for a token in a given namespace, the user agent must run these steps:
+     * <ol>
+     *   <li>Let the <var>adjusted insertion location</var> be the appropriate place for inserting a node.
+     *   <li>Create an element for the token in the given namespace, with the intended parent being the element in which the <var>adjusted insertion location</var> finds itself.
+     *   <li>If it is possible to insert an element at the <var>adjusted insertion location</var>, then insert the newly created element at the <var>adjusted insertion location</var>.
+     *   <li>Push the element onto the stack of open elements so that it is the new current node.
+     *   <li>Return the newly created element.
+     * </ol>
+     * 
+     * @param startTagToken the tag token for the new element
+     * @param givenNamespace the target namespace for the new element
+     * @return the newly inserted element
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insert-a-foreign-element">insert a foreign element</a>
      */
     protected Element insertForeignElement(final StartTagToken startTagToken, final String givenNamespace) {
         final InsertionPosition adjustedInsertionLocation = getAppropriatePlaceForInsertingNode();
-        final Element element =
-                createElementForToken(startTagToken, givenNamespace, adjustedInsertionLocation.getContainingNode());
-        // if Document, drop on floor instead
-        adjustedInsertionLocation.insert(element);
+        final Element element = createElementForToken(startTagToken, givenNamespace, adjustedInsertionLocation.getContainingNode());
+        try {
+            adjustedInsertionLocation.insert(element);
+        } catch (final RuntimeException e) {
+            // drop it on the floor
+        }
         addToStackOfOpenElements(element);
+        
         assert getCurrentNode() == element;
+        
         return element;
     }
     
     /**
-     * @param startTagToken
-     * @return
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#insert-an-html-element">
-     *      insert an HTML element</a>
+     * Inserts an HTML element.
+     * <p>
+     * When the steps below require the user agent to insert an HTML element for a token, the user agent must insert a foreign element for the token, in the HTML namespace.
+     * 
+     * @param startTagToken the tag token for the new element
+     * @return the newly inserted element
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insert-an-html-element">insert an HTML element</a>
      */
     protected Element insertHTMLElement(final StartTagToken startTagToken) {
         final Element element = insertForeignElement(startTagToken, HTML_NAMESPACE);

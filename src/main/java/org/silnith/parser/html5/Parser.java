@@ -69,6 +69,7 @@ public class Parser {
          */
         BEFORE_HTML,
         /**
+         * @see org.silnith.parser.html5.grammar.mode.BeforeHeadInsertionMode
          * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-before-head-insertion-mode">8.2.5.4.3 The "before head" insertion mode</a>
          */
         BEFORE_HEAD,

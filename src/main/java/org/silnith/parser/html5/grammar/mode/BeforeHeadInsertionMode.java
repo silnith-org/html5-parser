@@ -17,7 +17,39 @@ import org.w3c.dom.Element;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#the-before-head-insertion-mode">8.2.5.4.3 The "before head" insertion mode</a>
+ * Applies the before head insertion mode logic.
+ * <p>
+ * When the user agent is to apply the rules for the "before head" insertion mode, the user agent must handle the token as follows:
+ * <dl>
+ *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
+ *   <dd>Ignore the token.
+ *   <dt>A comment token
+ *   <dd>Insert a comment.
+ *   <dt>A DOCTYPE token
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>A start tag whose tag name is "html"
+ *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dt>A start tag whose tag name is "head"
+ *   <dd>
+ *     Insert an HTML element for the token.
+ *     <p>Set the head element pointer to the newly created head element.
+ *     <p>Switch the insertion mode to "in head".
+ *   </dd>
+ *   <dt>An end tag whose tag name is one of: "head", "body", "html", "br"
+ *   <dd>Act as described in the "anything else" entry below.
+ *   <dt>Any other end tag
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>Anything else
+ *   <dd>
+ *     Insert an HTML element for a "head" start tag token with no attributes.
+ *     <p>Set the head element pointer to the newly created head element.
+ *     <p>Switch the insertion mode to "in head".
+ *     <p>Reprocess the current token.
+ *   </dd>
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.Parser.Mode#BEFORE_HEAD
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-before-head-insertion-mode">8.2.5.4.3 The "before head" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class BeforeHeadInsertionMode extends InsertionMode {
