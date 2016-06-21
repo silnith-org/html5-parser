@@ -103,6 +103,9 @@ public class Tokenizer {
         RCDATA,
         CHARACTER_REFERENCE_IN_RCDATA,
         RAWTEXT,
+        /**
+         * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#script-data-state">8.2.4.6 Script data state</a>
+         */
         SCRIPT_DATA,
         PLAINTEXT,
         TAG_OPEN,

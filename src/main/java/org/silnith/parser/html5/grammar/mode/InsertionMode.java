@@ -198,10 +198,11 @@ public abstract class InsertionMode {
     
     /**
      * Whether scripting is enabled for this parser.
+     * <p>
+     * The scripting flag is set to "enabled" if scripting was enabled for the Document with which the parser is associated when the parser was created, and "disabled" otherwise.
      * 
-     * @return whether scripting is enabled.
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#scripting-flag">
-     *      scripting flag</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#other-parsing-state-flags">8.2.3.5 Other parsing state flags</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#scripting-flag">scripting flag</a>
      */
     protected boolean isScriptingEnabled() {
         return parser.isScriptingEnabled();
@@ -319,6 +320,10 @@ public abstract class InsertionMode {
     
     /**
      * Returns the current insertion mode.
+     * <p>
+     * The insertion mode is a state variable that controls the primary operation of the tree construction stage.
+     * <p>
+     * Initially, the insertion mode is "initial". It can change to "before html", "before head", "in head", "in head noscript", "after head", "in body", "text", "in table", "in table text", "in caption", "in column group", "in table body", "in row", "in cell", "in select", "in select in table", "in template", "after body", "in frameset", "after frameset", "after after body", and "after after frameset" during the course of the parsing, as described in the tree construction stage. The insertion mode affects how tokens are processed and whether CDATA sections are supported.
      * 
      * @return the current insertion mode
      * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insertion-mode">insertion mode</a>
@@ -337,10 +342,24 @@ public abstract class InsertionMode {
         parser.setInsertionMode(insertionMode);
     }
     
+    /**
+     * Gets the original insertion mode.
+     * 
+     * @return the original insertion mode
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#original-insertion-mode">original insertion mode</a>
+     */
     protected Mode getOriginalInsertionMode() {
         return parser.getOriginalInsertionMode();
     }
     
+    /**
+     * Sets the original insertion mode.
+     * <p>
+     * When the insertion mode is switched to "text" or "in table text", the original insertion mode is also set. This is the insertion mode to which the tree construction stage will return.
+     * 
+     * @param originalInsertionMode the original insertion mode
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#original-insertion-mode">original insertion mode</a>
+     */
     protected void setOriginalInsertionMode(final Mode originalInsertionMode) {
         parser.setOriginalInsertionMode(originalInsertionMode);
     }
@@ -508,12 +527,13 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @return
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#current-node">
-     *      current node</a>
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#stack-of-open-elements">
-     *      stack of open elements</a>
+     * Pops the current node.
+     * <p>
+     * The current node is the bottommost node in this
+     * <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>.
+     * 
+     * @return the current node
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#current-node">current node</a>
      */
     protected Element popCurrentNode() {
         return parser.popOpenElement();
@@ -627,7 +647,7 @@ public abstract class InsertionMode {
      * <p>
      * The html node, however it is created, is the topmost node of the stack. It only gets popped off the stack when the parser finishes.
      * 
-     * @param element
+     * @param element the open element to add to the stack
      * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#stack-of-open-elements">stack of open elements</a>
      */
     protected void addToStackOfOpenElements(final Element element) {
@@ -712,8 +732,9 @@ public abstract class InsertionMode {
     }
     
     protected boolean isListOfActiveFormattingElementsContainsAfterLastMarker(final Collection<String> tagNames) {
+        throw new UnsupportedOperationException();
         // TODO: ??
-        return false;
+//        return false;
     }
     
     /**
@@ -897,18 +918,42 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @param characterToken
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insert-a-character">
-     *      insert a character</a>
+     * Inserts a character.
+     * <p>
+     * When the steps below require the user agent to insert a character while processing a token, the user agent must run the following steps:
+     * <ol>
+     *   <li>Let <var>data</var> be the characters passed to the algorithm, or, if no characters were explicitly specified, the character of the character token being processed.
+     *   <li>Let the <var>adjusted insertion location</var> be the appropriate place for inserting a node.
+     *   <li>If the <var>adjusted insertion location</var> is in a Document node, then abort these steps.
+     *   <li>
+     *     If there is a Text node immediately before the <var>adjusted insertion location</var>, then append <var>data</var> to that Text node's data.
+     *     <p>Otherwise, create a new Text node whose data is <var>data</var> and whose ownerDocument is the same as that of the element in which the <var>adjusted insertion location</var> finds itself, and insert the newly created node at the <var>adjusted insertion location</var>.
+     *   </li>
+     * </ol>
+     * 
+     * @param characterToken the character token
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insert-a-character">insert a character</a>
      */
     protected void insertCharacter(final CharacterToken characterToken) {
         insertCharacter(characterToken.getCharacter());
     }
     
     /**
-     * @param character
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#insert-a-character">
-     *      insert a character</a>
+     * Inserts a character.
+     * <p>
+     * When the steps below require the user agent to insert a character while processing a token, the user agent must run the following steps:
+     * <ol>
+     *   <li>Let <var>data</var> be the characters passed to the algorithm, or, if no characters were explicitly specified, the character of the character token being processed.
+     *   <li>Let the <var>adjusted insertion location</var> be the appropriate place for inserting a node.
+     *   <li>If the <var>adjusted insertion location</var> is in a Document node, then abort these steps.
+     *   <li>
+     *     If there is a Text node immediately before the <var>adjusted insertion location</var>, then append <var>data</var> to that Text node's data.
+     *     <p>Otherwise, create a new Text node whose data is <var>data</var> and whose ownerDocument is the same as that of the element in which the <var>adjusted insertion location</var> finds itself, and insert the newly created node at the <var>adjusted insertion location</var>.
+     *   </li>
+     * </ol>
+     * 
+     * @param character the character
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insert-a-character">insert a character</a>
      */
     protected void insertCharacter(final char character) {
         final String data = String.valueOf(character);
@@ -1157,10 +1202,18 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @param startTagToken
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#generic-raw-text-element-parsing-algorithm">
-     *      generic raw text element parsing algorithm</a>
+     * Runs the generic raw text element parsing algorithm.
+     * <p>
+     * The generic raw text element parsing algorithm and the generic RCDATA element parsing algorithm consist of the following steps. These algorithms are always invoked in response to a start tag token.
+     * <ol>
+     *   <li>Insert an HTML element for the token.
+     *   <li>Switch the tokenizer to the RAWTEXT state.
+     *   <li>Let the original insertion mode be the current insertion mode.
+     *   <li>Then, switch the insertion mode to "text".
+     * </ol>
+     * 
+     * @param startTagToken the start tag token
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#generic-raw-text-element-parsing-algorithm">generic raw text element parsing algorithm</a>
      */
     protected void genericRawTextElementParsingAlgorithm(final StartTagToken startTagToken) {
         insertHTMLElement(startTagToken);
@@ -1170,10 +1223,18 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @param startTagToken
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#generic-rcdata-element-parsing-algorithm">
-     *      generic RCDATA element parsing algorithm</a>
+     * Runs the generic RCDATA element parsing algorithm.
+     * <p>
+     * The generic raw text element parsing algorithm and the generic RCDATA element parsing algorithm consist of the following steps. These algorithms are always invoked in response to a start tag token.
+     * <ol>
+     *   <li>Insert an HTML element for the token.
+     *   <li>Switch the tokenizer to the RCDATA state.
+     *   <li>Let the original insertion mode be the current insertion mode.
+     *   <li>Then, switch the insertion mode to "text".
+     * </ol>
+     * 
+     * @param startTagToken the start tag token
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#generic-rcdata-element-parsing-algorithm">generic RCDATA element parsing algorithm</a>
      */
     protected void genericRCDATAElementParsingAlgorithm(final StartTagToken startTagToken) {
         insertHTMLElement(startTagToken);
@@ -1291,6 +1352,14 @@ public abstract class InsertionMode {
         throw new ParseErrorException("Should have found an html element in the stack of open elements.");
     }
     
+    /**
+     * Acknowledges the token's self-closing flag, if set.
+     * <p>
+     * When a start tag token is emitted with its self-closing flag set, if the flag is not acknowledged when it is processed by the tree construction stage, that is a parse error.
+     * 
+     * @param startTagToken the start tag token
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#acknowledge-self-closing-flag">Acknowledge the token&#x27;s self-closing flag</a>
+     */
     protected void acknowledgeTokenSelfClosingFlag(final StartTagToken startTagToken) {
         if (startTagToken.isSelfClosing()) {
             parser.acknowledgeSelfClosingFlag();
@@ -1359,8 +1428,9 @@ public abstract class InsertionMode {
                 return false;
             }
             }
+        } else {
+            return false;
         }
-        return false;
     }
     
     /**
