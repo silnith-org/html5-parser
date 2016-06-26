@@ -17,9 +17,39 @@ import org.w3c.dom.Element;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-inheadnoscript">8.2
- *      .5.4.5 The "in head noscript" insertion mode</a>
+ * Applies the in head no script insertion mode logic.
+ * <p>
+ * When the user agent is to apply the rules for the "in head noscript" insertion mode, the user agent must handle the token as follows:
+ * <dl>
+ *   <dt>A DOCTYPE token
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>A start tag whose tag name is "html"
+ *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dt>An end tag whose tag name is "noscript"
+ *   <dd>
+ *     Pop the current node (which will be a noscript element) from the stack of open elements; the new current node will be a head element.
+ *     <p>Switch the insertion mode to "in head".
+ *   </dd>
+ *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
+ *   <dt>A comment token
+ *   <dt>A start tag whose tag name is one of: "basefont", "bgsound", "link", "meta", "noframes", "style"
+ *   <dd>Process the token using the rules for the "in head" insertion mode.
+ *   <dt>An end tag whose tag name is "br"
+ *   <dd>Act as described in the "anything else" entry below.
+ *   <dt>A start tag whose tag name is one of: "head", "noscript"
+ *   <dt>Any other end tag
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>Anything else
+ *   <dd>
+ *     Parse error.
+ *     <p>Pop the current node (which will be a noscript element) from the stack of open elements; the new current node will be a head element.
+ *     <p>Switch the insertion mode to "in head".
+ *     <p>Reprocess the token.
+ *   </dd>
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.Parser.Mode#IN_HEAD_NOSCRIPT
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inheadnoscript">8.2.5.4.5 The "in head noscript" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InHeadNoScriptInsertionMode extends InsertionMode {

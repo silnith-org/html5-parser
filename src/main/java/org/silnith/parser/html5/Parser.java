@@ -79,6 +79,7 @@ public class Parser {
          */
         IN_HEAD,
         /**
+         * @see org.silnith.parser.html5.grammar.mode.InHeadNoScriptInsertionMode
          * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inheadnoscript">8.2.5.4.5 The "in head noscript" insertion mode</a>
          */
         IN_HEAD_NOSCRIPT,
