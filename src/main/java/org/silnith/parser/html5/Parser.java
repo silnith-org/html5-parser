@@ -84,6 +84,7 @@ public class Parser {
          */
         IN_HEAD_NOSCRIPT,
         /**
+         * @see org.silnith.parser.html5.grammar.mode.AfterHeadInsertionMode
          * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-after-head-insertion-mode">8.2.5.4.6 The "after head" insertion mode</a>
          */
         AFTER_HEAD,

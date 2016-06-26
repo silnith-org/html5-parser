@@ -17,9 +17,53 @@ import org.w3c.dom.Element;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#the-after-head-insertion-mode">8
- *      .2.5.4.6 The "after head" insertion mode</a>
+ * Applies the after head insertion mode logic.
+ * <p>
+ * When the user agent is to apply the rules for the "after head" insertion mode, the user agent must handle the token as follows:
+ * <dl>
+ *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
+ *   <dd>Insert the character.
+ *   <dt>A comment token
+ *   <dd>Insert a comment.
+ *   <dt>A DOCTYPE token
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>A start tag whose tag name is "html"
+ *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dt>A start tag whose tag name is "body"
+ *   <dd>
+ *     Insert an HTML element for the token.
+ *     <p>Set the frameset-ok flag to "not ok".
+ *     <p>Switch the insertion mode to "in body".
+ *   <dd>
+ *   <dt>A start tag whose tag name is "frameset"
+ *   <dd>
+ *     Insert an HTML element for the token.
+ *     <p>Switch the insertion mode to "in frameset".
+ *   <dd>
+ *   <dt>A start tag whose tag name is one of: "base", "basefont", "bgsound", "link", "meta", "noframes", "script", "style", "template", "title"
+ *   <dd>
+ *     Parse error.
+ *     <p>Push the node pointed to by the head element pointer onto the stack of open elements.
+ *     <p>Process the token using the rules for the "in head" insertion mode.
+ *     <p>Remove the node pointed to by the head element pointer from the stack of open elements. (It might not be the current node at this point.)
+ *   </dd>
+ *   <dt>An end tag whose tag name is "template"
+ *   <dd>Process the token using the rules for the "in head" insertion mode.
+ *   <dt>An end tag whose tag name is one of: "body", "html", "br"
+ *   <dd>Act as described in the "anything else" entry below.
+ *   <dt>A start tag whose tag name is "head"
+ *   <dt>Any other end tag
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>Anything else
+ *   <dd>
+ *     Insert an HTML element for a "body" start tag token with no attributes.
+ *     <p>Switch the insertion mode to "in body".
+ *     <p>Reprocess the current token.
+ *   </dd>
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.Parser.Mode#AFTER_HEAD
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-after-head-insertion-mode">8.2.5.4.6 The "after head" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterHeadInsertionMode extends InsertionMode {
@@ -94,8 +138,7 @@ public class AfterHeadInsertionMode extends InsertionMode {
                     final boolean returnValue = processUsingRulesFor(Parser.Mode.IN_HEAD, startTagToken);
                     Element popped;
                     do {
-                        // TODO: remove all elements above this, or only this
-// one element?
+                        // TODO: remove all elements above this, or only this one element?
                         popped = popCurrentNode();
                     } while (popped != getHeadElementPointer());
                     return returnValue;

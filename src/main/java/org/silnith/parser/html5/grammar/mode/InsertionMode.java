@@ -1128,13 +1128,15 @@ public abstract class InsertionMode {
 //        }
         return element;
     }
-    
+
     /**
-     * @param tagName
-     * @return
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#insert-an-html-element">
-     *      insert an HTML element</a>
+     * Inserts an HTML element.
+     * <p>
+     * When the steps below require the user agent to insert an HTML element for a token, the user agent must insert a foreign element for the token, in the HTML namespace.
+     * 
+     * @param tagName the name of the tag to create and insert
+     * @return the newly inserted element
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#insert-an-html-element">insert an HTML element</a>
      */
     protected Element insertHTMLElement(final String tagName) {
         final StartTagToken startTagToken = new StartTagToken();
