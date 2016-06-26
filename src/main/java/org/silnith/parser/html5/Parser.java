@@ -89,6 +89,7 @@ public class Parser {
          */
         AFTER_HEAD,
         /**
+         * @see org.silnith.parser.html5.grammar.mode.InBodyInsertionMode
          * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inbody">8.2.5.4.7 The "in body" insertion mode</a>
          */
         IN_BODY,
