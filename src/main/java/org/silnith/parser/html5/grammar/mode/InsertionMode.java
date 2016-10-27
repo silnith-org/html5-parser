@@ -365,21 +365,36 @@ public abstract class InsertionMode {
     }
     
     /**
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#reconstruct-the-active-formatting-elements">
-     *      reconstruct the active formatting elements</a>
+     * Reconstructs the active formatting elements.
+     * <p>
+     * When the steps below require the UA to reconstruct the active formatting elements, the UA must perform the following steps:
+     * <ol>
+     *   <li>If there are no entries in the list of active formatting elements, then there is nothing to reconstruct; stop this algorithm.
+     *   <li>If the last (most recently added) entry in the list of active formatting elements is a marker, or if it is an element that is in the stack of open elements, then there is nothing to reconstruct; stop this algorithm.
+     *   <li>Let <var>entry</var> be the last (most recently added) element in the list of active formatting elements.
+     *   <li><dfn>Rewind</dfn>: If there are no entries before <var>entry</var> in the list of active formatting elements, then jump to the step labeled <var>create</var>.
+     *   <li>Let <var>entry</var> be the entry one earlier than <var>entry</var> in the list of active formatting elements.
+     *   <li>If <var>entry</var> is neither a marker nor an element that is also in the stack of open elements, go to the step labeled <var>rewind</var>.
+     *   <li><dfn>Advance</dfn>: Let <var>entry</var> be the element one later than <var>entry</var> in the list of active formatting elements.
+     *   <li><dfn>Create</dfn>: Insert an HTML element for the token for which the element <var>entry</var> was created, to obtain <var>new element</var>.
+     *   <li>Replace the entry for <var>entry</var> in the list with an entry for <var>new element</var>.
+     *   <li>If the entry for <var>new element</var> in the list of active formatting elements is not the last entry in the list, return to the step labeled <var>advance</var>.
+     * </ol>
+     * <p>This has the effect of reopening all the formatting elements that were opened in the current body, cell, or caption (whichever is youngest) that haven't been explicitly closed.
+     * 
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#reconstruct-the-active-formatting-elements">reconstruct the active formatting elements</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-list-of-active-formatting-elements">8.2.3.3 The list of active formatting elements</a>
      */
     protected void reconstructActiveFormattingElements() {
         final List<FormattingElement> listOfActiveFormattingElements = parser.listOfActiveFormattingElements;
         if (listOfActiveFormattingElements.isEmpty()) {
             return;
         }
-        if (parser.isMarker(
-                listOfActiveFormattingElements.get(listOfActiveFormattingElements.size() - 1))) {
+        final FormattingElement mostRecentlyAddedEntry = listOfActiveFormattingElements.get(listOfActiveFormattingElements.size() - 1);
+        if (parser.isMarker(mostRecentlyAddedEntry)) {
             return;
         }
-        if (parser.containsOpenElement(listOfActiveFormattingElements.get(
-                listOfActiveFormattingElements.size() - 1).getValue())) {
+        if (parser.containsOpenElement(mostRecentlyAddedEntry.getValue())) {
             return;
         }
         
