@@ -480,7 +480,7 @@ public class Parser {
      */
     public void pushOpenElement(final Element element) {
         if (element == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Element cannot be null.");
         }
         stackOfOpenElements.add(element);
     }
@@ -541,14 +541,14 @@ public class Parser {
      */
     public boolean containsOpenElement(final Element element) {
         if (element == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Element cannot be null.");
         }
         return stackOfOpenElements.contains(element);
     }
     
     public int getIndexOfOpenElement(final Element element) {
         if (element == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Element cannot be null.");
         }
         return stackOfOpenElements.indexOf(element);
     }
@@ -561,7 +561,7 @@ public class Parser {
      */
     public void removeOpenElement(final Element element) {
         if (element == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Element cannot be null.");
         }
         stackOfOpenElements.remove(element);
     }
@@ -711,7 +711,7 @@ public class Parser {
     
     public void pushTemplateInsertionMode(final Mode mode) {
         if (mode == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Mode cannot be null.");
         }
         stackOfTemplateInsertionModes.add(mode);
     }
@@ -730,7 +730,7 @@ public class Parser {
     
     public void setTokenizerState(final Tokenizer.State state) {
         if (state == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("State cannot be null.");
         }
         tokenizer.setState(state);
     }
@@ -746,7 +746,7 @@ public class Parser {
      */
     public boolean isMathMLTextIntegrationPoint(final Element element) {
         if (element == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Element cannot be null");
         }
         final String namespace = element.getNamespaceURI();
         final String tagName = element.getTagName();
@@ -777,7 +777,7 @@ public class Parser {
      */
     public boolean isHTMLIntegrationPoint(final Element element) {
         if (element == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Element cannot be null");
         }
         final String namespace = element.getNamespaceURI();
         final String tagName = element.getTagName();
@@ -812,7 +812,7 @@ public class Parser {
      */
     protected boolean treeConstructionDispatcher(final Token token) {
         if (token == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Element cannot be null");
         }
         final Element adjustedCurrentNode = getAdjustedCurrentNode();
         
@@ -865,7 +865,7 @@ public class Parser {
     
     private boolean insertForeignContent(final Token token) {
         if (token == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Token cannot be null");
         }
         return foreignContentMode.insert(token);
     }
@@ -912,10 +912,10 @@ public class Parser {
      */
     public boolean processUsingRulesFor(final Mode mode, final Token token) {
         if (mode == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Mode cannot be null");
         }
         if (token == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Token cannot be null");
         }
         final InsertionMode modeHandler = insertionModeMap.get(mode);
         return modeHandler.insert(token);
