@@ -160,2247 +160,2244 @@ import java.util.TreeMap;
     /**
      * The map of named character references.
      * <p>This table lists the character reference names that are supported by HTML, and the code points to which they refer. It is referenced by the previous sections.</p>
-     * <div id="named-character-references-table">
-     *   <table>
-     *     <thead>
-     *       <tr><th> Name </th> <th> Character(s) </th> <th> Glyph </th> </tr>
-     *     </thead>
-     *     <tbody>
-     *       <tr id="entity-Aacute"><td> <code title="">Aacute;</code> </td> <td> U+000C1 </td> <td> <span class="glyph" title="">Á</span> </td> </tr>
-     *       <tr class="impl" id="entity-Aacute-legacy"><td> <code title="">Aacute</code> </td> <td> U+000C1 </td> <td> <span title="">Á</span> </td> </tr>
-     *       <tr id="entity-aacute"><td> <code title="">aacute;</code> </td> <td> U+000E1 </td> <td> <span class="glyph" title="">á</span> </td> </tr>
-     *       <tr class="impl" id="entity-aacute-legacy"><td> <code title="">aacute</code> </td> <td> U+000E1 </td> <td> <span title="">á</span> </td> </tr>
-     *       <tr id="entity-Abreve"><td> <code title="">Abreve;</code> </td> <td> U+00102 </td> <td> <span class="glyph" title="">Ă</span> </td> </tr>
-     *       <tr id="entity-abreve"><td> <code title="">abreve;</code> </td> <td> U+00103 </td> <td> <span class="glyph" title="">ă</span> </td> </tr>
-     *       <tr id="entity-ac"><td> <code title="">ac;</code> </td> <td> U+0223E </td> <td> <span class="glyph" title="">∾</span> </td> </tr>
-     *       <tr id="entity-acd"><td> <code title="">acd;</code> </td> <td> U+0223F </td> <td> <span class="glyph" title="">∿</span> </td> </tr>
-     *       <tr id="entity-acE"><td> <code title="">acE;</code> </td> <td> U+0223E U+00333 </td> <td> <span class="glyph compound" title="">∾̳</span> </td> </tr>
-     *       <tr id="entity-Acirc"><td> <code title="">Acirc;</code> </td> <td> U+000C2 </td> <td> <span class="glyph" title="">Â</span> </td> </tr>
-     *       <tr class="impl" id="entity-Acirc-legacy"><td> <code title="">Acirc</code> </td> <td> U+000C2 </td> <td> <span title="">Â</span> </td> </tr>
-     *       <tr id="entity-acirc"><td> <code title="">acirc;</code> </td> <td> U+000E2 </td> <td> <span class="glyph" title="">â</span> </td> </tr>
-     *       <tr class="impl" id="entity-acirc-legacy"><td> <code title="">acirc</code> </td> <td> U+000E2 </td> <td> <span title="">â</span> </td> </tr>
-     *       <tr id="entity-acute"><td> <code title="">acute;</code> </td> <td> U+000B4 </td> <td> <span class="glyph" title="">´</span> </td> </tr>
-     *       <tr class="impl" id="entity-acute-legacy"><td> <code title="">acute</code> </td> <td> U+000B4 </td> <td> <span title="">´</span> </td> </tr>
-     *       <tr id="entity-Acy"><td> <code title="">Acy;</code> </td> <td> U+00410 </td> <td> <span class="glyph" title="">А</span> </td> </tr>
-     *       <tr id="entity-acy"><td> <code title="">acy;</code> </td> <td> U+00430 </td> <td> <span class="glyph" title="">а</span> </td> </tr>
-     *       <tr id="entity-AElig"><td> <code title="">AElig;</code> </td> <td> U+000C6 </td> <td> <span class="glyph" title="">Æ</span> </td> </tr>
-     *       <tr class="impl" id="entity-AElig-legacy"><td> <code title="">AElig</code> </td> <td> U+000C6 </td> <td> <span title="">Æ</span> </td> </tr>
-     *       <tr id="entity-aelig"><td> <code title="">aelig;</code> </td> <td> U+000E6 </td> <td> <span class="glyph" title="">æ</span> </td> </tr>
-     *       <tr class="impl" id="entity-aelig-legacy"><td> <code title="">aelig</code> </td> <td> U+000E6 </td> <td> <span title="">æ</span> </td> </tr>
-     *       <tr id="entity-af"><td> <code title="">af;</code> </td> <td> U+02061 </td> <td> <span class="glyph" title="">⁡</span> </td> </tr>
-     *       <tr id="entity-Afr"><td> <code title="">Afr;</code> </td> <td> U+1D504 </td> <td> <span class="glyph" title="">𝔄</span> </td> </tr>
-     *       <tr id="entity-afr"><td> <code title="">afr;</code> </td> <td> U+1D51E </td> <td> <span class="glyph" title="">𝔞</span> </td> </tr>
-     *       <tr id="entity-Agrave"><td> <code title="">Agrave;</code> </td> <td> U+000C0 </td> <td> <span class="glyph" title="">À</span> </td> </tr>
-     *       <tr class="impl" id="entity-Agrave-legacy"><td> <code title="">Agrave</code> </td> <td> U+000C0 </td> <td> <span title="">À</span> </td> </tr>
-     *       <tr id="entity-agrave"><td> <code title="">agrave;</code> </td> <td> U+000E0 </td> <td> <span class="glyph" title="">à</span> </td> </tr>
-     *       <tr class="impl" id="entity-agrave-legacy"><td> <code title="">agrave</code> </td> <td> U+000E0 </td> <td> <span title="">à</span> </td> </tr>
-     *       <tr id="entity-alefsym"><td> <code title="">alefsym;</code> </td> <td> U+02135 </td> <td> <span class="glyph" title="">ℵ</span> </td> </tr>
-     *       <tr id="entity-aleph"><td> <code title="">aleph;</code> </td> <td> U+02135 </td> <td> <span class="glyph" title="">ℵ</span> </td> </tr>
-     *       <tr id="entity-Alpha"><td> <code title="">Alpha;</code> </td> <td> U+00391 </td> <td> <span class="glyph" title="">Α</span> </td> </tr>
-     *       <tr id="entity-alpha"><td> <code title="">alpha;</code> </td> <td> U+003B1 </td> <td> <span class="glyph" title="">α</span> </td> </tr>
-     *       <tr id="entity-Amacr"><td> <code title="">Amacr;</code> </td> <td> U+00100 </td> <td> <span class="glyph" title="">Ā</span> </td> </tr>
-     *       <tr id="entity-amacr"><td> <code title="">amacr;</code> </td> <td> U+00101 </td> <td> <span class="glyph" title="">ā</span> </td> </tr>
-     *       <tr id="entity-amalg"><td> <code title="">amalg;</code> </td> <td> U+02A3F </td> <td> <span class="glyph" title="">⨿</span> </td> </tr>
-     *       <tr id="entity-AMP"><td> <code title="">AMP;</code> </td> <td> U+00026 </td> <td> <span class="glyph" title="">&amp;</span> </td> </tr>
-     *       <tr class="impl" id="entity-AMP-legacy"><td> <code title="">AMP</code> </td> <td> U+00026 </td> <td> <span title="">&amp;</span> </td> </tr>
-     *       <tr id="entity-amp"><td> <code title="">amp;</code> </td> <td> U+00026 </td> <td> <span class="glyph" title="">&amp;</span> </td> </tr>
-     *       <tr class="impl" id="entity-amp-legacy"><td> <code title="">amp</code> </td> <td> U+00026 </td> <td> <span title="">&amp;</span> </td> </tr>
-     *       <tr id="entity-And"><td> <code title="">And;</code> </td> <td> U+02A53 </td> <td> <span class="glyph" title="">⩓</span> </td> </tr>
-     *       <tr id="entity-and"><td> <code title="">and;</code> </td> <td> U+02227 </td> <td> <span class="glyph" title="">∧</span> </td> </tr>
-     *       <tr id="entity-andand"><td> <code title="">andand;</code> </td> <td> U+02A55 </td> <td> <span class="glyph" title="">⩕</span> </td> </tr>
-     *       <tr id="entity-andd"><td> <code title="">andd;</code> </td> <td> U+02A5C </td> <td> <span class="glyph" title="">⩜</span> </td> </tr>
-     *       <tr id="entity-andslope"><td> <code title="">andslope;</code> </td> <td> U+02A58 </td> <td> <span class="glyph" title="">⩘</span> </td> </tr>
-     *       <tr id="entity-andv"><td> <code title="">andv;</code> </td> <td> U+02A5A </td> <td> <span class="glyph" title="">⩚</span> </td> </tr>
-     *       <tr id="entity-ang"><td> <code title="">ang;</code> </td> <td> U+02220 </td> <td> <span class="glyph" title="">∠</span> </td> </tr>
-     *       <tr id="entity-ange"><td> <code title="">ange;</code> </td> <td> U+029A4 </td> <td> <span class="glyph" title="">⦤</span> </td> </tr>
-     *       <tr id="entity-angle"><td> <code title="">angle;</code> </td> <td> U+02220 </td> <td> <span class="glyph" title="">∠</span> </td> </tr>
-     *       <tr id="entity-angmsd"><td> <code title="">angmsd;</code> </td> <td> U+02221 </td> <td> <span class="glyph" title="">∡</span> </td> </tr>
-     *       <tr id="entity-angmsdaa"><td> <code title="">angmsdaa;</code> </td> <td> U+029A8 </td> <td> <span class="glyph" title="">⦨</span> </td> </tr>
-     *       <tr id="entity-angmsdab"><td> <code title="">angmsdab;</code> </td> <td> U+029A9 </td> <td> <span class="glyph" title="">⦩</span> </td> </tr>
-     *       <tr id="entity-angmsdac"><td> <code title="">angmsdac;</code> </td> <td> U+029AA </td> <td> <span class="glyph" title="">⦪</span> </td> </tr>
-     *       <tr id="entity-angmsdad"><td> <code title="">angmsdad;</code> </td> <td> U+029AB </td> <td> <span class="glyph" title="">⦫</span> </td> </tr>
-     *       <tr id="entity-angmsdae"><td> <code title="">angmsdae;</code> </td> <td> U+029AC </td> <td> <span class="glyph" title="">⦬</span> </td> </tr>
-     *       <tr id="entity-angmsdaf"><td> <code title="">angmsdaf;</code> </td> <td> U+029AD </td> <td> <span class="glyph" title="">⦭</span> </td> </tr>
-     *       <tr id="entity-angmsdag"><td> <code title="">angmsdag;</code> </td> <td> U+029AE </td> <td> <span class="glyph" title="">⦮</span> </td> </tr>
-     *       <tr id="entity-angmsdah"><td> <code title="">angmsdah;</code> </td> <td> U+029AF </td> <td> <span class="glyph" title="">⦯</span> </td> </tr>
-     *       <tr id="entity-angrt"><td> <code title="">angrt;</code> </td> <td> U+0221F </td> <td> <span class="glyph" title="">∟</span> </td> </tr>
-     *       <tr id="entity-angrtvb"><td> <code title="">angrtvb;</code> </td> <td> U+022BE </td> <td> <span class="glyph" title="">⊾</span> </td> </tr>
-     *       <tr id="entity-angrtvbd"><td> <code title="">angrtvbd;</code> </td> <td> U+0299D </td> <td> <span class="glyph" title="">⦝</span> </td> </tr>
-     *       <tr id="entity-angsph"><td> <code title="">angsph;</code> </td> <td> U+02222 </td> <td> <span class="glyph" title="">∢</span> </td> </tr>
-     *       <tr id="entity-angst"><td> <code title="">angst;</code> </td> <td> U+000C5 </td> <td> <span class="glyph" title="">Å</span> </td> </tr>
-     *       <tr id="entity-angzarr"><td> <code title="">angzarr;</code> </td> <td> U+0237C </td> <td> <span class="glyph" title="">⍼</span> </td> </tr>
-     *       <tr id="entity-Aogon"><td> <code title="">Aogon;</code> </td> <td> U+00104 </td> <td> <span class="glyph" title="">Ą</span> </td> </tr>
-     *       <tr id="entity-aogon"><td> <code title="">aogon;</code> </td> <td> U+00105 </td> <td> <span class="glyph" title="">ą</span> </td> </tr>
-     *       <tr id="entity-Aopf"><td> <code title="">Aopf;</code> </td> <td> U+1D538 </td> <td> <span class="glyph" title="">𝔸</span> </td> </tr>
-     *       <tr id="entity-aopf"><td> <code title="">aopf;</code> </td> <td> U+1D552 </td> <td> <span class="glyph" title="">𝕒</span> </td> </tr>
-     *       <tr id="entity-ap"><td> <code title="">ap;</code> </td> <td> U+02248 </td> <td> <span class="glyph" title="">≈</span> </td> </tr>
-     *       <tr id="entity-apacir"><td> <code title="">apacir;</code> </td> <td> U+02A6F </td> <td> <span class="glyph" title="">⩯</span> </td> </tr>
-     *       <tr id="entity-apE"><td> <code title="">apE;</code> </td> <td> U+02A70 </td> <td> <span class="glyph" title="">⩰</span> </td> </tr>
-     *       <tr id="entity-ape"><td> <code title="">ape;</code> </td> <td> U+0224A </td> <td> <span class="glyph" title="">≊</span> </td> </tr>
-     *       <tr id="entity-apid"><td> <code title="">apid;</code> </td> <td> U+0224B </td> <td> <span class="glyph" title="">≋</span> </td> </tr>
-     *       <tr id="entity-apos"><td> <code title="">apos;</code> </td> <td> U+00027 </td> <td> <span class="glyph" title="">'</span> </td> </tr>
-     *       <tr id="entity-ApplyFunction"><td> <code title="">ApplyFunction;</code> </td> <td> U+02061 </td> <td> <span class="glyph" title="">⁡</span> </td> </tr>
-     *       <tr id="entity-approx"><td> <code title="">approx;</code> </td> <td> U+02248 </td> <td> <span class="glyph" title="">≈</span> </td> </tr>
-     *       <tr id="entity-approxeq"><td> <code title="">approxeq;</code> </td> <td> U+0224A </td> <td> <span class="glyph" title="">≊</span> </td> </tr>
-     *       <tr id="entity-Aring"><td> <code title="">Aring;</code> </td> <td> U+000C5 </td> <td> <span class="glyph" title="">Å</span> </td> </tr>
-     *       <tr class="impl" id="entity-Aring-legacy"><td> <code title="">Aring</code> </td> <td> U+000C5 </td> <td> <span title="">Å</span> </td> </tr>
-     *       <tr id="entity-aring"><td> <code title="">aring;</code> </td> <td> U+000E5 </td> <td> <span class="glyph" title="">å</span> </td> </tr>
-     *       <tr class="impl" id="entity-aring-legacy"><td> <code title="">aring</code> </td> <td> U+000E5 </td> <td> <span title="">å</span> </td> </tr>
-     *       <tr id="entity-Ascr"><td> <code title="">Ascr;</code> </td> <td> U+1D49C </td> <td> <span class="glyph" title="">𝒜</span> </td> </tr>
-     *       <tr id="entity-ascr"><td> <code title="">ascr;</code> </td> <td> U+1D4B6 </td> <td> <span class="glyph" title="">𝒶</span> </td> </tr>
-     *       <tr id="entity-Assign"><td> <code title="">Assign;</code> </td> <td> U+02254 </td> <td> <span class="glyph" title="">≔</span> </td> </tr>
-     *       <tr id="entity-ast"><td> <code title="">ast;</code> </td> <td> U+0002A </td> <td> <span class="glyph" title="">*</span> </td> </tr>
-     *       <tr id="entity-asymp"><td> <code title="">asymp;</code> </td> <td> U+02248 </td> <td> <span class="glyph" title="">≈</span> </td> </tr>
-     *       <tr id="entity-asympeq"><td> <code title="">asympeq;</code> </td> <td> U+0224D </td> <td> <span class="glyph" title="">≍</span> </td> </tr>
-     *       <tr id="entity-Atilde"><td> <code title="">Atilde;</code> </td> <td> U+000C3 </td> <td> <span class="glyph" title="">Ã</span> </td> </tr>
-     *       <tr class="impl" id="entity-Atilde-legacy"><td> <code title="">Atilde</code> </td> <td> U+000C3 </td> <td> <span title="">Ã</span> </td> </tr>
-     *       <tr id="entity-atilde"><td> <code title="">atilde;</code> </td> <td> U+000E3 </td> <td> <span class="glyph" title="">ã</span> </td> </tr>
-     *       <tr class="impl" id="entity-atilde-legacy"><td> <code title="">atilde</code> </td> <td> U+000E3 </td> <td> <span title="">ã</span> </td> </tr>
-     *       <tr id="entity-Auml"><td> <code title="">Auml;</code> </td> <td> U+000C4 </td> <td> <span class="glyph" title="">Ä</span> </td> </tr>
-     *       <tr class="impl" id="entity-Auml-legacy"><td> <code title="">Auml</code> </td> <td> U+000C4 </td> <td> <span title="">Ä</span> </td> </tr>
-     *       <tr id="entity-auml"><td> <code title="">auml;</code> </td> <td> U+000E4 </td> <td> <span class="glyph" title="">ä</span> </td> </tr>
-     *       <tr class="impl" id="entity-auml-legacy"><td> <code title="">auml</code> </td> <td> U+000E4 </td> <td> <span title="">ä</span> </td> </tr>
-     *       <tr id="entity-awconint"><td> <code title="">awconint;</code> </td> <td> U+02233 </td> <td> <span class="glyph" title="">∳</span> </td> </tr>
-     *       <tr id="entity-awint"><td> <code title="">awint;</code> </td> <td> U+02A11 </td> <td> <span class="glyph" title="">⨑</span> </td> </tr>
-     *       <tr id="entity-backcong"><td> <code title="">backcong;</code> </td> <td> U+0224C </td> <td> <span class="glyph" title="">≌</span> </td> </tr>
-     *       <tr id="entity-backepsilon"><td> <code title="">backepsilon;</code> </td> <td> U+003F6 </td> <td> <span class="glyph" title="">϶</span> </td> </tr>
-     *       <tr id="entity-backprime"><td> <code title="">backprime;</code> </td> <td> U+02035 </td> <td> <span class="glyph" title="">‵</span> </td> </tr>
-     *       <tr id="entity-backsim"><td> <code title="">backsim;</code> </td> <td> U+0223D </td> <td> <span class="glyph" title="">∽</span> </td> </tr>
-     *       <tr id="entity-backsimeq"><td> <code title="">backsimeq;</code> </td> <td> U+022CD </td> <td> <span class="glyph" title="">⋍</span> </td> </tr>
-     *       <tr id="entity-Backslash"><td> <code title="">Backslash;</code> </td> <td> U+02216 </td> <td> <span class="glyph" title="">∖</span> </td> </tr>
-     *       <tr id="entity-Barv"><td> <code title="">Barv;</code> </td> <td> U+02AE7 </td> <td> <span class="glyph" title="">⫧</span> </td> </tr>
-     *       <tr id="entity-barvee"><td> <code title="">barvee;</code> </td> <td> U+022BD </td> <td> <span class="glyph" title="">⊽</span> </td> </tr>
-     *       <tr id="entity-Barwed"><td> <code title="">Barwed;</code> </td> <td> U+02306 </td> <td> <span class="glyph" title="">⌆</span> </td> </tr>
-     *       <tr id="entity-barwed"><td> <code title="">barwed;</code> </td> <td> U+02305 </td> <td> <span class="glyph" title="">⌅</span> </td> </tr>
-     *       <tr id="entity-barwedge"><td> <code title="">barwedge;</code> </td> <td> U+02305 </td> <td> <span class="glyph" title="">⌅</span> </td> </tr>
-     *       <tr id="entity-bbrk"><td> <code title="">bbrk;</code> </td> <td> U+023B5 </td> <td> <span class="glyph" title="">⎵</span> </td> </tr>
-     *       <tr id="entity-bbrktbrk"><td> <code title="">bbrktbrk;</code> </td> <td> U+023B6 </td> <td> <span class="glyph" title="">⎶</span> </td> </tr>
-     *       <tr id="entity-bcong"><td> <code title="">bcong;</code> </td> <td> U+0224C </td> <td> <span class="glyph" title="">≌</span> </td> </tr>
-     *       <tr id="entity-Bcy"><td> <code title="">Bcy;</code> </td> <td> U+00411 </td> <td> <span class="glyph" title="">Б</span> </td> </tr>
-     *       <tr id="entity-bcy"><td> <code title="">bcy;</code> </td> <td> U+00431 </td> <td> <span class="glyph" title="">б</span> </td> </tr>
-     *       <tr id="entity-bdquo"><td> <code title="">bdquo;</code> </td> <td> U+0201E </td> <td> <span class="glyph" title="">„</span> </td> </tr>
-     *       <tr id="entity-becaus"><td> <code title="">becaus;</code> </td> <td> U+02235 </td> <td> <span class="glyph" title="">∵</span> </td> </tr>
-     *       <tr id="entity-Because"><td> <code title="">Because;</code> </td> <td> U+02235 </td> <td> <span class="glyph" title="">∵</span> </td> </tr>
-     *       <tr id="entity-because"><td> <code title="">because;</code> </td> <td> U+02235 </td> <td> <span class="glyph" title="">∵</span> </td> </tr>
-     *       <tr id="entity-bemptyv"><td> <code title="">bemptyv;</code> </td> <td> U+029B0 </td> <td> <span class="glyph" title="">⦰</span> </td> </tr>
-     *       <tr id="entity-bepsi"><td> <code title="">bepsi;</code> </td> <td> U+003F6 </td> <td> <span class="glyph" title="">϶</span> </td> </tr>
-     *       <tr id="entity-bernou"><td> <code title="">bernou;</code> </td> <td> U+0212C </td> <td> <span class="glyph" title="">ℬ</span> </td> </tr>
-     *       <tr id="entity-Bernoullis"><td> <code title="">Bernoullis;</code> </td> <td> U+0212C </td> <td> <span class="glyph" title="">ℬ</span> </td> </tr>
-     *       <tr id="entity-Beta"><td> <code title="">Beta;</code> </td> <td> U+00392 </td> <td> <span class="glyph" title="">Β</span> </td> </tr>
-     *       <tr id="entity-beta"><td> <code title="">beta;</code> </td> <td> U+003B2 </td> <td> <span class="glyph" title="">β</span> </td> </tr>
-     *       <tr id="entity-beth"><td> <code title="">beth;</code> </td> <td> U+02136 </td> <td> <span class="glyph" title="">ℶ</span> </td> </tr>
-     *       <tr id="entity-between"><td> <code title="">between;</code> </td> <td> U+0226C </td> <td> <span class="glyph" title="">≬</span> </td> </tr>
-     *       <tr id="entity-Bfr"><td> <code title="">Bfr;</code> </td> <td> U+1D505 </td> <td> <span class="glyph" title="">𝔅</span> </td> </tr>
-     *       <tr id="entity-bfr"><td> <code title="">bfr;</code> </td> <td> U+1D51F </td> <td> <span class="glyph" title="">𝔟</span> </td> </tr>
-     *       <tr id="entity-bigcap"><td> <code title="">bigcap;</code> </td> <td> U+022C2 </td> <td> <span class="glyph" title="">⋂</span> </td> </tr>
-     *       <tr id="entity-bigcirc"><td> <code title="">bigcirc;</code> </td> <td> U+025EF </td> <td> <span class="glyph" title="">◯</span> </td> </tr>
-     *       <tr id="entity-bigcup"><td> <code title="">bigcup;</code> </td> <td> U+022C3 </td> <td> <span class="glyph" title="">⋃</span> </td> </tr>
-     *       <tr id="entity-bigodot"><td> <code title="">bigodot;</code> </td> <td> U+02A00 </td> <td> <span class="glyph" title="">⨀</span> </td> </tr>
-     *       <tr id="entity-bigoplus"><td> <code title="">bigoplus;</code> </td> <td> U+02A01 </td> <td> <span class="glyph" title="">⨁</span> </td> </tr>
-     *       <tr id="entity-bigotimes"><td> <code title="">bigotimes;</code> </td> <td> U+02A02 </td> <td> <span class="glyph" title="">⨂</span> </td> </tr>
-     *       <tr id="entity-bigsqcup"><td> <code title="">bigsqcup;</code> </td> <td> U+02A06 </td> <td> <span class="glyph" title="">⨆</span> </td> </tr>
-     *       <tr id="entity-bigstar"><td> <code title="">bigstar;</code> </td> <td> U+02605 </td> <td> <span class="glyph" title="">★</span> </td> </tr>
-     *       <tr id="entity-bigtriangledown"><td> <code title="">bigtriangledown;</code> </td> <td> U+025BD </td> <td> <span class="glyph" title="">▽</span> </td> </tr>
-     *       <tr id="entity-bigtriangleup"><td> <code title="">bigtriangleup;</code> </td> <td> U+025B3 </td> <td> <span class="glyph" title="">△</span> </td> </tr>
-     *       <tr id="entity-biguplus"><td> <code title="">biguplus;</code> </td> <td> U+02A04 </td> <td> <span class="glyph" title="">⨄</span> </td> </tr>
-     *       <tr id="entity-bigvee"><td> <code title="">bigvee;</code> </td> <td> U+022C1 </td> <td> <span class="glyph" title="">⋁</span> </td> </tr>
-     *       <tr id="entity-bigwedge"><td> <code title="">bigwedge;</code> </td> <td> U+022C0 </td> <td> <span class="glyph" title="">⋀</span> </td> </tr>
-     *       <tr id="entity-bkarow"><td> <code title="">bkarow;</code> </td> <td> U+0290D </td> <td> <span class="glyph" title="">⤍</span> </td> </tr>
-     *       <tr id="entity-blacklozenge"><td> <code title="">blacklozenge;</code> </td> <td> U+029EB </td> <td> <span class="glyph" title="">⧫</span> </td> </tr>
-     *       <tr id="entity-blacksquare"><td> <code title="">blacksquare;</code> </td> <td> U+025AA </td> <td> <span class="glyph" title="">▪</span> </td> </tr>
-     *       <tr id="entity-blacktriangle"><td> <code title="">blacktriangle;</code> </td> <td> U+025B4 </td> <td> <span class="glyph" title="">▴</span> </td> </tr>
-     *       <tr id="entity-blacktriangledown"><td> <code title="">blacktriangledown;</code> </td> <td> U+025BE </td> <td> <span class="glyph" title="">▾</span> </td> </tr>
-     *       <tr id="entity-blacktriangleleft"><td> <code title="">blacktriangleleft;</code> </td> <td> U+025C2 </td> <td> <span class="glyph" title="">◂</span> </td> </tr>
-     *       <tr id="entity-blacktriangleright"><td> <code title="">blacktriangleright;</code> </td> <td> U+025B8 </td> <td> <span class="glyph" title="">▸</span> </td> </tr>
-     *       <tr id="entity-blank"><td> <code title="">blank;</code> </td> <td> U+02423 </td> <td> <span class="glyph" title="">␣</span> </td> </tr>
-     *       <tr id="entity-blk12"><td> <code title="">blk12;</code> </td> <td> U+02592 </td> <td> <span class="glyph" title="">▒</span> </td> </tr>
-     *       <tr id="entity-blk14"><td> <code title="">blk14;</code> </td> <td> U+02591 </td> <td> <span class="glyph" title="">░</span> </td> </tr>
-     *       <tr id="entity-blk34"><td> <code title="">blk34;</code> </td> <td> U+02593 </td> <td> <span class="glyph" title="">▓</span> </td> </tr>
-     *       <tr id="entity-block"><td> <code title="">block;</code> </td> <td> U+02588 </td> <td> <span class="glyph" title="">█</span> </td> </tr>
-     *       <tr id="entity-bne"><td> <code title="">bne;</code> </td> <td> U+0003D U+020E5 </td> <td> <span class="glyph compound" title="">=⃥</span> </td> </tr>
-     *       <tr id="entity-bnequiv"><td> <code title="">bnequiv;</code> </td> <td> U+02261 U+020E5 </td> <td> <span class="glyph compound" title="">≡⃥</span> </td> </tr>
-     *       <tr id="entity-bNot"><td> <code title="">bNot;</code> </td> <td> U+02AED </td> <td> <span class="glyph" title="">⫭</span> </td> </tr>
-     *       <tr id="entity-bnot"><td> <code title="">bnot;</code> </td> <td> U+02310 </td> <td> <span class="glyph" title="">⌐</span> </td> </tr>
-     *       <tr id="entity-Bopf"><td> <code title="">Bopf;</code> </td> <td> U+1D539 </td> <td> <span class="glyph" title="">𝔹</span> </td> </tr>
-     *       <tr id="entity-bopf"><td> <code title="">bopf;</code> </td> <td> U+1D553 </td> <td> <span class="glyph" title="">𝕓</span> </td> </tr>
-     *       <tr id="entity-bot"><td> <code title="">bot;</code> </td> <td> U+022A5 </td> <td> <span class="glyph" title="">⊥</span> </td> </tr>
-     *       <tr id="entity-bottom"><td> <code title="">bottom;</code> </td> <td> U+022A5 </td> <td> <span class="glyph" title="">⊥</span> </td> </tr>
-     *       <tr id="entity-bowtie"><td> <code title="">bowtie;</code> </td> <td> U+022C8 </td> <td> <span class="glyph" title="">⋈</span> </td> </tr>
-     *       <tr id="entity-boxbox"><td> <code title="">boxbox;</code> </td> <td> U+029C9 </td> <td> <span class="glyph" title="">⧉</span> </td> </tr>
-     *       <tr id="entity-boxDL"><td> <code title="">boxDL;</code> </td> <td> U+02557 </td> <td> <span class="glyph" title="">╗</span> </td> </tr>
-     *       <tr id="entity-boxDl"><td> <code title="">boxDl;</code> </td> <td> U+02556 </td> <td> <span class="glyph" title="">╖</span> </td> </tr>
-     *       <tr id="entity-boxdL"><td> <code title="">boxdL;</code> </td> <td> U+02555 </td> <td> <span class="glyph" title="">╕</span> </td> </tr>
-     *       <tr id="entity-boxdl"><td> <code title="">boxdl;</code> </td> <td> U+02510 </td> <td> <span class="glyph" title="">┐</span> </td> </tr>
-     *       <tr id="entity-boxDR"><td> <code title="">boxDR;</code> </td> <td> U+02554 </td> <td> <span class="glyph" title="">╔</span> </td> </tr>
-     *       <tr id="entity-boxDr"><td> <code title="">boxDr;</code> </td> <td> U+02553 </td> <td> <span class="glyph" title="">╓</span> </td> </tr>
-     *       <tr id="entity-boxdR"><td> <code title="">boxdR;</code> </td> <td> U+02552 </td> <td> <span class="glyph" title="">╒</span> </td> </tr>
-     *       <tr id="entity-boxdr"><td> <code title="">boxdr;</code> </td> <td> U+0250C </td> <td> <span class="glyph" title="">┌</span> </td> </tr>
-     *       <tr id="entity-boxH"><td> <code title="">boxH;</code> </td> <td> U+02550 </td> <td> <span class="glyph" title="">═</span> </td> </tr>
-     *       <tr id="entity-boxh"><td> <code title="">boxh;</code> </td> <td> U+02500 </td> <td> <span class="glyph" title="">─</span> </td> </tr>
-     *       <tr id="entity-boxHD"><td> <code title="">boxHD;</code> </td> <td> U+02566 </td> <td> <span class="glyph" title="">╦</span> </td> </tr>
-     *       <tr id="entity-boxHd"><td> <code title="">boxHd;</code> </td> <td> U+02564 </td> <td> <span class="glyph" title="">╤</span> </td> </tr>
-     *       <tr id="entity-boxhD"><td> <code title="">boxhD;</code> </td> <td> U+02565 </td> <td> <span class="glyph" title="">╥</span> </td> </tr>
-     *       <tr id="entity-boxhd"><td> <code title="">boxhd;</code> </td> <td> U+0252C </td> <td> <span class="glyph" title="">┬</span> </td> </tr>
-     *       <tr id="entity-boxHU"><td> <code title="">boxHU;</code> </td> <td> U+02569 </td> <td> <span class="glyph" title="">╩</span> </td> </tr>
-     *       <tr id="entity-boxHu"><td> <code title="">boxHu;</code> </td> <td> U+02567 </td> <td> <span class="glyph" title="">╧</span> </td> </tr>
-     *       <tr id="entity-boxhU"><td> <code title="">boxhU;</code> </td> <td> U+02568 </td> <td> <span class="glyph" title="">╨</span> </td> </tr>
-     *       <tr id="entity-boxhu"><td> <code title="">boxhu;</code> </td> <td> U+02534 </td> <td> <span class="glyph" title="">┴</span> </td> </tr>
-     *       <tr id="entity-boxminus"><td> <code title="">boxminus;</code> </td> <td> U+0229F </td> <td> <span class="glyph" title="">⊟</span> </td> </tr>
-     *       <tr id="entity-boxplus"><td> <code title="">boxplus;</code> </td> <td> U+0229E </td> <td> <span class="glyph" title="">⊞</span> </td> </tr>
-     *       <tr id="entity-boxtimes"><td> <code title="">boxtimes;</code> </td> <td> U+022A0 </td> <td> <span class="glyph" title="">⊠</span> </td> </tr>
-     *       <tr id="entity-boxUL"><td> <code title="">boxUL;</code> </td> <td> U+0255D </td> <td> <span class="glyph" title="">╝</span> </td> </tr>
-     *       <tr id="entity-boxUl"><td> <code title="">boxUl;</code> </td> <td> U+0255C </td> <td> <span class="glyph" title="">╜</span> </td> </tr>
-     *       <tr id="entity-boxuL"><td> <code title="">boxuL;</code> </td> <td> U+0255B </td> <td> <span class="glyph" title="">╛</span> </td> </tr>
-     *       <tr id="entity-boxul"><td> <code title="">boxul;</code> </td> <td> U+02518 </td> <td> <span class="glyph" title="">┘</span> </td> </tr>
-     *       <tr id="entity-boxUR"><td> <code title="">boxUR;</code> </td> <td> U+0255A </td> <td> <span class="glyph" title="">╚</span> </td> </tr>
-     *       <tr id="entity-boxUr"><td> <code title="">boxUr;</code> </td> <td> U+02559 </td> <td> <span class="glyph" title="">╙</span> </td> </tr>
-     *       <tr id="entity-boxuR"><td> <code title="">boxuR;</code> </td> <td> U+02558 </td> <td> <span class="glyph" title="">╘</span> </td> </tr>
-     *       <tr id="entity-boxur"><td> <code title="">boxur;</code> </td> <td> U+02514 </td> <td> <span class="glyph" title="">└</span> </td> </tr>
-     *       <tr id="entity-boxV"><td> <code title="">boxV;</code> </td> <td> U+02551 </td> <td> <span class="glyph" title="">║</span> </td> </tr>
-     *       <tr id="entity-boxv"><td> <code title="">boxv;</code> </td> <td> U+02502 </td> <td> <span class="glyph" title="">│</span> </td> </tr>
-     *       <tr id="entity-boxVH"><td> <code title="">boxVH;</code> </td> <td> U+0256C </td> <td> <span class="glyph" title="">╬</span> </td> </tr>
-     *       <tr id="entity-boxVh"><td> <code title="">boxVh;</code> </td> <td> U+0256B </td> <td> <span class="glyph" title="">╫</span> </td> </tr>
-     *       <tr id="entity-boxvH"><td> <code title="">boxvH;</code> </td> <td> U+0256A </td> <td> <span class="glyph" title="">╪</span> </td> </tr>
-     *       <tr id="entity-boxvh"><td> <code title="">boxvh;</code> </td> <td> U+0253C </td> <td> <span class="glyph" title="">┼</span> </td> </tr>
-     *       <tr id="entity-boxVL"><td> <code title="">boxVL;</code> </td> <td> U+02563 </td> <td> <span class="glyph" title="">╣</span> </td> </tr>
-     *       <tr id="entity-boxVl"><td> <code title="">boxVl;</code> </td> <td> U+02562 </td> <td> <span class="glyph" title="">╢</span> </td> </tr>
-     *       <tr id="entity-boxvL"><td> <code title="">boxvL;</code> </td> <td> U+02561 </td> <td> <span class="glyph" title="">╡</span> </td> </tr>
-     *       <tr id="entity-boxvl"><td> <code title="">boxvl;</code> </td> <td> U+02524 </td> <td> <span class="glyph" title="">┤</span> </td> </tr>
-     *       <tr id="entity-boxVR"><td> <code title="">boxVR;</code> </td> <td> U+02560 </td> <td> <span class="glyph" title="">╠</span> </td> </tr>
-     *       <tr id="entity-boxVr"><td> <code title="">boxVr;</code> </td> <td> U+0255F </td> <td> <span class="glyph" title="">╟</span> </td> </tr>
-     *       <tr id="entity-boxvR"><td> <code title="">boxvR;</code> </td> <td> U+0255E </td> <td> <span class="glyph" title="">╞</span> </td> </tr>
-     *       <tr id="entity-boxvr"><td> <code title="">boxvr;</code> </td> <td> U+0251C </td> <td> <span class="glyph" title="">├</span> </td> </tr>
-     *       <tr id="entity-bprime"><td> <code title="">bprime;</code> </td> <td> U+02035 </td> <td> <span class="glyph" title="">‵</span> </td> </tr>
-     *       <tr id="entity-Breve"><td> <code title="">Breve;</code> </td> <td> U+002D8 </td> <td> <span class="glyph" title="">˘</span> </td> </tr>
-     *       <tr id="entity-breve"><td> <code title="">breve;</code> </td> <td> U+002D8 </td> <td> <span class="glyph" title="">˘</span> </td> </tr>
-     *       <tr id="entity-brvbar"><td> <code title="">brvbar;</code> </td> <td> U+000A6 </td> <td> <span class="glyph" title="">¦</span> </td> </tr>
-     *       <tr class="impl" id="entity-brvbar-legacy"><td> <code title="">brvbar</code> </td> <td> U+000A6 </td> <td> <span title="">¦</span> </td> </tr>
-     *       <tr id="entity-Bscr"><td> <code title="">Bscr;</code> </td> <td> U+0212C </td> <td> <span class="glyph" title="">ℬ</span> </td> </tr>
-     *       <tr id="entity-bscr"><td> <code title="">bscr;</code> </td> <td> U+1D4B7 </td> <td> <span class="glyph" title="">𝒷</span> </td> </tr>
-     *       <tr id="entity-bsemi"><td> <code title="">bsemi;</code> </td> <td> U+0204F </td> <td> <span class="glyph" title="">⁏</span> </td> </tr>
-     *       <tr id="entity-bsim"><td> <code title="">bsim;</code> </td> <td> U+0223D </td> <td> <span class="glyph" title="">∽</span> </td> </tr>
-     *       <tr id="entity-bsime"><td> <code title="">bsime;</code> </td> <td> U+022CD </td> <td> <span class="glyph" title="">⋍</span> </td> </tr>
-     *       <tr id="entity-bsol"><td> <code title="">bsol;</code> </td> <td> U+0005C </td> <td> <span class="glyph" title="">\</span> </td> </tr>
-     *       <tr id="entity-bsolb"><td> <code title="">bsolb;</code> </td> <td> U+029C5 </td> <td> <span class="glyph" title="">⧅</span> </td> </tr>
-     *       <tr id="entity-bsolhsub"><td> <code title="">bsolhsub;</code> </td> <td> U+027C8 </td> <td> <span class="glyph" title="">⟈</span> </td> </tr>
-     *       <tr id="entity-bull"><td> <code title="">bull;</code> </td> <td> U+02022 </td> <td> <span class="glyph" title="">•</span> </td> </tr>
-     *       <tr id="entity-bullet"><td> <code title="">bullet;</code> </td> <td> U+02022 </td> <td> <span class="glyph" title="">•</span> </td> </tr>
-     *       <tr id="entity-bump"><td> <code title="">bump;</code> </td> <td> U+0224E </td> <td> <span class="glyph" title="">≎</span> </td> </tr>
-     *       <tr id="entity-bumpE"><td> <code title="">bumpE;</code> </td> <td> U+02AAE </td> <td> <span class="glyph" title="">⪮</span> </td> </tr>
-     *       <tr id="entity-bumpe"><td> <code title="">bumpe;</code> </td> <td> U+0224F </td> <td> <span class="glyph" title="">≏</span> </td> </tr>
-     *       <tr id="entity-Bumpeq"><td> <code title="">Bumpeq;</code> </td> <td> U+0224E </td> <td> <span class="glyph" title="">≎</span> </td> </tr>
-     *       <tr id="entity-bumpeq"><td> <code title="">bumpeq;</code> </td> <td> U+0224F </td> <td> <span class="glyph" title="">≏</span> </td> </tr>
-     *       <tr id="entity-Cacute"><td> <code title="">Cacute;</code> </td> <td> U+00106 </td> <td> <span class="glyph" title="">Ć</span> </td> </tr>
-     *       <tr id="entity-cacute"><td> <code title="">cacute;</code> </td> <td> U+00107 </td> <td> <span class="glyph" title="">ć</span> </td> </tr>
-     *       <tr id="entity-Cap"><td> <code title="">Cap;</code> </td> <td> U+022D2 </td> <td> <span class="glyph" title="">⋒</span> </td> </tr>
-     *       <tr id="entity-cap"><td> <code title="">cap;</code> </td> <td> U+02229 </td> <td> <span class="glyph" title="">∩</span> </td> </tr>
-     *       <tr id="entity-capand"><td> <code title="">capand;</code> </td> <td> U+02A44 </td> <td> <span class="glyph" title="">⩄</span> </td> </tr>
-     *       <tr id="entity-capbrcup"><td> <code title="">capbrcup;</code> </td> <td> U+02A49 </td> <td> <span class="glyph" title="">⩉</span> </td> </tr>
-     *       <tr id="entity-capcap"><td> <code title="">capcap;</code> </td> <td> U+02A4B </td> <td> <span class="glyph" title="">⩋</span> </td> </tr>
-     *       <tr id="entity-capcup"><td> <code title="">capcup;</code> </td> <td> U+02A47 </td> <td> <span class="glyph" title="">⩇</span> </td> </tr>
-     *       <tr id="entity-capdot"><td> <code title="">capdot;</code> </td> <td> U+02A40 </td> <td> <span class="glyph" title="">⩀</span> </td> </tr>
-     *       <tr id="entity-CapitalDifferentialD"><td> <code title="">CapitalDifferentialD;</code> </td> <td> U+02145 </td> <td> <span class="glyph" title="">ⅅ</span> </td> </tr>
-     *       <tr id="entity-caps"><td> <code title="">caps;</code> </td> <td> U+02229 U+0FE00 </td> <td> <span class="glyph compound" title="">∩︀</span> </td> </tr>
-     *       <tr id="entity-caret"><td> <code title="">caret;</code> </td> <td> U+02041 </td> <td> <span class="glyph" title="">⁁</span> </td> </tr>
-     *       <tr id="entity-caron"><td> <code title="">caron;</code> </td> <td> U+002C7 </td> <td> <span class="glyph" title="">ˇ</span> </td> </tr>
-     *       <tr id="entity-Cayleys"><td> <code title="">Cayleys;</code> </td> <td> U+0212D </td> <td> <span class="glyph" title="">ℭ</span> </td> </tr>
-     *       <tr id="entity-ccaps"><td> <code title="">ccaps;</code> </td> <td> U+02A4D </td> <td> <span class="glyph" title="">⩍</span> </td> </tr>
-     *       <tr id="entity-Ccaron"><td> <code title="">Ccaron;</code> </td> <td> U+0010C </td> <td> <span class="glyph" title="">Č</span> </td> </tr>
-     *       <tr id="entity-ccaron"><td> <code title="">ccaron;</code> </td> <td> U+0010D </td> <td> <span class="glyph" title="">č</span> </td> </tr>
-     *       <tr id="entity-Ccedil"><td> <code title="">Ccedil;</code> </td> <td> U+000C7 </td> <td> <span class="glyph" title="">Ç</span> </td> </tr>
-     *       <tr class="impl" id="entity-Ccedil-legacy"><td> <code title="">Ccedil</code> </td> <td> U+000C7 </td> <td> <span title="">Ç</span> </td> </tr>
-     *       <tr id="entity-ccedil"><td> <code title="">ccedil;</code> </td> <td> U+000E7 </td> <td> <span class="glyph" title="">ç</span> </td> </tr>
-     *       <tr class="impl" id="entity-ccedil-legacy"><td> <code title="">ccedil</code> </td> <td> U+000E7 </td> <td> <span title="">ç</span> </td> </tr>
-     *       <tr id="entity-Ccirc"><td> <code title="">Ccirc;</code> </td> <td> U+00108 </td> <td> <span class="glyph" title="">Ĉ</span> </td> </tr>
-     *       <tr id="entity-ccirc"><td> <code title="">ccirc;</code> </td> <td> U+00109 </td> <td> <span class="glyph" title="">ĉ</span> </td> </tr>
-     *       <tr id="entity-Cconint"><td> <code title="">Cconint;</code> </td> <td> U+02230 </td> <td> <span class="glyph" title="">∰</span> </td> </tr>
-     *       <tr id="entity-ccups"><td> <code title="">ccups;</code> </td> <td> U+02A4C </td> <td> <span class="glyph" title="">⩌</span> </td> </tr>
-     *       <tr id="entity-ccupssm"><td> <code title="">ccupssm;</code> </td> <td> U+02A50 </td> <td> <span class="glyph" title="">⩐</span> </td> </tr>
-     *       <tr id="entity-Cdot"><td> <code title="">Cdot;</code> </td> <td> U+0010A </td> <td> <span class="glyph" title="">Ċ</span> </td> </tr>
-     *       <tr id="entity-cdot"><td> <code title="">cdot;</code> </td> <td> U+0010B </td> <td> <span class="glyph" title="">ċ</span> </td> </tr>
-     *       <tr id="entity-cedil"><td> <code title="">cedil;</code> </td> <td> U+000B8 </td> <td> <span class="glyph" title="">¸</span> </td> </tr>
-     *       <tr class="impl" id="entity-cedil-legacy"><td> <code title="">cedil</code> </td> <td> U+000B8 </td> <td> <span title="">¸</span> </td> </tr>
-     *       <tr id="entity-Cedilla"><td> <code title="">Cedilla;</code> </td> <td> U+000B8 </td> <td> <span class="glyph" title="">¸</span> </td> </tr>
-     *       <tr id="entity-cemptyv"><td> <code title="">cemptyv;</code> </td> <td> U+029B2 </td> <td> <span class="glyph" title="">⦲</span> </td> </tr>
-     *       <tr id="entity-cent"><td> <code title="">cent;</code> </td> <td> U+000A2 </td> <td> <span class="glyph" title="">¢</span> </td> </tr>
-     *       <tr class="impl" id="entity-cent-legacy"><td> <code title="">cent</code> </td> <td> U+000A2 </td> <td> <span title="">¢</span> </td> </tr>
-     *       <tr id="entity-CenterDot"><td> <code title="">CenterDot;</code> </td> <td> U+000B7 </td> <td> <span class="glyph" title="">·</span> </td> </tr>
-     *       <tr id="entity-centerdot"><td> <code title="">centerdot;</code> </td> <td> U+000B7 </td> <td> <span class="glyph" title="">·</span> </td> </tr>
-     *       <tr id="entity-Cfr"><td> <code title="">Cfr;</code> </td> <td> U+0212D </td> <td> <span class="glyph" title="">ℭ</span> </td> </tr>
-     *       <tr id="entity-cfr"><td> <code title="">cfr;</code> </td> <td> U+1D520 </td> <td> <span class="glyph" title="">𝔠</span> </td> </tr>
-     *       <tr id="entity-CHcy"><td> <code title="">CHcy;</code> </td> <td> U+00427 </td> <td> <span class="glyph" title="">Ч</span> </td> </tr>
-     *       <tr id="entity-chcy"><td> <code title="">chcy;</code> </td> <td> U+00447 </td> <td> <span class="glyph" title="">ч</span> </td> </tr>
-     *       <tr id="entity-check"><td> <code title="">check;</code> </td> <td> U+02713 </td> <td> <span class="glyph" title="">✓</span> </td> </tr>
-     *       <tr id="entity-checkmark"><td> <code title="">checkmark;</code> </td> <td> U+02713 </td> <td> <span class="glyph" title="">✓</span> </td> </tr>
-     *       <tr id="entity-Chi"><td> <code title="">Chi;</code> </td> <td> U+003A7 </td> <td> <span class="glyph" title="">Χ</span> </td> </tr>
-     *       <tr id="entity-chi"><td> <code title="">chi;</code> </td> <td> U+003C7 </td> <td> <span class="glyph" title="">χ</span> </td> </tr>
-     *       <tr id="entity-cir"><td> <code title="">cir;</code> </td> <td> U+025CB </td> <td> <span class="glyph" title="">○</span> </td> </tr>
-     *       <tr id="entity-circ"><td> <code title="">circ;</code> </td> <td> U+002C6 </td> <td> <span class="glyph" title="">ˆ</span> </td> </tr>
-     *       <tr id="entity-circeq"><td> <code title="">circeq;</code> </td> <td> U+02257 </td> <td> <span class="glyph" title="">≗</span> </td> </tr>
-     *       <tr id="entity-circlearrowleft"><td> <code title="">circlearrowleft;</code> </td> <td> U+021BA </td> <td> <span class="glyph" title="">↺</span> </td> </tr>
-     *       <tr id="entity-circlearrowright"><td> <code title="">circlearrowright;</code> </td> <td> U+021BB </td> <td> <span class="glyph" title="">↻</span> </td> </tr>
-     *       <tr id="entity-circledast"><td> <code title="">circledast;</code> </td> <td> U+0229B </td> <td> <span class="glyph" title="">⊛</span> </td> </tr>
-     *       <tr id="entity-circledcirc"><td> <code title="">circledcirc;</code> </td> <td> U+0229A </td> <td> <span class="glyph" title="">⊚</span> </td> </tr>
-     *       <tr id="entity-circleddash"><td> <code title="">circleddash;</code> </td> <td> U+0229D </td> <td> <span class="glyph" title="">⊝</span> </td> </tr>
-     *       <tr id="entity-CircleDot"><td> <code title="">CircleDot;</code> </td> <td> U+02299 </td> <td> <span class="glyph" title="">⊙</span> </td> </tr>
-     *       <tr id="entity-circledR"><td> <code title="">circledR;</code> </td> <td> U+000AE </td> <td> <span class="glyph" title="">®</span> </td> </tr>
-     *       <tr id="entity-circledS"><td> <code title="">circledS;</code> </td> <td> U+024C8 </td> <td> <span class="glyph" title="">Ⓢ</span> </td> </tr>
-     *       <tr id="entity-CircleMinus"><td> <code title="">CircleMinus;</code> </td> <td> U+02296 </td> <td> <span class="glyph" title="">⊖</span> </td> </tr>
-     *       <tr id="entity-CirclePlus"><td> <code title="">CirclePlus;</code> </td> <td> U+02295 </td> <td> <span class="glyph" title="">⊕</span> </td> </tr>
-     *       <tr id="entity-CircleTimes"><td> <code title="">CircleTimes;</code> </td> <td> U+02297 </td> <td> <span class="glyph" title="">⊗</span> </td> </tr>
-     *       <tr id="entity-cirE"><td> <code title="">cirE;</code> </td> <td> U+029C3 </td> <td> <span class="glyph" title="">⧃</span> </td> </tr>
-     *       <tr id="entity-cire"><td> <code title="">cire;</code> </td> <td> U+02257 </td> <td> <span class="glyph" title="">≗</span> </td> </tr>
-     *       <tr id="entity-cirfnint"><td> <code title="">cirfnint;</code> </td> <td> U+02A10 </td> <td> <span class="glyph" title="">⨐</span> </td> </tr>
-     *       <tr id="entity-cirmid"><td> <code title="">cirmid;</code> </td> <td> U+02AEF </td> <td> <span class="glyph" title="">⫯</span> </td> </tr>
-     *       <tr id="entity-cirscir"><td> <code title="">cirscir;</code> </td> <td> U+029C2 </td> <td> <span class="glyph" title="">⧂</span> </td> </tr>
-     *       <tr id="entity-ClockwiseContourIntegral"><td> <code title="">ClockwiseContourIntegral;</code> </td> <td> U+02232 </td> <td> <span class="glyph" title="">∲</span> </td> </tr>
-     *       <tr id="entity-CloseCurlyDoubleQuote"><td> <code title="">CloseCurlyDoubleQuote;</code> </td> <td> U+0201D </td> <td> <span class="glyph" title="">”</span> </td> </tr>
-     *       <tr id="entity-CloseCurlyQuote"><td> <code title="">CloseCurlyQuote;</code> </td> <td> U+02019 </td> <td> <span class="glyph" title="">’</span> </td> </tr>
-     *       <tr id="entity-clubs"><td> <code title="">clubs;</code> </td> <td> U+02663 </td> <td> <span class="glyph" title="">♣</span> </td> </tr>
-     *       <tr id="entity-clubsuit"><td> <code title="">clubsuit;</code> </td> <td> U+02663 </td> <td> <span class="glyph" title="">♣</span> </td> </tr>
-     *       <tr id="entity-Colon"><td> <code title="">Colon;</code> </td> <td> U+02237 </td> <td> <span class="glyph" title="">∷</span> </td> </tr>
-     *       <tr id="entity-colon"><td> <code title="">colon;</code> </td> <td> U+0003A </td> <td> <span class="glyph" title="">:</span> </td> </tr>
-     *       <tr id="entity-Colone"><td> <code title="">Colone;</code> </td> <td> U+02A74 </td> <td> <span class="glyph" title="">⩴</span> </td> </tr>
-     *       <tr id="entity-colone"><td> <code title="">colone;</code> </td> <td> U+02254 </td> <td> <span class="glyph" title="">≔</span> </td> </tr>
-     *       <tr id="entity-coloneq"><td> <code title="">coloneq;</code> </td> <td> U+02254 </td> <td> <span class="glyph" title="">≔</span> </td> </tr>
-     *       <tr id="entity-comma"><td> <code title="">comma;</code> </td> <td> U+0002C </td> <td> <span class="glyph" title="">,</span> </td> </tr>
-     *       <tr id="entity-commat"><td> <code title="">commat;</code> </td> <td> U+00040 </td> <td> <span class="glyph" title="">@</span> </td> </tr>
-     *       <tr id="entity-comp"><td> <code title="">comp;</code> </td> <td> U+02201 </td> <td> <span class="glyph" title="">∁</span> </td> </tr>
-     *       <tr id="entity-compfn"><td> <code title="">compfn;</code> </td> <td> U+02218 </td> <td> <span class="glyph" title="">∘</span> </td> </tr>
-     *       <tr id="entity-complement"><td> <code title="">complement;</code> </td> <td> U+02201 </td> <td> <span class="glyph" title="">∁</span> </td> </tr>
-     *       <tr id="entity-complexes"><td> <code title="">complexes;</code> </td> <td> U+02102 </td> <td> <span class="glyph" title="">ℂ</span> </td> </tr>
-     *       <tr id="entity-cong"><td> <code title="">cong;</code> </td> <td> U+02245 </td> <td> <span class="glyph" title="">≅</span> </td> </tr>
-     *       <tr id="entity-congdot"><td> <code title="">congdot;</code> </td> <td> U+02A6D </td> <td> <span class="glyph" title="">⩭</span> </td> </tr>
-     *       <tr id="entity-Congruent"><td> <code title="">Congruent;</code> </td> <td> U+02261 </td> <td> <span class="glyph" title="">≡</span> </td> </tr>
-     *       <tr id="entity-Conint"><td> <code title="">Conint;</code> </td> <td> U+0222F </td> <td> <span class="glyph" title="">∯</span> </td> </tr>
-     *       <tr id="entity-conint"><td> <code title="">conint;</code> </td> <td> U+0222E </td> <td> <span class="glyph" title="">∮</span> </td> </tr>
-     *       <tr id="entity-ContourIntegral"><td> <code title="">ContourIntegral;</code> </td> <td> U+0222E </td> <td> <span class="glyph" title="">∮</span> </td> </tr>
-     *       <tr id="entity-Copf"><td> <code title="">Copf;</code> </td> <td> U+02102 </td> <td> <span class="glyph" title="">ℂ</span> </td> </tr>
-     *       <tr id="entity-copf"><td> <code title="">copf;</code> </td> <td> U+1D554 </td> <td> <span class="glyph" title="">𝕔</span> </td> </tr>
-     *       <tr id="entity-coprod"><td> <code title="">coprod;</code> </td> <td> U+02210 </td> <td> <span class="glyph" title="">∐</span> </td> </tr>
-     *       <tr id="entity-Coproduct"><td> <code title="">Coproduct;</code> </td> <td> U+02210 </td> <td> <span class="glyph" title="">∐</span> </td> </tr>
-     *       <tr id="entity-COPY"><td> <code title="">COPY;</code> </td> <td> U+000A9 </td> <td> <span class="glyph" title="">©</span> </td> </tr>
-     *       <tr class="impl" id="entity-COPY-legacy"><td> <code title="">COPY</code> </td> <td> U+000A9 </td> <td> <span title="">©</span> </td> </tr>
-     *       <tr id="entity-copy"><td> <code title="">copy;</code> </td> <td> U+000A9 </td> <td> <span class="glyph" title="">©</span> </td> </tr>
-     *       <tr class="impl" id="entity-copy-legacy"><td> <code title="">copy</code> </td> <td> U+000A9 </td> <td> <span title="">©</span> </td> </tr>
-     *       <tr id="entity-copysr"><td> <code title="">copysr;</code> </td> <td> U+02117 </td> <td> <span class="glyph" title="">℗</span> </td> </tr>
-     *       <tr id="entity-CounterClockwiseContourIntegral"><td> <code title="">CounterClockwiseContourIntegral;</code> </td> <td> U+02233 </td> <td> <span class="glyph" title="">∳</span> </td> </tr>
-     *       <tr id="entity-crarr"><td> <code title="">crarr;</code> </td> <td> U+021B5 </td> <td> <span class="glyph" title="">↵</span> </td> </tr>
-     *       <tr id="entity-Cross"><td> <code title="">Cross;</code> </td> <td> U+02A2F </td> <td> <span class="glyph" title="">⨯</span> </td> </tr>
-     *       <tr id="entity-cross"><td> <code title="">cross;</code> </td> <td> U+02717 </td> <td> <span class="glyph" title="">✗</span> </td> </tr>
-     *       <tr id="entity-Cscr"><td> <code title="">Cscr;</code> </td> <td> U+1D49E </td> <td> <span class="glyph" title="">𝒞</span> </td> </tr>
-     *       <tr id="entity-cscr"><td> <code title="">cscr;</code> </td> <td> U+1D4B8 </td> <td> <span class="glyph" title="">𝒸</span> </td> </tr>
-     *       <tr id="entity-csub"><td> <code title="">csub;</code> </td> <td> U+02ACF </td> <td> <span class="glyph" title="">⫏</span> </td> </tr>
-     *       <tr id="entity-csube"><td> <code title="">csube;</code> </td> <td> U+02AD1 </td> <td> <span class="glyph" title="">⫑</span> </td> </tr>
-     *       <tr id="entity-csup"><td> <code title="">csup;</code> </td> <td> U+02AD0 </td> <td> <span class="glyph" title="">⫐</span> </td> </tr>
-     *       <tr id="entity-csupe"><td> <code title="">csupe;</code> </td> <td> U+02AD2 </td> <td> <span class="glyph" title="">⫒</span> </td> </tr>
-     *       <tr id="entity-ctdot"><td> <code title="">ctdot;</code> </td> <td> U+022EF </td> <td> <span class="glyph" title="">⋯</span> </td> </tr>
-     *       <tr id="entity-cudarrl"><td> <code title="">cudarrl;</code> </td> <td> U+02938 </td> <td> <span class="glyph" title="">⤸</span> </td> </tr>
-     *       <tr id="entity-cudarrr"><td> <code title="">cudarrr;</code> </td> <td> U+02935 </td> <td> <span class="glyph" title="">⤵</span> </td> </tr>
-     *       <tr id="entity-cuepr"><td> <code title="">cuepr;</code> </td> <td> U+022DE </td> <td> <span class="glyph" title="">⋞</span> </td> </tr>
-     *       <tr id="entity-cuesc"><td> <code title="">cuesc;</code> </td> <td> U+022DF </td> <td> <span class="glyph" title="">⋟</span> </td> </tr>
-     *       <tr id="entity-cularr"><td> <code title="">cularr;</code> </td> <td> U+021B6 </td> <td> <span class="glyph" title="">↶</span> </td> </tr>
-     *       <tr id="entity-cularrp"><td> <code title="">cularrp;</code> </td> <td> U+0293D </td> <td> <span class="glyph" title="">⤽</span> </td> </tr>
-     *       <tr id="entity-Cup"><td> <code title="">Cup;</code> </td> <td> U+022D3 </td> <td> <span class="glyph" title="">⋓</span> </td> </tr>
-     *       <tr id="entity-cup"><td> <code title="">cup;</code> </td> <td> U+0222A </td> <td> <span class="glyph" title="">∪</span> </td> </tr>
-     *       <tr id="entity-cupbrcap"><td> <code title="">cupbrcap;</code> </td> <td> U+02A48 </td> <td> <span class="glyph" title="">⩈</span> </td> </tr>
-     *       <tr id="entity-CupCap"><td> <code title="">CupCap;</code> </td> <td> U+0224D </td> <td> <span class="glyph" title="">≍</span> </td> </tr>
-     *       <tr id="entity-cupcap"><td> <code title="">cupcap;</code> </td> <td> U+02A46 </td> <td> <span class="glyph" title="">⩆</span> </td> </tr>
-     *       <tr id="entity-cupcup"><td> <code title="">cupcup;</code> </td> <td> U+02A4A </td> <td> <span class="glyph" title="">⩊</span> </td> </tr>
-     *       <tr id="entity-cupdot"><td> <code title="">cupdot;</code> </td> <td> U+0228D </td> <td> <span class="glyph" title="">⊍</span> </td> </tr>
-     *       <tr id="entity-cupor"><td> <code title="">cupor;</code> </td> <td> U+02A45 </td> <td> <span class="glyph" title="">⩅</span> </td> </tr>
-     *       <tr id="entity-cups"><td> <code title="">cups;</code> </td> <td> U+0222A U+0FE00 </td> <td> <span class="glyph compound" title="">∪︀</span> </td> </tr>
-     *       <tr id="entity-curarr"><td> <code title="">curarr;</code> </td> <td> U+021B7 </td> <td> <span class="glyph" title="">↷</span> </td> </tr>
-     *       <tr id="entity-curarrm"><td> <code title="">curarrm;</code> </td> <td> U+0293C </td> <td> <span class="glyph" title="">⤼</span> </td> </tr>
-     *       <tr id="entity-curlyeqprec"><td> <code title="">curlyeqprec;</code> </td> <td> U+022DE </td> <td> <span class="glyph" title="">⋞</span> </td> </tr>
-     *       <tr id="entity-curlyeqsucc"><td> <code title="">curlyeqsucc;</code> </td> <td> U+022DF </td> <td> <span class="glyph" title="">⋟</span> </td> </tr>
-     *       <tr id="entity-curlyvee"><td> <code title="">curlyvee;</code> </td> <td> U+022CE </td> <td> <span class="glyph" title="">⋎</span> </td> </tr>
-     *       <tr id="entity-curlywedge"><td> <code title="">curlywedge;</code> </td> <td> U+022CF </td> <td> <span class="glyph" title="">⋏</span> </td> </tr>
-     *       <tr id="entity-curren"><td> <code title="">curren;</code> </td> <td> U+000A4 </td> <td> <span class="glyph" title="">¤</span> </td> </tr>
-     *       <tr class="impl" id="entity-curren-legacy"><td> <code title="">curren</code> </td> <td> U+000A4 </td> <td> <span title="">¤</span> </td> </tr>
-     *       <tr id="entity-curvearrowleft"><td> <code title="">curvearrowleft;</code> </td> <td> U+021B6 </td> <td> <span class="glyph" title="">↶</span> </td> </tr>
-     *       <tr id="entity-curvearrowright"><td> <code title="">curvearrowright;</code> </td> <td> U+021B7 </td> <td> <span class="glyph" title="">↷</span> </td> </tr>
-     *       <tr id="entity-cuvee"><td> <code title="">cuvee;</code> </td> <td> U+022CE </td> <td> <span class="glyph" title="">⋎</span> </td> </tr>
-     *       <tr id="entity-cuwed"><td> <code title="">cuwed;</code> </td> <td> U+022CF </td> <td> <span class="glyph" title="">⋏</span> </td> </tr>
-     *       <tr id="entity-cwconint"><td> <code title="">cwconint;</code> </td> <td> U+02232 </td> <td> <span class="glyph" title="">∲</span> </td> </tr>
-     *       <tr id="entity-cwint"><td> <code title="">cwint;</code> </td> <td> U+02231 </td> <td> <span class="glyph" title="">∱</span> </td> </tr>
-     *       <tr id="entity-cylcty"><td> <code title="">cylcty;</code> </td> <td> U+0232D </td> <td> <span class="glyph" title="">⌭</span> </td> </tr>
-     *       <tr id="entity-Dagger"><td> <code title="">Dagger;</code> </td> <td> U+02021 </td> <td> <span class="glyph" title="">‡</span> </td> </tr>
-     *       <tr id="entity-dagger"><td> <code title="">dagger;</code> </td> <td> U+02020 </td> <td> <span class="glyph" title="">†</span> </td> </tr>
-     *       <tr id="entity-daleth"><td> <code title="">daleth;</code> </td> <td> U+02138 </td> <td> <span class="glyph" title="">ℸ</span> </td> </tr>
-     *       <tr id="entity-Darr"><td> <code title="">Darr;</code> </td> <td> U+021A1 </td> <td> <span class="glyph" title="">↡</span> </td> </tr>
-     *       <tr id="entity-dArr"><td> <code title="">dArr;</code> </td> <td> U+021D3 </td> <td> <span class="glyph" title="">⇓</span> </td> </tr>
-     *       <tr id="entity-darr"><td> <code title="">darr;</code> </td> <td> U+02193 </td> <td> <span class="glyph" title="">↓</span> </td> </tr>
-     *       <tr id="entity-dash"><td> <code title="">dash;</code> </td> <td> U+02010 </td> <td> <span class="glyph" title="">‐</span> </td> </tr>
-     *       <tr id="entity-Dashv"><td> <code title="">Dashv;</code> </td> <td> U+02AE4 </td> <td> <span class="glyph" title="">⫤</span> </td> </tr>
-     *       <tr id="entity-dashv"><td> <code title="">dashv;</code> </td> <td> U+022A3 </td> <td> <span class="glyph" title="">⊣</span> </td> </tr>
-     *       <tr id="entity-dbkarow"><td> <code title="">dbkarow;</code> </td> <td> U+0290F </td> <td> <span class="glyph" title="">⤏</span> </td> </tr>
-     *       <tr id="entity-dblac"><td> <code title="">dblac;</code> </td> <td> U+002DD </td> <td> <span class="glyph" title="">˝</span> </td> </tr>
-     *       <tr id="entity-Dcaron"><td> <code title="">Dcaron;</code> </td> <td> U+0010E </td> <td> <span class="glyph" title="">Ď</span> </td> </tr>
-     *       <tr id="entity-dcaron"><td> <code title="">dcaron;</code> </td> <td> U+0010F </td> <td> <span class="glyph" title="">ď</span> </td> </tr>
-     *       <tr id="entity-Dcy"><td> <code title="">Dcy;</code> </td> <td> U+00414 </td> <td> <span class="glyph" title="">Д</span> </td> </tr>
-     *       <tr id="entity-dcy"><td> <code title="">dcy;</code> </td> <td> U+00434 </td> <td> <span class="glyph" title="">д</span> </td> </tr>
-     *       <tr id="entity-DD"><td> <code title="">DD;</code> </td> <td> U+02145 </td> <td> <span class="glyph" title="">ⅅ</span> </td> </tr>
-     *       <tr id="entity-dd"><td> <code title="">dd;</code> </td> <td> U+02146 </td> <td> <span class="glyph" title="">ⅆ</span> </td> </tr>
-     *       <tr id="entity-ddagger"><td> <code title="">ddagger;</code> </td> <td> U+02021 </td> <td> <span class="glyph" title="">‡</span> </td> </tr>
-     *       <tr id="entity-ddarr"><td> <code title="">ddarr;</code> </td> <td> U+021CA </td> <td> <span class="glyph" title="">⇊</span> </td> </tr>
-     *       <tr id="entity-DDotrahd"><td> <code title="">DDotrahd;</code> </td> <td> U+02911 </td> <td> <span class="glyph" title="">⤑</span> </td> </tr>
-     *       <tr id="entity-ddotseq"><td> <code title="">ddotseq;</code> </td> <td> U+02A77 </td> <td> <span class="glyph" title="">⩷</span> </td> </tr>
-     *       <tr id="entity-deg"><td> <code title="">deg;</code> </td> <td> U+000B0 </td> <td> <span class="glyph" title="">°</span> </td> </tr>
-     *       <tr class="impl" id="entity-deg-legacy"><td> <code title="">deg</code> </td> <td> U+000B0 </td> <td> <span title="">°</span> </td> </tr>
-     *       <tr id="entity-Del"><td> <code title="">Del;</code> </td> <td> U+02207 </td> <td> <span class="glyph" title="">∇</span> </td> </tr>
-     *       <tr id="entity-Delta"><td> <code title="">Delta;</code> </td> <td> U+00394 </td> <td> <span class="glyph" title="">Δ</span> </td> </tr>
-     *       <tr id="entity-delta"><td> <code title="">delta;</code> </td> <td> U+003B4 </td> <td> <span class="glyph" title="">δ</span> </td> </tr>
-     *       <tr id="entity-demptyv"><td> <code title="">demptyv;</code> </td> <td> U+029B1 </td> <td> <span class="glyph" title="">⦱</span> </td> </tr>
-     *       <tr id="entity-dfisht"><td> <code title="">dfisht;</code> </td> <td> U+0297F </td> <td> <span class="glyph" title="">⥿</span> </td> </tr>
-     *       <tr id="entity-Dfr"><td> <code title="">Dfr;</code> </td> <td> U+1D507 </td> <td> <span class="glyph" title="">𝔇</span> </td> </tr>
-     *       <tr id="entity-dfr"><td> <code title="">dfr;</code> </td> <td> U+1D521 </td> <td> <span class="glyph" title="">𝔡</span> </td> </tr>
-     *       <tr id="entity-dHar"><td> <code title="">dHar;</code> </td> <td> U+02965 </td> <td> <span class="glyph" title="">⥥</span> </td> </tr>
-     *       <tr id="entity-dharl"><td> <code title="">dharl;</code> </td> <td> U+021C3 </td> <td> <span class="glyph" title="">⇃</span> </td> </tr>
-     *       <tr id="entity-dharr"><td> <code title="">dharr;</code> </td> <td> U+021C2 </td> <td> <span class="glyph" title="">⇂</span> </td> </tr>
-     *       <tr id="entity-DiacriticalAcute"><td> <code title="">DiacriticalAcute;</code> </td> <td> U+000B4 </td> <td> <span class="glyph" title="">´</span> </td> </tr>
-     *       <tr id="entity-DiacriticalDot"><td> <code title="">DiacriticalDot;</code> </td> <td> U+002D9 </td> <td> <span class="glyph" title="">˙</span> </td> </tr>
-     *       <tr id="entity-DiacriticalDoubleAcute"><td> <code title="">DiacriticalDoubleAcute;</code> </td> <td> U+002DD </td> <td> <span class="glyph" title="">˝</span> </td> </tr>
-     *       <tr id="entity-DiacriticalGrave"><td> <code title="">DiacriticalGrave;</code> </td> <td> U+00060 </td> <td> <span class="glyph" title="">`</span> </td> </tr>
-     *       <tr id="entity-DiacriticalTilde"><td> <code title="">DiacriticalTilde;</code> </td> <td> U+002DC </td> <td> <span class="glyph" title="">˜</span> </td> </tr>
-     *       <tr id="entity-diam"><td> <code title="">diam;</code> </td> <td> U+022C4 </td> <td> <span class="glyph" title="">⋄</span> </td> </tr>
-     *       <tr id="entity-Diamond"><td> <code title="">Diamond;</code> </td> <td> U+022C4 </td> <td> <span class="glyph" title="">⋄</span> </td> </tr>
-     *       <tr id="entity-diamond"><td> <code title="">diamond;</code> </td> <td> U+022C4 </td> <td> <span class="glyph" title="">⋄</span> </td> </tr>
-     *       <tr id="entity-diamondsuit"><td> <code title="">diamondsuit;</code> </td> <td> U+02666 </td> <td> <span class="glyph" title="">♦</span> </td> </tr>
-     *       <tr id="entity-diams"><td> <code title="">diams;</code> </td> <td> U+02666 </td> <td> <span class="glyph" title="">♦</span> </td> </tr>
-     *       <tr id="entity-die"><td> <code title="">die;</code> </td> <td> U+000A8 </td> <td> <span class="glyph" title="">¨</span> </td> </tr>
-     *       <tr id="entity-DifferentialD"><td> <code title="">DifferentialD;</code> </td> <td> U+02146 </td> <td> <span class="glyph" title="">ⅆ</span> </td> </tr>
-     *       <tr id="entity-digamma"><td> <code title="">digamma;</code> </td> <td> U+003DD </td> <td> <span class="glyph" title="">ϝ</span> </td> </tr>
-     *       <tr id="entity-disin"><td> <code title="">disin;</code> </td> <td> U+022F2 </td> <td> <span class="glyph" title="">⋲</span> </td> </tr>
-     *       <tr id="entity-div"><td> <code title="">div;</code> </td> <td> U+000F7 </td> <td> <span class="glyph" title="">÷</span> </td> </tr>
-     *       <tr id="entity-divide"><td> <code title="">divide;</code> </td> <td> U+000F7 </td> <td> <span class="glyph" title="">÷</span> </td> </tr>
-     *       <tr class="impl" id="entity-divide-legacy"><td> <code title="">divide</code> </td> <td> U+000F7 </td> <td> <span title="">÷</span> </td> </tr>
-     *       <tr id="entity-divideontimes"><td> <code title="">divideontimes;</code> </td> <td> U+022C7 </td> <td> <span class="glyph" title="">⋇</span> </td> </tr>
-     *       <tr id="entity-divonx"><td> <code title="">divonx;</code> </td> <td> U+022C7 </td> <td> <span class="glyph" title="">⋇</span> </td> </tr>
-     *       <tr id="entity-DJcy"><td> <code title="">DJcy;</code> </td> <td> U+00402 </td> <td> <span class="glyph" title="">Ђ</span> </td> </tr>
-     *       <tr id="entity-djcy"><td> <code title="">djcy;</code> </td> <td> U+00452 </td> <td> <span class="glyph" title="">ђ</span> </td> </tr>
-     *       <tr id="entity-dlcorn"><td> <code title="">dlcorn;</code> </td> <td> U+0231E </td> <td> <span class="glyph" title="">⌞</span> </td> </tr>
-     *       <tr id="entity-dlcrop"><td> <code title="">dlcrop;</code> </td> <td> U+0230D </td> <td> <span class="glyph" title="">⌍</span> </td> </tr>
-     *       <tr id="entity-dollar"><td> <code title="">dollar;</code> </td> <td> U+00024 </td> <td> <span class="glyph" title="">$</span> </td> </tr>
-     *       <tr id="entity-Dopf"><td> <code title="">Dopf;</code> </td> <td> U+1D53B </td> <td> <span class="glyph" title="">𝔻</span> </td> </tr>
-     *       <tr id="entity-dopf"><td> <code title="">dopf;</code> </td> <td> U+1D555 </td> <td> <span class="glyph" title="">𝕕</span> </td> </tr>
-     *       <tr id="entity-Dot"><td> <code title="">Dot;</code> </td> <td> U+000A8 </td> <td> <span class="glyph" title="">¨</span> </td> </tr>
-     *       <tr id="entity-dot"><td> <code title="">dot;</code> </td> <td> U+002D9 </td> <td> <span class="glyph" title="">˙</span> </td> </tr>
-     *       <tr id="entity-DotDot"><td> <code title="">DotDot;</code> </td> <td> U+020DC </td> <td> <span class="glyph composition" title="">◌⃜</span> </td> </tr>
-     *       <tr id="entity-doteq"><td> <code title="">doteq;</code> </td> <td> U+02250 </td> <td> <span class="glyph" title="">≐</span> </td> </tr>
-     *       <tr id="entity-doteqdot"><td> <code title="">doteqdot;</code> </td> <td> U+02251 </td> <td> <span class="glyph" title="">≑</span> </td> </tr>
-     *       <tr id="entity-DotEqual"><td> <code title="">DotEqual;</code> </td> <td> U+02250 </td> <td> <span class="glyph" title="">≐</span> </td> </tr>
-     *       <tr id="entity-dotminus"><td> <code title="">dotminus;</code> </td> <td> U+02238 </td> <td> <span class="glyph" title="">∸</span> </td> </tr>
-     *       <tr id="entity-dotplus"><td> <code title="">dotplus;</code> </td> <td> U+02214 </td> <td> <span class="glyph" title="">∔</span> </td> </tr>
-     *       <tr id="entity-dotsquare"><td> <code title="">dotsquare;</code> </td> <td> U+022A1 </td> <td> <span class="glyph" title="">⊡</span> </td> </tr>
-     *       <tr id="entity-doublebarwedge"><td> <code title="">doublebarwedge;</code> </td> <td> U+02306 </td> <td> <span class="glyph" title="">⌆</span> </td> </tr>
-     *       <tr id="entity-DoubleContourIntegral"><td> <code title="">DoubleContourIntegral;</code> </td> <td> U+0222F </td> <td> <span class="glyph" title="">∯</span> </td> </tr>
-     *       <tr id="entity-DoubleDot"><td> <code title="">DoubleDot;</code> </td> <td> U+000A8 </td> <td> <span class="glyph" title="">¨</span> </td> </tr>
-     *       <tr id="entity-DoubleDownArrow"><td> <code title="">DoubleDownArrow;</code> </td> <td> U+021D3 </td> <td> <span class="glyph" title="">⇓</span> </td> </tr>
-     *       <tr id="entity-DoubleLeftArrow"><td> <code title="">DoubleLeftArrow;</code> </td> <td> U+021D0 </td> <td> <span class="glyph" title="">⇐</span> </td> </tr>
-     *       <tr id="entity-DoubleLeftRightArrow"><td> <code title="">DoubleLeftRightArrow;</code> </td> <td> U+021D4 </td> <td> <span class="glyph" title="">⇔</span> </td> </tr>
-     *       <tr id="entity-DoubleLeftTee"><td> <code title="">DoubleLeftTee;</code> </td> <td> U+02AE4 </td> <td> <span class="glyph" title="">⫤</span> </td> </tr>
-     *       <tr id="entity-DoubleLongLeftArrow"><td> <code title="">DoubleLongLeftArrow;</code> </td> <td> U+027F8 </td> <td> <span class="glyph" title="">⟸</span> </td> </tr>
-     *       <tr id="entity-DoubleLongLeftRightArrow"><td> <code title="">DoubleLongLeftRightArrow;</code> </td> <td> U+027FA </td> <td> <span class="glyph" title="">⟺</span> </td> </tr>
-     *       <tr id="entity-DoubleLongRightArrow"><td> <code title="">DoubleLongRightArrow;</code> </td> <td> U+027F9 </td> <td> <span class="glyph" title="">⟹</span> </td> </tr>
-     *       <tr id="entity-DoubleRightArrow"><td> <code title="">DoubleRightArrow;</code> </td> <td> U+021D2 </td> <td> <span class="glyph" title="">⇒</span> </td> </tr>
-     *       <tr id="entity-DoubleRightTee"><td> <code title="">DoubleRightTee;</code> </td> <td> U+022A8 </td> <td> <span class="glyph" title="">⊨</span> </td> </tr>
-     *       <tr id="entity-DoubleUpArrow"><td> <code title="">DoubleUpArrow;</code> </td> <td> U+021D1 </td> <td> <span class="glyph" title="">⇑</span> </td> </tr>
-     *       <tr id="entity-DoubleUpDownArrow"><td> <code title="">DoubleUpDownArrow;</code> </td> <td> U+021D5 </td> <td> <span class="glyph" title="">⇕</span> </td> </tr>
-     *       <tr id="entity-DoubleVerticalBar"><td> <code title="">DoubleVerticalBar;</code> </td> <td> U+02225 </td> <td> <span class="glyph" title="">∥</span> </td> </tr>
-     *       <tr id="entity-DownArrow"><td> <code title="">DownArrow;</code> </td> <td> U+02193 </td> <td> <span class="glyph" title="">↓</span> </td> </tr>
-     *       <tr id="entity-Downarrow"><td> <code title="">Downarrow;</code> </td> <td> U+021D3 </td> <td> <span class="glyph" title="">⇓</span> </td> </tr>
-     *       <tr id="entity-downarrow"><td> <code title="">downarrow;</code> </td> <td> U+02193 </td> <td> <span class="glyph" title="">↓</span> </td> </tr>
-     *       <tr id="entity-DownArrowBar"><td> <code title="">DownArrowBar;</code> </td> <td> U+02913 </td> <td> <span class="glyph" title="">⤓</span> </td> </tr>
-     *       <tr id="entity-DownArrowUpArrow"><td> <code title="">DownArrowUpArrow;</code> </td> <td> U+021F5 </td> <td> <span class="glyph" title="">⇵</span> </td> </tr>
-     *       <tr id="entity-DownBreve"><td> <code title="">DownBreve;</code> </td> <td> U+00311 </td> <td> <span class="glyph composition" title="">◌̑</span> </td> </tr>
-     *       <tr id="entity-downdownarrows"><td> <code title="">downdownarrows;</code> </td> <td> U+021CA </td> <td> <span class="glyph" title="">⇊</span> </td> </tr>
-     *       <tr id="entity-downharpoonleft"><td> <code title="">downharpoonleft;</code> </td> <td> U+021C3 </td> <td> <span class="glyph" title="">⇃</span> </td> </tr>
-     *       <tr id="entity-downharpoonright"><td> <code title="">downharpoonright;</code> </td> <td> U+021C2 </td> <td> <span class="glyph" title="">⇂</span> </td> </tr>
-     *       <tr id="entity-DownLeftRightVector"><td> <code title="">DownLeftRightVector;</code> </td> <td> U+02950 </td> <td> <span class="glyph" title="">⥐</span> </td> </tr>
-     *       <tr id="entity-DownLeftTeeVector"><td> <code title="">DownLeftTeeVector;</code> </td> <td> U+0295E </td> <td> <span class="glyph" title="">⥞</span> </td> </tr>
-     *       <tr id="entity-DownLeftVector"><td> <code title="">DownLeftVector;</code> </td> <td> U+021BD </td> <td> <span class="glyph" title="">↽</span> </td> </tr>
-     *       <tr id="entity-DownLeftVectorBar"><td> <code title="">DownLeftVectorBar;</code> </td> <td> U+02956 </td> <td> <span class="glyph" title="">⥖</span> </td> </tr>
-     *       <tr id="entity-DownRightTeeVector"><td> <code title="">DownRightTeeVector;</code> </td> <td> U+0295F </td> <td> <span class="glyph" title="">⥟</span> </td> </tr>
-     *       <tr id="entity-DownRightVector"><td> <code title="">DownRightVector;</code> </td> <td> U+021C1 </td> <td> <span class="glyph" title="">⇁</span> </td> </tr>
-     *       <tr id="entity-DownRightVectorBar"><td> <code title="">DownRightVectorBar;</code> </td> <td> U+02957 </td> <td> <span class="glyph" title="">⥗</span> </td> </tr>
-     *       <tr id="entity-DownTee"><td> <code title="">DownTee;</code> </td> <td> U+022A4 </td> <td> <span class="glyph" title="">⊤</span> </td> </tr>
-     *       <tr id="entity-DownTeeArrow"><td> <code title="">DownTeeArrow;</code> </td> <td> U+021A7 </td> <td> <span class="glyph" title="">↧</span> </td> </tr>
-     *       <tr id="entity-drbkarow"><td> <code title="">drbkarow;</code> </td> <td> U+02910 </td> <td> <span class="glyph" title="">⤐</span> </td> </tr>
-     *       <tr id="entity-drcorn"><td> <code title="">drcorn;</code> </td> <td> U+0231F </td> <td> <span class="glyph" title="">⌟</span> </td> </tr>
-     *       <tr id="entity-drcrop"><td> <code title="">drcrop;</code> </td> <td> U+0230C </td> <td> <span class="glyph" title="">⌌</span> </td> </tr>
-     *       <tr id="entity-Dscr"><td> <code title="">Dscr;</code> </td> <td> U+1D49F </td> <td> <span class="glyph" title="">𝒟</span> </td> </tr>
-     *       <tr id="entity-dscr"><td> <code title="">dscr;</code> </td> <td> U+1D4B9 </td> <td> <span class="glyph" title="">𝒹</span> </td> </tr>
-     *       <tr id="entity-DScy"><td> <code title="">DScy;</code> </td> <td> U+00405 </td> <td> <span class="glyph" title="">Ѕ</span> </td> </tr>
-     *       <tr id="entity-dscy"><td> <code title="">dscy;</code> </td> <td> U+00455 </td> <td> <span class="glyph" title="">ѕ</span> </td> </tr>
-     *       <tr id="entity-dsol"><td> <code title="">dsol;</code> </td> <td> U+029F6 </td> <td> <span class="glyph" title="">⧶</span> </td> </tr>
-     *       <tr id="entity-Dstrok"><td> <code title="">Dstrok;</code> </td> <td> U+00110 </td> <td> <span class="glyph" title="">Đ</span> </td> </tr>
-     *       <tr id="entity-dstrok"><td> <code title="">dstrok;</code> </td> <td> U+00111 </td> <td> <span class="glyph" title="">đ</span> </td> </tr>
-     *       <tr id="entity-dtdot"><td> <code title="">dtdot;</code> </td> <td> U+022F1 </td> <td> <span class="glyph" title="">⋱</span> </td> </tr>
-     *       <tr id="entity-dtri"><td> <code title="">dtri;</code> </td> <td> U+025BF </td> <td> <span class="glyph" title="">▿</span> </td> </tr>
-     *       <tr id="entity-dtrif"><td> <code title="">dtrif;</code> </td> <td> U+025BE </td> <td> <span class="glyph" title="">▾</span> </td> </tr>
-     *       <tr id="entity-duarr"><td> <code title="">duarr;</code> </td> <td> U+021F5 </td> <td> <span class="glyph" title="">⇵</span> </td> </tr>
-     *       <tr id="entity-duhar"><td> <code title="">duhar;</code> </td> <td> U+0296F </td> <td> <span class="glyph" title="">⥯</span> </td> </tr>
-     *       <tr id="entity-dwangle"><td> <code title="">dwangle;</code> </td> <td> U+029A6 </td> <td> <span class="glyph" title="">⦦</span> </td> </tr>
-     *       <tr id="entity-DZcy"><td> <code title="">DZcy;</code> </td> <td> U+0040F </td> <td> <span class="glyph" title="">Џ</span> </td> </tr>
-     *       <tr id="entity-dzcy"><td> <code title="">dzcy;</code> </td> <td> U+0045F </td> <td> <span class="glyph" title="">џ</span> </td> </tr>
-     *       <tr id="entity-dzigrarr"><td> <code title="">dzigrarr;</code> </td> <td> U+027FF </td> <td> <span class="glyph" title="">⟿</span> </td> </tr>
-     *       <tr id="entity-Eacute"><td> <code title="">Eacute;</code> </td> <td> U+000C9 </td> <td> <span class="glyph" title="">É</span> </td> </tr>
-     *       <tr class="impl" id="entity-Eacute-legacy"><td> <code title="">Eacute</code> </td> <td> U+000C9 </td> <td> <span title="">É</span> </td> </tr>
-     *       <tr id="entity-eacute"><td> <code title="">eacute;</code> </td> <td> U+000E9 </td> <td> <span class="glyph" title="">é</span> </td> </tr>
-     *       <tr class="impl" id="entity-eacute-legacy"><td> <code title="">eacute</code> </td> <td> U+000E9 </td> <td> <span title="">é</span> </td> </tr>
-     *       <tr id="entity-easter"><td> <code title="">easter;</code> </td> <td> U+02A6E </td> <td> <span class="glyph" title="">⩮</span> </td> </tr>
-     *       <tr id="entity-Ecaron"><td> <code title="">Ecaron;</code> </td> <td> U+0011A </td> <td> <span class="glyph" title="">Ě</span> </td> </tr>
-     *       <tr id="entity-ecaron"><td> <code title="">ecaron;</code> </td> <td> U+0011B </td> <td> <span class="glyph" title="">ě</span> </td> </tr>
-     *       <tr id="entity-ecir"><td> <code title="">ecir;</code> </td> <td> U+02256 </td> <td> <span class="glyph" title="">≖</span> </td> </tr>
-     *       <tr id="entity-Ecirc"><td> <code title="">Ecirc;</code> </td> <td> U+000CA </td> <td> <span class="glyph" title="">Ê</span> </td> </tr>
-     *       <tr class="impl" id="entity-Ecirc-legacy"><td> <code title="">Ecirc</code> </td> <td> U+000CA </td> <td> <span title="">Ê</span> </td> </tr>
-     *       <tr id="entity-ecirc"><td> <code title="">ecirc;</code> </td> <td> U+000EA </td> <td> <span class="glyph" title="">ê</span> </td> </tr>
-     *       <tr class="impl" id="entity-ecirc-legacy"><td> <code title="">ecirc</code> </td> <td> U+000EA </td> <td> <span title="">ê</span> </td> </tr>
-     *       <tr id="entity-ecolon"><td> <code title="">ecolon;</code> </td> <td> U+02255 </td> <td> <span class="glyph" title="">≕</span> </td> </tr>
-     *       <tr id="entity-Ecy"><td> <code title="">Ecy;</code> </td> <td> U+0042D </td> <td> <span class="glyph" title="">Э</span> </td> </tr>
-     *       <tr id="entity-ecy"><td> <code title="">ecy;</code> </td> <td> U+0044D </td> <td> <span class="glyph" title="">э</span> </td> </tr>
-     *       <tr id="entity-eDDot"><td> <code title="">eDDot;</code> </td> <td> U+02A77 </td> <td> <span class="glyph" title="">⩷</span> </td> </tr>
-     *       <tr id="entity-Edot"><td> <code title="">Edot;</code> </td> <td> U+00116 </td> <td> <span class="glyph" title="">Ė</span> </td> </tr>
-     *       <tr id="entity-eDot"><td> <code title="">eDot;</code> </td> <td> U+02251 </td> <td> <span class="glyph" title="">≑</span> </td> </tr>
-     *       <tr id="entity-edot"><td> <code title="">edot;</code> </td> <td> U+00117 </td> <td> <span class="glyph" title="">ė</span> </td> </tr>
-     *       <tr id="entity-ee"><td> <code title="">ee;</code> </td> <td> U+02147 </td> <td> <span class="glyph" title="">ⅇ</span> </td> </tr>
-     *       <tr id="entity-efDot"><td> <code title="">efDot;</code> </td> <td> U+02252 </td> <td> <span class="glyph" title="">≒</span> </td> </tr>
-     *       <tr id="entity-Efr"><td> <code title="">Efr;</code> </td> <td> U+1D508 </td> <td> <span class="glyph" title="">𝔈</span> </td> </tr>
-     *       <tr id="entity-efr"><td> <code title="">efr;</code> </td> <td> U+1D522 </td> <td> <span class="glyph" title="">𝔢</span> </td> </tr>
-     *       <tr id="entity-eg"><td> <code title="">eg;</code> </td> <td> U+02A9A </td> <td> <span class="glyph" title="">⪚</span> </td> </tr>
-     *       <tr id="entity-Egrave"><td> <code title="">Egrave;</code> </td> <td> U+000C8 </td> <td> <span class="glyph" title="">È</span> </td> </tr>
-     *       <tr class="impl" id="entity-Egrave-legacy"><td> <code title="">Egrave</code> </td> <td> U+000C8 </td> <td> <span title="">È</span> </td> </tr>
-     *       <tr id="entity-egrave"><td> <code title="">egrave;</code> </td> <td> U+000E8 </td> <td> <span class="glyph" title="">è</span> </td> </tr>
-     *       <tr class="impl" id="entity-egrave-legacy"><td> <code title="">egrave</code> </td> <td> U+000E8 </td> <td> <span title="">è</span> </td> </tr>
-     *       <tr id="entity-egs"><td> <code title="">egs;</code> </td> <td> U+02A96 </td> <td> <span class="glyph" title="">⪖</span> </td> </tr>
-     *       <tr id="entity-egsdot"><td> <code title="">egsdot;</code> </td> <td> U+02A98 </td> <td> <span class="glyph" title="">⪘</span> </td> </tr>
-     *       <tr id="entity-el"><td> <code title="">el;</code> </td> <td> U+02A99 </td> <td> <span class="glyph" title="">⪙</span> </td> </tr>
-     *       <tr id="entity-Element"><td> <code title="">Element;</code> </td> <td> U+02208 </td> <td> <span class="glyph" title="">∈</span> </td> </tr>
-     *       <tr id="entity-elinters"><td> <code title="">elinters;</code> </td> <td> U+023E7 </td> <td> <span class="glyph" title="">⏧</span> </td> </tr>
-     *       <tr id="entity-ell"><td> <code title="">ell;</code> </td> <td> U+02113 </td> <td> <span class="glyph" title="">ℓ</span> </td> </tr>
-     *       <tr id="entity-els"><td> <code title="">els;</code> </td> <td> U+02A95 </td> <td> <span class="glyph" title="">⪕</span> </td> </tr>
-     *       <tr id="entity-elsdot"><td> <code title="">elsdot;</code> </td> <td> U+02A97 </td> <td> <span class="glyph" title="">⪗</span> </td> </tr>
-     *       <tr id="entity-Emacr"><td> <code title="">Emacr;</code> </td> <td> U+00112 </td> <td> <span class="glyph" title="">Ē</span> </td> </tr>
-     *       <tr id="entity-emacr"><td> <code title="">emacr;</code> </td> <td> U+00113 </td> <td> <span class="glyph" title="">ē</span> </td> </tr>
-     *       <tr id="entity-empty"><td> <code title="">empty;</code> </td> <td> U+02205 </td> <td> <span class="glyph" title="">∅</span> </td> </tr>
-     *       <tr id="entity-emptyset"><td> <code title="">emptyset;</code> </td> <td> U+02205 </td> <td> <span class="glyph" title="">∅</span> </td> </tr>
-     *       <tr id="entity-EmptySmallSquare"><td> <code title="">EmptySmallSquare;</code> </td> <td> U+025FB </td> <td> <span class="glyph" title="">◻</span> </td> </tr>
-     *       <tr id="entity-emptyv"><td> <code title="">emptyv;</code> </td> <td> U+02205 </td> <td> <span class="glyph" title="">∅</span> </td> </tr>
-     *       <tr id="entity-EmptyVerySmallSquare"><td> <code title="">EmptyVerySmallSquare;</code> </td> <td> U+025AB </td> <td> <span class="glyph" title="">▫</span> </td> </tr>
-     *       <tr id="entity-emsp"><td> <code title="">emsp;</code> </td> <td> U+02003 </td> <td> <span class="glyph" title=""> </span> </td> </tr>
-     *       <tr id="entity-emsp13"><td> <code title="">emsp13;</code> </td> <td> U+02004 </td> <td> <span class="glyph" title=""> </span> </td> </tr>
-     *       <tr id="entity-emsp14"><td> <code title="">emsp14;</code> </td> <td> U+02005 </td> <td> <span class="glyph" title=""> </span> </td> </tr>
-     *       <tr id="entity-ENG"><td> <code title="">ENG;</code> </td> <td> U+0014A </td> <td> <span class="glyph" title="">Ŋ</span> </td> </tr>
-     *       <tr id="entity-eng"><td> <code title="">eng;</code> </td> <td> U+0014B </td> <td> <span class="glyph" title="">ŋ</span> </td> </tr>
-     *       <tr id="entity-ensp"><td> <code title="">ensp;</code> </td> <td> U+02002 </td> <td> <span class="glyph" title=""> </span> </td> </tr>
-     *       <tr id="entity-Eogon"><td> <code title="">Eogon;</code> </td> <td> U+00118 </td> <td> <span class="glyph" title="">Ę</span> </td> </tr>
-     *       <tr id="entity-eogon"><td> <code title="">eogon;</code> </td> <td> U+00119 </td> <td> <span class="glyph" title="">ę</span> </td> </tr>
-     *       <tr id="entity-Eopf"><td> <code title="">Eopf;</code> </td> <td> U+1D53C </td> <td> <span class="glyph" title="">𝔼</span> </td> </tr>
-     *       <tr id="entity-eopf"><td> <code title="">eopf;</code> </td> <td> U+1D556 </td> <td> <span class="glyph" title="">𝕖</span> </td> </tr>
-     *       <tr id="entity-epar"><td> <code title="">epar;</code> </td> <td> U+022D5 </td> <td> <span class="glyph" title="">⋕</span> </td> </tr>
-     *       <tr id="entity-eparsl"><td> <code title="">eparsl;</code> </td> <td> U+029E3 </td> <td> <span class="glyph" title="">⧣</span> </td> </tr>
-     *       <tr id="entity-eplus"><td> <code title="">eplus;</code> </td> <td> U+02A71 </td> <td> <span class="glyph" title="">⩱</span> </td> </tr>
-     *       <tr id="entity-epsi"><td> <code title="">epsi;</code> </td> <td> U+003B5 </td> <td> <span class="glyph" title="">ε</span> </td> </tr>
-     *       <tr id="entity-Epsilon"><td> <code title="">Epsilon;</code> </td> <td> U+00395 </td> <td> <span class="glyph" title="">Ε</span> </td> </tr>
-     *       <tr id="entity-epsilon"><td> <code title="">epsilon;</code> </td> <td> U+003B5 </td> <td> <span class="glyph" title="">ε</span> </td> </tr>
-     *       <tr id="entity-epsiv"><td> <code title="">epsiv;</code> </td> <td> U+003F5 </td> <td> <span class="glyph" title="">ϵ</span> </td> </tr>
-     *       <tr id="entity-eqcirc"><td> <code title="">eqcirc;</code> </td> <td> U+02256 </td> <td> <span class="glyph" title="">≖</span> </td> </tr>
-     *       <tr id="entity-eqcolon"><td> <code title="">eqcolon;</code> </td> <td> U+02255 </td> <td> <span class="glyph" title="">≕</span> </td> </tr>
-     *       <tr id="entity-eqsim"><td> <code title="">eqsim;</code> </td> <td> U+02242 </td> <td> <span class="glyph" title="">≂</span> </td> </tr>
-     *       <tr id="entity-eqslantgtr"><td> <code title="">eqslantgtr;</code> </td> <td> U+02A96 </td> <td> <span class="glyph" title="">⪖</span> </td> </tr>
-     *       <tr id="entity-eqslantless"><td> <code title="">eqslantless;</code> </td> <td> U+02A95 </td> <td> <span class="glyph" title="">⪕</span> </td> </tr>
-     *       <tr id="entity-Equal"><td> <code title="">Equal;</code> </td> <td> U+02A75 </td> <td> <span class="glyph" title="">⩵</span> </td> </tr>
-     *       <tr id="entity-equals"><td> <code title="">equals;</code> </td> <td> U+0003D </td> <td> <span class="glyph" title="">=</span> </td> </tr>
-     *       <tr id="entity-EqualTilde"><td> <code title="">EqualTilde;</code> </td> <td> U+02242 </td> <td> <span class="glyph" title="">≂</span> </td> </tr>
-     *       <tr id="entity-equest"><td> <code title="">equest;</code> </td> <td> U+0225F </td> <td> <span class="glyph" title="">≟</span> </td> </tr>
-     *       <tr id="entity-Equilibrium"><td> <code title="">Equilibrium;</code> </td> <td> U+021CC </td> <td> <span class="glyph" title="">⇌</span> </td> </tr>
-     *       <tr id="entity-equiv"><td> <code title="">equiv;</code> </td> <td> U+02261 </td> <td> <span class="glyph" title="">≡</span> </td> </tr>
-     *       <tr id="entity-equivDD"><td> <code title="">equivDD;</code> </td> <td> U+02A78 </td> <td> <span class="glyph" title="">⩸</span> </td> </tr>
-     *       <tr id="entity-eqvparsl"><td> <code title="">eqvparsl;</code> </td> <td> U+029E5 </td> <td> <span class="glyph" title="">⧥</span> </td> </tr>
-     *       <tr id="entity-erarr"><td> <code title="">erarr;</code> </td> <td> U+02971 </td> <td> <span class="glyph" title="">⥱</span> </td> </tr>
-     *       <tr id="entity-erDot"><td> <code title="">erDot;</code> </td> <td> U+02253 </td> <td> <span class="glyph" title="">≓</span> </td> </tr>
-     *       <tr id="entity-Escr"><td> <code title="">Escr;</code> </td> <td> U+02130 </td> <td> <span class="glyph" title="">ℰ</span> </td> </tr>
-     *       <tr id="entity-escr"><td> <code title="">escr;</code> </td> <td> U+0212F </td> <td> <span class="glyph" title="">ℯ</span> </td> </tr>
-     *       <tr id="entity-esdot"><td> <code title="">esdot;</code> </td> <td> U+02250 </td> <td> <span class="glyph" title="">≐</span> </td> </tr>
-     *       <tr id="entity-Esim"><td> <code title="">Esim;</code> </td> <td> U+02A73 </td> <td> <span class="glyph" title="">⩳</span> </td> </tr>
-     *       <tr id="entity-esim"><td> <code title="">esim;</code> </td> <td> U+02242 </td> <td> <span class="glyph" title="">≂</span> </td> </tr>
-     *       <tr id="entity-Eta"><td> <code title="">Eta;</code> </td> <td> U+00397 </td> <td> <span class="glyph" title="">Η</span> </td> </tr>
-     *       <tr id="entity-eta"><td> <code title="">eta;</code> </td> <td> U+003B7 </td> <td> <span class="glyph" title="">η</span> </td> </tr>
-     *       <tr id="entity-ETH"><td> <code title="">ETH;</code> </td> <td> U+000D0 </td> <td> <span class="glyph" title="">Ð</span> </td> </tr>
-     *       <tr class="impl" id="entity-ETH-legacy"><td> <code title="">ETH</code> </td> <td> U+000D0 </td> <td> <span title="">Ð</span> </td> </tr>
-     *       <tr id="entity-eth"><td> <code title="">eth;</code> </td> <td> U+000F0 </td> <td> <span class="glyph" title="">ð</span> </td> </tr>
-     *       <tr class="impl" id="entity-eth-legacy"><td> <code title="">eth</code> </td> <td> U+000F0 </td> <td> <span title="">ð</span> </td> </tr>
-     *       <tr id="entity-Euml"><td> <code title="">Euml;</code> </td> <td> U+000CB </td> <td> <span class="glyph" title="">Ë</span> </td> </tr>
-     *       <tr class="impl" id="entity-Euml-legacy"><td> <code title="">Euml</code> </td> <td> U+000CB </td> <td> <span title="">Ë</span> </td> </tr>
-     *       <tr id="entity-euml"><td> <code title="">euml;</code> </td> <td> U+000EB </td> <td> <span class="glyph" title="">ë</span> </td> </tr>
-     *       <tr class="impl" id="entity-euml-legacy"><td> <code title="">euml</code> </td> <td> U+000EB </td> <td> <span title="">ë</span> </td> </tr>
-     *       <tr id="entity-euro"><td> <code title="">euro;</code> </td> <td> U+020AC </td> <td> <span class="glyph" title="">€</span> </td> </tr>
-     *       <tr id="entity-excl"><td> <code title="">excl;</code> </td> <td> U+00021 </td> <td> <span class="glyph" title="">!</span> </td> </tr>
-     *       <tr id="entity-exist"><td> <code title="">exist;</code> </td> <td> U+02203 </td> <td> <span class="glyph" title="">∃</span> </td> </tr>
-     *       <tr id="entity-Exists"><td> <code title="">Exists;</code> </td> <td> U+02203 </td> <td> <span class="glyph" title="">∃</span> </td> </tr>
-     *       <tr id="entity-expectation"><td> <code title="">expectation;</code> </td> <td> U+02130 </td> <td> <span class="glyph" title="">ℰ</span> </td> </tr>
-     *       <tr id="entity-ExponentialE"><td> <code title="">ExponentialE;</code> </td> <td> U+02147 </td> <td> <span class="glyph" title="">ⅇ</span> </td> </tr>
-     *       <tr id="entity-exponentiale"><td> <code title="">exponentiale;</code> </td> <td> U+02147 </td> <td> <span class="glyph" title="">ⅇ</span> </td> </tr>
-     *       <tr id="entity-fallingdotseq"><td> <code title="">fallingdotseq;</code> </td> <td> U+02252 </td> <td> <span class="glyph" title="">≒</span> </td> </tr>
-     *       <tr id="entity-Fcy"><td> <code title="">Fcy;</code> </td> <td> U+00424 </td> <td> <span class="glyph" title="">Ф</span> </td> </tr>
-     *       <tr id="entity-fcy"><td> <code title="">fcy;</code> </td> <td> U+00444 </td> <td> <span class="glyph" title="">ф</span> </td> </tr>
-     *       <tr id="entity-female"><td> <code title="">female;</code> </td> <td> U+02640 </td> <td> <span class="glyph" title="">♀</span> </td> </tr>
-     *       <tr id="entity-ffilig"><td> <code title="">ffilig;</code> </td> <td> U+0FB03 </td> <td> <span class="glyph" title="">ﬃ</span> </td> </tr>
-     *       <tr id="entity-fflig"><td> <code title="">fflig;</code> </td> <td> U+0FB00 </td> <td> <span class="glyph" title="">ﬀ</span> </td> </tr>
-     *       <tr id="entity-ffllig"><td> <code title="">ffllig;</code> </td> <td> U+0FB04 </td> <td> <span class="glyph" title="">ﬄ</span> </td> </tr>
-     *       <tr id="entity-Ffr"><td> <code title="">Ffr;</code> </td> <td> U+1D509 </td> <td> <span class="glyph" title="">𝔉</span> </td> </tr>
-     *       <tr id="entity-ffr"><td> <code title="">ffr;</code> </td> <td> U+1D523 </td> <td> <span class="glyph" title="">𝔣</span> </td> </tr>
-     *       <tr id="entity-filig"><td> <code title="">filig;</code> </td> <td> U+0FB01 </td> <td> <span class="glyph" title="">ﬁ</span> </td> </tr>
-     *       <tr id="entity-FilledSmallSquare"><td> <code title="">FilledSmallSquare;</code> </td> <td> U+025FC </td> <td> <span class="glyph" title="">◼</span> </td> </tr>
-     *       <tr id="entity-FilledVerySmallSquare"><td> <code title="">FilledVerySmallSquare;</code> </td> <td> U+025AA </td> <td> <span class="glyph" title="">▪</span> </td> </tr>
-     *       <tr id="entity-fjlig"><td> <code title="">fjlig;</code> </td> <td> U+00066 U+0006A </td> <td> <span class="glyph compound" title="">fj</span> </td> </tr>
-     *       <tr id="entity-flat"><td> <code title="">flat;</code> </td> <td> U+0266D </td> <td> <span class="glyph" title="">♭</span> </td> </tr>
-     *       <tr id="entity-fllig"><td> <code title="">fllig;</code> </td> <td> U+0FB02 </td> <td> <span class="glyph" title="">ﬂ</span> </td> </tr>
-     *       <tr id="entity-fltns"><td> <code title="">fltns;</code> </td> <td> U+025B1 </td> <td> <span class="glyph" title="">▱</span> </td> </tr>
-     *       <tr id="entity-fnof"><td> <code title="">fnof;</code> </td> <td> U+00192 </td> <td> <span class="glyph" title="">ƒ</span> </td> </tr>
-     *       <tr id="entity-Fopf"><td> <code title="">Fopf;</code> </td> <td> U+1D53D </td> <td> <span class="glyph" title="">𝔽</span> </td> </tr>
-     *       <tr id="entity-fopf"><td> <code title="">fopf;</code> </td> <td> U+1D557 </td> <td> <span class="glyph" title="">𝕗</span> </td> </tr>
-     *       <tr id="entity-ForAll"><td> <code title="">ForAll;</code> </td> <td> U+02200 </td> <td> <span class="glyph" title="">∀</span> </td> </tr>
-     *       <tr id="entity-forall"><td> <code title="">forall;</code> </td> <td> U+02200 </td> <td> <span class="glyph" title="">∀</span> </td> </tr>
-     *       <tr id="entity-fork"><td> <code title="">fork;</code> </td> <td> U+022D4 </td> <td> <span class="glyph" title="">⋔</span> </td> </tr>
-     *       <tr id="entity-forkv"><td> <code title="">forkv;</code> </td> <td> U+02AD9 </td> <td> <span class="glyph" title="">⫙</span> </td> </tr>
-     *       <tr id="entity-Fouriertrf"><td> <code title="">Fouriertrf;</code> </td> <td> U+02131 </td> <td> <span class="glyph" title="">ℱ</span> </td> </tr>
-     *       <tr id="entity-fpartint"><td> <code title="">fpartint;</code> </td> <td> U+02A0D </td> <td> <span class="glyph" title="">⨍</span> </td> </tr>
-     *       <tr id="entity-frac12"><td> <code title="">frac12;</code> </td> <td> U+000BD </td> <td> <span class="glyph" title="">½</span> </td> </tr>
-     *       <tr class="impl" id="entity-frac12-legacy"><td> <code title="">frac12</code> </td> <td> U+000BD </td> <td> <span title="">½</span> </td> </tr>
-     *       <tr id="entity-frac13"><td> <code title="">frac13;</code> </td> <td> U+02153 </td> <td> <span class="glyph" title="">⅓</span> </td> </tr>
-     *       <tr id="entity-frac14"><td> <code title="">frac14;</code> </td> <td> U+000BC </td> <td> <span class="glyph" title="">¼</span> </td> </tr>
-     *       <tr class="impl" id="entity-frac14-legacy"><td> <code title="">frac14</code> </td> <td> U+000BC </td> <td> <span title="">¼</span> </td> </tr>
-     *       <tr id="entity-frac15"><td> <code title="">frac15;</code> </td> <td> U+02155 </td> <td> <span class="glyph" title="">⅕</span> </td> </tr>
-     *       <tr id="entity-frac16"><td> <code title="">frac16;</code> </td> <td> U+02159 </td> <td> <span class="glyph" title="">⅙</span> </td> </tr>
-     *       <tr id="entity-frac18"><td> <code title="">frac18;</code> </td> <td> U+0215B </td> <td> <span class="glyph" title="">⅛</span> </td> </tr>
-     *       <tr id="entity-frac23"><td> <code title="">frac23;</code> </td> <td> U+02154 </td> <td> <span class="glyph" title="">⅔</span> </td> </tr>
-     *       <tr id="entity-frac25"><td> <code title="">frac25;</code> </td> <td> U+02156 </td> <td> <span class="glyph" title="">⅖</span> </td> </tr>
-     *       <tr id="entity-frac34"><td> <code title="">frac34;</code> </td> <td> U+000BE </td> <td> <span class="glyph" title="">¾</span> </td> </tr>
-     *       <tr class="impl" id="entity-frac34-legacy"><td> <code title="">frac34</code> </td> <td> U+000BE </td> <td> <span title="">¾</span> </td> </tr>
-     *       <tr id="entity-frac35"><td> <code title="">frac35;</code> </td> <td> U+02157 </td> <td> <span class="glyph" title="">⅗</span> </td> </tr>
-     *       <tr id="entity-frac38"><td> <code title="">frac38;</code> </td> <td> U+0215C </td> <td> <span class="glyph" title="">⅜</span> </td> </tr>
-     *       <tr id="entity-frac45"><td> <code title="">frac45;</code> </td> <td> U+02158 </td> <td> <span class="glyph" title="">⅘</span> </td> </tr>
-     *       <tr id="entity-frac56"><td> <code title="">frac56;</code> </td> <td> U+0215A </td> <td> <span class="glyph" title="">⅚</span> </td> </tr>
-     *       <tr id="entity-frac58"><td> <code title="">frac58;</code> </td> <td> U+0215D </td> <td> <span class="glyph" title="">⅝</span> </td> </tr>
-     *       <tr id="entity-frac78"><td> <code title="">frac78;</code> </td> <td> U+0215E </td> <td> <span class="glyph" title="">⅞</span> </td> </tr>
-     *       <tr id="entity-frasl"><td> <code title="">frasl;</code> </td> <td> U+02044 </td> <td> <span class="glyph" title="">⁄</span> </td> </tr>
-     *       <tr id="entity-frown"><td> <code title="">frown;</code> </td> <td> U+02322 </td> <td> <span class="glyph" title="">⌢</span> </td> </tr>
-     *       <tr id="entity-Fscr"><td> <code title="">Fscr;</code> </td> <td> U+02131 </td> <td> <span class="glyph" title="">ℱ</span> </td> </tr>
-     *       <tr id="entity-fscr"><td> <code title="">fscr;</code> </td> <td> U+1D4BB </td> <td> <span class="glyph" title="">𝒻</span> </td> </tr>
-     *       <tr id="entity-gacute"><td> <code title="">gacute;</code> </td> <td> U+001F5 </td> <td> <span class="glyph" title="">ǵ</span> </td> </tr>
-     *       <tr id="entity-Gamma"><td> <code title="">Gamma;</code> </td> <td> U+00393 </td> <td> <span class="glyph" title="">Γ</span> </td> </tr>
-     *       <tr id="entity-gamma"><td> <code title="">gamma;</code> </td> <td> U+003B3 </td> <td> <span class="glyph" title="">γ</span> </td> </tr>
-     *       <tr id="entity-Gammad"><td> <code title="">Gammad;</code> </td> <td> U+003DC </td> <td> <span class="glyph" title="">Ϝ</span> </td> </tr>
-     *       <tr id="entity-gammad"><td> <code title="">gammad;</code> </td> <td> U+003DD </td> <td> <span class="glyph" title="">ϝ</span> </td> </tr>
-     *       <tr id="entity-gap"><td> <code title="">gap;</code> </td> <td> U+02A86 </td> <td> <span class="glyph" title="">⪆</span> </td> </tr>
-     *       <tr id="entity-Gbreve"><td> <code title="">Gbreve;</code> </td> <td> U+0011E </td> <td> <span class="glyph" title="">Ğ</span> </td> </tr>
-     *       <tr id="entity-gbreve"><td> <code title="">gbreve;</code> </td> <td> U+0011F </td> <td> <span class="glyph" title="">ğ</span> </td> </tr>
-     *       <tr id="entity-Gcedil"><td> <code title="">Gcedil;</code> </td> <td> U+00122 </td> <td> <span class="glyph" title="">Ģ</span> </td> </tr>
-     *       <tr id="entity-Gcirc"><td> <code title="">Gcirc;</code> </td> <td> U+0011C </td> <td> <span class="glyph" title="">Ĝ</span> </td> </tr>
-     *       <tr id="entity-gcirc"><td> <code title="">gcirc;</code> </td> <td> U+0011D </td> <td> <span class="glyph" title="">ĝ</span> </td> </tr>
-     *       <tr id="entity-Gcy"><td> <code title="">Gcy;</code> </td> <td> U+00413 </td> <td> <span class="glyph" title="">Г</span> </td> </tr>
-     *       <tr id="entity-gcy"><td> <code title="">gcy;</code> </td> <td> U+00433 </td> <td> <span class="glyph" title="">г</span> </td> </tr>
-     *       <tr id="entity-Gdot"><td> <code title="">Gdot;</code> </td> <td> U+00120 </td> <td> <span class="glyph" title="">Ġ</span> </td> </tr>
-     *       <tr id="entity-gdot"><td> <code title="">gdot;</code> </td> <td> U+00121 </td> <td> <span class="glyph" title="">ġ</span> </td> </tr>
-     *       <tr id="entity-gE"><td> <code title="">gE;</code> </td> <td> U+02267 </td> <td> <span class="glyph" title="">≧</span> </td> </tr>
-     *       <tr id="entity-ge"><td> <code title="">ge;</code> </td> <td> U+02265 </td> <td> <span class="glyph" title="">≥</span> </td> </tr>
-     *       <tr id="entity-gEl"><td> <code title="">gEl;</code> </td> <td> U+02A8C </td> <td> <span class="glyph" title="">⪌</span> </td> </tr>
-     *       <tr id="entity-gel"><td> <code title="">gel;</code> </td> <td> U+022DB </td> <td> <span class="glyph" title="">⋛</span> </td> </tr>
-     *       <tr id="entity-geq"><td> <code title="">geq;</code> </td> <td> U+02265 </td> <td> <span class="glyph" title="">≥</span> </td> </tr>
-     *       <tr id="entity-geqq"><td> <code title="">geqq;</code> </td> <td> U+02267 </td> <td> <span class="glyph" title="">≧</span> </td> </tr>
-     *       <tr id="entity-geqslant"><td> <code title="">geqslant;</code> </td> <td> U+02A7E </td> <td> <span class="glyph" title="">⩾</span> </td> </tr>
-     *       <tr id="entity-ges"><td> <code title="">ges;</code> </td> <td> U+02A7E </td> <td> <span class="glyph" title="">⩾</span> </td> </tr>
-     *       <tr id="entity-gescc"><td> <code title="">gescc;</code> </td> <td> U+02AA9 </td> <td> <span class="glyph" title="">⪩</span> </td> </tr>
-     *       <tr id="entity-gesdot"><td> <code title="">gesdot;</code> </td> <td> U+02A80 </td> <td> <span class="glyph" title="">⪀</span> </td> </tr>
-     *       <tr id="entity-gesdoto"><td> <code title="">gesdoto;</code> </td> <td> U+02A82 </td> <td> <span class="glyph" title="">⪂</span> </td> </tr>
-     *       <tr id="entity-gesdotol"><td> <code title="">gesdotol;</code> </td> <td> U+02A84 </td> <td> <span class="glyph" title="">⪄</span> </td> </tr>
-     *       <tr id="entity-gesl"><td> <code title="">gesl;</code> </td> <td> U+022DB U+0FE00 </td> <td> <span class="glyph compound" title="">⋛︀</span> </td> </tr>
-     *       <tr id="entity-gesles"><td> <code title="">gesles;</code> </td> <td> U+02A94 </td> <td> <span class="glyph" title="">⪔</span> </td> </tr>
-     *       <tr id="entity-Gfr"><td> <code title="">Gfr;</code> </td> <td> U+1D50A </td> <td> <span class="glyph" title="">𝔊</span> </td> </tr>
-     *       <tr id="entity-gfr"><td> <code title="">gfr;</code> </td> <td> U+1D524 </td> <td> <span class="glyph" title="">𝔤</span> </td> </tr>
-     *       <tr id="entity-Gg"><td> <code title="">Gg;</code> </td> <td> U+022D9 </td> <td> <span class="glyph" title="">⋙</span> </td> </tr>
-     *       <tr id="entity-gg"><td> <code title="">gg;</code> </td> <td> U+0226B </td> <td> <span class="glyph" title="">≫</span> </td> </tr>
-     *       <tr id="entity-ggg"><td> <code title="">ggg;</code> </td> <td> U+022D9 </td> <td> <span class="glyph" title="">⋙</span> </td> </tr>
-     *       <tr id="entity-gimel"><td> <code title="">gimel;</code> </td> <td> U+02137 </td> <td> <span class="glyph" title="">ℷ</span> </td> </tr>
-     *       <tr id="entity-GJcy"><td> <code title="">GJcy;</code> </td> <td> U+00403 </td> <td> <span class="glyph" title="">Ѓ</span> </td> </tr>
-     *       <tr id="entity-gjcy"><td> <code title="">gjcy;</code> </td> <td> U+00453 </td> <td> <span class="glyph" title="">ѓ</span> </td> </tr>
-     *       <tr id="entity-gl"><td> <code title="">gl;</code> </td> <td> U+02277 </td> <td> <span class="glyph" title="">≷</span> </td> </tr>
-     *       <tr id="entity-gla"><td> <code title="">gla;</code> </td> <td> U+02AA5 </td> <td> <span class="glyph" title="">⪥</span> </td> </tr>
-     *       <tr id="entity-glE"><td> <code title="">glE;</code> </td> <td> U+02A92 </td> <td> <span class="glyph" title="">⪒</span> </td> </tr>
-     *       <tr id="entity-glj"><td> <code title="">glj;</code> </td> <td> U+02AA4 </td> <td> <span class="glyph" title="">⪤</span> </td> </tr>
-     *       <tr id="entity-gnap"><td> <code title="">gnap;</code> </td> <td> U+02A8A </td> <td> <span class="glyph" title="">⪊</span> </td> </tr>
-     *       <tr id="entity-gnapprox"><td> <code title="">gnapprox;</code> </td> <td> U+02A8A </td> <td> <span class="glyph" title="">⪊</span> </td> </tr>
-     *       <tr id="entity-gnE"><td> <code title="">gnE;</code> </td> <td> U+02269 </td> <td> <span class="glyph" title="">≩</span> </td> </tr>
-     *       <tr id="entity-gne"><td> <code title="">gne;</code> </td> <td> U+02A88 </td> <td> <span class="glyph" title="">⪈</span> </td> </tr>
-     *       <tr id="entity-gneq"><td> <code title="">gneq;</code> </td> <td> U+02A88 </td> <td> <span class="glyph" title="">⪈</span> </td> </tr>
-     *       <tr id="entity-gneqq"><td> <code title="">gneqq;</code> </td> <td> U+02269 </td> <td> <span class="glyph" title="">≩</span> </td> </tr>
-     *       <tr id="entity-gnsim"><td> <code title="">gnsim;</code> </td> <td> U+022E7 </td> <td> <span class="glyph" title="">⋧</span> </td> </tr>
-     *       <tr id="entity-Gopf"><td> <code title="">Gopf;</code> </td> <td> U+1D53E </td> <td> <span class="glyph" title="">𝔾</span> </td> </tr>
-     *       <tr id="entity-gopf"><td> <code title="">gopf;</code> </td> <td> U+1D558 </td> <td> <span class="glyph" title="">𝕘</span> </td> </tr>
-     *       <tr id="entity-grave"><td> <code title="">grave;</code> </td> <td> U+00060 </td> <td> <span class="glyph" title="">`</span> </td> </tr>
-     *       <tr id="entity-GreaterEqual"><td> <code title="">GreaterEqual;</code> </td> <td> U+02265 </td> <td> <span class="glyph" title="">≥</span> </td> </tr>
-     *       <tr id="entity-GreaterEqualLess"><td> <code title="">GreaterEqualLess;</code> </td> <td> U+022DB </td> <td> <span class="glyph" title="">⋛</span> </td> </tr>
-     *       <tr id="entity-GreaterFullEqual"><td> <code title="">GreaterFullEqual;</code> </td> <td> U+02267 </td> <td> <span class="glyph" title="">≧</span> </td> </tr>
-     *       <tr id="entity-GreaterGreater"><td> <code title="">GreaterGreater;</code> </td> <td> U+02AA2 </td> <td> <span class="glyph" title="">⪢</span> </td> </tr>
-     *       <tr id="entity-GreaterLess"><td> <code title="">GreaterLess;</code> </td> <td> U+02277 </td> <td> <span class="glyph" title="">≷</span> </td> </tr>
-     *       <tr id="entity-GreaterSlantEqual"><td> <code title="">GreaterSlantEqual;</code> </td> <td> U+02A7E </td> <td> <span class="glyph" title="">⩾</span> </td> </tr>
-     *       <tr id="entity-GreaterTilde"><td> <code title="">GreaterTilde;</code> </td> <td> U+02273 </td> <td> <span class="glyph" title="">≳</span> </td> </tr>
-     *       <tr id="entity-Gscr"><td> <code title="">Gscr;</code> </td> <td> U+1D4A2 </td> <td> <span class="glyph" title="">𝒢</span> </td> </tr>
-     *       <tr id="entity-gscr"><td> <code title="">gscr;</code> </td> <td> U+0210A </td> <td> <span class="glyph" title="">ℊ</span> </td> </tr>
-     *       <tr id="entity-gsim"><td> <code title="">gsim;</code> </td> <td> U+02273 </td> <td> <span class="glyph" title="">≳</span> </td> </tr>
-     *       <tr id="entity-gsime"><td> <code title="">gsime;</code> </td> <td> U+02A8E </td> <td> <span class="glyph" title="">⪎</span> </td> </tr>
-     *       <tr id="entity-gsiml"><td> <code title="">gsiml;</code> </td> <td> U+02A90 </td> <td> <span class="glyph" title="">⪐</span> </td> </tr>
-     *       <tr id="entity-GT"><td> <code title="">GT;</code> </td> <td> U+0003E </td> <td> <span class="glyph" title="">&gt;</span> </td> </tr>
-     *       <tr class="impl" id="entity-GT-legacy"><td> <code title="">GT</code> </td> <td> U+0003E </td> <td> <span title="">&gt;</span> </td> </tr>
-     *       <tr id="entity-Gt"><td> <code title="">Gt;</code> </td> <td> U+0226B </td> <td> <span class="glyph" title="">≫</span> </td> </tr>
-     *       <tr id="entity-gt"><td> <code title="">gt;</code> </td> <td> U+0003E </td> <td> <span class="glyph" title="">&gt;</span> </td> </tr>
-     *       <tr class="impl" id="entity-gt-legacy"><td> <code title="">gt</code> </td> <td> U+0003E </td> <td> <span title="">&gt;</span> </td> </tr>
-     *       <tr id="entity-gtcc"><td> <code title="">gtcc;</code> </td> <td> U+02AA7 </td> <td> <span class="glyph" title="">⪧</span> </td> </tr>
-     *       <tr id="entity-gtcir"><td> <code title="">gtcir;</code> </td> <td> U+02A7A </td> <td> <span class="glyph" title="">⩺</span> </td> </tr>
-     *       <tr id="entity-gtdot"><td> <code title="">gtdot;</code> </td> <td> U+022D7 </td> <td> <span class="glyph" title="">⋗</span> </td> </tr>
-     *       <tr id="entity-gtlPar"><td> <code title="">gtlPar;</code> </td> <td> U+02995 </td> <td> <span class="glyph" title="">⦕</span> </td> </tr>
-     *       <tr id="entity-gtquest"><td> <code title="">gtquest;</code> </td> <td> U+02A7C </td> <td> <span class="glyph" title="">⩼</span> </td> </tr>
-     *       <tr id="entity-gtrapprox"><td> <code title="">gtrapprox;</code> </td> <td> U+02A86 </td> <td> <span class="glyph" title="">⪆</span> </td> </tr>
-     *       <tr id="entity-gtrarr"><td> <code title="">gtrarr;</code> </td> <td> U+02978 </td> <td> <span class="glyph" title="">⥸</span> </td> </tr>
-     *       <tr id="entity-gtrdot"><td> <code title="">gtrdot;</code> </td> <td> U+022D7 </td> <td> <span class="glyph" title="">⋗</span> </td> </tr>
-     *       <tr id="entity-gtreqless"><td> <code title="">gtreqless;</code> </td> <td> U+022DB </td> <td> <span class="glyph" title="">⋛</span> </td> </tr>
-     *       <tr id="entity-gtreqqless"><td> <code title="">gtreqqless;</code> </td> <td> U+02A8C </td> <td> <span class="glyph" title="">⪌</span> </td> </tr>
-     *       <tr id="entity-gtrless"><td> <code title="">gtrless;</code> </td> <td> U+02277 </td> <td> <span class="glyph" title="">≷</span> </td> </tr>
-     *       <tr id="entity-gtrsim"><td> <code title="">gtrsim;</code> </td> <td> U+02273 </td> <td> <span class="glyph" title="">≳</span> </td> </tr>
-     *       <tr id="entity-gvertneqq"><td> <code title="">gvertneqq;</code> </td> <td> U+02269 U+0FE00 </td> <td> <span class="glyph compound" title="">≩︀</span> </td> </tr>
-     *       <tr id="entity-gvnE"><td> <code title="">gvnE;</code> </td> <td> U+02269 U+0FE00 </td> <td> <span class="glyph compound" title="">≩︀</span> </td> </tr>
-     *       <tr id="entity-Hacek"><td> <code title="">Hacek;</code> </td> <td> U+002C7 </td> <td> <span class="glyph" title="">ˇ</span> </td> </tr>
-     *       <tr id="entity-hairsp"><td> <code title="">hairsp;</code> </td> <td> U+0200A </td> <td> <span class="glyph" title=""> </span> </td> </tr>
-     *       <tr id="entity-half"><td> <code title="">half;</code> </td> <td> U+000BD </td> <td> <span class="glyph" title="">½</span> </td> </tr>
-     *       <tr id="entity-hamilt"><td> <code title="">hamilt;</code> </td> <td> U+0210B </td> <td> <span class="glyph" title="">ℋ</span> </td> </tr>
-     *       <tr id="entity-HARDcy"><td> <code title="">HARDcy;</code> </td> <td> U+0042A </td> <td> <span class="glyph" title="">Ъ</span> </td> </tr>
-     *       <tr id="entity-hardcy"><td> <code title="">hardcy;</code> </td> <td> U+0044A </td> <td> <span class="glyph" title="">ъ</span> </td> </tr>
-     *       <tr id="entity-hArr"><td> <code title="">hArr;</code> </td> <td> U+021D4 </td> <td> <span class="glyph" title="">⇔</span> </td> </tr>
-     *       <tr id="entity-harr"><td> <code title="">harr;</code> </td> <td> U+02194 </td> <td> <span class="glyph" title="">↔</span> </td> </tr>
-     *       <tr id="entity-harrcir"><td> <code title="">harrcir;</code> </td> <td> U+02948 </td> <td> <span class="glyph" title="">⥈</span> </td> </tr>
-     *       <tr id="entity-harrw"><td> <code title="">harrw;</code> </td> <td> U+021AD </td> <td> <span class="glyph" title="">↭</span> </td> </tr>
-     *       <tr id="entity-Hat"><td> <code title="">Hat;</code> </td> <td> U+0005E </td> <td> <span class="glyph" title="">^</span> </td> </tr>
-     *       <tr id="entity-hbar"><td> <code title="">hbar;</code> </td> <td> U+0210F </td> <td> <span class="glyph" title="">ℏ</span> </td> </tr>
-     *       <tr id="entity-Hcirc"><td> <code title="">Hcirc;</code> </td> <td> U+00124 </td> <td> <span class="glyph" title="">Ĥ</span> </td> </tr>
-     *       <tr id="entity-hcirc"><td> <code title="">hcirc;</code> </td> <td> U+00125 </td> <td> <span class="glyph" title="">ĥ</span> </td> </tr>
-     *       <tr id="entity-hearts"><td> <code title="">hearts;</code> </td> <td> U+02665 </td> <td> <span class="glyph" title="">♥</span> </td> </tr>
-     *       <tr id="entity-heartsuit"><td> <code title="">heartsuit;</code> </td> <td> U+02665 </td> <td> <span class="glyph" title="">♥</span> </td> </tr>
-     *       <tr id="entity-hellip"><td> <code title="">hellip;</code> </td> <td> U+02026 </td> <td> <span class="glyph" title="">…</span> </td> </tr>
-     *       <tr id="entity-hercon"><td> <code title="">hercon;</code> </td> <td> U+022B9 </td> <td> <span class="glyph" title="">⊹</span> </td> </tr>
-     *       <tr id="entity-Hfr"><td> <code title="">Hfr;</code> </td> <td> U+0210C </td> <td> <span class="glyph" title="">ℌ</span> </td> </tr>
-     *       <tr id="entity-hfr"><td> <code title="">hfr;</code> </td> <td> U+1D525 </td> <td> <span class="glyph" title="">𝔥</span> </td> </tr>
-     *       <tr id="entity-HilbertSpace"><td> <code title="">HilbertSpace;</code> </td> <td> U+0210B </td> <td> <span class="glyph" title="">ℋ</span> </td> </tr>
-     *       <tr id="entity-hksearow"><td> <code title="">hksearow;</code> </td> <td> U+02925 </td> <td> <span class="glyph" title="">⤥</span> </td> </tr>
-     *       <tr id="entity-hkswarow"><td> <code title="">hkswarow;</code> </td> <td> U+02926 </td> <td> <span class="glyph" title="">⤦</span> </td> </tr>
-     *       <tr id="entity-hoarr"><td> <code title="">hoarr;</code> </td> <td> U+021FF </td> <td> <span class="glyph" title="">⇿</span> </td> </tr>
-     *       <tr id="entity-homtht"><td> <code title="">homtht;</code> </td> <td> U+0223B </td> <td> <span class="glyph" title="">∻</span> </td> </tr>
-     *       <tr id="entity-hookleftarrow"><td> <code title="">hookleftarrow;</code> </td> <td> U+021A9 </td> <td> <span class="glyph" title="">↩</span> </td> </tr>
-     *       <tr id="entity-hookrightarrow"><td> <code title="">hookrightarrow;</code> </td> <td> U+021AA </td> <td> <span class="glyph" title="">↪</span> </td> </tr>
-     *       <tr id="entity-Hopf"><td> <code title="">Hopf;</code> </td> <td> U+0210D </td> <td> <span class="glyph" title="">ℍ</span> </td> </tr>
-     *       <tr id="entity-hopf"><td> <code title="">hopf;</code> </td> <td> U+1D559 </td> <td> <span class="glyph" title="">𝕙</span> </td> </tr>
-     *       <tr id="entity-horbar"><td> <code title="">horbar;</code> </td> <td> U+02015 </td> <td> <span class="glyph" title="">―</span> </td> </tr>
-     *       <tr id="entity-HorizontalLine"><td> <code title="">HorizontalLine;</code> </td> <td> U+02500 </td> <td> <span class="glyph" title="">─</span> </td> </tr>
-     *       <tr id="entity-Hscr"><td> <code title="">Hscr;</code> </td> <td> U+0210B </td> <td> <span class="glyph" title="">ℋ</span> </td> </tr>
-     *       <tr id="entity-hscr"><td> <code title="">hscr;</code> </td> <td> U+1D4BD </td> <td> <span class="glyph" title="">𝒽</span> </td> </tr>
-     *       <tr id="entity-hslash"><td> <code title="">hslash;</code> </td> <td> U+0210F </td> <td> <span class="glyph" title="">ℏ</span> </td> </tr>
-     *       <tr id="entity-Hstrok"><td> <code title="">Hstrok;</code> </td> <td> U+00126 </td> <td> <span class="glyph" title="">Ħ</span> </td> </tr>
-     *       <tr id="entity-hstrok"><td> <code title="">hstrok;</code> </td> <td> U+00127 </td> <td> <span class="glyph" title="">ħ</span> </td> </tr>
-     *       <tr id="entity-HumpDownHump"><td> <code title="">HumpDownHump;</code> </td> <td> U+0224E </td> <td> <span class="glyph" title="">≎</span> </td> </tr>
-     *       <tr id="entity-HumpEqual"><td> <code title="">HumpEqual;</code> </td> <td> U+0224F </td> <td> <span class="glyph" title="">≏</span> </td> </tr>
-     *       <tr id="entity-hybull"><td> <code title="">hybull;</code> </td> <td> U+02043 </td> <td> <span class="glyph" title="">⁃</span> </td> </tr>
-     *       <tr id="entity-hyphen"><td> <code title="">hyphen;</code> </td> <td> U+02010 </td> <td> <span class="glyph" title="">‐</span> </td> </tr>
-     *       <tr id="entity-Iacute"><td> <code title="">Iacute;</code> </td> <td> U+000CD </td> <td> <span class="glyph" title="">Í</span> </td> </tr>
-     *       <tr class="impl" id="entity-Iacute-legacy"><td> <code title="">Iacute</code> </td> <td> U+000CD </td> <td> <span title="">Í</span> </td> </tr>
-     *       <tr id="entity-iacute"><td> <code title="">iacute;</code> </td> <td> U+000ED </td> <td> <span class="glyph" title="">í</span> </td> </tr>
-     *       <tr class="impl" id="entity-iacute-legacy"><td> <code title="">iacute</code> </td> <td> U+000ED </td> <td> <span title="">í</span> </td> </tr>
-     *       <tr id="entity-ic"><td> <code title="">ic;</code> </td> <td> U+02063 </td> <td> <span class="glyph" title="">⁣</span> </td> </tr>
-     *       <tr id="entity-Icirc"><td> <code title="">Icirc;</code> </td> <td> U+000CE </td> <td> <span class="glyph" title="">Î</span> </td> </tr>
-     *       <tr class="impl" id="entity-Icirc-legacy"><td> <code title="">Icirc</code> </td> <td> U+000CE </td> <td> <span title="">Î</span> </td> </tr>
-     *       <tr id="entity-icirc"><td> <code title="">icirc;</code> </td> <td> U+000EE </td> <td> <span class="glyph" title="">î</span> </td> </tr>
-     *       <tr class="impl" id="entity-icirc-legacy"><td> <code title="">icirc</code> </td> <td> U+000EE </td> <td> <span title="">î</span> </td> </tr>
-     *       <tr id="entity-Icy"><td> <code title="">Icy;</code> </td> <td> U+00418 </td> <td> <span class="glyph" title="">И</span> </td> </tr>
-     *       <tr id="entity-icy"><td> <code title="">icy;</code> </td> <td> U+00438 </td> <td> <span class="glyph" title="">и</span> </td> </tr>
-     *       <tr id="entity-Idot"><td> <code title="">Idot;</code> </td> <td> U+00130 </td> <td> <span class="glyph" title="">İ</span> </td> </tr>
-     *       <tr id="entity-IEcy"><td> <code title="">IEcy;</code> </td> <td> U+00415 </td> <td> <span class="glyph" title="">Е</span> </td> </tr>
-     *       <tr id="entity-iecy"><td> <code title="">iecy;</code> </td> <td> U+00435 </td> <td> <span class="glyph" title="">е</span> </td> </tr>
-     *       <tr id="entity-iexcl"><td> <code title="">iexcl;</code> </td> <td> U+000A1 </td> <td> <span class="glyph" title="">¡</span> </td> </tr>
-     *       <tr class="impl" id="entity-iexcl-legacy"><td> <code title="">iexcl</code> </td> <td> U+000A1 </td> <td> <span title="">¡</span> </td> </tr>
-     *       <tr id="entity-iff"><td> <code title="">iff;</code> </td> <td> U+021D4 </td> <td> <span class="glyph" title="">⇔</span> </td> </tr>
-     *       <tr id="entity-Ifr"><td> <code title="">Ifr;</code> </td> <td> U+02111 </td> <td> <span class="glyph" title="">ℑ</span> </td> </tr>
-     *       <tr id="entity-ifr"><td> <code title="">ifr;</code> </td> <td> U+1D526 </td> <td> <span class="glyph" title="">𝔦</span> </td> </tr>
-     *       <tr id="entity-Igrave"><td> <code title="">Igrave;</code> </td> <td> U+000CC </td> <td> <span class="glyph" title="">Ì</span> </td> </tr>
-     *       <tr class="impl" id="entity-Igrave-legacy"><td> <code title="">Igrave</code> </td> <td> U+000CC </td> <td> <span title="">Ì</span> </td> </tr>
-     *       <tr id="entity-igrave"><td> <code title="">igrave;</code> </td> <td> U+000EC </td> <td> <span class="glyph" title="">ì</span> </td> </tr>
-     *       <tr class="impl" id="entity-igrave-legacy"><td> <code title="">igrave</code> </td> <td> U+000EC </td> <td> <span title="">ì</span> </td> </tr>
-     *       <tr id="entity-ii"><td> <code title="">ii;</code> </td> <td> U+02148 </td> <td> <span class="glyph" title="">ⅈ</span> </td> </tr>
-     *       <tr id="entity-iiiint"><td> <code title="">iiiint;</code> </td> <td> U+02A0C </td> <td> <span class="glyph" title="">⨌</span> </td> </tr>
-     *       <tr id="entity-iiint"><td> <code title="">iiint;</code> </td> <td> U+0222D </td> <td> <span class="glyph" title="">∭</span> </td> </tr>
-     *       <tr id="entity-iinfin"><td> <code title="">iinfin;</code> </td> <td> U+029DC </td> <td> <span class="glyph" title="">⧜</span> </td> </tr>
-     *       <tr id="entity-iiota"><td> <code title="">iiota;</code> </td> <td> U+02129 </td> <td> <span class="glyph" title="">℩</span> </td> </tr>
-     *       <tr id="entity-IJlig"><td> <code title="">IJlig;</code> </td> <td> U+00132 </td> <td> <span class="glyph" title="">Ĳ</span> </td> </tr>
-     *       <tr id="entity-ijlig"><td> <code title="">ijlig;</code> </td> <td> U+00133 </td> <td> <span class="glyph" title="">ĳ</span> </td> </tr>
-     *       <tr id="entity-Im"><td> <code title="">Im;</code> </td> <td> U+02111 </td> <td> <span class="glyph" title="">ℑ</span> </td> </tr>
-     *       <tr id="entity-Imacr"><td> <code title="">Imacr;</code> </td> <td> U+0012A </td> <td> <span class="glyph" title="">Ī</span> </td> </tr>
-     *       <tr id="entity-imacr"><td> <code title="">imacr;</code> </td> <td> U+0012B </td> <td> <span class="glyph" title="">ī</span> </td> </tr>
-     *       <tr id="entity-image"><td> <code title="">image;</code> </td> <td> U+02111 </td> <td> <span class="glyph" title="">ℑ</span> </td> </tr>
-     *       <tr id="entity-ImaginaryI"><td> <code title="">ImaginaryI;</code> </td> <td> U+02148 </td> <td> <span class="glyph" title="">ⅈ</span> </td> </tr>
-     *       <tr id="entity-imagline"><td> <code title="">imagline;</code> </td> <td> U+02110 </td> <td> <span class="glyph" title="">ℐ</span> </td> </tr>
-     *       <tr id="entity-imagpart"><td> <code title="">imagpart;</code> </td> <td> U+02111 </td> <td> <span class="glyph" title="">ℑ</span> </td> </tr>
-     *       <tr id="entity-imath"><td> <code title="">imath;</code> </td> <td> U+00131 </td> <td> <span class="glyph" title="">ı</span> </td> </tr>
-     *       <tr id="entity-imof"><td> <code title="">imof;</code> </td> <td> U+022B7 </td> <td> <span class="glyph" title="">⊷</span> </td> </tr>
-     *       <tr id="entity-imped"><td> <code title="">imped;</code> </td> <td> U+001B5 </td> <td> <span class="glyph" title="">Ƶ</span> </td> </tr>
-     *       <tr id="entity-Implies"><td> <code title="">Implies;</code> </td> <td> U+021D2 </td> <td> <span class="glyph" title="">⇒</span> </td> </tr>
-     *       <tr id="entity-in"><td> <code title="">in;</code> </td> <td> U+02208 </td> <td> <span class="glyph" title="">∈</span> </td> </tr>
-     *       <tr id="entity-incare"><td> <code title="">incare;</code> </td> <td> U+02105 </td> <td> <span class="glyph" title="">℅</span> </td> </tr>
-     *       <tr id="entity-infin"><td> <code title="">infin;</code> </td> <td> U+0221E </td> <td> <span class="glyph" title="">∞</span> </td> </tr>
-     *       <tr id="entity-infintie"><td> <code title="">infintie;</code> </td> <td> U+029DD </td> <td> <span class="glyph" title="">⧝</span> </td> </tr>
-     *       <tr id="entity-inodot"><td> <code title="">inodot;</code> </td> <td> U+00131 </td> <td> <span class="glyph" title="">ı</span> </td> </tr>
-     *       <tr id="entity-Int"><td> <code title="">Int;</code> </td> <td> U+0222C </td> <td> <span class="glyph" title="">∬</span> </td> </tr>
-     *       <tr id="entity-int"><td> <code title="">int;</code> </td> <td> U+0222B </td> <td> <span class="glyph" title="">∫</span> </td> </tr>
-     *       <tr id="entity-intcal"><td> <code title="">intcal;</code> </td> <td> U+022BA </td> <td> <span class="glyph" title="">⊺</span> </td> </tr>
-     *       <tr id="entity-integers"><td> <code title="">integers;</code> </td> <td> U+02124 </td> <td> <span class="glyph" title="">ℤ</span> </td> </tr>
-     *       <tr id="entity-Integral"><td> <code title="">Integral;</code> </td> <td> U+0222B </td> <td> <span class="glyph" title="">∫</span> </td> </tr>
-     *       <tr id="entity-intercal"><td> <code title="">intercal;</code> </td> <td> U+022BA </td> <td> <span class="glyph" title="">⊺</span> </td> </tr>
-     *       <tr id="entity-Intersection"><td> <code title="">Intersection;</code> </td> <td> U+022C2 </td> <td> <span class="glyph" title="">⋂</span> </td> </tr>
-     *       <tr id="entity-intlarhk"><td> <code title="">intlarhk;</code> </td> <td> U+02A17 </td> <td> <span class="glyph" title="">⨗</span> </td> </tr>
-     *       <tr id="entity-intprod"><td> <code title="">intprod;</code> </td> <td> U+02A3C </td> <td> <span class="glyph" title="">⨼</span> </td> </tr>
-     *       <tr id="entity-InvisibleComma"><td> <code title="">InvisibleComma;</code> </td> <td> U+02063 </td> <td> <span class="glyph" title="">⁣</span> </td> </tr>
-     *       <tr id="entity-InvisibleTimes"><td> <code title="">InvisibleTimes;</code> </td> <td> U+02062 </td> <td> <span class="glyph" title="">⁢</span> </td> </tr>
-     *       <tr id="entity-IOcy"><td> <code title="">IOcy;</code> </td> <td> U+00401 </td> <td> <span class="glyph" title="">Ё</span> </td> </tr>
-     *       <tr id="entity-iocy"><td> <code title="">iocy;</code> </td> <td> U+00451 </td> <td> <span class="glyph" title="">ё</span> </td> </tr>
-     *       <tr id="entity-Iogon"><td> <code title="">Iogon;</code> </td> <td> U+0012E </td> <td> <span class="glyph" title="">Į</span> </td> </tr>
-     *       <tr id="entity-iogon"><td> <code title="">iogon;</code> </td> <td> U+0012F </td> <td> <span class="glyph" title="">į</span> </td> </tr>
-     *       <tr id="entity-Iopf"><td> <code title="">Iopf;</code> </td> <td> U+1D540 </td> <td> <span class="glyph" title="">𝕀</span> </td> </tr>
-     *       <tr id="entity-iopf"><td> <code title="">iopf;</code> </td> <td> U+1D55A </td> <td> <span class="glyph" title="">𝕚</span> </td> </tr>
-     *       <tr id="entity-Iota"><td> <code title="">Iota;</code> </td> <td> U+00399 </td> <td> <span class="glyph" title="">Ι</span> </td> </tr>
-     *       <tr id="entity-iota"><td> <code title="">iota;</code> </td> <td> U+003B9 </td> <td> <span class="glyph" title="">ι</span> </td> </tr>
-     *       <tr id="entity-iprod"><td> <code title="">iprod;</code> </td> <td> U+02A3C </td> <td> <span class="glyph" title="">⨼</span> </td> </tr>
-     *       <tr id="entity-iquest"><td> <code title="">iquest;</code> </td> <td> U+000BF </td> <td> <span class="glyph" title="">¿</span> </td> </tr>
-     *       <tr class="impl" id="entity-iquest-legacy"><td> <code title="">iquest</code> </td> <td> U+000BF </td> <td> <span title="">¿</span> </td> </tr>
-     *       <tr id="entity-Iscr"><td> <code title="">Iscr;</code> </td> <td> U+02110 </td> <td> <span class="glyph" title="">ℐ</span> </td> </tr>
-     *       <tr id="entity-iscr"><td> <code title="">iscr;</code> </td> <td> U+1D4BE </td> <td> <span class="glyph" title="">𝒾</span> </td> </tr>
-     *       <tr id="entity-isin"><td> <code title="">isin;</code> </td> <td> U+02208 </td> <td> <span class="glyph" title="">∈</span> </td> </tr>
-     *       <tr id="entity-isindot"><td> <code title="">isindot;</code> </td> <td> U+022F5 </td> <td> <span class="glyph" title="">⋵</span> </td> </tr>
-     *       <tr id="entity-isinE"><td> <code title="">isinE;</code> </td> <td> U+022F9 </td> <td> <span class="glyph" title="">⋹</span> </td> </tr>
-     *       <tr id="entity-isins"><td> <code title="">isins;</code> </td> <td> U+022F4 </td> <td> <span class="glyph" title="">⋴</span> </td> </tr>
-     *       <tr id="entity-isinsv"><td> <code title="">isinsv;</code> </td> <td> U+022F3 </td> <td> <span class="glyph" title="">⋳</span> </td> </tr>
-     *       <tr id="entity-isinv"><td> <code title="">isinv;</code> </td> <td> U+02208 </td> <td> <span class="glyph" title="">∈</span> </td> </tr>
-     *       <tr id="entity-it"><td> <code title="">it;</code> </td> <td> U+02062 </td> <td> <span class="glyph" title="">⁢</span> </td> </tr>
-     *       <tr id="entity-Itilde"><td> <code title="">Itilde;</code> </td> <td> U+00128 </td> <td> <span class="glyph" title="">Ĩ</span> </td> </tr>
-     *       <tr id="entity-itilde"><td> <code title="">itilde;</code> </td> <td> U+00129 </td> <td> <span class="glyph" title="">ĩ</span> </td> </tr>
-     *       <tr id="entity-Iukcy"><td> <code title="">Iukcy;</code> </td> <td> U+00406 </td> <td> <span class="glyph" title="">І</span> </td> </tr>
-     *       <tr id="entity-iukcy"><td> <code title="">iukcy;</code> </td> <td> U+00456 </td> <td> <span class="glyph" title="">і</span> </td> </tr>
-     *       <tr id="entity-Iuml"><td> <code title="">Iuml;</code> </td> <td> U+000CF </td> <td> <span class="glyph" title="">Ï</span> </td> </tr>
-     *       <tr class="impl" id="entity-Iuml-legacy"><td> <code title="">Iuml</code> </td> <td> U+000CF </td> <td> <span title="">Ï</span> </td> </tr>
-     *       <tr id="entity-iuml"><td> <code title="">iuml;</code> </td> <td> U+000EF </td> <td> <span class="glyph" title="">ï</span> </td> </tr>
-     *       <tr class="impl" id="entity-iuml-legacy"><td> <code title="">iuml</code> </td> <td> U+000EF </td> <td> <span title="">ï</span> </td> </tr>
-     *       <tr id="entity-Jcirc"><td> <code title="">Jcirc;</code> </td> <td> U+00134 </td> <td> <span class="glyph" title="">Ĵ</span> </td> </tr>
-     *       <tr id="entity-jcirc"><td> <code title="">jcirc;</code> </td> <td> U+00135 </td> <td> <span class="glyph" title="">ĵ</span> </td> </tr>
-     *       <tr id="entity-Jcy"><td> <code title="">Jcy;</code> </td> <td> U+00419 </td> <td> <span class="glyph" title="">Й</span> </td> </tr>
-     *       <tr id="entity-jcy"><td> <code title="">jcy;</code> </td> <td> U+00439 </td> <td> <span class="glyph" title="">й</span> </td> </tr>
-     *       <tr id="entity-Jfr"><td> <code title="">Jfr;</code> </td> <td> U+1D50D </td> <td> <span class="glyph" title="">𝔍</span> </td> </tr>
-     *       <tr id="entity-jfr"><td> <code title="">jfr;</code> </td> <td> U+1D527 </td> <td> <span class="glyph" title="">𝔧</span> </td> </tr>
-     *       <tr id="entity-jmath"><td> <code title="">jmath;</code> </td> <td> U+00237 </td> <td> <span class="glyph" title="">ȷ</span> </td> </tr>
-     *       <tr id="entity-Jopf"><td> <code title="">Jopf;</code> </td> <td> U+1D541 </td> <td> <span class="glyph" title="">𝕁</span> </td> </tr>
-     *       <tr id="entity-jopf"><td> <code title="">jopf;</code> </td> <td> U+1D55B </td> <td> <span class="glyph" title="">𝕛</span> </td> </tr>
-     *       <tr id="entity-Jscr"><td> <code title="">Jscr;</code> </td> <td> U+1D4A5 </td> <td> <span class="glyph" title="">𝒥</span> </td> </tr>
-     *       <tr id="entity-jscr"><td> <code title="">jscr;</code> </td> <td> U+1D4BF </td> <td> <span class="glyph" title="">𝒿</span> </td> </tr>
-     *       <tr id="entity-Jsercy"><td> <code title="">Jsercy;</code> </td> <td> U+00408 </td> <td> <span class="glyph" title="">Ј</span> </td> </tr>
-     *       <tr id="entity-jsercy"><td> <code title="">jsercy;</code> </td> <td> U+00458 </td> <td> <span class="glyph" title="">ј</span> </td> </tr>
-     *       <tr id="entity-Jukcy"><td> <code title="">Jukcy;</code> </td> <td> U+00404 </td> <td> <span class="glyph" title="">Є</span> </td> </tr>
-     *       <tr id="entity-jukcy"><td> <code title="">jukcy;</code> </td> <td> U+00454 </td> <td> <span class="glyph" title="">є</span> </td> </tr>
-     *       <tr id="entity-Kappa"><td> <code title="">Kappa;</code> </td> <td> U+0039A </td> <td> <span class="glyph" title="">Κ</span> </td> </tr>
-     *       <tr id="entity-kappa"><td> <code title="">kappa;</code> </td> <td> U+003BA </td> <td> <span class="glyph" title="">κ</span> </td> </tr>
-     *       <tr id="entity-kappav"><td> <code title="">kappav;</code> </td> <td> U+003F0 </td> <td> <span class="glyph" title="">ϰ</span> </td> </tr>
-     *       <tr id="entity-Kcedil"><td> <code title="">Kcedil;</code> </td> <td> U+00136 </td> <td> <span class="glyph" title="">Ķ</span> </td> </tr>
-     *       <tr id="entity-kcedil"><td> <code title="">kcedil;</code> </td> <td> U+00137 </td> <td> <span class="glyph" title="">ķ</span> </td> </tr>
-     *       <tr id="entity-Kcy"><td> <code title="">Kcy;</code> </td> <td> U+0041A </td> <td> <span class="glyph" title="">К</span> </td> </tr>
-     *       <tr id="entity-kcy"><td> <code title="">kcy;</code> </td> <td> U+0043A </td> <td> <span class="glyph" title="">к</span> </td> </tr>
-     *       <tr id="entity-Kfr"><td> <code title="">Kfr;</code> </td> <td> U+1D50E </td> <td> <span class="glyph" title="">𝔎</span> </td> </tr>
-     *       <tr id="entity-kfr"><td> <code title="">kfr;</code> </td> <td> U+1D528 </td> <td> <span class="glyph" title="">𝔨</span> </td> </tr>
-     *       <tr id="entity-kgreen"><td> <code title="">kgreen;</code> </td> <td> U+00138 </td> <td> <span class="glyph" title="">ĸ</span> </td> </tr>
-     *       <tr id="entity-KHcy"><td> <code title="">KHcy;</code> </td> <td> U+00425 </td> <td> <span class="glyph" title="">Х</span> </td> </tr>
-     *       <tr id="entity-khcy"><td> <code title="">khcy;</code> </td> <td> U+00445 </td> <td> <span class="glyph" title="">х</span> </td> </tr>
-     *       <tr id="entity-KJcy"><td> <code title="">KJcy;</code> </td> <td> U+0040C </td> <td> <span class="glyph" title="">Ќ</span> </td> </tr>
-     *       <tr id="entity-kjcy"><td> <code title="">kjcy;</code> </td> <td> U+0045C </td> <td> <span class="glyph" title="">ќ</span> </td> </tr>
-     *       <tr id="entity-Kopf"><td> <code title="">Kopf;</code> </td> <td> U+1D542 </td> <td> <span class="glyph" title="">𝕂</span> </td> </tr>
-     *       <tr id="entity-kopf"><td> <code title="">kopf;</code> </td> <td> U+1D55C </td> <td> <span class="glyph" title="">𝕜</span> </td> </tr>
-     *       <tr id="entity-Kscr"><td> <code title="">Kscr;</code> </td> <td> U+1D4A6 </td> <td> <span class="glyph" title="">𝒦</span> </td> </tr>
-     *       <tr id="entity-kscr"><td> <code title="">kscr;</code> </td> <td> U+1D4C0 </td> <td> <span class="glyph" title="">𝓀</span> </td> </tr>
-     *       <tr id="entity-lAarr"><td> <code title="">lAarr;</code> </td> <td> U+021DA </td> <td> <span class="glyph" title="">⇚</span> </td> </tr>
-     *       <tr id="entity-Lacute"><td> <code title="">Lacute;</code> </td> <td> U+00139 </td> <td> <span class="glyph" title="">Ĺ</span> </td> </tr>
-     *       <tr id="entity-lacute"><td> <code title="">lacute;</code> </td> <td> U+0013A </td> <td> <span class="glyph" title="">ĺ</span> </td> </tr>
-     *       <tr id="entity-laemptyv"><td> <code title="">laemptyv;</code> </td> <td> U+029B4 </td> <td> <span class="glyph" title="">⦴</span> </td> </tr>
-     *       <tr id="entity-lagran"><td> <code title="">lagran;</code> </td> <td> U+02112 </td> <td> <span class="glyph" title="">ℒ</span> </td> </tr>
-     *       <tr id="entity-Lambda"><td> <code title="">Lambda;</code> </td> <td> U+0039B </td> <td> <span class="glyph" title="">Λ</span> </td> </tr>
-     *       <tr id="entity-lambda"><td> <code title="">lambda;</code> </td> <td> U+003BB </td> <td> <span class="glyph" title="">λ</span> </td> </tr>
-     *       <tr id="entity-Lang"><td> <code title="">Lang;</code> </td> <td> U+027EA </td> <td> <span class="glyph" title="">⟪</span> </td> </tr>
-     *       <tr id="entity-lang"><td> <code title="">lang;</code> </td> <td> U+027E8 </td> <td> <span class="glyph" title="">⟨</span> </td> </tr>
-     *       <tr id="entity-langd"><td> <code title="">langd;</code> </td> <td> U+02991 </td> <td> <span class="glyph" title="">⦑</span> </td> </tr>
-     *       <tr id="entity-langle"><td> <code title="">langle;</code> </td> <td> U+027E8 </td> <td> <span class="glyph" title="">〈</span> </td> </tr>
-     *       <tr id="entity-lap"><td> <code title="">lap;</code> </td> <td> U+02A85 </td> <td> <span class="glyph" title="">⪅</span> </td> </tr>
-     *       <tr id="entity-Laplacetrf"><td> <code title="">Laplacetrf;</code> </td> <td> U+02112 </td> <td> <span class="glyph" title="">ℒ</span> </td> </tr>
-     *       <tr id="entity-laquo"><td> <code title="">laquo;</code> </td> <td> U+000AB </td> <td> <span class="glyph" title="">«</span> </td> </tr>
-     *       <tr class="impl" id="entity-laquo-legacy"><td> <code title="">laquo</code> </td> <td> U+000AB </td> <td> <span title="">«</span> </td> </tr>
-     *       <tr id="entity-Larr"><td> <code title="">Larr;</code> </td> <td> U+0219E </td> <td> <span class="glyph" title="">↞</span> </td> </tr>
-     *       <tr id="entity-lArr"><td> <code title="">lArr;</code> </td> <td> U+021D0 </td> <td> <span class="glyph" title="">⇐</span> </td> </tr>
-     *       <tr id="entity-larr"><td> <code title="">larr;</code> </td> <td> U+02190 </td> <td> <span class="glyph" title="">←</span> </td> </tr>
-     *       <tr id="entity-larrb"><td> <code title="">larrb;</code> </td> <td> U+021E4 </td> <td> <span class="glyph" title="">⇤</span> </td> </tr>
-     *       <tr id="entity-larrbfs"><td> <code title="">larrbfs;</code> </td> <td> U+0291F </td> <td> <span class="glyph" title="">⤟</span> </td> </tr>
-     *       <tr id="entity-larrfs"><td> <code title="">larrfs;</code> </td> <td> U+0291D </td> <td> <span class="glyph" title="">⤝</span> </td> </tr>
-     *       <tr id="entity-larrhk"><td> <code title="">larrhk;</code> </td> <td> U+021A9 </td> <td> <span class="glyph" title="">↩</span> </td> </tr>
-     *       <tr id="entity-larrlp"><td> <code title="">larrlp;</code> </td> <td> U+021AB </td> <td> <span class="glyph" title="">↫</span> </td> </tr>
-     *       <tr id="entity-larrpl"><td> <code title="">larrpl;</code> </td> <td> U+02939 </td> <td> <span class="glyph" title="">⤹</span> </td> </tr>
-     *       <tr id="entity-larrsim"><td> <code title="">larrsim;</code> </td> <td> U+02973 </td> <td> <span class="glyph" title="">⥳</span> </td> </tr>
-     *       <tr id="entity-larrtl"><td> <code title="">larrtl;</code> </td> <td> U+021A2 </td> <td> <span class="glyph" title="">↢</span> </td> </tr>
-     *       <tr id="entity-lat"><td> <code title="">lat;</code> </td> <td> U+02AAB </td> <td> <span class="glyph" title="">⪫</span> </td> </tr>
-     *       <tr id="entity-lAtail"><td> <code title="">lAtail;</code> </td> <td> U+0291B </td> <td> <span class="glyph" title="">⤛</span> </td> </tr>
-     *       <tr id="entity-latail"><td> <code title="">latail;</code> </td> <td> U+02919 </td> <td> <span class="glyph" title="">⤙</span> </td> </tr>
-     *       <tr id="entity-late"><td> <code title="">late;</code> </td> <td> U+02AAD </td> <td> <span class="glyph" title="">⪭</span> </td> </tr>
-     *       <tr id="entity-lates"><td> <code title="">lates;</code> </td> <td> U+02AAD U+0FE00 </td> <td> <span class="glyph compound" title="">⪭︀</span> </td> </tr>
-     *       <tr id="entity-lBarr"><td> <code title="">lBarr;</code> </td> <td> U+0290E </td> <td> <span class="glyph" title="">⤎</span> </td> </tr>
-     *       <tr id="entity-lbarr"><td> <code title="">lbarr;</code> </td> <td> U+0290C </td> <td> <span class="glyph" title="">⤌</span> </td> </tr>
-     *       <tr id="entity-lbbrk"><td> <code title="">lbbrk;</code> </td> <td> U+02772 </td> <td> <span class="glyph" title="">❲</span> </td> </tr>
-     *       <tr id="entity-lbrace"><td> <code title="">lbrace;</code> </td> <td> U+0007B </td> <td> <span class="glyph" title="">{</span> </td> </tr>
-     *       <tr id="entity-lbrack"><td> <code title="">lbrack;</code> </td> <td> U+0005B </td> <td> <span class="glyph" title="">[</span> </td> </tr>
-     *       <tr id="entity-lbrke"><td> <code title="">lbrke;</code> </td> <td> U+0298B </td> <td> <span class="glyph" title="">⦋</span> </td> </tr>
-     *       <tr id="entity-lbrksld"><td> <code title="">lbrksld;</code> </td> <td> U+0298F </td> <td> <span class="glyph" title="">⦏</span> </td> </tr>
-     *       <tr id="entity-lbrkslu"><td> <code title="">lbrkslu;</code> </td> <td> U+0298D </td> <td> <span class="glyph" title="">⦍</span> </td> </tr>
-     *       <tr id="entity-Lcaron"><td> <code title="">Lcaron;</code> </td> <td> U+0013D </td> <td> <span class="glyph" title="">Ľ</span> </td> </tr>
-     *       <tr id="entity-lcaron"><td> <code title="">lcaron;</code> </td> <td> U+0013E </td> <td> <span class="glyph" title="">ľ</span> </td> </tr>
-     *       <tr id="entity-Lcedil"><td> <code title="">Lcedil;</code> </td> <td> U+0013B </td> <td> <span class="glyph" title="">Ļ</span> </td> </tr>
-     *       <tr id="entity-lcedil"><td> <code title="">lcedil;</code> </td> <td> U+0013C </td> <td> <span class="glyph" title="">ļ</span> </td> </tr>
-     *       <tr id="entity-lceil"><td> <code title="">lceil;</code> </td> <td> U+02308 </td> <td> <span class="glyph" title="">⌈</span> </td> </tr>
-     *       <tr id="entity-lcub"><td> <code title="">lcub;</code> </td> <td> U+0007B </td> <td> <span class="glyph" title="">{</span> </td> </tr>
-     *       <tr id="entity-Lcy"><td> <code title="">Lcy;</code> </td> <td> U+0041B </td> <td> <span class="glyph" title="">Л</span> </td> </tr>
-     *       <tr id="entity-lcy"><td> <code title="">lcy;</code> </td> <td> U+0043B </td> <td> <span class="glyph" title="">л</span> </td> </tr>
-     *       <tr id="entity-ldca"><td> <code title="">ldca;</code> </td> <td> U+02936 </td> <td> <span class="glyph" title="">⤶</span> </td> </tr>
-     *       <tr id="entity-ldquo"><td> <code title="">ldquo;</code> </td> <td> U+0201C </td> <td> <span class="glyph" title="">“</span> </td> </tr>
-     *       <tr id="entity-ldquor"><td> <code title="">ldquor;</code> </td> <td> U+0201E </td> <td> <span class="glyph" title="">„</span> </td> </tr>
-     *       <tr id="entity-ldrdhar"><td> <code title="">ldrdhar;</code> </td> <td> U+02967 </td> <td> <span class="glyph" title="">⥧</span> </td> </tr>
-     *       <tr id="entity-ldrushar"><td> <code title="">ldrushar;</code> </td> <td> U+0294B </td> <td> <span class="glyph" title="">⥋</span> </td> </tr>
-     *       <tr id="entity-ldsh"><td> <code title="">ldsh;</code> </td> <td> U+021B2 </td> <td> <span class="glyph" title="">↲</span> </td> </tr>
-     *       <tr id="entity-lE"><td> <code title="">lE;</code> </td> <td> U+02266 </td> <td> <span class="glyph" title="">≦</span> </td> </tr>
-     *       <tr id="entity-le"><td> <code title="">le;</code> </td> <td> U+02264 </td> <td> <span class="glyph" title="">≤</span> </td> </tr>
-     *       <tr id="entity-LeftAngleBracket"><td> <code title="">LeftAngleBracket;</code> </td> <td> U+027E8 </td> <td> <span class="glyph" title="">〈</span> </td> </tr>
-     *       <tr id="entity-LeftArrow"><td> <code title="">LeftArrow;</code> </td> <td> U+02190 </td> <td> <span class="glyph" title="">←</span> </td> </tr>
-     *       <tr id="entity-Leftarrow"><td> <code title="">Leftarrow;</code> </td> <td> U+021D0 </td> <td> <span class="glyph" title="">⇐</span> </td> </tr>
-     *       <tr id="entity-leftarrow"><td> <code title="">leftarrow;</code> </td> <td> U+02190 </td> <td> <span class="glyph" title="">←</span> </td> </tr>
-     *       <tr id="entity-LeftArrowBar"><td> <code title="">LeftArrowBar;</code> </td> <td> U+021E4 </td> <td> <span class="glyph" title="">⇤</span> </td> </tr>
-     *       <tr id="entity-LeftArrowRightArrow"><td> <code title="">LeftArrowRightArrow;</code> </td> <td> U+021C6 </td> <td> <span class="glyph" title="">⇆</span> </td> </tr>
-     *       <tr id="entity-leftarrowtail"><td> <code title="">leftarrowtail;</code> </td> <td> U+021A2 </td> <td> <span class="glyph" title="">↢</span> </td> </tr>
-     *       <tr id="entity-LeftCeiling"><td> <code title="">LeftCeiling;</code> </td> <td> U+02308 </td> <td> <span class="glyph" title="">⌈</span> </td> </tr>
-     *       <tr id="entity-LeftDoubleBracket"><td> <code title="">LeftDoubleBracket;</code> </td> <td> U+027E6 </td> <td> <span class="glyph" title="">⟦</span> </td> </tr>
-     *       <tr id="entity-LeftDownTeeVector"><td> <code title="">LeftDownTeeVector;</code> </td> <td> U+02961 </td> <td> <span class="glyph" title="">⥡</span> </td> </tr>
-     *       <tr id="entity-LeftDownVector"><td> <code title="">LeftDownVector;</code> </td> <td> U+021C3 </td> <td> <span class="glyph" title="">⇃</span> </td> </tr>
-     *       <tr id="entity-LeftDownVectorBar"><td> <code title="">LeftDownVectorBar;</code> </td> <td> U+02959 </td> <td> <span class="glyph" title="">⥙</span> </td> </tr>
-     *       <tr id="entity-LeftFloor"><td> <code title="">LeftFloor;</code> </td> <td> U+0230A </td> <td> <span class="glyph" title="">⌊</span> </td> </tr>
-     *       <tr id="entity-leftharpoondown"><td> <code title="">leftharpoondown;</code> </td> <td> U+021BD </td> <td> <span class="glyph" title="">↽</span> </td> </tr>
-     *       <tr id="entity-leftharpoonup"><td> <code title="">leftharpoonup;</code> </td> <td> U+021BC </td> <td> <span class="glyph" title="">↼</span> </td> </tr>
-     *       <tr id="entity-leftleftarrows"><td> <code title="">leftleftarrows;</code> </td> <td> U+021C7 </td> <td> <span class="glyph" title="">⇇</span> </td> </tr>
-     *       <tr id="entity-LeftRightArrow"><td> <code title="">LeftRightArrow;</code> </td> <td> U+02194 </td> <td> <span class="glyph" title="">↔</span> </td> </tr>
-     *       <tr id="entity-Leftrightarrow"><td> <code title="">Leftrightarrow;</code> </td> <td> U+021D4 </td> <td> <span class="glyph" title="">⇔</span> </td> </tr>
-     *       <tr id="entity-leftrightarrow"><td> <code title="">leftrightarrow;</code> </td> <td> U+02194 </td> <td> <span class="glyph" title="">↔</span> </td> </tr>
-     *       <tr id="entity-leftrightarrows"><td> <code title="">leftrightarrows;</code> </td> <td> U+021C6 </td> <td> <span class="glyph" title="">⇆</span> </td> </tr>
-     *       <tr id="entity-leftrightharpoons"><td> <code title="">leftrightharpoons;</code> </td> <td> U+021CB </td> <td> <span class="glyph" title="">⇋</span> </td> </tr>
-     *       <tr id="entity-leftrightsquigarrow"><td> <code title="">leftrightsquigarrow;</code> </td> <td> U+021AD </td> <td> <span class="glyph" title="">↭</span> </td> </tr>
-     *       <tr id="entity-LeftRightVector"><td> <code title="">LeftRightVector;</code> </td> <td> U+0294E </td> <td> <span class="glyph" title="">⥎</span> </td> </tr>
-     *       <tr id="entity-LeftTee"><td> <code title="">LeftTee;</code> </td> <td> U+022A3 </td> <td> <span class="glyph" title="">⊣</span> </td> </tr>
-     *       <tr id="entity-LeftTeeArrow"><td> <code title="">LeftTeeArrow;</code> </td> <td> U+021A4 </td> <td> <span class="glyph" title="">↤</span> </td> </tr>
-     *       <tr id="entity-LeftTeeVector"><td> <code title="">LeftTeeVector;</code> </td> <td> U+0295A </td> <td> <span class="glyph" title="">⥚</span> </td> </tr>
-     *       <tr id="entity-leftthreetimes"><td> <code title="">leftthreetimes;</code> </td> <td> U+022CB </td> <td> <span class="glyph" title="">⋋</span> </td> </tr>
-     *       <tr id="entity-LeftTriangle"><td> <code title="">LeftTriangle;</code> </td> <td> U+022B2 </td> <td> <span class="glyph" title="">⊲</span> </td> </tr>
-     *       <tr id="entity-LeftTriangleBar"><td> <code title="">LeftTriangleBar;</code> </td> <td> U+029CF </td> <td> <span class="glyph" title="">⧏</span> </td> </tr>
-     *       <tr id="entity-LeftTriangleEqual"><td> <code title="">LeftTriangleEqual;</code> </td> <td> U+022B4 </td> <td> <span class="glyph" title="">⊴</span> </td> </tr>
-     *       <tr id="entity-LeftUpDownVector"><td> <code title="">LeftUpDownVector;</code> </td> <td> U+02951 </td> <td> <span class="glyph" title="">⥑</span> </td> </tr>
-     *       <tr id="entity-LeftUpTeeVector"><td> <code title="">LeftUpTeeVector;</code> </td> <td> U+02960 </td> <td> <span class="glyph" title="">⥠</span> </td> </tr>
-     *       <tr id="entity-LeftUpVector"><td> <code title="">LeftUpVector;</code> </td> <td> U+021BF </td> <td> <span class="glyph" title="">↿</span> </td> </tr>
-     *       <tr id="entity-LeftUpVectorBar"><td> <code title="">LeftUpVectorBar;</code> </td> <td> U+02958 </td> <td> <span class="glyph" title="">⥘</span> </td> </tr>
-     *       <tr id="entity-LeftVector"><td> <code title="">LeftVector;</code> </td> <td> U+021BC </td> <td> <span class="glyph" title="">↼</span> </td> </tr>
-     *       <tr id="entity-LeftVectorBar"><td> <code title="">LeftVectorBar;</code> </td> <td> U+02952 </td> <td> <span class="glyph" title="">⥒</span> </td> </tr>
-     *       <tr id="entity-lEg"><td> <code title="">lEg;</code> </td> <td> U+02A8B </td> <td> <span class="glyph" title="">⪋</span> </td> </tr>
-     *       <tr id="entity-leg"><td> <code title="">leg;</code> </td> <td> U+022DA </td> <td> <span class="glyph" title="">⋚</span> </td> </tr>
-     *       <tr id="entity-leq"><td> <code title="">leq;</code> </td> <td> U+02264 </td> <td> <span class="glyph" title="">≤</span> </td> </tr>
-     *       <tr id="entity-leqq"><td> <code title="">leqq;</code> </td> <td> U+02266 </td> <td> <span class="glyph" title="">≦</span> </td> </tr>
-     *       <tr id="entity-leqslant"><td> <code title="">leqslant;</code> </td> <td> U+02A7D </td> <td> <span class="glyph" title="">⩽</span> </td> </tr>
-     *       <tr id="entity-les"><td> <code title="">les;</code> </td> <td> U+02A7D </td> <td> <span class="glyph" title="">⩽</span> </td> </tr>
-     *       <tr id="entity-lescc"><td> <code title="">lescc;</code> </td> <td> U+02AA8 </td> <td> <span class="glyph" title="">⪨</span> </td> </tr>
-     *       <tr id="entity-lesdot"><td> <code title="">lesdot;</code> </td> <td> U+02A7F </td> <td> <span class="glyph" title="">⩿</span> </td> </tr>
-     *       <tr id="entity-lesdoto"><td> <code title="">lesdoto;</code> </td> <td> U+02A81 </td> <td> <span class="glyph" title="">⪁</span> </td> </tr>
-     *       <tr id="entity-lesdotor"><td> <code title="">lesdotor;</code> </td> <td> U+02A83 </td> <td> <span class="glyph" title="">⪃</span> </td> </tr>
-     *       <tr id="entity-lesg"><td> <code title="">lesg;</code> </td> <td> U+022DA U+0FE00 </td> <td> <span class="glyph compound" title="">⋚︀</span> </td> </tr>
-     *       <tr id="entity-lesges"><td> <code title="">lesges;</code> </td> <td> U+02A93 </td> <td> <span class="glyph" title="">⪓</span> </td> </tr>
-     *       <tr id="entity-lessapprox"><td> <code title="">lessapprox;</code> </td> <td> U+02A85 </td> <td> <span class="glyph" title="">⪅</span> </td> </tr>
-     *       <tr id="entity-lessdot"><td> <code title="">lessdot;</code> </td> <td> U+022D6 </td> <td> <span class="glyph" title="">⋖</span> </td> </tr>
-     *       <tr id="entity-lesseqgtr"><td> <code title="">lesseqgtr;</code> </td> <td> U+022DA </td> <td> <span class="glyph" title="">⋚</span> </td> </tr>
-     *       <tr id="entity-lesseqqgtr"><td> <code title="">lesseqqgtr;</code> </td> <td> U+02A8B </td> <td> <span class="glyph" title="">⪋</span> </td> </tr>
-     *       <tr id="entity-LessEqualGreater"><td> <code title="">LessEqualGreater;</code> </td> <td> U+022DA </td> <td> <span class="glyph" title="">⋚</span> </td> </tr>
-     *       <tr id="entity-LessFullEqual"><td> <code title="">LessFullEqual;</code> </td> <td> U+02266 </td> <td> <span class="glyph" title="">≦</span> </td> </tr>
-     *       <tr id="entity-LessGreater"><td> <code title="">LessGreater;</code> </td> <td> U+02276 </td> <td> <span class="glyph" title="">≶</span> </td> </tr>
-     *       <tr id="entity-lessgtr"><td> <code title="">lessgtr;</code> </td> <td> U+02276 </td> <td> <span class="glyph" title="">≶</span> </td> </tr>
-     *       <tr id="entity-LessLess"><td> <code title="">LessLess;</code> </td> <td> U+02AA1 </td> <td> <span class="glyph" title="">⪡</span> </td> </tr>
-     *       <tr id="entity-lesssim"><td> <code title="">lesssim;</code> </td> <td> U+02272 </td> <td> <span class="glyph" title="">≲</span> </td> </tr>
-     *       <tr id="entity-LessSlantEqual"><td> <code title="">LessSlantEqual;</code> </td> <td> U+02A7D </td> <td> <span class="glyph" title="">⩽</span> </td> </tr>
-     *       <tr id="entity-LessTilde"><td> <code title="">LessTilde;</code> </td> <td> U+02272 </td> <td> <span class="glyph" title="">≲</span> </td> </tr>
-     *       <tr id="entity-lfisht"><td> <code title="">lfisht;</code> </td> <td> U+0297C </td> <td> <span class="glyph" title="">⥼</span> </td> </tr>
-     *       <tr id="entity-lfloor"><td> <code title="">lfloor;</code> </td> <td> U+0230A </td> <td> <span class="glyph" title="">⌊</span> </td> </tr>
-     *       <tr id="entity-Lfr"><td> <code title="">Lfr;</code> </td> <td> U+1D50F </td> <td> <span class="glyph" title="">𝔏</span> </td> </tr>
-     *       <tr id="entity-lfr"><td> <code title="">lfr;</code> </td> <td> U+1D529 </td> <td> <span class="glyph" title="">𝔩</span> </td> </tr>
-     *       <tr id="entity-lg"><td> <code title="">lg;</code> </td> <td> U+02276 </td> <td> <span class="glyph" title="">≶</span> </td> </tr>
-     *       <tr id="entity-lgE"><td> <code title="">lgE;</code> </td> <td> U+02A91 </td> <td> <span class="glyph" title="">⪑</span> </td> </tr>
-     *       <tr id="entity-lHar"><td> <code title="">lHar;</code> </td> <td> U+02962 </td> <td> <span class="glyph" title="">⥢</span> </td> </tr>
-     *       <tr id="entity-lhard"><td> <code title="">lhard;</code> </td> <td> U+021BD </td> <td> <span class="glyph" title="">↽</span> </td> </tr>
-     *       <tr id="entity-lharu"><td> <code title="">lharu;</code> </td> <td> U+021BC </td> <td> <span class="glyph" title="">↼</span> </td> </tr>
-     *       <tr id="entity-lharul"><td> <code title="">lharul;</code> </td> <td> U+0296A </td> <td> <span class="glyph" title="">⥪</span> </td> </tr>
-     *       <tr id="entity-lhblk"><td> <code title="">lhblk;</code> </td> <td> U+02584 </td> <td> <span class="glyph" title="">▄</span> </td> </tr>
-     *       <tr id="entity-LJcy"><td> <code title="">LJcy;</code> </td> <td> U+00409 </td> <td> <span class="glyph" title="">Љ</span> </td> </tr>
-     *       <tr id="entity-ljcy"><td> <code title="">ljcy;</code> </td> <td> U+00459 </td> <td> <span class="glyph" title="">љ</span> </td> </tr>
-     *       <tr id="entity-Ll"><td> <code title="">Ll;</code> </td> <td> U+022D8 </td> <td> <span class="glyph" title="">⋘</span> </td> </tr>
-     *       <tr id="entity-ll"><td> <code title="">ll;</code> </td> <td> U+0226A </td> <td> <span class="glyph" title="">≪</span> </td> </tr>
-     *       <tr id="entity-llarr"><td> <code title="">llarr;</code> </td> <td> U+021C7 </td> <td> <span class="glyph" title="">⇇</span> </td> </tr>
-     *       <tr id="entity-llcorner"><td> <code title="">llcorner;</code> </td> <td> U+0231E </td> <td> <span class="glyph" title="">⌞</span> </td> </tr>
-     *       <tr id="entity-Lleftarrow"><td> <code title="">Lleftarrow;</code> </td> <td> U+021DA </td> <td> <span class="glyph" title="">⇚</span> </td> </tr>
-     *       <tr id="entity-llhard"><td> <code title="">llhard;</code> </td> <td> U+0296B </td> <td> <span class="glyph" title="">⥫</span> </td> </tr>
-     *       <tr id="entity-lltri"><td> <code title="">lltri;</code> </td> <td> U+025FA </td> <td> <span class="glyph" title="">◺</span> </td> </tr>
-     *       <tr id="entity-Lmidot"><td> <code title="">Lmidot;</code> </td> <td> U+0013F </td> <td> <span class="glyph" title="">Ŀ</span> </td> </tr>
-     *       <tr id="entity-lmidot"><td> <code title="">lmidot;</code> </td> <td> U+00140 </td> <td> <span class="glyph" title="">ŀ</span> </td> </tr>
-     *       <tr id="entity-lmoust"><td> <code title="">lmoust;</code> </td> <td> U+023B0 </td> <td> <span class="glyph" title="">⎰</span> </td> </tr>
-     *       <tr id="entity-lmoustache"><td> <code title="">lmoustache;</code> </td> <td> U+023B0 </td> <td> <span class="glyph" title="">⎰</span> </td> </tr>
-     *       <tr id="entity-lnap"><td> <code title="">lnap;</code> </td> <td> U+02A89 </td> <td> <span class="glyph" title="">⪉</span> </td> </tr>
-     *       <tr id="entity-lnapprox"><td> <code title="">lnapprox;</code> </td> <td> U+02A89 </td> <td> <span class="glyph" title="">⪉</span> </td> </tr>
-     *       <tr id="entity-lnE"><td> <code title="">lnE;</code> </td> <td> U+02268 </td> <td> <span class="glyph" title="">≨</span> </td> </tr>
-     *       <tr id="entity-lne"><td> <code title="">lne;</code> </td> <td> U+02A87 </td> <td> <span class="glyph" title="">⪇</span> </td> </tr>
-     *       <tr id="entity-lneq"><td> <code title="">lneq;</code> </td> <td> U+02A87 </td> <td> <span class="glyph" title="">⪇</span> </td> </tr>
-     *       <tr id="entity-lneqq"><td> <code title="">lneqq;</code> </td> <td> U+02268 </td> <td> <span class="glyph" title="">≨</span> </td> </tr>
-     *       <tr id="entity-lnsim"><td> <code title="">lnsim;</code> </td> <td> U+022E6 </td> <td> <span class="glyph" title="">⋦</span> </td> </tr>
-     *       <tr id="entity-loang"><td> <code title="">loang;</code> </td> <td> U+027EC </td> <td> <span class="glyph" title="">⟬</span> </td> </tr>
-     *       <tr id="entity-loarr"><td> <code title="">loarr;</code> </td> <td> U+021FD </td> <td> <span class="glyph" title="">⇽</span> </td> </tr>
-     *       <tr id="entity-lobrk"><td> <code title="">lobrk;</code> </td> <td> U+027E6 </td> <td> <span class="glyph" title="">⟦</span> </td> </tr>
-     *       <tr id="entity-LongLeftArrow"><td> <code title="">LongLeftArrow;</code> </td> <td> U+027F5 </td> <td> <span class="glyph" title="">⟵</span> </td> </tr>
-     *       <tr id="entity-Longleftarrow"><td> <code title="">Longleftarrow;</code> </td> <td> U+027F8 </td> <td> <span class="glyph" title="">⟸</span> </td> </tr>
-     *       <tr id="entity-longleftarrow"><td> <code title="">longleftarrow;</code> </td> <td> U+027F5 </td> <td> <span class="glyph" title="">⟵</span> </td> </tr>
-     *       <tr id="entity-LongLeftRightArrow"><td> <code title="">LongLeftRightArrow;</code> </td> <td> U+027F7 </td> <td> <span class="glyph" title="">⟷</span> </td> </tr>
-     *       <tr id="entity-Longleftrightarrow"><td> <code title="">Longleftrightarrow;</code> </td> <td> U+027FA </td> <td> <span class="glyph" title="">⟺</span> </td> </tr>
-     *       <tr id="entity-longleftrightarrow"><td> <code title="">longleftrightarrow;</code> </td> <td> U+027F7 </td> <td> <span class="glyph" title="">⟷</span> </td> </tr>
-     *       <tr id="entity-longmapsto"><td> <code title="">longmapsto;</code> </td> <td> U+027FC </td> <td> <span class="glyph" title="">⟼</span> </td> </tr>
-     *       <tr id="entity-LongRightArrow"><td> <code title="">LongRightArrow;</code> </td> <td> U+027F6 </td> <td> <span class="glyph" title="">⟶</span> </td> </tr>
-     *       <tr id="entity-Longrightarrow"><td> <code title="">Longrightarrow;</code> </td> <td> U+027F9 </td> <td> <span class="glyph" title="">⟹</span> </td> </tr>
-     *       <tr id="entity-longrightarrow"><td> <code title="">longrightarrow;</code> </td> <td> U+027F6 </td> <td> <span class="glyph" title="">⟶</span> </td> </tr>
-     *       <tr id="entity-looparrowleft"><td> <code title="">looparrowleft;</code> </td> <td> U+021AB </td> <td> <span class="glyph" title="">↫</span> </td> </tr>
-     *       <tr id="entity-looparrowright"><td> <code title="">looparrowright;</code> </td> <td> U+021AC </td> <td> <span class="glyph" title="">↬</span> </td> </tr>
-     *       <tr id="entity-lopar"><td> <code title="">lopar;</code> </td> <td> U+02985 </td> <td> <span class="glyph" title="">⦅</span> </td> </tr>
-     *       <tr id="entity-Lopf"><td> <code title="">Lopf;</code> </td> <td> U+1D543 </td> <td> <span class="glyph" title="">𝕃</span> </td> </tr>
-     *       <tr id="entity-lopf"><td> <code title="">lopf;</code> </td> <td> U+1D55D </td> <td> <span class="glyph" title="">𝕝</span> </td> </tr>
-     *       <tr id="entity-loplus"><td> <code title="">loplus;</code> </td> <td> U+02A2D </td> <td> <span class="glyph" title="">⨭</span> </td> </tr>
-     *       <tr id="entity-lotimes"><td> <code title="">lotimes;</code> </td> <td> U+02A34 </td> <td> <span class="glyph" title="">⨴</span> </td> </tr>
-     *       <tr id="entity-lowast"><td> <code title="">lowast;</code> </td> <td> U+02217 </td> <td> <span class="glyph" title="">∗</span> </td> </tr>
-     *       <tr id="entity-lowbar"><td> <code title="">lowbar;</code> </td> <td> U+0005F </td> <td> <span class="glyph" title="">_</span> </td> </tr>
-     *       <tr id="entity-LowerLeftArrow"><td> <code title="">LowerLeftArrow;</code> </td> <td> U+02199 </td> <td> <span class="glyph" title="">↙</span> </td> </tr>
-     *       <tr id="entity-LowerRightArrow"><td> <code title="">LowerRightArrow;</code> </td> <td> U+02198 </td> <td> <span class="glyph" title="">↘</span> </td> </tr>
-     *       <tr id="entity-loz"><td> <code title="">loz;</code> </td> <td> U+025CA </td> <td> <span class="glyph" title="">◊</span> </td> </tr>
-     *       <tr id="entity-lozenge"><td> <code title="">lozenge;</code> </td> <td> U+025CA </td> <td> <span class="glyph" title="">◊</span> </td> </tr>
-     *       <tr id="entity-lozf"><td> <code title="">lozf;</code> </td> <td> U+029EB </td> <td> <span class="glyph" title="">⧫</span> </td> </tr>
-     *       <tr id="entity-lpar"><td> <code title="">lpar;</code> </td> <td> U+00028 </td> <td> <span class="glyph" title="">(</span> </td> </tr>
-     *       <tr id="entity-lparlt"><td> <code title="">lparlt;</code> </td> <td> U+02993 </td> <td> <span class="glyph" title="">⦓</span> </td> </tr>
-     *       <tr id="entity-lrarr"><td> <code title="">lrarr;</code> </td> <td> U+021C6 </td> <td> <span class="glyph" title="">⇆</span> </td> </tr>
-     *       <tr id="entity-lrcorner"><td> <code title="">lrcorner;</code> </td> <td> U+0231F </td> <td> <span class="glyph" title="">⌟</span> </td> </tr>
-     *       <tr id="entity-lrhar"><td> <code title="">lrhar;</code> </td> <td> U+021CB </td> <td> <span class="glyph" title="">⇋</span> </td> </tr>
-     *       <tr id="entity-lrhard"><td> <code title="">lrhard;</code> </td> <td> U+0296D </td> <td> <span class="glyph" title="">⥭</span> </td> </tr>
-     *       <tr id="entity-lrm"><td> <code title="">lrm;</code> </td> <td> U+0200E </td> <td> <span class="glyph" title="">‎</span> </td> </tr>
-     *       <tr id="entity-lrtri"><td> <code title="">lrtri;</code> </td> <td> U+022BF </td> <td> <span class="glyph" title="">⊿</span> </td> </tr>
-     *       <tr id="entity-lsaquo"><td> <code title="">lsaquo;</code> </td> <td> U+02039 </td> <td> <span class="glyph" title="">‹</span> </td> </tr>
-     *       <tr id="entity-Lscr"><td> <code title="">Lscr;</code> </td> <td> U+02112 </td> <td> <span class="glyph" title="">ℒ</span> </td> </tr>
-     *       <tr id="entity-lscr"><td> <code title="">lscr;</code> </td> <td> U+1D4C1 </td> <td> <span class="glyph" title="">𝓁</span> </td> </tr>
-     *       <tr id="entity-Lsh"><td> <code title="">Lsh;</code> </td> <td> U+021B0 </td> <td> <span class="glyph" title="">↰</span> </td> </tr>
-     *       <tr id="entity-lsh"><td> <code title="">lsh;</code> </td> <td> U+021B0 </td> <td> <span class="glyph" title="">↰</span> </td> </tr>
-     *       <tr id="entity-lsim"><td> <code title="">lsim;</code> </td> <td> U+02272 </td> <td> <span class="glyph" title="">≲</span> </td> </tr>
-     *       <tr id="entity-lsime"><td> <code title="">lsime;</code> </td> <td> U+02A8D </td> <td> <span class="glyph" title="">⪍</span> </td> </tr>
-     *       <tr id="entity-lsimg"><td> <code title="">lsimg;</code> </td> <td> U+02A8F </td> <td> <span class="glyph" title="">⪏</span> </td> </tr>
-     *       <tr id="entity-lsqb"><td> <code title="">lsqb;</code> </td> <td> U+0005B </td> <td> <span class="glyph" title="">[</span> </td> </tr>
-     *       <tr id="entity-lsquo"><td> <code title="">lsquo;</code> </td> <td> U+02018 </td> <td> <span class="glyph" title="">‘</span> </td> </tr>
-     *       <tr id="entity-lsquor"><td> <code title="">lsquor;</code> </td> <td> U+0201A </td> <td> <span class="glyph" title="">‚</span> </td> </tr>
-     *       <tr id="entity-Lstrok"><td> <code title="">Lstrok;</code> </td> <td> U+00141 </td> <td> <span class="glyph" title="">Ł</span> </td> </tr>
-     *       <tr id="entity-lstrok"><td> <code title="">lstrok;</code> </td> <td> U+00142 </td> <td> <span class="glyph" title="">ł</span> </td> </tr>
-     *       <tr id="entity-LT"><td> <code title="">LT;</code> </td> <td> U+0003C </td> <td> <span class="glyph" title="">&lt;</span> </td> </tr>
-     *       <tr class="impl" id="entity-LT-legacy"><td> <code title="">LT</code> </td> <td> U+0003C </td> <td> <span title="">&lt;</span> </td> </tr>
-     *       <tr id="entity-Lt"><td> <code title="">Lt;</code> </td> <td> U+0226A </td> <td> <span class="glyph" title="">≪</span> </td> </tr>
-     *       <tr id="entity-lt"><td> <code title="">lt;</code> </td> <td> U+0003C </td> <td> <span class="glyph" title="">&lt;</span> </td> </tr>
-     *       <tr class="impl" id="entity-lt-legacy"><td> <code title="">lt</code> </td> <td> U+0003C </td> <td> <span title="">&lt;</span> </td> </tr>
-     *       <tr id="entity-ltcc"><td> <code title="">ltcc;</code> </td> <td> U+02AA6 </td> <td> <span class="glyph" title="">⪦</span> </td> </tr>
-     *       <tr id="entity-ltcir"><td> <code title="">ltcir;</code> </td> <td> U+02A79 </td> <td> <span class="glyph" title="">⩹</span> </td> </tr>
-     *       <tr id="entity-ltdot"><td> <code title="">ltdot;</code> </td> <td> U+022D6 </td> <td> <span class="glyph" title="">⋖</span> </td> </tr>
-     *       <tr id="entity-lthree"><td> <code title="">lthree;</code> </td> <td> U+022CB </td> <td> <span class="glyph" title="">⋋</span> </td> </tr>
-     *       <tr id="entity-ltimes"><td> <code title="">ltimes;</code> </td> <td> U+022C9 </td> <td> <span class="glyph" title="">⋉</span> </td> </tr>
-     *       <tr id="entity-ltlarr"><td> <code title="">ltlarr;</code> </td> <td> U+02976 </td> <td> <span class="glyph" title="">⥶</span> </td> </tr>
-     *       <tr id="entity-ltquest"><td> <code title="">ltquest;</code> </td> <td> U+02A7B </td> <td> <span class="glyph" title="">⩻</span> </td> </tr>
-     *       <tr id="entity-ltri"><td> <code title="">ltri;</code> </td> <td> U+025C3 </td> <td> <span class="glyph" title="">◃</span> </td> </tr>
-     *       <tr id="entity-ltrie"><td> <code title="">ltrie;</code> </td> <td> U+022B4 </td> <td> <span class="glyph" title="">⊴</span> </td> </tr>
-     *       <tr id="entity-ltrif"><td> <code title="">ltrif;</code> </td> <td> U+025C2 </td> <td> <span class="glyph" title="">◂</span> </td> </tr>
-     *       <tr id="entity-ltrPar"><td> <code title="">ltrPar;</code> </td> <td> U+02996 </td> <td> <span class="glyph" title="">⦖</span> </td> </tr>
-     *       <tr id="entity-lurdshar"><td> <code title="">lurdshar;</code> </td> <td> U+0294A </td> <td> <span class="glyph" title="">⥊</span> </td> </tr>
-     *       <tr id="entity-luruhar"><td> <code title="">luruhar;</code> </td> <td> U+02966 </td> <td> <span class="glyph" title="">⥦</span> </td> </tr>
-     *       <tr id="entity-lvertneqq"><td> <code title="">lvertneqq;</code> </td> <td> U+02268 U+0FE00 </td> <td> <span class="glyph compound" title="">≨︀</span> </td> </tr>
-     *       <tr id="entity-lvnE"><td> <code title="">lvnE;</code> </td> <td> U+02268 U+0FE00 </td> <td> <span class="glyph compound" title="">≨︀</span> </td> </tr>
-     *       <tr id="entity-macr"><td> <code title="">macr;</code> </td> <td> U+000AF </td> <td> <span class="glyph" title="">¯</span> </td> </tr>
-     *       <tr class="impl" id="entity-macr-legacy"><td> <code title="">macr</code> </td> <td> U+000AF </td> <td> <span title="">¯</span> </td> </tr>
-     *       <tr id="entity-male"><td> <code title="">male;</code> </td> <td> U+02642 </td> <td> <span class="glyph" title="">♂</span> </td> </tr>
-     *       <tr id="entity-malt"><td> <code title="">malt;</code> </td> <td> U+02720 </td> <td> <span class="glyph" title="">✠</span> </td> </tr>
-     *       <tr id="entity-maltese"><td> <code title="">maltese;</code> </td> <td> U+02720 </td> <td> <span class="glyph" title="">✠</span> </td> </tr>
-     *       <tr id="entity-Map"><td> <code title="">Map;</code> </td> <td> U+02905 </td> <td> <span class="glyph" title="">⤅</span> </td> </tr>
-     *       <tr id="entity-map"><td> <code title="">map;</code> </td> <td> U+021A6 </td> <td> <span class="glyph" title="">↦</span> </td> </tr>
-     *       <tr id="entity-mapsto"><td> <code title="">mapsto;</code> </td> <td> U+021A6 </td> <td> <span class="glyph" title="">↦</span> </td> </tr>
-     *       <tr id="entity-mapstodown"><td> <code title="">mapstodown;</code> </td> <td> U+021A7 </td> <td> <span class="glyph" title="">↧</span> </td> </tr>
-     *       <tr id="entity-mapstoleft"><td> <code title="">mapstoleft;</code> </td> <td> U+021A4 </td> <td> <span class="glyph" title="">↤</span> </td> </tr>
-     *       <tr id="entity-mapstoup"><td> <code title="">mapstoup;</code> </td> <td> U+021A5 </td> <td> <span class="glyph" title="">↥</span> </td> </tr>
-     *       <tr id="entity-marker"><td> <code title="">marker;</code> </td> <td> U+025AE </td> <td> <span class="glyph" title="">▮</span> </td> </tr>
-     *       <tr id="entity-mcomma"><td> <code title="">mcomma;</code> </td> <td> U+02A29 </td> <td> <span class="glyph" title="">⨩</span> </td> </tr>
-     *       <tr id="entity-Mcy"><td> <code title="">Mcy;</code> </td> <td> U+0041C </td> <td> <span class="glyph" title="">М</span> </td> </tr>
-     *       <tr id="entity-mcy"><td> <code title="">mcy;</code> </td> <td> U+0043C </td> <td> <span class="glyph" title="">м</span> </td> </tr>
-     *       <tr id="entity-mdash"><td> <code title="">mdash;</code> </td> <td> U+02014 </td> <td> <span class="glyph" title="">—</span> </td> </tr>
-     *       <tr id="entity-mDDot"><td> <code title="">mDDot;</code> </td> <td> U+0223A </td> <td> <span class="glyph" title="">∺</span> </td> </tr>
-     *       <tr id="entity-measuredangle"><td> <code title="">measuredangle;</code> </td> <td> U+02221 </td> <td> <span class="glyph" title="">∡</span> </td> </tr>
-     *       <tr id="entity-MediumSpace"><td> <code title="">MediumSpace;</code> </td> <td> U+0205F </td> <td> <span class="glyph" title=""> </span> </td> </tr>
-     *       <tr id="entity-Mellintrf"><td> <code title="">Mellintrf;</code> </td> <td> U+02133 </td> <td> <span class="glyph" title="">ℳ</span> </td> </tr>
-     *       <tr id="entity-Mfr"><td> <code title="">Mfr;</code> </td> <td> U+1D510 </td> <td> <span class="glyph" title="">𝔐</span> </td> </tr>
-     *       <tr id="entity-mfr"><td> <code title="">mfr;</code> </td> <td> U+1D52A </td> <td> <span class="glyph" title="">𝔪</span> </td> </tr>
-     *       <tr id="entity-mho"><td> <code title="">mho;</code> </td> <td> U+02127 </td> <td> <span class="glyph" title="">℧</span> </td> </tr>
-     *       <tr id="entity-micro"><td> <code title="">micro;</code> </td> <td> U+000B5 </td> <td> <span class="glyph" title="">µ</span> </td> </tr>
-     *       <tr class="impl" id="entity-micro-legacy"><td> <code title="">micro</code> </td> <td> U+000B5 </td> <td> <span title="">µ</span> </td> </tr>
-     *       <tr id="entity-mid"><td> <code title="">mid;</code> </td> <td> U+02223 </td> <td> <span class="glyph" title="">∣</span> </td> </tr>
-     *       <tr id="entity-midast"><td> <code title="">midast;</code> </td> <td> U+0002A </td> <td> <span class="glyph" title="">*</span> </td> </tr>
-     *       <tr id="entity-midcir"><td> <code title="">midcir;</code> </td> <td> U+02AF0 </td> <td> <span class="glyph" title="">⫰</span> </td> </tr>
-     *       <tr id="entity-middot"><td> <code title="">middot;</code> </td> <td> U+000B7 </td> <td> <span class="glyph" title="">·</span> </td> </tr>
-     *       <tr class="impl" id="entity-middot-legacy"><td> <code title="">middot</code> </td> <td> U+000B7 </td> <td> <span title="">·</span> </td> </tr>
-     *       <tr id="entity-minus"><td> <code title="">minus;</code> </td> <td> U+02212 </td> <td> <span class="glyph" title="">−</span> </td> </tr>
-     *       <tr id="entity-minusb"><td> <code title="">minusb;</code> </td> <td> U+0229F </td> <td> <span class="glyph" title="">⊟</span> </td> </tr>
-     *       <tr id="entity-minusd"><td> <code title="">minusd;</code> </td> <td> U+02238 </td> <td> <span class="glyph" title="">∸</span> </td> </tr>
-     *       <tr id="entity-minusdu"><td> <code title="">minusdu;</code> </td> <td> U+02A2A </td> <td> <span class="glyph" title="">⨪</span> </td> </tr>
-     *       <tr id="entity-MinusPlus"><td> <code title="">MinusPlus;</code> </td> <td> U+02213 </td> <td> <span class="glyph" title="">∓</span> </td> </tr>
-     *       <tr id="entity-mlcp"><td> <code title="">mlcp;</code> </td> <td> U+02ADB </td> <td> <span class="glyph" title="">⫛</span> </td> </tr>
-     *       <tr id="entity-mldr"><td> <code title="">mldr;</code> </td> <td> U+02026 </td> <td> <span class="glyph" title="">…</span> </td> </tr>
-     *       <tr id="entity-mnplus"><td> <code title="">mnplus;</code> </td> <td> U+02213 </td> <td> <span class="glyph" title="">∓</span> </td> </tr>
-     *       <tr id="entity-models"><td> <code title="">models;</code> </td> <td> U+022A7 </td> <td> <span class="glyph" title="">⊧</span> </td> </tr>
-     *       <tr id="entity-Mopf"><td> <code title="">Mopf;</code> </td> <td> U+1D544 </td> <td> <span class="glyph" title="">𝕄</span> </td> </tr>
-     *       <tr id="entity-mopf"><td> <code title="">mopf;</code> </td> <td> U+1D55E </td> <td> <span class="glyph" title="">𝕞</span> </td> </tr>
-     *       <tr id="entity-mp"><td> <code title="">mp;</code> </td> <td> U+02213 </td> <td> <span class="glyph" title="">∓</span> </td> </tr>
-     *       <tr id="entity-Mscr"><td> <code title="">Mscr;</code> </td> <td> U+02133 </td> <td> <span class="glyph" title="">ℳ</span> </td> </tr>
-     *       <tr id="entity-mscr"><td> <code title="">mscr;</code> </td> <td> U+1D4C2 </td> <td> <span class="glyph" title="">𝓂</span> </td> </tr>
-     *       <tr id="entity-mstpos"><td> <code title="">mstpos;</code> </td> <td> U+0223E </td> <td> <span class="glyph" title="">∾</span> </td> </tr>
-     *       <tr id="entity-Mu"><td> <code title="">Mu;</code> </td> <td> U+0039C </td> <td> <span class="glyph" title="">Μ</span> </td> </tr>
-     *       <tr id="entity-mu"><td> <code title="">mu;</code> </td> <td> U+003BC </td> <td> <span class="glyph" title="">μ</span> </td> </tr>
-     *       <tr id="entity-multimap"><td> <code title="">multimap;</code> </td> <td> U+022B8 </td> <td> <span class="glyph" title="">⊸</span> </td> </tr>
-     *       <tr id="entity-mumap"><td> <code title="">mumap;</code> </td> <td> U+022B8 </td> <td> <span class="glyph" title="">⊸</span> </td> </tr>
-     *       <tr id="entity-nabla"><td> <code title="">nabla;</code> </td> <td> U+02207 </td> <td> <span class="glyph" title="">∇</span> </td> </tr>
-     *       <tr id="entity-Nacute"><td> <code title="">Nacute;</code> </td> <td> U+00143 </td> <td> <span class="glyph" title="">Ń</span> </td> </tr>
-     *       <tr id="entity-nacute"><td> <code title="">nacute;</code> </td> <td> U+00144 </td> <td> <span class="glyph" title="">ń</span> </td> </tr>
-     *       <tr id="entity-nang"><td> <code title="">nang;</code> </td> <td> U+02220 U+020D2 </td> <td> <span class="glyph compound" title="">∠⃒</span> </td> </tr>
-     *       <tr id="entity-nap"><td> <code title="">nap;</code> </td> <td> U+02249 </td> <td> <span class="glyph" title="">≉</span> </td> </tr>
-     *       <tr id="entity-napE"><td> <code title="">napE;</code> </td> <td> U+02A70 U+00338 </td> <td> <span class="glyph compound" title="">⩰̸</span> </td> </tr>
-     *       <tr id="entity-napid"><td> <code title="">napid;</code> </td> <td> U+0224B U+00338 </td> <td> <span class="glyph compound" title="">≋̸</span> </td> </tr>
-     *       <tr id="entity-napos"><td> <code title="">napos;</code> </td> <td> U+00149 </td> <td> <span class="glyph" title="">ŉ</span> </td> </tr>
-     *       <tr id="entity-napprox"><td> <code title="">napprox;</code> </td> <td> U+02249 </td> <td> <span class="glyph" title="">≉</span> </td> </tr>
-     *       <tr id="entity-natur"><td> <code title="">natur;</code> </td> <td> U+0266E </td> <td> <span class="glyph" title="">♮</span> </td> </tr>
-     *       <tr id="entity-natural"><td> <code title="">natural;</code> </td> <td> U+0266E </td> <td> <span class="glyph" title="">♮</span> </td> </tr>
-     *       <tr id="entity-naturals"><td> <code title="">naturals;</code> </td> <td> U+02115 </td> <td> <span class="glyph" title="">ℕ</span> </td> </tr>
-     *       <tr id="entity-nbsp"><td> <code title="">nbsp;</code> </td> <td> U+000A0 </td> <td> <span class="glyph" title="">&nbsp;</span> </td> </tr>
-     *       <tr class="impl" id="entity-nbsp-legacy"><td> <code title="">nbsp</code> </td> <td> U+000A0 </td> <td> <span title="">&nbsp;</span> </td> </tr>
-     *       <tr id="entity-nbump"><td> <code title="">nbump;</code> </td> <td> U+0224E U+00338 </td> <td> <span class="glyph compound" title="">≎̸</span> </td> </tr>
-     *       <tr id="entity-nbumpe"><td> <code title="">nbumpe;</code> </td> <td> U+0224F U+00338 </td> <td> <span class="glyph compound" title="">≏̸</span> </td> </tr>
-     *       <tr id="entity-ncap"><td> <code title="">ncap;</code> </td> <td> U+02A43 </td> <td> <span class="glyph" title="">⩃</span> </td> </tr>
-     *       <tr id="entity-Ncaron"><td> <code title="">Ncaron;</code> </td> <td> U+00147 </td> <td> <span class="glyph" title="">Ň</span> </td> </tr>
-     *       <tr id="entity-ncaron"><td> <code title="">ncaron;</code> </td> <td> U+00148 </td> <td> <span class="glyph" title="">ň</span> </td> </tr>
-     *       <tr id="entity-Ncedil"><td> <code title="">Ncedil;</code> </td> <td> U+00145 </td> <td> <span class="glyph" title="">Ņ</span> </td> </tr>
-     *       <tr id="entity-ncedil"><td> <code title="">ncedil;</code> </td> <td> U+00146 </td> <td> <span class="glyph" title="">ņ</span> </td> </tr>
-     *       <tr id="entity-ncong"><td> <code title="">ncong;</code> </td> <td> U+02247 </td> <td> <span class="glyph" title="">≇</span> </td> </tr>
-     *       <tr id="entity-ncongdot"><td> <code title="">ncongdot;</code> </td> <td> U+02A6D U+00338 </td> <td> <span class="glyph compound" title="">⩭̸</span> </td> </tr>
-     *       <tr id="entity-ncup"><td> <code title="">ncup;</code> </td> <td> U+02A42 </td> <td> <span class="glyph" title="">⩂</span> </td> </tr>
-     *       <tr id="entity-Ncy"><td> <code title="">Ncy;</code> </td> <td> U+0041D </td> <td> <span class="glyph" title="">Н</span> </td> </tr>
-     *       <tr id="entity-ncy"><td> <code title="">ncy;</code> </td> <td> U+0043D </td> <td> <span class="glyph" title="">н</span> </td> </tr>
-     *       <tr id="entity-ndash"><td> <code title="">ndash;</code> </td> <td> U+02013 </td> <td> <span class="glyph" title="">–</span> </td> </tr>
-     *       <tr id="entity-ne"><td> <code title="">ne;</code> </td> <td> U+02260 </td> <td> <span class="glyph" title="">≠</span> </td> </tr>
-     *       <tr id="entity-nearhk"><td> <code title="">nearhk;</code> </td> <td> U+02924 </td> <td> <span class="glyph" title="">⤤</span> </td> </tr>
-     *       <tr id="entity-neArr"><td> <code title="">neArr;</code> </td> <td> U+021D7 </td> <td> <span class="glyph" title="">⇗</span> </td> </tr>
-     *       <tr id="entity-nearr"><td> <code title="">nearr;</code> </td> <td> U+02197 </td> <td> <span class="glyph" title="">↗</span> </td> </tr>
-     *       <tr id="entity-nearrow"><td> <code title="">nearrow;</code> </td> <td> U+02197 </td> <td> <span class="glyph" title="">↗</span> </td> </tr>
-     *       <tr id="entity-nedot"><td> <code title="">nedot;</code> </td> <td> U+02250 U+00338 </td> <td> <span class="glyph compound" title="">≐̸</span> </td> </tr>
-     *       <tr id="entity-NegativeMediumSpace"><td> <code title="">NegativeMediumSpace;</code> </td> <td> U+0200B </td> <td> <span class="glyph" title="">​</span> </td> </tr>
-     *       <tr id="entity-NegativeThickSpace"><td> <code title="">NegativeThickSpace;</code> </td> <td> U+0200B </td> <td> <span class="glyph" title="">​</span> </td> </tr>
-     *       <tr id="entity-NegativeThinSpace"><td> <code title="">NegativeThinSpace;</code> </td> <td> U+0200B </td> <td> <span class="glyph" title="">​</span> </td> </tr>
-     *       <tr id="entity-NegativeVeryThinSpace"><td> <code title="">NegativeVeryThinSpace;</code> </td> <td> U+0200B </td> <td> <span class="glyph" title="">​</span> </td> </tr>
-     *       <tr id="entity-nequiv"><td> <code title="">nequiv;</code> </td> <td> U+02262 </td> <td> <span class="glyph" title="">≢</span> </td> </tr>
-     *       <tr id="entity-nesear"><td> <code title="">nesear;</code> </td> <td> U+02928 </td> <td> <span class="glyph" title="">⤨</span> </td> </tr>
-     *       <tr id="entity-nesim"><td> <code title="">nesim;</code> </td> <td> U+02242 U+00338 </td> <td> <span class="glyph compound" title="">≂̸</span> </td> </tr>
-     *       <tr id="entity-NestedGreaterGreater"><td> <code title="">NestedGreaterGreater;</code> </td> <td> U+0226B </td> <td> <span class="glyph" title="">≫</span> </td> </tr>
-     *       <tr id="entity-NestedLessLess"><td> <code title="">NestedLessLess;</code> </td> <td> U+0226A </td> <td> <span class="glyph" title="">≪</span> </td> </tr>
-     *       <tr id="entity-NewLine"><td> <code title="">NewLine;</code> </td> <td> U+0000A </td> <td> <span class="glyph control" title="">␊</span> </td> </tr>
-     *       <tr id="entity-nexist"><td> <code title="">nexist;</code> </td> <td> U+02204 </td> <td> <span class="glyph" title="">∄</span> </td> </tr>
-     *       <tr id="entity-nexists"><td> <code title="">nexists;</code> </td> <td> U+02204 </td> <td> <span class="glyph" title="">∄</span> </td> </tr>
-     *       <tr id="entity-Nfr"><td> <code title="">Nfr;</code> </td> <td> U+1D511 </td> <td> <span class="glyph" title="">𝔑</span> </td> </tr>
-     *       <tr id="entity-nfr"><td> <code title="">nfr;</code> </td> <td> U+1D52B </td> <td> <span class="glyph" title="">𝔫</span> </td> </tr>
-     *       <tr id="entity-ngE"><td> <code title="">ngE;</code> </td> <td> U+02267 U+00338 </td> <td> <span class="glyph compound" title="">≧̸</span> </td> </tr>
-     *       <tr id="entity-nge"><td> <code title="">nge;</code> </td> <td> U+02271 </td> <td> <span class="glyph" title="">≱</span> </td> </tr>
-     *       <tr id="entity-ngeq"><td> <code title="">ngeq;</code> </td> <td> U+02271 </td> <td> <span class="glyph" title="">≱</span> </td> </tr>
-     *       <tr id="entity-ngeqq"><td> <code title="">ngeqq;</code> </td> <td> U+02267 U+00338 </td> <td> <span class="glyph compound" title="">≧̸</span> </td> </tr>
-     *       <tr id="entity-ngeqslant"><td> <code title="">ngeqslant;</code> </td> <td> U+02A7E U+00338 </td> <td> <span class="glyph compound" title="">⩾̸</span> </td> </tr>
-     *       <tr id="entity-nges"><td> <code title="">nges;</code> </td> <td> U+02A7E U+00338 </td> <td> <span class="glyph compound" title="">⩾̸</span> </td> </tr>
-     *       <tr id="entity-nGg"><td> <code title="">nGg;</code> </td> <td> U+022D9 U+00338 </td> <td> <span class="glyph compound" title="">⋙̸</span> </td> </tr>
-     *       <tr id="entity-ngsim"><td> <code title="">ngsim;</code> </td> <td> U+02275 </td> <td> <span class="glyph" title="">≵</span> </td> </tr>
-     *       <tr id="entity-nGt"><td> <code title="">nGt;</code> </td> <td> U+0226B U+020D2 </td> <td> <span class="glyph compound" title="">≫⃒</span> </td> </tr>
-     *       <tr id="entity-ngt"><td> <code title="">ngt;</code> </td> <td> U+0226F </td> <td> <span class="glyph" title="">≯</span> </td> </tr>
-     *       <tr id="entity-ngtr"><td> <code title="">ngtr;</code> </td> <td> U+0226F </td> <td> <span class="glyph" title="">≯</span> </td> </tr>
-     *       <tr id="entity-nGtv"><td> <code title="">nGtv;</code> </td> <td> U+0226B U+00338 </td> <td> <span class="glyph compound" title="">≫̸</span> </td> </tr>
-     *       <tr id="entity-nhArr"><td> <code title="">nhArr;</code> </td> <td> U+021CE </td> <td> <span class="glyph" title="">⇎</span> </td> </tr>
-     *       <tr id="entity-nharr"><td> <code title="">nharr;</code> </td> <td> U+021AE </td> <td> <span class="glyph" title="">↮</span> </td> </tr>
-     *       <tr id="entity-nhpar"><td> <code title="">nhpar;</code> </td> <td> U+02AF2 </td> <td> <span class="glyph" title="">⫲</span> </td> </tr>
-     *       <tr id="entity-ni"><td> <code title="">ni;</code> </td> <td> U+0220B </td> <td> <span class="glyph" title="">∋</span> </td> </tr>
-     *       <tr id="entity-nis"><td> <code title="">nis;</code> </td> <td> U+022FC </td> <td> <span class="glyph" title="">⋼</span> </td> </tr>
-     *       <tr id="entity-nisd"><td> <code title="">nisd;</code> </td> <td> U+022FA </td> <td> <span class="glyph" title="">⋺</span> </td> </tr>
-     *       <tr id="entity-niv"><td> <code title="">niv;</code> </td> <td> U+0220B </td> <td> <span class="glyph" title="">∋</span> </td> </tr>
-     *       <tr id="entity-NJcy"><td> <code title="">NJcy;</code> </td> <td> U+0040A </td> <td> <span class="glyph" title="">Њ</span> </td> </tr>
-     *       <tr id="entity-njcy"><td> <code title="">njcy;</code> </td> <td> U+0045A </td> <td> <span class="glyph" title="">њ</span> </td> </tr>
-     *       <tr id="entity-nlArr"><td> <code title="">nlArr;</code> </td> <td> U+021CD </td> <td> <span class="glyph" title="">⇍</span> </td> </tr>
-     *       <tr id="entity-nlarr"><td> <code title="">nlarr;</code> </td> <td> U+0219A </td> <td> <span class="glyph" title="">↚</span> </td> </tr>
-     *       <tr id="entity-nldr"><td> <code title="">nldr;</code> </td> <td> U+02025 </td> <td> <span class="glyph" title="">‥</span> </td> </tr>
-     *       <tr id="entity-nlE"><td> <code title="">nlE;</code> </td> <td> U+02266 U+00338 </td> <td> <span class="glyph compound" title="">≦̸</span> </td> </tr>
-     *       <tr id="entity-nle"><td> <code title="">nle;</code> </td> <td> U+02270 </td> <td> <span class="glyph" title="">≰</span> </td> </tr>
-     *       <tr id="entity-nLeftarrow"><td> <code title="">nLeftarrow;</code> </td> <td> U+021CD </td> <td> <span class="glyph" title="">⇍</span> </td> </tr>
-     *       <tr id="entity-nleftarrow"><td> <code title="">nleftarrow;</code> </td> <td> U+0219A </td> <td> <span class="glyph" title="">↚</span> </td> </tr>
-     *       <tr id="entity-nLeftrightarrow"><td> <code title="">nLeftrightarrow;</code> </td> <td> U+021CE </td> <td> <span class="glyph" title="">⇎</span> </td> </tr>
-     *       <tr id="entity-nleftrightarrow"><td> <code title="">nleftrightarrow;</code> </td> <td> U+021AE </td> <td> <span class="glyph" title="">↮</span> </td> </tr>
-     *       <tr id="entity-nleq"><td> <code title="">nleq;</code> </td> <td> U+02270 </td> <td> <span class="glyph" title="">≰</span> </td> </tr>
-     *       <tr id="entity-nleqq"><td> <code title="">nleqq;</code> </td> <td> U+02266 U+00338 </td> <td> <span class="glyph compound" title="">≦̸</span> </td> </tr>
-     *       <tr id="entity-nleqslant"><td> <code title="">nleqslant;</code> </td> <td> U+02A7D U+00338 </td> <td> <span class="glyph compound" title="">⩽̸</span> </td> </tr>
-     *       <tr id="entity-nles"><td> <code title="">nles;</code> </td> <td> U+02A7D U+00338 </td> <td> <span class="glyph compound" title="">⩽̸</span> </td> </tr>
-     *       <tr id="entity-nless"><td> <code title="">nless;</code> </td> <td> U+0226E </td> <td> <span class="glyph" title="">≮</span> </td> </tr>
-     *       <tr id="entity-nLl"><td> <code title="">nLl;</code> </td> <td> U+022D8 U+00338 </td> <td> <span class="glyph compound" title="">⋘̸</span> </td> </tr>
-     *       <tr id="entity-nlsim"><td> <code title="">nlsim;</code> </td> <td> U+02274 </td> <td> <span class="glyph" title="">≴</span> </td> </tr>
-     *       <tr id="entity-nLt"><td> <code title="">nLt;</code> </td> <td> U+0226A U+020D2 </td> <td> <span class="glyph compound" title="">≪⃒</span> </td> </tr>
-     *       <tr id="entity-nlt"><td> <code title="">nlt;</code> </td> <td> U+0226E </td> <td> <span class="glyph" title="">≮</span> </td> </tr>
-     *       <tr id="entity-nltri"><td> <code title="">nltri;</code> </td> <td> U+022EA </td> <td> <span class="glyph" title="">⋪</span> </td> </tr>
-     *       <tr id="entity-nltrie"><td> <code title="">nltrie;</code> </td> <td> U+022EC </td> <td> <span class="glyph" title="">⋬</span> </td> </tr>
-     *       <tr id="entity-nLtv"><td> <code title="">nLtv;</code> </td> <td> U+0226A U+00338 </td> <td> <span class="glyph compound" title="">≪̸</span> </td> </tr>
-     *       <tr id="entity-nmid"><td> <code title="">nmid;</code> </td> <td> U+02224 </td> <td> <span class="glyph" title="">∤</span> </td> </tr>
-     *       <tr id="entity-NoBreak"><td> <code title="">NoBreak;</code> </td> <td> U+02060 </td> <td> <span class="glyph" title="">⁠</span> </td> </tr>
-     *       <tr id="entity-NonBreakingSpace"><td> <code title="">NonBreakingSpace;</code> </td> <td> U+000A0 </td> <td> <span class="glyph" title="">&nbsp;</span> </td> </tr>
-     *       <tr id="entity-Nopf"><td> <code title="">Nopf;</code> </td> <td> U+02115 </td> <td> <span class="glyph" title="">ℕ</span> </td> </tr>
-     *       <tr id="entity-nopf"><td> <code title="">nopf;</code> </td> <td> U+1D55F </td> <td> <span class="glyph" title="">𝕟</span> </td> </tr>
-     *       <tr id="entity-Not"><td> <code title="">Not;</code> </td> <td> U+02AEC </td> <td> <span class="glyph" title="">⫬</span> </td> </tr>
-     *       <tr id="entity-not"><td> <code title="">not;</code> </td> <td> U+000AC </td> <td> <span class="glyph" title="">¬</span> </td> </tr>
-     *       <tr class="impl" id="entity-not-legacy"><td> <code title="">not</code> </td> <td> U+000AC </td> <td> <span title="">¬</span> </td> </tr>
-     *       <tr id="entity-NotCongruent"><td> <code title="">NotCongruent;</code> </td> <td> U+02262 </td> <td> <span class="glyph" title="">≢</span> </td> </tr>
-     *       <tr id="entity-NotCupCap"><td> <code title="">NotCupCap;</code> </td> <td> U+0226D </td> <td> <span class="glyph" title="">≭</span> </td> </tr>
-     *       <tr id="entity-NotDoubleVerticalBar"><td> <code title="">NotDoubleVerticalBar;</code> </td> <td> U+02226 </td> <td> <span class="glyph" title="">∦</span> </td> </tr>
-     *       <tr id="entity-NotElement"><td> <code title="">NotElement;</code> </td> <td> U+02209 </td> <td> <span class="glyph" title="">∉</span> </td> </tr>
-     *       <tr id="entity-NotEqual"><td> <code title="">NotEqual;</code> </td> <td> U+02260 </td> <td> <span class="glyph" title="">≠</span> </td> </tr>
-     *       <tr id="entity-NotEqualTilde"><td> <code title="">NotEqualTilde;</code> </td> <td> U+02242 U+00338 </td> <td> <span class="glyph compound" title="">≂̸</span> </td> </tr>
-     *       <tr id="entity-NotExists"><td> <code title="">NotExists;</code> </td> <td> U+02204 </td> <td> <span class="glyph" title="">∄</span> </td> </tr>
-     *       <tr id="entity-NotGreater"><td> <code title="">NotGreater;</code> </td> <td> U+0226F </td> <td> <span class="glyph" title="">≯</span> </td> </tr>
-     *       <tr id="entity-NotGreaterEqual"><td> <code title="">NotGreaterEqual;</code> </td> <td> U+02271 </td> <td> <span class="glyph" title="">≱</span> </td> </tr>
-     *       <tr id="entity-NotGreaterFullEqual"><td> <code title="">NotGreaterFullEqual;</code> </td> <td> U+02267 U+00338 </td> <td> <span class="glyph compound" title="">≧̸</span> </td> </tr>
-     *       <tr id="entity-NotGreaterGreater"><td> <code title="">NotGreaterGreater;</code> </td> <td> U+0226B U+00338 </td> <td> <span class="glyph compound" title="">≫̸</span> </td> </tr>
-     *       <tr id="entity-NotGreaterLess"><td> <code title="">NotGreaterLess;</code> </td> <td> U+02279 </td> <td> <span class="glyph" title="">≹</span> </td> </tr>
-     *       <tr id="entity-NotGreaterSlantEqual"><td> <code title="">NotGreaterSlantEqual;</code> </td> <td> U+02A7E U+00338 </td> <td> <span class="glyph compound" title="">⩾̸</span> </td> </tr>
-     *       <tr id="entity-NotGreaterTilde"><td> <code title="">NotGreaterTilde;</code> </td> <td> U+02275 </td> <td> <span class="glyph" title="">≵</span> </td> </tr>
-     *       <tr id="entity-NotHumpDownHump"><td> <code title="">NotHumpDownHump;</code> </td> <td> U+0224E U+00338 </td> <td> <span class="glyph compound" title="">≎̸</span> </td> </tr>
-     *       <tr id="entity-NotHumpEqual"><td> <code title="">NotHumpEqual;</code> </td> <td> U+0224F U+00338 </td> <td> <span class="glyph compound" title="">≏̸</span> </td> </tr>
-     *       <tr id="entity-notin"><td> <code title="">notin;</code> </td> <td> U+02209 </td> <td> <span class="glyph" title="">∉</span> </td> </tr>
-     *       <tr id="entity-notindot"><td> <code title="">notindot;</code> </td> <td> U+022F5 U+00338 </td> <td> <span class="glyph compound" title="">⋵̸</span> </td> </tr>
-     *       <tr id="entity-notinE"><td> <code title="">notinE;</code> </td> <td> U+022F9 U+00338 </td> <td> <span class="glyph compound" title="">⋹̸</span> </td> </tr>
-     *       <tr id="entity-notinva"><td> <code title="">notinva;</code> </td> <td> U+02209 </td> <td> <span class="glyph" title="">∉</span> </td> </tr>
-     *       <tr id="entity-notinvb"><td> <code title="">notinvb;</code> </td> <td> U+022F7 </td> <td> <span class="glyph" title="">⋷</span> </td> </tr>
-     *       <tr id="entity-notinvc"><td> <code title="">notinvc;</code> </td> <td> U+022F6 </td> <td> <span class="glyph" title="">⋶</span> </td> </tr>
-     *       <tr id="entity-NotLeftTriangle"><td> <code title="">NotLeftTriangle;</code> </td> <td> U+022EA </td> <td> <span class="glyph" title="">⋪</span> </td> </tr>
-     *       <tr id="entity-NotLeftTriangleBar"><td> <code title="">NotLeftTriangleBar;</code> </td> <td> U+029CF U+00338 </td> <td> <span class="glyph compound" title="">⧏̸</span> </td> </tr>
-     *       <tr id="entity-NotLeftTriangleEqual"><td> <code title="">NotLeftTriangleEqual;</code> </td> <td> U+022EC </td> <td> <span class="glyph" title="">⋬</span> </td> </tr>
-     *       <tr id="entity-NotLess"><td> <code title="">NotLess;</code> </td> <td> U+0226E </td> <td> <span class="glyph" title="">≮</span> </td> </tr>
-     *       <tr id="entity-NotLessEqual"><td> <code title="">NotLessEqual;</code> </td> <td> U+02270 </td> <td> <span class="glyph" title="">≰</span> </td> </tr>
-     *       <tr id="entity-NotLessGreater"><td> <code title="">NotLessGreater;</code> </td> <td> U+02278 </td> <td> <span class="glyph" title="">≸</span> </td> </tr>
-     *       <tr id="entity-NotLessLess"><td> <code title="">NotLessLess;</code> </td> <td> U+0226A U+00338 </td> <td> <span class="glyph compound" title="">≪̸</span> </td> </tr>
-     *       <tr id="entity-NotLessSlantEqual"><td> <code title="">NotLessSlantEqual;</code> </td> <td> U+02A7D U+00338 </td> <td> <span class="glyph compound" title="">⩽̸</span> </td> </tr>
-     *       <tr id="entity-NotLessTilde"><td> <code title="">NotLessTilde;</code> </td> <td> U+02274 </td> <td> <span class="glyph" title="">≴</span> </td> </tr>
-     *       <tr id="entity-NotNestedGreaterGreater"><td> <code title="">NotNestedGreaterGreater;</code> </td> <td> U+02AA2 U+00338 </td> <td> <span class="glyph compound" title="">⪢̸</span> </td> </tr>
-     *       <tr id="entity-NotNestedLessLess"><td> <code title="">NotNestedLessLess;</code> </td> <td> U+02AA1 U+00338 </td> <td> <span class="glyph compound" title="">⪡̸</span> </td> </tr>
-     *       <tr id="entity-notni"><td> <code title="">notni;</code> </td> <td> U+0220C </td> <td> <span class="glyph" title="">∌</span> </td> </tr>
-     *       <tr id="entity-notniva"><td> <code title="">notniva;</code> </td> <td> U+0220C </td> <td> <span class="glyph" title="">∌</span> </td> </tr>
-     *       <tr id="entity-notnivb"><td> <code title="">notnivb;</code> </td> <td> U+022FE </td> <td> <span class="glyph" title="">⋾</span> </td> </tr>
-     *       <tr id="entity-notnivc"><td> <code title="">notnivc;</code> </td> <td> U+022FD </td> <td> <span class="glyph" title="">⋽</span> </td> </tr>
-     *       <tr id="entity-NotPrecedes"><td> <code title="">NotPrecedes;</code> </td> <td> U+02280 </td> <td> <span class="glyph" title="">⊀</span> </td> </tr>
-     *       <tr id="entity-NotPrecedesEqual"><td> <code title="">NotPrecedesEqual;</code> </td> <td> U+02AAF U+00338 </td> <td> <span class="glyph compound" title="">⪯̸</span> </td> </tr>
-     *       <tr id="entity-NotPrecedesSlantEqual"><td> <code title="">NotPrecedesSlantEqual;</code> </td> <td> U+022E0 </td> <td> <span class="glyph" title="">⋠</span> </td> </tr>
-     *       <tr id="entity-NotReverseElement"><td> <code title="">NotReverseElement;</code> </td> <td> U+0220C </td> <td> <span class="glyph" title="">∌</span> </td> </tr>
-     *       <tr id="entity-NotRightTriangle"><td> <code title="">NotRightTriangle;</code> </td> <td> U+022EB </td> <td> <span class="glyph" title="">⋫</span> </td> </tr>
-     *       <tr id="entity-NotRightTriangleBar"><td> <code title="">NotRightTriangleBar;</code> </td> <td> U+029D0 U+00338 </td> <td> <span class="glyph compound" title="">⧐̸</span> </td> </tr>
-     *       <tr id="entity-NotRightTriangleEqual"><td> <code title="">NotRightTriangleEqual;</code> </td> <td> U+022ED </td> <td> <span class="glyph" title="">⋭</span> </td> </tr>
-     *       <tr id="entity-NotSquareSubset"><td> <code title="">NotSquareSubset;</code> </td> <td> U+0228F U+00338 </td> <td> <span class="glyph compound" title="">⊏̸</span> </td> </tr>
-     *       <tr id="entity-NotSquareSubsetEqual"><td> <code title="">NotSquareSubsetEqual;</code> </td> <td> U+022E2 </td> <td> <span class="glyph" title="">⋢</span> </td> </tr>
-     *       <tr id="entity-NotSquareSuperset"><td> <code title="">NotSquareSuperset;</code> </td> <td> U+02290 U+00338 </td> <td> <span class="glyph compound" title="">⊐̸</span> </td> </tr>
-     *       <tr id="entity-NotSquareSupersetEqual"><td> <code title="">NotSquareSupersetEqual;</code> </td> <td> U+022E3 </td> <td> <span class="glyph" title="">⋣</span> </td> </tr>
-     *       <tr id="entity-NotSubset"><td> <code title="">NotSubset;</code> </td> <td> U+02282 U+020D2 </td> <td> <span class="glyph compound" title="">⊂⃒</span> </td> </tr>
-     *       <tr id="entity-NotSubsetEqual"><td> <code title="">NotSubsetEqual;</code> </td> <td> U+02288 </td> <td> <span class="glyph" title="">⊈</span> </td> </tr>
-     *       <tr id="entity-NotSucceeds"><td> <code title="">NotSucceeds;</code> </td> <td> U+02281 </td> <td> <span class="glyph" title="">⊁</span> </td> </tr>
-     *       <tr id="entity-NotSucceedsEqual"><td> <code title="">NotSucceedsEqual;</code> </td> <td> U+02AB0 U+00338 </td> <td> <span class="glyph compound" title="">⪰̸</span> </td> </tr>
-     *       <tr id="entity-NotSucceedsSlantEqual"><td> <code title="">NotSucceedsSlantEqual;</code> </td> <td> U+022E1 </td> <td> <span class="glyph" title="">⋡</span> </td> </tr>
-     *       <tr id="entity-NotSucceedsTilde"><td> <code title="">NotSucceedsTilde;</code> </td> <td> U+0227F U+00338 </td> <td> <span class="glyph compound" title="">≿̸</span> </td> </tr>
-     *       <tr id="entity-NotSuperset"><td> <code title="">NotSuperset;</code> </td> <td> U+02283 U+020D2 </td> <td> <span class="glyph compound" title="">⊃⃒</span> </td> </tr>
-     *       <tr id="entity-NotSupersetEqual"><td> <code title="">NotSupersetEqual;</code> </td> <td> U+02289 </td> <td> <span class="glyph" title="">⊉</span> </td> </tr>
-     *       <tr id="entity-NotTilde"><td> <code title="">NotTilde;</code> </td> <td> U+02241 </td> <td> <span class="glyph" title="">≁</span> </td> </tr>
-     *       <tr id="entity-NotTildeEqual"><td> <code title="">NotTildeEqual;</code> </td> <td> U+02244 </td> <td> <span class="glyph" title="">≄</span> </td> </tr>
-     *       <tr id="entity-NotTildeFullEqual"><td> <code title="">NotTildeFullEqual;</code> </td> <td> U+02247 </td> <td> <span class="glyph" title="">≇</span> </td> </tr>
-     *       <tr id="entity-NotTildeTilde"><td> <code title="">NotTildeTilde;</code> </td> <td> U+02249 </td> <td> <span class="glyph" title="">≉</span> </td> </tr>
-     *       <tr id="entity-NotVerticalBar"><td> <code title="">NotVerticalBar;</code> </td> <td> U+02224 </td> <td> <span class="glyph" title="">∤</span> </td> </tr>
-     *       <tr id="entity-npar"><td> <code title="">npar;</code> </td> <td> U+02226 </td> <td> <span class="glyph" title="">∦</span> </td> </tr>
-     *       <tr id="entity-nparallel"><td> <code title="">nparallel;</code> </td> <td> U+02226 </td> <td> <span class="glyph" title="">∦</span> </td> </tr>
-     *       <tr id="entity-nparsl"><td> <code title="">nparsl;</code> </td> <td> U+02AFD U+020E5 </td> <td> <span class="glyph compound" title="">⫽⃥</span> </td> </tr>
-     *       <tr id="entity-npart"><td> <code title="">npart;</code> </td> <td> U+02202 U+00338 </td> <td> <span class="glyph compound" title="">∂̸</span> </td> </tr>
-     *       <tr id="entity-npolint"><td> <code title="">npolint;</code> </td> <td> U+02A14 </td> <td> <span class="glyph" title="">⨔</span> </td> </tr>
-     *       <tr id="entity-npr"><td> <code title="">npr;</code> </td> <td> U+02280 </td> <td> <span class="glyph" title="">⊀</span> </td> </tr>
-     *       <tr id="entity-nprcue"><td> <code title="">nprcue;</code> </td> <td> U+022E0 </td> <td> <span class="glyph" title="">⋠</span> </td> </tr>
-     *       <tr id="entity-npre"><td> <code title="">npre;</code> </td> <td> U+02AAF U+00338 </td> <td> <span class="glyph compound" title="">⪯̸</span> </td> </tr>
-     *       <tr id="entity-nprec"><td> <code title="">nprec;</code> </td> <td> U+02280 </td> <td> <span class="glyph" title="">⊀</span> </td> </tr>
-     *       <tr id="entity-npreceq"><td> <code title="">npreceq;</code> </td> <td> U+02AAF U+00338 </td> <td> <span class="glyph compound" title="">⪯̸</span> </td> </tr>
-     *       <tr id="entity-nrArr"><td> <code title="">nrArr;</code> </td> <td> U+021CF </td> <td> <span class="glyph" title="">⇏</span> </td> </tr>
-     *       <tr id="entity-nrarr"><td> <code title="">nrarr;</code> </td> <td> U+0219B </td> <td> <span class="glyph" title="">↛</span> </td> </tr>
-     *       <tr id="entity-nrarrc"><td> <code title="">nrarrc;</code> </td> <td> U+02933 U+00338 </td> <td> <span class="glyph compound" title="">⤳̸</span> </td> </tr>
-     *       <tr id="entity-nrarrw"><td> <code title="">nrarrw;</code> </td> <td> U+0219D U+00338 </td> <td> <span class="glyph compound" title="">↝̸</span> </td> </tr>
-     *       <tr id="entity-nRightarrow"><td> <code title="">nRightarrow;</code> </td> <td> U+021CF </td> <td> <span class="glyph" title="">⇏</span> </td> </tr>
-     *       <tr id="entity-nrightarrow"><td> <code title="">nrightarrow;</code> </td> <td> U+0219B </td> <td> <span class="glyph" title="">↛</span> </td> </tr>
-     *       <tr id="entity-nrtri"><td> <code title="">nrtri;</code> </td> <td> U+022EB </td> <td> <span class="glyph" title="">⋫</span> </td> </tr>
-     *       <tr id="entity-nrtrie"><td> <code title="">nrtrie;</code> </td> <td> U+022ED </td> <td> <span class="glyph" title="">⋭</span> </td> </tr>
-     *       <tr id="entity-nsc"><td> <code title="">nsc;</code> </td> <td> U+02281 </td> <td> <span class="glyph" title="">⊁</span> </td> </tr>
-     *       <tr id="entity-nsccue"><td> <code title="">nsccue;</code> </td> <td> U+022E1 </td> <td> <span class="glyph" title="">⋡</span> </td> </tr>
-     *       <tr id="entity-nsce"><td> <code title="">nsce;</code> </td> <td> U+02AB0 U+00338 </td> <td> <span class="glyph compound" title="">⪰̸</span> </td> </tr>
-     *       <tr id="entity-Nscr"><td> <code title="">Nscr;</code> </td> <td> U+1D4A9 </td> <td> <span class="glyph" title="">𝒩</span> </td> </tr>
-     *       <tr id="entity-nscr"><td> <code title="">nscr;</code> </td> <td> U+1D4C3 </td> <td> <span class="glyph" title="">𝓃</span> </td> </tr>
-     *       <tr id="entity-nshortmid"><td> <code title="">nshortmid;</code> </td> <td> U+02224 </td> <td> <span class="glyph" title="">∤</span> </td> </tr>
-     *       <tr id="entity-nshortparallel"><td> <code title="">nshortparallel;</code> </td> <td> U+02226 </td> <td> <span class="glyph" title="">∦</span> </td> </tr>
-     *       <tr id="entity-nsim"><td> <code title="">nsim;</code> </td> <td> U+02241 </td> <td> <span class="glyph" title="">≁</span> </td> </tr>
-     *       <tr id="entity-nsime"><td> <code title="">nsime;</code> </td> <td> U+02244 </td> <td> <span class="glyph" title="">≄</span> </td> </tr>
-     *       <tr id="entity-nsimeq"><td> <code title="">nsimeq;</code> </td> <td> U+02244 </td> <td> <span class="glyph" title="">≄</span> </td> </tr>
-     *       <tr id="entity-nsmid"><td> <code title="">nsmid;</code> </td> <td> U+02224 </td> <td> <span class="glyph" title="">∤</span> </td> </tr>
-     *       <tr id="entity-nspar"><td> <code title="">nspar;</code> </td> <td> U+02226 </td> <td> <span class="glyph" title="">∦</span> </td> </tr>
-     *       <tr id="entity-nsqsube"><td> <code title="">nsqsube;</code> </td> <td> U+022E2 </td> <td> <span class="glyph" title="">⋢</span> </td> </tr>
-     *       <tr id="entity-nsqsupe"><td> <code title="">nsqsupe;</code> </td> <td> U+022E3 </td> <td> <span class="glyph" title="">⋣</span> </td> </tr>
-     *       <tr id="entity-nsub"><td> <code title="">nsub;</code> </td> <td> U+02284 </td> <td> <span class="glyph" title="">⊄</span> </td> </tr>
-     *       <tr id="entity-nsubE"><td> <code title="">nsubE;</code> </td> <td> U+02AC5 U+00338 </td> <td> <span class="glyph compound" title="">⫅̸</span> </td> </tr>
-     *       <tr id="entity-nsube"><td> <code title="">nsube;</code> </td> <td> U+02288 </td> <td> <span class="glyph" title="">⊈</span> </td> </tr>
-     *       <tr id="entity-nsubset"><td> <code title="">nsubset;</code> </td> <td> U+02282 U+020D2 </td> <td> <span class="glyph compound" title="">⊂⃒</span> </td> </tr>
-     *       <tr id="entity-nsubseteq"><td> <code title="">nsubseteq;</code> </td> <td> U+02288 </td> <td> <span class="glyph" title="">⊈</span> </td> </tr>
-     *       <tr id="entity-nsubseteqq"><td> <code title="">nsubseteqq;</code> </td> <td> U+02AC5 U+00338 </td> <td> <span class="glyph compound" title="">⫅̸</span> </td> </tr>
-     *       <tr id="entity-nsucc"><td> <code title="">nsucc;</code> </td> <td> U+02281 </td> <td> <span class="glyph" title="">⊁</span> </td> </tr>
-     *       <tr id="entity-nsucceq"><td> <code title="">nsucceq;</code> </td> <td> U+02AB0 U+00338 </td> <td> <span class="glyph compound" title="">⪰̸</span> </td> </tr>
-     *       <tr id="entity-nsup"><td> <code title="">nsup;</code> </td> <td> U+02285 </td> <td> <span class="glyph" title="">⊅</span> </td> </tr>
-     *       <tr id="entity-nsupE"><td> <code title="">nsupE;</code> </td> <td> U+02AC6 U+00338 </td> <td> <span class="glyph compound" title="">⫆̸</span> </td> </tr>
-     *       <tr id="entity-nsupe"><td> <code title="">nsupe;</code> </td> <td> U+02289 </td> <td> <span class="glyph" title="">⊉</span> </td> </tr>
-     *       <tr id="entity-nsupset"><td> <code title="">nsupset;</code> </td> <td> U+02283 U+020D2 </td> <td> <span class="glyph compound" title="">⊃⃒</span> </td> </tr>
-     *       <tr id="entity-nsupseteq"><td> <code title="">nsupseteq;</code> </td> <td> U+02289 </td> <td> <span class="glyph" title="">⊉</span> </td> </tr>
-     *       <tr id="entity-nsupseteqq"><td> <code title="">nsupseteqq;</code> </td> <td> U+02AC6 U+00338 </td> <td> <span class="glyph compound" title="">⫆̸</span> </td> </tr>
-     *       <tr id="entity-ntgl"><td> <code title="">ntgl;</code> </td> <td> U+02279 </td> <td> <span class="glyph" title="">≹</span> </td> </tr>
-     *       <tr id="entity-Ntilde"><td> <code title="">Ntilde;</code> </td> <td> U+000D1 </td> <td> <span class="glyph" title="">Ñ</span> </td> </tr>
-     *       <tr class="impl" id="entity-Ntilde-legacy"><td> <code title="">Ntilde</code> </td> <td> U+000D1 </td> <td> <span title="">Ñ</span> </td> </tr>
-     *       <tr id="entity-ntilde"><td> <code title="">ntilde;</code> </td> <td> U+000F1 </td> <td> <span class="glyph" title="">ñ</span> </td> </tr>
-     *       <tr class="impl" id="entity-ntilde-legacy"><td> <code title="">ntilde</code> </td> <td> U+000F1 </td> <td> <span title="">ñ</span> </td> </tr>
-     *       <tr id="entity-ntlg"><td> <code title="">ntlg;</code> </td> <td> U+02278 </td> <td> <span class="glyph" title="">≸</span> </td> </tr>
-     *       <tr id="entity-ntriangleleft"><td> <code title="">ntriangleleft;</code> </td> <td> U+022EA </td> <td> <span class="glyph" title="">⋪</span> </td> </tr>
-     *       <tr id="entity-ntrianglelefteq"><td> <code title="">ntrianglelefteq;</code> </td> <td> U+022EC </td> <td> <span class="glyph" title="">⋬</span> </td> </tr>
-     *       <tr id="entity-ntriangleright"><td> <code title="">ntriangleright;</code> </td> <td> U+022EB </td> <td> <span class="glyph" title="">⋫</span> </td> </tr>
-     *       <tr id="entity-ntrianglerighteq"><td> <code title="">ntrianglerighteq;</code> </td> <td> U+022ED </td> <td> <span class="glyph" title="">⋭</span> </td> </tr>
-     *       <tr id="entity-Nu"><td> <code title="">Nu;</code> </td> <td> U+0039D </td> <td> <span class="glyph" title="">Ν</span> </td> </tr>
-     *       <tr id="entity-nu"><td> <code title="">nu;</code> </td> <td> U+003BD </td> <td> <span class="glyph" title="">ν</span> </td> </tr>
-     *       <tr id="entity-num"><td> <code title="">num;</code> </td> <td> U+00023 </td> <td> <span class="glyph" title="">#</span> </td> </tr>
-     *       <tr id="entity-numero"><td> <code title="">numero;</code> </td> <td> U+02116 </td> <td> <span class="glyph" title="">№</span> </td> </tr>
-     *       <tr id="entity-numsp"><td> <code title="">numsp;</code> </td> <td> U+02007 </td> <td> <span class="glyph" title=""> </span> </td> </tr>
-     *       <tr id="entity-nvap"><td> <code title="">nvap;</code> </td> <td> U+0224D U+020D2 </td> <td> <span class="glyph compound" title="">≍⃒</span> </td> </tr>
-     *       <tr id="entity-nVDash"><td> <code title="">nVDash;</code> </td> <td> U+022AF </td> <td> <span class="glyph" title="">⊯</span> </td> </tr>
-     *       <tr id="entity-nVdash"><td> <code title="">nVdash;</code> </td> <td> U+022AE </td> <td> <span class="glyph" title="">⊮</span> </td> </tr>
-     *       <tr id="entity-nvDash"><td> <code title="">nvDash;</code> </td> <td> U+022AD </td> <td> <span class="glyph" title="">⊭</span> </td> </tr>
-     *       <tr id="entity-nvdash"><td> <code title="">nvdash;</code> </td> <td> U+022AC </td> <td> <span class="glyph" title="">⊬</span> </td> </tr>
-     *       <tr id="entity-nvge"><td> <code title="">nvge;</code> </td> <td> U+02265 U+020D2 </td> <td> <span class="glyph compound" title="">≥⃒</span> </td> </tr>
-     *       <tr id="entity-nvgt"><td> <code title="">nvgt;</code> </td> <td> U+0003E U+020D2 </td> <td> <span class="glyph compound" title="">&gt;⃒</span> </td> </tr>
-     *       <tr id="entity-nvHarr"><td> <code title="">nvHarr;</code> </td> <td> U+02904 </td> <td> <span class="glyph" title="">⤄</span> </td> </tr>
-     *       <tr id="entity-nvinfin"><td> <code title="">nvinfin;</code> </td> <td> U+029DE </td> <td> <span class="glyph" title="">⧞</span> </td> </tr>
-     *       <tr id="entity-nvlArr"><td> <code title="">nvlArr;</code> </td> <td> U+02902 </td> <td> <span class="glyph" title="">⤂</span> </td> </tr>
-     *       <tr id="entity-nvle"><td> <code title="">nvle;</code> </td> <td> U+02264 U+020D2 </td> <td> <span class="glyph compound" title="">≤⃒</span> </td> </tr>
-     *       <tr id="entity-nvlt"><td> <code title="">nvlt;</code> </td> <td> U+0003C U+020D2 </td> <td> <span class="glyph compound" title="">&lt;⃒</span> </td> </tr>
-     *       <tr id="entity-nvltrie"><td> <code title="">nvltrie;</code> </td> <td> U+022B4 U+020D2 </td> <td> <span class="glyph compound" title="">⊴⃒</span> </td> </tr>
-     *       <tr id="entity-nvrArr"><td> <code title="">nvrArr;</code> </td> <td> U+02903 </td> <td> <span class="glyph" title="">⤃</span> </td> </tr>
-     *       <tr id="entity-nvrtrie"><td> <code title="">nvrtrie;</code> </td> <td> U+022B5 U+020D2 </td> <td> <span class="glyph compound" title="">⊵⃒</span> </td> </tr>
-     *       <tr id="entity-nvsim"><td> <code title="">nvsim;</code> </td> <td> U+0223C U+020D2 </td> <td> <span class="glyph compound" title="">∼⃒</span> </td> </tr>
-     *       <tr id="entity-nwarhk"><td> <code title="">nwarhk;</code> </td> <td> U+02923 </td> <td> <span class="glyph" title="">⤣</span> </td> </tr>
-     *       <tr id="entity-nwArr"><td> <code title="">nwArr;</code> </td> <td> U+021D6 </td> <td> <span class="glyph" title="">⇖</span> </td> </tr>
-     *       <tr id="entity-nwarr"><td> <code title="">nwarr;</code> </td> <td> U+02196 </td> <td> <span class="glyph" title="">↖</span> </td> </tr>
-     *       <tr id="entity-nwarrow"><td> <code title="">nwarrow;</code> </td> <td> U+02196 </td> <td> <span class="glyph" title="">↖</span> </td> </tr>
-     *       <tr id="entity-nwnear"><td> <code title="">nwnear;</code> </td> <td> U+02927 </td> <td> <span class="glyph" title="">⤧</span> </td> </tr>
-     *       <tr id="entity-Oacute"><td> <code title="">Oacute;</code> </td> <td> U+000D3 </td> <td> <span class="glyph" title="">Ó</span> </td> </tr>
-     *       <tr class="impl" id="entity-Oacute-legacy"><td> <code title="">Oacute</code> </td> <td> U+000D3 </td> <td> <span title="">Ó</span> </td> </tr>
-     *       <tr id="entity-oacute"><td> <code title="">oacute;</code> </td> <td> U+000F3 </td> <td> <span class="glyph" title="">ó</span> </td> </tr>
-     *       <tr class="impl" id="entity-oacute-legacy"><td> <code title="">oacute</code> </td> <td> U+000F3 </td> <td> <span title="">ó</span> </td> </tr>
-     *       <tr id="entity-oast"><td> <code title="">oast;</code> </td> <td> U+0229B </td> <td> <span class="glyph" title="">⊛</span> </td> </tr>
-     *       <tr id="entity-ocir"><td> <code title="">ocir;</code> </td> <td> U+0229A </td> <td> <span class="glyph" title="">⊚</span> </td> </tr>
-     *       <tr id="entity-Ocirc"><td> <code title="">Ocirc;</code> </td> <td> U+000D4 </td> <td> <span class="glyph" title="">Ô</span> </td> </tr>
-     *       <tr class="impl" id="entity-Ocirc-legacy"><td> <code title="">Ocirc</code> </td> <td> U+000D4 </td> <td> <span title="">Ô</span> </td> </tr>
-     *       <tr id="entity-ocirc"><td> <code title="">ocirc;</code> </td> <td> U+000F4 </td> <td> <span class="glyph" title="">ô</span> </td> </tr>
-     *       <tr class="impl" id="entity-ocirc-legacy"><td> <code title="">ocirc</code> </td> <td> U+000F4 </td> <td> <span title="">ô</span> </td> </tr>
-     *       <tr id="entity-Ocy"><td> <code title="">Ocy;</code> </td> <td> U+0041E </td> <td> <span class="glyph" title="">О</span> </td> </tr>
-     *       <tr id="entity-ocy"><td> <code title="">ocy;</code> </td> <td> U+0043E </td> <td> <span class="glyph" title="">о</span> </td> </tr>
-     *       <tr id="entity-odash"><td> <code title="">odash;</code> </td> <td> U+0229D </td> <td> <span class="glyph" title="">⊝</span> </td> </tr>
-     *       <tr id="entity-Odblac"><td> <code title="">Odblac;</code> </td> <td> U+00150 </td> <td> <span class="glyph" title="">Ő</span> </td> </tr>
-     *       <tr id="entity-odblac"><td> <code title="">odblac;</code> </td> <td> U+00151 </td> <td> <span class="glyph" title="">ő</span> </td> </tr>
-     *       <tr id="entity-odiv"><td> <code title="">odiv;</code> </td> <td> U+02A38 </td> <td> <span class="glyph" title="">⨸</span> </td> </tr>
-     *       <tr id="entity-odot"><td> <code title="">odot;</code> </td> <td> U+02299 </td> <td> <span class="glyph" title="">⊙</span> </td> </tr>
-     *       <tr id="entity-odsold"><td> <code title="">odsold;</code> </td> <td> U+029BC </td> <td> <span class="glyph" title="">⦼</span> </td> </tr>
-     *       <tr id="entity-OElig"><td> <code title="">OElig;</code> </td> <td> U+00152 </td> <td> <span class="glyph" title="">Œ</span> </td> </tr>
-     *       <tr id="entity-oelig"><td> <code title="">oelig;</code> </td> <td> U+00153 </td> <td> <span class="glyph" title="">œ</span> </td> </tr>
-     *       <tr id="entity-ofcir"><td> <code title="">ofcir;</code> </td> <td> U+029BF </td> <td> <span class="glyph" title="">⦿</span> </td> </tr>
-     *       <tr id="entity-Ofr"><td> <code title="">Ofr;</code> </td> <td> U+1D512 </td> <td> <span class="glyph" title="">𝔒</span> </td> </tr>
-     *       <tr id="entity-ofr"><td> <code title="">ofr;</code> </td> <td> U+1D52C </td> <td> <span class="glyph" title="">𝔬</span> </td> </tr>
-     *       <tr id="entity-ogon"><td> <code title="">ogon;</code> </td> <td> U+002DB </td> <td> <span class="glyph" title="">˛</span> </td> </tr>
-     *       <tr id="entity-Ograve"><td> <code title="">Ograve;</code> </td> <td> U+000D2 </td> <td> <span class="glyph" title="">Ò</span> </td> </tr>
-     *       <tr class="impl" id="entity-Ograve-legacy"><td> <code title="">Ograve</code> </td> <td> U+000D2 </td> <td> <span title="">Ò</span> </td> </tr>
-     *       <tr id="entity-ograve"><td> <code title="">ograve;</code> </td> <td> U+000F2 </td> <td> <span class="glyph" title="">ò</span> </td> </tr>
-     *       <tr class="impl" id="entity-ograve-legacy"><td> <code title="">ograve</code> </td> <td> U+000F2 </td> <td> <span title="">ò</span> </td> </tr>
-     *       <tr id="entity-ogt"><td> <code title="">ogt;</code> </td> <td> U+029C1 </td> <td> <span class="glyph" title="">⧁</span> </td> </tr>
-     *       <tr id="entity-ohbar"><td> <code title="">ohbar;</code> </td> <td> U+029B5 </td> <td> <span class="glyph" title="">⦵</span> </td> </tr>
-     *       <tr id="entity-ohm"><td> <code title="">ohm;</code> </td> <td> U+003A9 </td> <td> <span class="glyph" title="">Ω</span> </td> </tr>
-     *       <tr id="entity-oint"><td> <code title="">oint;</code> </td> <td> U+0222E </td> <td> <span class="glyph" title="">∮</span> </td> </tr>
-     *       <tr id="entity-olarr"><td> <code title="">olarr;</code> </td> <td> U+021BA </td> <td> <span class="glyph" title="">↺</span> </td> </tr>
-     *       <tr id="entity-olcir"><td> <code title="">olcir;</code> </td> <td> U+029BE </td> <td> <span class="glyph" title="">⦾</span> </td> </tr>
-     *       <tr id="entity-olcross"><td> <code title="">olcross;</code> </td> <td> U+029BB </td> <td> <span class="glyph" title="">⦻</span> </td> </tr>
-     *       <tr id="entity-oline"><td> <code title="">oline;</code> </td> <td> U+0203E </td> <td> <span class="glyph" title="">‾</span> </td> </tr>
-     *       <tr id="entity-olt"><td> <code title="">olt;</code> </td> <td> U+029C0 </td> <td> <span class="glyph" title="">⧀</span> </td> </tr>
-     *       <tr id="entity-Omacr"><td> <code title="">Omacr;</code> </td> <td> U+0014C </td> <td> <span class="glyph" title="">Ō</span> </td> </tr>
-     *       <tr id="entity-omacr"><td> <code title="">omacr;</code> </td> <td> U+0014D </td> <td> <span class="glyph" title="">ō</span> </td> </tr>
-     *       <tr id="entity-Omega"><td> <code title="">Omega;</code> </td> <td> U+003A9 </td> <td> <span class="glyph" title="">Ω</span> </td> </tr>
-     *       <tr id="entity-omega"><td> <code title="">omega;</code> </td> <td> U+003C9 </td> <td> <span class="glyph" title="">ω</span> </td> </tr>
-     *       <tr id="entity-Omicron"><td> <code title="">Omicron;</code> </td> <td> U+0039F </td> <td> <span class="glyph" title="">Ο</span> </td> </tr>
-     *       <tr id="entity-omicron"><td> <code title="">omicron;</code> </td> <td> U+003BF </td> <td> <span class="glyph" title="">ο</span> </td> </tr>
-     *       <tr id="entity-omid"><td> <code title="">omid;</code> </td> <td> U+029B6 </td> <td> <span class="glyph" title="">⦶</span> </td> </tr>
-     *       <tr id="entity-ominus"><td> <code title="">ominus;</code> </td> <td> U+02296 </td> <td> <span class="glyph" title="">⊖</span> </td> </tr>
-     *       <tr id="entity-Oopf"><td> <code title="">Oopf;</code> </td> <td> U+1D546 </td> <td> <span class="glyph" title="">𝕆</span> </td> </tr>
-     *       <tr id="entity-oopf"><td> <code title="">oopf;</code> </td> <td> U+1D560 </td> <td> <span class="glyph" title="">𝕠</span> </td> </tr>
-     *       <tr id="entity-opar"><td> <code title="">opar;</code> </td> <td> U+029B7 </td> <td> <span class="glyph" title="">⦷</span> </td> </tr>
-     *       <tr id="entity-OpenCurlyDoubleQuote"><td> <code title="">OpenCurlyDoubleQuote;</code> </td> <td> U+0201C </td> <td> <span class="glyph" title="">“</span> </td> </tr>
-     *       <tr id="entity-OpenCurlyQuote"><td> <code title="">OpenCurlyQuote;</code> </td> <td> U+02018 </td> <td> <span class="glyph" title="">‘</span> </td> </tr>
-     *       <tr id="entity-operp"><td> <code title="">operp;</code> </td> <td> U+029B9 </td> <td> <span class="glyph" title="">⦹</span> </td> </tr>
-     *       <tr id="entity-oplus"><td> <code title="">oplus;</code> </td> <td> U+02295 </td> <td> <span class="glyph" title="">⊕</span> </td> </tr>
-     *       <tr id="entity-Or"><td> <code title="">Or;</code> </td> <td> U+02A54 </td> <td> <span class="glyph" title="">⩔</span> </td> </tr>
-     *       <tr id="entity-or"><td> <code title="">or;</code> </td> <td> U+02228 </td> <td> <span class="glyph" title="">∨</span> </td> </tr>
-     *       <tr id="entity-orarr"><td> <code title="">orarr;</code> </td> <td> U+021BB </td> <td> <span class="glyph" title="">↻</span> </td> </tr>
-     *       <tr id="entity-ord"><td> <code title="">ord;</code> </td> <td> U+02A5D </td> <td> <span class="glyph" title="">⩝</span> </td> </tr>
-     *       <tr id="entity-order"><td> <code title="">order;</code> </td> <td> U+02134 </td> <td> <span class="glyph" title="">ℴ</span> </td> </tr>
-     *       <tr id="entity-orderof"><td> <code title="">orderof;</code> </td> <td> U+02134 </td> <td> <span class="glyph" title="">ℴ</span> </td> </tr>
-     *       <tr id="entity-ordf"><td> <code title="">ordf;</code> </td> <td> U+000AA </td> <td> <span class="glyph" title="">ª</span> </td> </tr>
-     *       <tr class="impl" id="entity-ordf-legacy"><td> <code title="">ordf</code> </td> <td> U+000AA </td> <td> <span title="">ª</span> </td> </tr>
-     *       <tr id="entity-ordm"><td> <code title="">ordm;</code> </td> <td> U+000BA </td> <td> <span class="glyph" title="">º</span> </td> </tr>
-     *       <tr class="impl" id="entity-ordm-legacy"><td> <code title="">ordm</code> </td> <td> U+000BA </td> <td> <span title="">º</span> </td> </tr>
-     *       <tr id="entity-origof"><td> <code title="">origof;</code> </td> <td> U+022B6 </td> <td> <span class="glyph" title="">⊶</span> </td> </tr>
-     *       <tr id="entity-oror"><td> <code title="">oror;</code> </td> <td> U+02A56 </td> <td> <span class="glyph" title="">⩖</span> </td> </tr>
-     *       <tr id="entity-orslope"><td> <code title="">orslope;</code> </td> <td> U+02A57 </td> <td> <span class="glyph" title="">⩗</span> </td> </tr>
-     *       <tr id="entity-orv"><td> <code title="">orv;</code> </td> <td> U+02A5B </td> <td> <span class="glyph" title="">⩛</span> </td> </tr>
-     *       <tr id="entity-oS"><td> <code title="">oS;</code> </td> <td> U+024C8 </td> <td> <span class="glyph" title="">Ⓢ</span> </td> </tr>
-     *       <tr id="entity-Oscr"><td> <code title="">Oscr;</code> </td> <td> U+1D4AA </td> <td> <span class="glyph" title="">𝒪</span> </td> </tr>
-     *       <tr id="entity-oscr"><td> <code title="">oscr;</code> </td> <td> U+02134 </td> <td> <span class="glyph" title="">ℴ</span> </td> </tr>
-     *       <tr id="entity-Oslash"><td> <code title="">Oslash;</code> </td> <td> U+000D8 </td> <td> <span class="glyph" title="">Ø</span> </td> </tr>
-     *       <tr class="impl" id="entity-Oslash-legacy"><td> <code title="">Oslash</code> </td> <td> U+000D8 </td> <td> <span title="">Ø</span> </td> </tr>
-     *       <tr id="entity-oslash"><td> <code title="">oslash;</code> </td> <td> U+000F8 </td> <td> <span class="glyph" title="">ø</span> </td> </tr>
-     *       <tr class="impl" id="entity-oslash-legacy"><td> <code title="">oslash</code> </td> <td> U+000F8 </td> <td> <span title="">ø</span> </td> </tr>
-     *       <tr id="entity-osol"><td> <code title="">osol;</code> </td> <td> U+02298 </td> <td> <span class="glyph" title="">⊘</span> </td> </tr>
-     *       <tr id="entity-Otilde"><td> <code title="">Otilde;</code> </td> <td> U+000D5 </td> <td> <span class="glyph" title="">Õ</span> </td> </tr>
-     *       <tr class="impl" id="entity-Otilde-legacy"><td> <code title="">Otilde</code> </td> <td> U+000D5 </td> <td> <span title="">Õ</span> </td> </tr>
-     *       <tr id="entity-otilde"><td> <code title="">otilde;</code> </td> <td> U+000F5 </td> <td> <span class="glyph" title="">õ</span> </td> </tr>
-     *       <tr class="impl" id="entity-otilde-legacy"><td> <code title="">otilde</code> </td> <td> U+000F5 </td> <td> <span title="">õ</span> </td> </tr>
-     *       <tr id="entity-Otimes"><td> <code title="">Otimes;</code> </td> <td> U+02A37 </td> <td> <span class="glyph" title="">⨷</span> </td> </tr>
-     *       <tr id="entity-otimes"><td> <code title="">otimes;</code> </td> <td> U+02297 </td> <td> <span class="glyph" title="">⊗</span> </td> </tr>
-     *       <tr id="entity-otimesas"><td> <code title="">otimesas;</code> </td> <td> U+02A36 </td> <td> <span class="glyph" title="">⨶</span> </td> </tr>
-     *       <tr id="entity-Ouml"><td> <code title="">Ouml;</code> </td> <td> U+000D6 </td> <td> <span class="glyph" title="">Ö</span> </td> </tr>
-     *       <tr class="impl" id="entity-Ouml-legacy"><td> <code title="">Ouml</code> </td> <td> U+000D6 </td> <td> <span title="">Ö</span> </td> </tr>
-     *       <tr id="entity-ouml"><td> <code title="">ouml;</code> </td> <td> U+000F6 </td> <td> <span class="glyph" title="">ö</span> </td> </tr>
-     *       <tr class="impl" id="entity-ouml-legacy"><td> <code title="">ouml</code> </td> <td> U+000F6 </td> <td> <span title="">ö</span> </td> </tr>
-     *       <tr id="entity-ovbar"><td> <code title="">ovbar;</code> </td> <td> U+0233D </td> <td> <span class="glyph" title="">⌽</span> </td> </tr>
-     *       <tr id="entity-OverBar"><td> <code title="">OverBar;</code> </td> <td> U+0203E </td> <td> <span class="glyph" title="">‾</span> </td> </tr>
-     *       <tr id="entity-OverBrace"><td> <code title="">OverBrace;</code> </td> <td> U+023DE </td> <td> <span class="glyph" title="">⏞</span> </td> </tr>
-     *       <tr id="entity-OverBracket"><td> <code title="">OverBracket;</code> </td> <td> U+023B4 </td> <td> <span class="glyph" title="">⎴</span> </td> </tr>
-     *       <tr id="entity-OverParenthesis"><td> <code title="">OverParenthesis;</code> </td> <td> U+023DC </td> <td> <span class="glyph" title="">⏜</span> </td> </tr>
-     *       <tr id="entity-par"><td> <code title="">par;</code> </td> <td> U+02225 </td> <td> <span class="glyph" title="">∥</span> </td> </tr>
-     *       <tr id="entity-para"><td> <code title="">para;</code> </td> <td> U+000B6 </td> <td> <span class="glyph" title="">¶</span> </td> </tr>
-     *       <tr class="impl" id="entity-para-legacy"><td> <code title="">para</code> </td> <td> U+000B6 </td> <td> <span title="">¶</span> </td> </tr>
-     *       <tr id="entity-parallel"><td> <code title="">parallel;</code> </td> <td> U+02225 </td> <td> <span class="glyph" title="">∥</span> </td> </tr>
-     *       <tr id="entity-parsim"><td> <code title="">parsim;</code> </td> <td> U+02AF3 </td> <td> <span class="glyph" title="">⫳</span> </td> </tr>
-     *       <tr id="entity-parsl"><td> <code title="">parsl;</code> </td> <td> U+02AFD </td> <td> <span class="glyph" title="">⫽</span> </td> </tr>
-     *       <tr id="entity-part"><td> <code title="">part;</code> </td> <td> U+02202 </td> <td> <span class="glyph" title="">∂</span> </td> </tr>
-     *       <tr id="entity-PartialD"><td> <code title="">PartialD;</code> </td> <td> U+02202 </td> <td> <span class="glyph" title="">∂</span> </td> </tr>
-     *       <tr id="entity-Pcy"><td> <code title="">Pcy;</code> </td> <td> U+0041F </td> <td> <span class="glyph" title="">П</span> </td> </tr>
-     *       <tr id="entity-pcy"><td> <code title="">pcy;</code> </td> <td> U+0043F </td> <td> <span class="glyph" title="">п</span> </td> </tr>
-     *       <tr id="entity-percnt"><td> <code title="">percnt;</code> </td> <td> U+00025 </td> <td> <span class="glyph" title="">%</span> </td> </tr>
-     *       <tr id="entity-period"><td> <code title="">period;</code> </td> <td> U+0002E </td> <td> <span class="glyph" title="">.</span> </td> </tr>
-     *       <tr id="entity-permil"><td> <code title="">permil;</code> </td> <td> U+02030 </td> <td> <span class="glyph" title="">‰</span> </td> </tr>
-     *       <tr id="entity-perp"><td> <code title="">perp;</code> </td> <td> U+022A5 </td> <td> <span class="glyph" title="">⊥</span> </td> </tr>
-     *       <tr id="entity-pertenk"><td> <code title="">pertenk;</code> </td> <td> U+02031 </td> <td> <span class="glyph" title="">‱</span> </td> </tr>
-     *       <tr id="entity-Pfr"><td> <code title="">Pfr;</code> </td> <td> U+1D513 </td> <td> <span class="glyph" title="">𝔓</span> </td> </tr>
-     *       <tr id="entity-pfr"><td> <code title="">pfr;</code> </td> <td> U+1D52D </td> <td> <span class="glyph" title="">𝔭</span> </td> </tr>
-     *       <tr id="entity-Phi"><td> <code title="">Phi;</code> </td> <td> U+003A6 </td> <td> <span class="glyph" title="">Φ</span> </td> </tr>
-     *       <tr id="entity-phi"><td> <code title="">phi;</code> </td> <td> U+003C6 </td> <td> <span class="glyph" title="">φ</span> </td> </tr>
-     *       <tr id="entity-phiv"><td> <code title="">phiv;</code> </td> <td> U+003D5 </td> <td> <span class="glyph" title="">ϕ</span> </td> </tr>
-     *       <tr id="entity-phmmat"><td> <code title="">phmmat;</code> </td> <td> U+02133 </td> <td> <span class="glyph" title="">ℳ</span> </td> </tr>
-     *       <tr id="entity-phone"><td> <code title="">phone;</code> </td> <td> U+0260E </td> <td> <span class="glyph" title="">☎</span> </td> </tr>
-     *       <tr id="entity-Pi"><td> <code title="">Pi;</code> </td> <td> U+003A0 </td> <td> <span class="glyph" title="">Π</span> </td> </tr>
-     *       <tr id="entity-pi"><td> <code title="">pi;</code> </td> <td> U+003C0 </td> <td> <span class="glyph" title="">π</span> </td> </tr>
-     *       <tr id="entity-pitchfork"><td> <code title="">pitchfork;</code> </td> <td> U+022D4 </td> <td> <span class="glyph" title="">⋔</span> </td> </tr>
-     *       <tr id="entity-piv"><td> <code title="">piv;</code> </td> <td> U+003D6 </td> <td> <span class="glyph" title="">ϖ</span> </td> </tr>
-     *       <tr id="entity-planck"><td> <code title="">planck;</code> </td> <td> U+0210F </td> <td> <span class="glyph" title="">ℏ</span> </td> </tr>
-     *       <tr id="entity-planckh"><td> <code title="">planckh;</code> </td> <td> U+0210E </td> <td> <span class="glyph" title="">ℎ</span> </td> </tr>
-     *       <tr id="entity-plankv"><td> <code title="">plankv;</code> </td> <td> U+0210F </td> <td> <span class="glyph" title="">ℏ</span> </td> </tr>
-     *       <tr id="entity-plus"><td> <code title="">plus;</code> </td> <td> U+0002B </td> <td> <span class="glyph" title="">+</span> </td> </tr>
-     *       <tr id="entity-plusacir"><td> <code title="">plusacir;</code> </td> <td> U+02A23 </td> <td> <span class="glyph" title="">⨣</span> </td> </tr>
-     *       <tr id="entity-plusb"><td> <code title="">plusb;</code> </td> <td> U+0229E </td> <td> <span class="glyph" title="">⊞</span> </td> </tr>
-     *       <tr id="entity-pluscir"><td> <code title="">pluscir;</code> </td> <td> U+02A22 </td> <td> <span class="glyph" title="">⨢</span> </td> </tr>
-     *       <tr id="entity-plusdo"><td> <code title="">plusdo;</code> </td> <td> U+02214 </td> <td> <span class="glyph" title="">∔</span> </td> </tr>
-     *       <tr id="entity-plusdu"><td> <code title="">plusdu;</code> </td> <td> U+02A25 </td> <td> <span class="glyph" title="">⨥</span> </td> </tr>
-     *       <tr id="entity-pluse"><td> <code title="">pluse;</code> </td> <td> U+02A72 </td> <td> <span class="glyph" title="">⩲</span> </td> </tr>
-     *       <tr id="entity-PlusMinus"><td> <code title="">PlusMinus;</code> </td> <td> U+000B1 </td> <td> <span class="glyph" title="">±</span> </td> </tr>
-     *       <tr id="entity-plusmn"><td> <code title="">plusmn;</code> </td> <td> U+000B1 </td> <td> <span class="glyph" title="">±</span> </td> </tr>
-     *       <tr class="impl" id="entity-plusmn-legacy"><td> <code title="">plusmn</code> </td> <td> U+000B1 </td> <td> <span title="">±</span> </td> </tr>
-     *       <tr id="entity-plussim"><td> <code title="">plussim;</code> </td> <td> U+02A26 </td> <td> <span class="glyph" title="">⨦</span> </td> </tr>
-     *       <tr id="entity-plustwo"><td> <code title="">plustwo;</code> </td> <td> U+02A27 </td> <td> <span class="glyph" title="">⨧</span> </td> </tr>
-     *       <tr id="entity-pm"><td> <code title="">pm;</code> </td> <td> U+000B1 </td> <td> <span class="glyph" title="">±</span> </td> </tr>
-     *       <tr id="entity-Poincareplane"><td> <code title="">Poincareplane;</code> </td> <td> U+0210C </td> <td> <span class="glyph" title="">ℌ</span> </td> </tr>
-     *       <tr id="entity-pointint"><td> <code title="">pointint;</code> </td> <td> U+02A15 </td> <td> <span class="glyph" title="">⨕</span> </td> </tr>
-     *       <tr id="entity-Popf"><td> <code title="">Popf;</code> </td> <td> U+02119 </td> <td> <span class="glyph" title="">ℙ</span> </td> </tr>
-     *       <tr id="entity-popf"><td> <code title="">popf;</code> </td> <td> U+1D561 </td> <td> <span class="glyph" title="">𝕡</span> </td> </tr>
-     *       <tr id="entity-pound"><td> <code title="">pound;</code> </td> <td> U+000A3 </td> <td> <span class="glyph" title="">£</span> </td> </tr>
-     *       <tr class="impl" id="entity-pound-legacy"><td> <code title="">pound</code> </td> <td> U+000A3 </td> <td> <span title="">£</span> </td> </tr>
-     *       <tr id="entity-Pr"><td> <code title="">Pr;</code> </td> <td> U+02ABB </td> <td> <span class="glyph" title="">⪻</span> </td> </tr>
-     *       <tr id="entity-pr"><td> <code title="">pr;</code> </td> <td> U+0227A </td> <td> <span class="glyph" title="">≺</span> </td> </tr>
-     *       <tr id="entity-prap"><td> <code title="">prap;</code> </td> <td> U+02AB7 </td> <td> <span class="glyph" title="">⪷</span> </td> </tr>
-     *       <tr id="entity-prcue"><td> <code title="">prcue;</code> </td> <td> U+0227C </td> <td> <span class="glyph" title="">≼</span> </td> </tr>
-     *       <tr id="entity-prE"><td> <code title="">prE;</code> </td> <td> U+02AB3 </td> <td> <span class="glyph" title="">⪳</span> </td> </tr>
-     *       <tr id="entity-pre"><td> <code title="">pre;</code> </td> <td> U+02AAF </td> <td> <span class="glyph" title="">⪯</span> </td> </tr>
-     *       <tr id="entity-prec"><td> <code title="">prec;</code> </td> <td> U+0227A </td> <td> <span class="glyph" title="">≺</span> </td> </tr>
-     *       <tr id="entity-precapprox"><td> <code title="">precapprox;</code> </td> <td> U+02AB7 </td> <td> <span class="glyph" title="">⪷</span> </td> </tr>
-     *       <tr id="entity-preccurlyeq"><td> <code title="">preccurlyeq;</code> </td> <td> U+0227C </td> <td> <span class="glyph" title="">≼</span> </td> </tr>
-     *       <tr id="entity-Precedes"><td> <code title="">Precedes;</code> </td> <td> U+0227A </td> <td> <span class="glyph" title="">≺</span> </td> </tr>
-     *       <tr id="entity-PrecedesEqual"><td> <code title="">PrecedesEqual;</code> </td> <td> U+02AAF </td> <td> <span class="glyph" title="">⪯</span> </td> </tr>
-     *       <tr id="entity-PrecedesSlantEqual"><td> <code title="">PrecedesSlantEqual;</code> </td> <td> U+0227C </td> <td> <span class="glyph" title="">≼</span> </td> </tr>
-     *       <tr id="entity-PrecedesTilde"><td> <code title="">PrecedesTilde;</code> </td> <td> U+0227E </td> <td> <span class="glyph" title="">≾</span> </td> </tr>
-     *       <tr id="entity-preceq"><td> <code title="">preceq;</code> </td> <td> U+02AAF </td> <td> <span class="glyph" title="">⪯</span> </td> </tr>
-     *       <tr id="entity-precnapprox"><td> <code title="">precnapprox;</code> </td> <td> U+02AB9 </td> <td> <span class="glyph" title="">⪹</span> </td> </tr>
-     *       <tr id="entity-precneqq"><td> <code title="">precneqq;</code> </td> <td> U+02AB5 </td> <td> <span class="glyph" title="">⪵</span> </td> </tr>
-     *       <tr id="entity-precnsim"><td> <code title="">precnsim;</code> </td> <td> U+022E8 </td> <td> <span class="glyph" title="">⋨</span> </td> </tr>
-     *       <tr id="entity-precsim"><td> <code title="">precsim;</code> </td> <td> U+0227E </td> <td> <span class="glyph" title="">≾</span> </td> </tr>
-     *       <tr id="entity-Prime"><td> <code title="">Prime;</code> </td> <td> U+02033 </td> <td> <span class="glyph" title="">″</span> </td> </tr>
-     *       <tr id="entity-prime"><td> <code title="">prime;</code> </td> <td> U+02032 </td> <td> <span class="glyph" title="">′</span> </td> </tr>
-     *       <tr id="entity-primes"><td> <code title="">primes;</code> </td> <td> U+02119 </td> <td> <span class="glyph" title="">ℙ</span> </td> </tr>
-     *       <tr id="entity-prnap"><td> <code title="">prnap;</code> </td> <td> U+02AB9 </td> <td> <span class="glyph" title="">⪹</span> </td> </tr>
-     *       <tr id="entity-prnE"><td> <code title="">prnE;</code> </td> <td> U+02AB5 </td> <td> <span class="glyph" title="">⪵</span> </td> </tr>
-     *       <tr id="entity-prnsim"><td> <code title="">prnsim;</code> </td> <td> U+022E8 </td> <td> <span class="glyph" title="">⋨</span> </td> </tr>
-     *       <tr id="entity-prod"><td> <code title="">prod;</code> </td> <td> U+0220F </td> <td> <span class="glyph" title="">∏</span> </td> </tr>
-     *       <tr id="entity-Product"><td> <code title="">Product;</code> </td> <td> U+0220F </td> <td> <span class="glyph" title="">∏</span> </td> </tr>
-     *       <tr id="entity-profalar"><td> <code title="">profalar;</code> </td> <td> U+0232E </td> <td> <span class="glyph" title="">⌮</span> </td> </tr>
-     *       <tr id="entity-profline"><td> <code title="">profline;</code> </td> <td> U+02312 </td> <td> <span class="glyph" title="">⌒</span> </td> </tr>
-     *       <tr id="entity-profsurf"><td> <code title="">profsurf;</code> </td> <td> U+02313 </td> <td> <span class="glyph" title="">⌓</span> </td> </tr>
-     *       <tr id="entity-prop"><td> <code title="">prop;</code> </td> <td> U+0221D </td> <td> <span class="glyph" title="">∝</span> </td> </tr>
-     *       <tr id="entity-Proportion"><td> <code title="">Proportion;</code> </td> <td> U+02237 </td> <td> <span class="glyph" title="">∷</span> </td> </tr>
-     *       <tr id="entity-Proportional"><td> <code title="">Proportional;</code> </td> <td> U+0221D </td> <td> <span class="glyph" title="">∝</span> </td> </tr>
-     *       <tr id="entity-propto"><td> <code title="">propto;</code> </td> <td> U+0221D </td> <td> <span class="glyph" title="">∝</span> </td> </tr>
-     *       <tr id="entity-prsim"><td> <code title="">prsim;</code> </td> <td> U+0227E </td> <td> <span class="glyph" title="">≾</span> </td> </tr>
-     *       <tr id="entity-prurel"><td> <code title="">prurel;</code> </td> <td> U+022B0 </td> <td> <span class="glyph" title="">⊰</span> </td> </tr>
-     *       <tr id="entity-Pscr"><td> <code title="">Pscr;</code> </td> <td> U+1D4AB </td> <td> <span class="glyph" title="">𝒫</span> </td> </tr>
-     *       <tr id="entity-pscr"><td> <code title="">pscr;</code> </td> <td> U+1D4C5 </td> <td> <span class="glyph" title="">𝓅</span> </td> </tr>
-     *       <tr id="entity-Psi"><td> <code title="">Psi;</code> </td> <td> U+003A8 </td> <td> <span class="glyph" title="">Ψ</span> </td> </tr>
-     *       <tr id="entity-psi"><td> <code title="">psi;</code> </td> <td> U+003C8 </td> <td> <span class="glyph" title="">ψ</span> </td> </tr>
-     *       <tr id="entity-puncsp"><td> <code title="">puncsp;</code> </td> <td> U+02008 </td> <td> <span class="glyph" title=""> </span> </td> </tr>
-     *       <tr id="entity-Qfr"><td> <code title="">Qfr;</code> </td> <td> U+1D514 </td> <td> <span class="glyph" title="">𝔔</span> </td> </tr>
-     *       <tr id="entity-qfr"><td> <code title="">qfr;</code> </td> <td> U+1D52E </td> <td> <span class="glyph" title="">𝔮</span> </td> </tr>
-     *       <tr id="entity-qint"><td> <code title="">qint;</code> </td> <td> U+02A0C </td> <td> <span class="glyph" title="">⨌</span> </td> </tr>
-     *       <tr id="entity-Qopf"><td> <code title="">Qopf;</code> </td> <td> U+0211A </td> <td> <span class="glyph" title="">ℚ</span> </td> </tr>
-     *       <tr id="entity-qopf"><td> <code title="">qopf;</code> </td> <td> U+1D562 </td> <td> <span class="glyph" title="">𝕢</span> </td> </tr>
-     *       <tr id="entity-qprime"><td> <code title="">qprime;</code> </td> <td> U+02057 </td> <td> <span class="glyph" title="">⁗</span> </td> </tr>
-     *       <tr id="entity-Qscr"><td> <code title="">Qscr;</code> </td> <td> U+1D4AC </td> <td> <span class="glyph" title="">𝒬</span> </td> </tr>
-     *       <tr id="entity-qscr"><td> <code title="">qscr;</code> </td> <td> U+1D4C6 </td> <td> <span class="glyph" title="">𝓆</span> </td> </tr>
-     *       <tr id="entity-quaternions"><td> <code title="">quaternions;</code> </td> <td> U+0210D </td> <td> <span class="glyph" title="">ℍ</span> </td> </tr>
-     *       <tr id="entity-quatint"><td> <code title="">quatint;</code> </td> <td> U+02A16 </td> <td> <span class="glyph" title="">⨖</span> </td> </tr>
-     *       <tr id="entity-quest"><td> <code title="">quest;</code> </td> <td> U+0003F </td> <td> <span class="glyph" title="">?</span> </td> </tr>
-     *       <tr id="entity-questeq"><td> <code title="">questeq;</code> </td> <td> U+0225F </td> <td> <span class="glyph" title="">≟</span> </td> </tr>
-     *       <tr id="entity-QUOT"><td> <code title="">QUOT;</code> </td> <td> U+00022 </td> <td> <span class="glyph" title="">"</span> </td> </tr>
-     *       <tr class="impl" id="entity-QUOT-legacy"><td> <code title="">QUOT</code> </td> <td> U+00022 </td> <td> <span title="">"</span> </td> </tr>
-     *       <tr id="entity-quot"><td> <code title="">quot;</code> </td> <td> U+00022 </td> <td> <span class="glyph" title="">"</span> </td> </tr>
-     *       <tr class="impl" id="entity-quot-legacy"><td> <code title="">quot</code> </td> <td> U+00022 </td> <td> <span title="">"</span> </td> </tr>
-     *       <tr id="entity-rAarr"><td> <code title="">rAarr;</code> </td> <td> U+021DB </td> <td> <span class="glyph" title="">⇛</span> </td> </tr>
-     *       <tr id="entity-race"><td> <code title="">race;</code> </td> <td> U+0223D U+00331 </td> <td> <span class="glyph compound" title="">∽̱</span> </td> </tr>
-     *       <tr id="entity-Racute"><td> <code title="">Racute;</code> </td> <td> U+00154 </td> <td> <span class="glyph" title="">Ŕ</span> </td> </tr>
-     *       <tr id="entity-racute"><td> <code title="">racute;</code> </td> <td> U+00155 </td> <td> <span class="glyph" title="">ŕ</span> </td> </tr>
-     *       <tr id="entity-radic"><td> <code title="">radic;</code> </td> <td> U+0221A </td> <td> <span class="glyph" title="">√</span> </td> </tr>
-     *       <tr id="entity-raemptyv"><td> <code title="">raemptyv;</code> </td> <td> U+029B3 </td> <td> <span class="glyph" title="">⦳</span> </td> </tr>
-     *       <tr id="entity-Rang"><td> <code title="">Rang;</code> </td> <td> U+027EB </td> <td> <span class="glyph" title="">⟫</span> </td> </tr>
-     *       <tr id="entity-rang"><td> <code title="">rang;</code> </td> <td> U+027E9 </td> <td> <span class="glyph" title="">⟩</span> </td> </tr>
-     *       <tr id="entity-rangd"><td> <code title="">rangd;</code> </td> <td> U+02992 </td> <td> <span class="glyph" title="">⦒</span> </td> </tr>
-     *       <tr id="entity-range"><td> <code title="">range;</code> </td> <td> U+029A5 </td> <td> <span class="glyph" title="">⦥</span> </td> </tr>
-     *       <tr id="entity-rangle"><td> <code title="">rangle;</code> </td> <td> U+027E9 </td> <td> <span class="glyph" title="">〉</span> </td> </tr>
-     *       <tr id="entity-raquo"><td> <code title="">raquo;</code> </td> <td> U+000BB </td> <td> <span class="glyph" title="">»</span> </td> </tr>
-     *       <tr class="impl" id="entity-raquo-legacy"><td> <code title="">raquo</code> </td> <td> U+000BB </td> <td> <span title="">»</span> </td> </tr>
-     *       <tr id="entity-Rarr"><td> <code title="">Rarr;</code> </td> <td> U+021A0 </td> <td> <span class="glyph" title="">↠</span> </td> </tr>
-     *       <tr id="entity-rArr"><td> <code title="">rArr;</code> </td> <td> U+021D2 </td> <td> <span class="glyph" title="">⇒</span> </td> </tr>
-     *       <tr id="entity-rarr"><td> <code title="">rarr;</code> </td> <td> U+02192 </td> <td> <span class="glyph" title="">→</span> </td> </tr>
-     *       <tr id="entity-rarrap"><td> <code title="">rarrap;</code> </td> <td> U+02975 </td> <td> <span class="glyph" title="">⥵</span> </td> </tr>
-     *       <tr id="entity-rarrb"><td> <code title="">rarrb;</code> </td> <td> U+021E5 </td> <td> <span class="glyph" title="">⇥</span> </td> </tr>
-     *       <tr id="entity-rarrbfs"><td> <code title="">rarrbfs;</code> </td> <td> U+02920 </td> <td> <span class="glyph" title="">⤠</span> </td> </tr>
-     *       <tr id="entity-rarrc"><td> <code title="">rarrc;</code> </td> <td> U+02933 </td> <td> <span class="glyph" title="">⤳</span> </td> </tr>
-     *       <tr id="entity-rarrfs"><td> <code title="">rarrfs;</code> </td> <td> U+0291E </td> <td> <span class="glyph" title="">⤞</span> </td> </tr>
-     *       <tr id="entity-rarrhk"><td> <code title="">rarrhk;</code> </td> <td> U+021AA </td> <td> <span class="glyph" title="">↪</span> </td> </tr>
-     *       <tr id="entity-rarrlp"><td> <code title="">rarrlp;</code> </td> <td> U+021AC </td> <td> <span class="glyph" title="">↬</span> </td> </tr>
-     *       <tr id="entity-rarrpl"><td> <code title="">rarrpl;</code> </td> <td> U+02945 </td> <td> <span class="glyph" title="">⥅</span> </td> </tr>
-     *       <tr id="entity-rarrsim"><td> <code title="">rarrsim;</code> </td> <td> U+02974 </td> <td> <span class="glyph" title="">⥴</span> </td> </tr>
-     *       <tr id="entity-Rarrtl"><td> <code title="">Rarrtl;</code> </td> <td> U+02916 </td> <td> <span class="glyph" title="">⤖</span> </td> </tr>
-     *       <tr id="entity-rarrtl"><td> <code title="">rarrtl;</code> </td> <td> U+021A3 </td> <td> <span class="glyph" title="">↣</span> </td> </tr>
-     *       <tr id="entity-rarrw"><td> <code title="">rarrw;</code> </td> <td> U+0219D </td> <td> <span class="glyph" title="">↝</span> </td> </tr>
-     *       <tr id="entity-rAtail"><td> <code title="">rAtail;</code> </td> <td> U+0291C </td> <td> <span class="glyph" title="">⤜</span> </td> </tr>
-     *       <tr id="entity-ratail"><td> <code title="">ratail;</code> </td> <td> U+0291A </td> <td> <span class="glyph" title="">⤚</span> </td> </tr>
-     *       <tr id="entity-ratio"><td> <code title="">ratio;</code> </td> <td> U+02236 </td> <td> <span class="glyph" title="">∶</span> </td> </tr>
-     *       <tr id="entity-rationals"><td> <code title="">rationals;</code> </td> <td> U+0211A </td> <td> <span class="glyph" title="">ℚ</span> </td> </tr>
-     *       <tr id="entity-RBarr"><td> <code title="">RBarr;</code> </td> <td> U+02910 </td> <td> <span class="glyph" title="">⤐</span> </td> </tr>
-     *       <tr id="entity-rBarr"><td> <code title="">rBarr;</code> </td> <td> U+0290F </td> <td> <span class="glyph" title="">⤏</span> </td> </tr>
-     *       <tr id="entity-rbarr"><td> <code title="">rbarr;</code> </td> <td> U+0290D </td> <td> <span class="glyph" title="">⤍</span> </td> </tr>
-     *       <tr id="entity-rbbrk"><td> <code title="">rbbrk;</code> </td> <td> U+02773 </td> <td> <span class="glyph" title="">❳</span> </td> </tr>
-     *       <tr id="entity-rbrace"><td> <code title="">rbrace;</code> </td> <td> U+0007D </td> <td> <span class="glyph" title="">}</span> </td> </tr>
-     *       <tr id="entity-rbrack"><td> <code title="">rbrack;</code> </td> <td> U+0005D </td> <td> <span class="glyph" title="">]</span> </td> </tr>
-     *       <tr id="entity-rbrke"><td> <code title="">rbrke;</code> </td> <td> U+0298C </td> <td> <span class="glyph" title="">⦌</span> </td> </tr>
-     *       <tr id="entity-rbrksld"><td> <code title="">rbrksld;</code> </td> <td> U+0298E </td> <td> <span class="glyph" title="">⦎</span> </td> </tr>
-     *       <tr id="entity-rbrkslu"><td> <code title="">rbrkslu;</code> </td> <td> U+02990 </td> <td> <span class="glyph" title="">⦐</span> </td> </tr>
-     *       <tr id="entity-Rcaron"><td> <code title="">Rcaron;</code> </td> <td> U+00158 </td> <td> <span class="glyph" title="">Ř</span> </td> </tr>
-     *       <tr id="entity-rcaron"><td> <code title="">rcaron;</code> </td> <td> U+00159 </td> <td> <span class="glyph" title="">ř</span> </td> </tr>
-     *       <tr id="entity-Rcedil"><td> <code title="">Rcedil;</code> </td> <td> U+00156 </td> <td> <span class="glyph" title="">Ŗ</span> </td> </tr>
-     *       <tr id="entity-rcedil"><td> <code title="">rcedil;</code> </td> <td> U+00157 </td> <td> <span class="glyph" title="">ŗ</span> </td> </tr>
-     *       <tr id="entity-rceil"><td> <code title="">rceil;</code> </td> <td> U+02309 </td> <td> <span class="glyph" title="">⌉</span> </td> </tr>
-     *       <tr id="entity-rcub"><td> <code title="">rcub;</code> </td> <td> U+0007D </td> <td> <span class="glyph" title="">}</span> </td> </tr>
-     *       <tr id="entity-Rcy"><td> <code title="">Rcy;</code> </td> <td> U+00420 </td> <td> <span class="glyph" title="">Р</span> </td> </tr>
-     *       <tr id="entity-rcy"><td> <code title="">rcy;</code> </td> <td> U+00440 </td> <td> <span class="glyph" title="">р</span> </td> </tr>
-     *       <tr id="entity-rdca"><td> <code title="">rdca;</code> </td> <td> U+02937 </td> <td> <span class="glyph" title="">⤷</span> </td> </tr>
-     *       <tr id="entity-rdldhar"><td> <code title="">rdldhar;</code> </td> <td> U+02969 </td> <td> <span class="glyph" title="">⥩</span> </td> </tr>
-     *       <tr id="entity-rdquo"><td> <code title="">rdquo;</code> </td> <td> U+0201D </td> <td> <span class="glyph" title="">”</span> </td> </tr>
-     *       <tr id="entity-rdquor"><td> <code title="">rdquor;</code> </td> <td> U+0201D </td> <td> <span class="glyph" title="">”</span> </td> </tr>
-     *       <tr id="entity-rdsh"><td> <code title="">rdsh;</code> </td> <td> U+021B3 </td> <td> <span class="glyph" title="">↳</span> </td> </tr>
-     *       <tr id="entity-Re"><td> <code title="">Re;</code> </td> <td> U+0211C </td> <td> <span class="glyph" title="">ℜ</span> </td> </tr>
-     *       <tr id="entity-real"><td> <code title="">real;</code> </td> <td> U+0211C </td> <td> <span class="glyph" title="">ℜ</span> </td> </tr>
-     *       <tr id="entity-realine"><td> <code title="">realine;</code> </td> <td> U+0211B </td> <td> <span class="glyph" title="">ℛ</span> </td> </tr>
-     *       <tr id="entity-realpart"><td> <code title="">realpart;</code> </td> <td> U+0211C </td> <td> <span class="glyph" title="">ℜ</span> </td> </tr>
-     *       <tr id="entity-reals"><td> <code title="">reals;</code> </td> <td> U+0211D </td> <td> <span class="glyph" title="">ℝ</span> </td> </tr>
-     *       <tr id="entity-rect"><td> <code title="">rect;</code> </td> <td> U+025AD </td> <td> <span class="glyph" title="">▭</span> </td> </tr>
-     *       <tr id="entity-REG"><td> <code title="">REG;</code> </td> <td> U+000AE </td> <td> <span class="glyph" title="">®</span> </td> </tr>
-     *       <tr class="impl" id="entity-REG-legacy"><td> <code title="">REG</code> </td> <td> U+000AE </td> <td> <span title="">®</span> </td> </tr>
-     *       <tr id="entity-reg"><td> <code title="">reg;</code> </td> <td> U+000AE </td> <td> <span class="glyph" title="">®</span> </td> </tr>
-     *       <tr class="impl" id="entity-reg-legacy"><td> <code title="">reg</code> </td> <td> U+000AE </td> <td> <span title="">®</span> </td> </tr>
-     *       <tr id="entity-ReverseElement"><td> <code title="">ReverseElement;</code> </td> <td> U+0220B </td> <td> <span class="glyph" title="">∋</span> </td> </tr>
-     *       <tr id="entity-ReverseEquilibrium"><td> <code title="">ReverseEquilibrium;</code> </td> <td> U+021CB </td> <td> <span class="glyph" title="">⇋</span> </td> </tr>
-     *       <tr id="entity-ReverseUpEquilibrium"><td> <code title="">ReverseUpEquilibrium;</code> </td> <td> U+0296F </td> <td> <span class="glyph" title="">⥯</span> </td> </tr>
-     *       <tr id="entity-rfisht"><td> <code title="">rfisht;</code> </td> <td> U+0297D </td> <td> <span class="glyph" title="">⥽</span> </td> </tr>
-     *       <tr id="entity-rfloor"><td> <code title="">rfloor;</code> </td> <td> U+0230B </td> <td> <span class="glyph" title="">⌋</span> </td> </tr>
-     *       <tr id="entity-Rfr"><td> <code title="">Rfr;</code> </td> <td> U+0211C </td> <td> <span class="glyph" title="">ℜ</span> </td> </tr>
-     *       <tr id="entity-rfr"><td> <code title="">rfr;</code> </td> <td> U+1D52F </td> <td> <span class="glyph" title="">𝔯</span> </td> </tr>
-     *       <tr id="entity-rHar"><td> <code title="">rHar;</code> </td> <td> U+02964 </td> <td> <span class="glyph" title="">⥤</span> </td> </tr>
-     *       <tr id="entity-rhard"><td> <code title="">rhard;</code> </td> <td> U+021C1 </td> <td> <span class="glyph" title="">⇁</span> </td> </tr>
-     *       <tr id="entity-rharu"><td> <code title="">rharu;</code> </td> <td> U+021C0 </td> <td> <span class="glyph" title="">⇀</span> </td> </tr>
-     *       <tr id="entity-rharul"><td> <code title="">rharul;</code> </td> <td> U+0296C </td> <td> <span class="glyph" title="">⥬</span> </td> </tr>
-     *       <tr id="entity-Rho"><td> <code title="">Rho;</code> </td> <td> U+003A1 </td> <td> <span class="glyph" title="">Ρ</span> </td> </tr>
-     *       <tr id="entity-rho"><td> <code title="">rho;</code> </td> <td> U+003C1 </td> <td> <span class="glyph" title="">ρ</span> </td> </tr>
-     *       <tr id="entity-rhov"><td> <code title="">rhov;</code> </td> <td> U+003F1 </td> <td> <span class="glyph" title="">ϱ</span> </td> </tr>
-     *       <tr id="entity-RightAngleBracket"><td> <code title="">RightAngleBracket;</code> </td> <td> U+027E9 </td> <td> <span class="glyph" title="">〉</span> </td> </tr>
-     *       <tr id="entity-RightArrow"><td> <code title="">RightArrow;</code> </td> <td> U+02192 </td> <td> <span class="glyph" title="">→</span> </td> </tr>
-     *       <tr id="entity-Rightarrow"><td> <code title="">Rightarrow;</code> </td> <td> U+021D2 </td> <td> <span class="glyph" title="">⇒</span> </td> </tr>
-     *       <tr id="entity-rightarrow"><td> <code title="">rightarrow;</code> </td> <td> U+02192 </td> <td> <span class="glyph" title="">→</span> </td> </tr>
-     *       <tr id="entity-RightArrowBar"><td> <code title="">RightArrowBar;</code> </td> <td> U+021E5 </td> <td> <span class="glyph" title="">⇥</span> </td> </tr>
-     *       <tr id="entity-RightArrowLeftArrow"><td> <code title="">RightArrowLeftArrow;</code> </td> <td> U+021C4 </td> <td> <span class="glyph" title="">⇄</span> </td> </tr>
-     *       <tr id="entity-rightarrowtail"><td> <code title="">rightarrowtail;</code> </td> <td> U+021A3 </td> <td> <span class="glyph" title="">↣</span> </td> </tr>
-     *       <tr id="entity-RightCeiling"><td> <code title="">RightCeiling;</code> </td> <td> U+02309 </td> <td> <span class="glyph" title="">⌉</span> </td> </tr>
-     *       <tr id="entity-RightDoubleBracket"><td> <code title="">RightDoubleBracket;</code> </td> <td> U+027E7 </td> <td> <span class="glyph" title="">⟧</span> </td> </tr>
-     *       <tr id="entity-RightDownTeeVector"><td> <code title="">RightDownTeeVector;</code> </td> <td> U+0295D </td> <td> <span class="glyph" title="">⥝</span> </td> </tr>
-     *       <tr id="entity-RightDownVector"><td> <code title="">RightDownVector;</code> </td> <td> U+021C2 </td> <td> <span class="glyph" title="">⇂</span> </td> </tr>
-     *       <tr id="entity-RightDownVectorBar"><td> <code title="">RightDownVectorBar;</code> </td> <td> U+02955 </td> <td> <span class="glyph" title="">⥕</span> </td> </tr>
-     *       <tr id="entity-RightFloor"><td> <code title="">RightFloor;</code> </td> <td> U+0230B </td> <td> <span class="glyph" title="">⌋</span> </td> </tr>
-     *       <tr id="entity-rightharpoondown"><td> <code title="">rightharpoondown;</code> </td> <td> U+021C1 </td> <td> <span class="glyph" title="">⇁</span> </td> </tr>
-     *       <tr id="entity-rightharpoonup"><td> <code title="">rightharpoonup;</code> </td> <td> U+021C0 </td> <td> <span class="glyph" title="">⇀</span> </td> </tr>
-     *       <tr id="entity-rightleftarrows"><td> <code title="">rightleftarrows;</code> </td> <td> U+021C4 </td> <td> <span class="glyph" title="">⇄</span> </td> </tr>
-     *       <tr id="entity-rightleftharpoons"><td> <code title="">rightleftharpoons;</code> </td> <td> U+021CC </td> <td> <span class="glyph" title="">⇌</span> </td> </tr>
-     *       <tr id="entity-rightrightarrows"><td> <code title="">rightrightarrows;</code> </td> <td> U+021C9 </td> <td> <span class="glyph" title="">⇉</span> </td> </tr>
-     *       <tr id="entity-rightsquigarrow"><td> <code title="">rightsquigarrow;</code> </td> <td> U+0219D </td> <td> <span class="glyph" title="">↝</span> </td> </tr>
-     *       <tr id="entity-RightTee"><td> <code title="">RightTee;</code> </td> <td> U+022A2 </td> <td> <span class="glyph" title="">⊢</span> </td> </tr>
-     *       <tr id="entity-RightTeeArrow"><td> <code title="">RightTeeArrow;</code> </td> <td> U+021A6 </td> <td> <span class="glyph" title="">↦</span> </td> </tr>
-     *       <tr id="entity-RightTeeVector"><td> <code title="">RightTeeVector;</code> </td> <td> U+0295B </td> <td> <span class="glyph" title="">⥛</span> </td> </tr>
-     *       <tr id="entity-rightthreetimes"><td> <code title="">rightthreetimes;</code> </td> <td> U+022CC </td> <td> <span class="glyph" title="">⋌</span> </td> </tr>
-     *       <tr id="entity-RightTriangle"><td> <code title="">RightTriangle;</code> </td> <td> U+022B3 </td> <td> <span class="glyph" title="">⊳</span> </td> </tr>
-     *       <tr id="entity-RightTriangleBar"><td> <code title="">RightTriangleBar;</code> </td> <td> U+029D0 </td> <td> <span class="glyph" title="">⧐</span> </td> </tr>
-     *       <tr id="entity-RightTriangleEqual"><td> <code title="">RightTriangleEqual;</code> </td> <td> U+022B5 </td> <td> <span class="glyph" title="">⊵</span> </td> </tr>
-     *       <tr id="entity-RightUpDownVector"><td> <code title="">RightUpDownVector;</code> </td> <td> U+0294F </td> <td> <span class="glyph" title="">⥏</span> </td> </tr>
-     *       <tr id="entity-RightUpTeeVector"><td> <code title="">RightUpTeeVector;</code> </td> <td> U+0295C </td> <td> <span class="glyph" title="">⥜</span> </td> </tr>
-     *       <tr id="entity-RightUpVector"><td> <code title="">RightUpVector;</code> </td> <td> U+021BE </td> <td> <span class="glyph" title="">↾</span> </td> </tr>
-     *       <tr id="entity-RightUpVectorBar"><td> <code title="">RightUpVectorBar;</code> </td> <td> U+02954 </td> <td> <span class="glyph" title="">⥔</span> </td> </tr>
-     *       <tr id="entity-RightVector"><td> <code title="">RightVector;</code> </td> <td> U+021C0 </td> <td> <span class="glyph" title="">⇀</span> </td> </tr>
-     *       <tr id="entity-RightVectorBar"><td> <code title="">RightVectorBar;</code> </td> <td> U+02953 </td> <td> <span class="glyph" title="">⥓</span> </td> </tr>
-     *       <tr id="entity-ring"><td> <code title="">ring;</code> </td> <td> U+002DA </td> <td> <span class="glyph" title="">˚</span> </td> </tr>
-     *       <tr id="entity-risingdotseq"><td> <code title="">risingdotseq;</code> </td> <td> U+02253 </td> <td> <span class="glyph" title="">≓</span> </td> </tr>
-     *       <tr id="entity-rlarr"><td> <code title="">rlarr;</code> </td> <td> U+021C4 </td> <td> <span class="glyph" title="">⇄</span> </td> </tr>
-     *       <tr id="entity-rlhar"><td> <code title="">rlhar;</code> </td> <td> U+021CC </td> <td> <span class="glyph" title="">⇌</span> </td> </tr>
-     *       <tr id="entity-rlm"><td> <code title="">rlm;</code> </td> <td> U+0200F </td> <td> <span class="glyph" title="">‏</span> </td> </tr>
-     *       <tr id="entity-rmoust"><td> <code title="">rmoust;</code> </td> <td> U+023B1 </td> <td> <span class="glyph" title="">⎱</span> </td> </tr>
-     *       <tr id="entity-rmoustache"><td> <code title="">rmoustache;</code> </td> <td> U+023B1 </td> <td> <span class="glyph" title="">⎱</span> </td> </tr>
-     *       <tr id="entity-rnmid"><td> <code title="">rnmid;</code> </td> <td> U+02AEE </td> <td> <span class="glyph" title="">⫮</span> </td> </tr>
-     *       <tr id="entity-roang"><td> <code title="">roang;</code> </td> <td> U+027ED </td> <td> <span class="glyph" title="">⟭</span> </td> </tr>
-     *       <tr id="entity-roarr"><td> <code title="">roarr;</code> </td> <td> U+021FE </td> <td> <span class="glyph" title="">⇾</span> </td> </tr>
-     *       <tr id="entity-robrk"><td> <code title="">robrk;</code> </td> <td> U+027E7 </td> <td> <span class="glyph" title="">⟧</span> </td> </tr>
-     *       <tr id="entity-ropar"><td> <code title="">ropar;</code> </td> <td> U+02986 </td> <td> <span class="glyph" title="">⦆</span> </td> </tr>
-     *       <tr id="entity-Ropf"><td> <code title="">Ropf;</code> </td> <td> U+0211D </td> <td> <span class="glyph" title="">ℝ</span> </td> </tr>
-     *       <tr id="entity-ropf"><td> <code title="">ropf;</code> </td> <td> U+1D563 </td> <td> <span class="glyph" title="">𝕣</span> </td> </tr>
-     *       <tr id="entity-roplus"><td> <code title="">roplus;</code> </td> <td> U+02A2E </td> <td> <span class="glyph" title="">⨮</span> </td> </tr>
-     *       <tr id="entity-rotimes"><td> <code title="">rotimes;</code> </td> <td> U+02A35 </td> <td> <span class="glyph" title="">⨵</span> </td> </tr>
-     *       <tr id="entity-RoundImplies"><td> <code title="">RoundImplies;</code> </td> <td> U+02970 </td> <td> <span class="glyph" title="">⥰</span> </td> </tr>
-     *       <tr id="entity-rpar"><td> <code title="">rpar;</code> </td> <td> U+00029 </td> <td> <span class="glyph" title="">)</span> </td> </tr>
-     *       <tr id="entity-rpargt"><td> <code title="">rpargt;</code> </td> <td> U+02994 </td> <td> <span class="glyph" title="">⦔</span> </td> </tr>
-     *       <tr id="entity-rppolint"><td> <code title="">rppolint;</code> </td> <td> U+02A12 </td> <td> <span class="glyph" title="">⨒</span> </td> </tr>
-     *       <tr id="entity-rrarr"><td> <code title="">rrarr;</code> </td> <td> U+021C9 </td> <td> <span class="glyph" title="">⇉</span> </td> </tr>
-     *       <tr id="entity-Rrightarrow"><td> <code title="">Rrightarrow;</code> </td> <td> U+021DB </td> <td> <span class="glyph" title="">⇛</span> </td> </tr>
-     *       <tr id="entity-rsaquo"><td> <code title="">rsaquo;</code> </td> <td> U+0203A </td> <td> <span class="glyph" title="">›</span> </td> </tr>
-     *       <tr id="entity-Rscr"><td> <code title="">Rscr;</code> </td> <td> U+0211B </td> <td> <span class="glyph" title="">ℛ</span> </td> </tr>
-     *       <tr id="entity-rscr"><td> <code title="">rscr;</code> </td> <td> U+1D4C7 </td> <td> <span class="glyph" title="">𝓇</span> </td> </tr>
-     *       <tr id="entity-Rsh"><td> <code title="">Rsh;</code> </td> <td> U+021B1 </td> <td> <span class="glyph" title="">↱</span> </td> </tr>
-     *       <tr id="entity-rsh"><td> <code title="">rsh;</code> </td> <td> U+021B1 </td> <td> <span class="glyph" title="">↱</span> </td> </tr>
-     *       <tr id="entity-rsqb"><td> <code title="">rsqb;</code> </td> <td> U+0005D </td> <td> <span class="glyph" title="">]</span> </td> </tr>
-     *       <tr id="entity-rsquo"><td> <code title="">rsquo;</code> </td> <td> U+02019 </td> <td> <span class="glyph" title="">’</span> </td> </tr>
-     *       <tr id="entity-rsquor"><td> <code title="">rsquor;</code> </td> <td> U+02019 </td> <td> <span class="glyph" title="">’</span> </td> </tr>
-     *       <tr id="entity-rthree"><td> <code title="">rthree;</code> </td> <td> U+022CC </td> <td> <span class="glyph" title="">⋌</span> </td> </tr>
-     *       <tr id="entity-rtimes"><td> <code title="">rtimes;</code> </td> <td> U+022CA </td> <td> <span class="glyph" title="">⋊</span> </td> </tr>
-     *       <tr id="entity-rtri"><td> <code title="">rtri;</code> </td> <td> U+025B9 </td> <td> <span class="glyph" title="">▹</span> </td> </tr>
-     *       <tr id="entity-rtrie"><td> <code title="">rtrie;</code> </td> <td> U+022B5 </td> <td> <span class="glyph" title="">⊵</span> </td> </tr>
-     *       <tr id="entity-rtrif"><td> <code title="">rtrif;</code> </td> <td> U+025B8 </td> <td> <span class="glyph" title="">▸</span> </td> </tr>
-     *       <tr id="entity-rtriltri"><td> <code title="">rtriltri;</code> </td> <td> U+029CE </td> <td> <span class="glyph" title="">⧎</span> </td> </tr>
-     *       <tr id="entity-RuleDelayed"><td> <code title="">RuleDelayed;</code> </td> <td> U+029F4 </td> <td> <span class="glyph" title="">⧴</span> </td> </tr>
-     *       <tr id="entity-ruluhar"><td> <code title="">ruluhar;</code> </td> <td> U+02968 </td> <td> <span class="glyph" title="">⥨</span> </td> </tr>
-     *       <tr id="entity-rx"><td> <code title="">rx;</code> </td> <td> U+0211E </td> <td> <span class="glyph" title="">℞</span> </td> </tr>
-     *       <tr id="entity-Sacute"><td> <code title="">Sacute;</code> </td> <td> U+0015A </td> <td> <span class="glyph" title="">Ś</span> </td> </tr>
-     *       <tr id="entity-sacute"><td> <code title="">sacute;</code> </td> <td> U+0015B </td> <td> <span class="glyph" title="">ś</span> </td> </tr>
-     *       <tr id="entity-sbquo"><td> <code title="">sbquo;</code> </td> <td> U+0201A </td> <td> <span class="glyph" title="">‚</span> </td> </tr>
-     *       <tr id="entity-Sc"><td> <code title="">Sc;</code> </td> <td> U+02ABC </td> <td> <span class="glyph" title="">⪼</span> </td> </tr>
-     *       <tr id="entity-sc"><td> <code title="">sc;</code> </td> <td> U+0227B </td> <td> <span class="glyph" title="">≻</span> </td> </tr>
-     *       <tr id="entity-scap"><td> <code title="">scap;</code> </td> <td> U+02AB8 </td> <td> <span class="glyph" title="">⪸</span> </td> </tr>
-     *       <tr id="entity-Scaron"><td> <code title="">Scaron;</code> </td> <td> U+00160 </td> <td> <span class="glyph" title="">Š</span> </td> </tr>
-     *       <tr id="entity-scaron"><td> <code title="">scaron;</code> </td> <td> U+00161 </td> <td> <span class="glyph" title="">š</span> </td> </tr>
-     *       <tr id="entity-sccue"><td> <code title="">sccue;</code> </td> <td> U+0227D </td> <td> <span class="glyph" title="">≽</span> </td> </tr>
-     *       <tr id="entity-scE"><td> <code title="">scE;</code> </td> <td> U+02AB4 </td> <td> <span class="glyph" title="">⪴</span> </td> </tr>
-     *       <tr id="entity-sce"><td> <code title="">sce;</code> </td> <td> U+02AB0 </td> <td> <span class="glyph" title="">⪰</span> </td> </tr>
-     *       <tr id="entity-Scedil"><td> <code title="">Scedil;</code> </td> <td> U+0015E </td> <td> <span class="glyph" title="">Ş</span> </td> </tr>
-     *       <tr id="entity-scedil"><td> <code title="">scedil;</code> </td> <td> U+0015F </td> <td> <span class="glyph" title="">ş</span> </td> </tr>
-     *       <tr id="entity-Scirc"><td> <code title="">Scirc;</code> </td> <td> U+0015C </td> <td> <span class="glyph" title="">Ŝ</span> </td> </tr>
-     *       <tr id="entity-scirc"><td> <code title="">scirc;</code> </td> <td> U+0015D </td> <td> <span class="glyph" title="">ŝ</span> </td> </tr>
-     *       <tr id="entity-scnap"><td> <code title="">scnap;</code> </td> <td> U+02ABA </td> <td> <span class="glyph" title="">⪺</span> </td> </tr>
-     *       <tr id="entity-scnE"><td> <code title="">scnE;</code> </td> <td> U+02AB6 </td> <td> <span class="glyph" title="">⪶</span> </td> </tr>
-     *       <tr id="entity-scnsim"><td> <code title="">scnsim;</code> </td> <td> U+022E9 </td> <td> <span class="glyph" title="">⋩</span> </td> </tr>
-     *       <tr id="entity-scpolint"><td> <code title="">scpolint;</code> </td> <td> U+02A13 </td> <td> <span class="glyph" title="">⨓</span> </td> </tr>
-     *       <tr id="entity-scsim"><td> <code title="">scsim;</code> </td> <td> U+0227F </td> <td> <span class="glyph" title="">≿</span> </td> </tr>
-     *       <tr id="entity-Scy"><td> <code title="">Scy;</code> </td> <td> U+00421 </td> <td> <span class="glyph" title="">С</span> </td> </tr>
-     *       <tr id="entity-scy"><td> <code title="">scy;</code> </td> <td> U+00441 </td> <td> <span class="glyph" title="">с</span> </td> </tr>
-     *       <tr id="entity-sdot"><td> <code title="">sdot;</code> </td> <td> U+022C5 </td> <td> <span class="glyph" title="">⋅</span> </td> </tr>
-     *       <tr id="entity-sdotb"><td> <code title="">sdotb;</code> </td> <td> U+022A1 </td> <td> <span class="glyph" title="">⊡</span> </td> </tr>
-     *       <tr id="entity-sdote"><td> <code title="">sdote;</code> </td> <td> U+02A66 </td> <td> <span class="glyph" title="">⩦</span> </td> </tr>
-     *       <tr id="entity-searhk"><td> <code title="">searhk;</code> </td> <td> U+02925 </td> <td> <span class="glyph" title="">⤥</span> </td> </tr>
-     *       <tr id="entity-seArr"><td> <code title="">seArr;</code> </td> <td> U+021D8 </td> <td> <span class="glyph" title="">⇘</span> </td> </tr>
-     *       <tr id="entity-searr"><td> <code title="">searr;</code> </td> <td> U+02198 </td> <td> <span class="glyph" title="">↘</span> </td> </tr>
-     *       <tr id="entity-searrow"><td> <code title="">searrow;</code> </td> <td> U+02198 </td> <td> <span class="glyph" title="">↘</span> </td> </tr>
-     *       <tr id="entity-sect"><td> <code title="">sect;</code> </td> <td> U+000A7 </td> <td> <span class="glyph" title="">§</span> </td> </tr>
-     *       <tr class="impl" id="entity-sect-legacy"><td> <code title="">sect</code> </td> <td> U+000A7 </td> <td> <span title="">§</span> </td> </tr>
-     *       <tr id="entity-semi"><td> <code title="">semi;</code> </td> <td> U+0003B </td> <td> <span class="glyph" title="">;</span> </td> </tr>
-     *       <tr id="entity-seswar"><td> <code title="">seswar;</code> </td> <td> U+02929 </td> <td> <span class="glyph" title="">⤩</span> </td> </tr>
-     *       <tr id="entity-setminus"><td> <code title="">setminus;</code> </td> <td> U+02216 </td> <td> <span class="glyph" title="">∖</span> </td> </tr>
-     *       <tr id="entity-setmn"><td> <code title="">setmn;</code> </td> <td> U+02216 </td> <td> <span class="glyph" title="">∖</span> </td> </tr>
-     *       <tr id="entity-sext"><td> <code title="">sext;</code> </td> <td> U+02736 </td> <td> <span class="glyph" title="">✶</span> </td> </tr>
-     *       <tr id="entity-Sfr"><td> <code title="">Sfr;</code> </td> <td> U+1D516 </td> <td> <span class="glyph" title="">𝔖</span> </td> </tr>
-     *       <tr id="entity-sfr"><td> <code title="">sfr;</code> </td> <td> U+1D530 </td> <td> <span class="glyph" title="">𝔰</span> </td> </tr>
-     *       <tr id="entity-sfrown"><td> <code title="">sfrown;</code> </td> <td> U+02322 </td> <td> <span class="glyph" title="">⌢</span> </td> </tr>
-     *       <tr id="entity-sharp"><td> <code title="">sharp;</code> </td> <td> U+0266F </td> <td> <span class="glyph" title="">♯</span> </td> </tr>
-     *       <tr id="entity-SHCHcy"><td> <code title="">SHCHcy;</code> </td> <td> U+00429 </td> <td> <span class="glyph" title="">Щ</span> </td> </tr>
-     *       <tr id="entity-shchcy"><td> <code title="">shchcy;</code> </td> <td> U+00449 </td> <td> <span class="glyph" title="">щ</span> </td> </tr>
-     *       <tr id="entity-SHcy"><td> <code title="">SHcy;</code> </td> <td> U+00428 </td> <td> <span class="glyph" title="">Ш</span> </td> </tr>
-     *       <tr id="entity-shcy"><td> <code title="">shcy;</code> </td> <td> U+00448 </td> <td> <span class="glyph" title="">ш</span> </td> </tr>
-     *       <tr id="entity-ShortDownArrow"><td> <code title="">ShortDownArrow;</code> </td> <td> U+02193 </td> <td> <span class="glyph" title="">↓</span> </td> </tr>
-     *       <tr id="entity-ShortLeftArrow"><td> <code title="">ShortLeftArrow;</code> </td> <td> U+02190 </td> <td> <span class="glyph" title="">←</span> </td> </tr>
-     *       <tr id="entity-shortmid"><td> <code title="">shortmid;</code> </td> <td> U+02223 </td> <td> <span class="glyph" title="">∣</span> </td> </tr>
-     *       <tr id="entity-shortparallel"><td> <code title="">shortparallel;</code> </td> <td> U+02225 </td> <td> <span class="glyph" title="">∥</span> </td> </tr>
-     *       <tr id="entity-ShortRightArrow"><td> <code title="">ShortRightArrow;</code> </td> <td> U+02192 </td> <td> <span class="glyph" title="">→</span> </td> </tr>
-     *       <tr id="entity-ShortUpArrow"><td> <code title="">ShortUpArrow;</code> </td> <td> U+02191 </td> <td> <span class="glyph" title="">↑</span> </td> </tr>
-     *       <tr id="entity-shy"><td> <code title="">shy;</code> </td> <td> U+000AD </td> <td> <span class="glyph" title="">­</span> </td> </tr>
-     *       <tr class="impl" id="entity-shy-legacy"><td> <code title="">shy</code> </td> <td> U+000AD </td> <td> <span title="">­</span> </td> </tr>
-     *       <tr id="entity-Sigma"><td> <code title="">Sigma;</code> </td> <td> U+003A3 </td> <td> <span class="glyph" title="">Σ</span> </td> </tr>
-     *       <tr id="entity-sigma"><td> <code title="">sigma;</code> </td> <td> U+003C3 </td> <td> <span class="glyph" title="">σ</span> </td> </tr>
-     *       <tr id="entity-sigmaf"><td> <code title="">sigmaf;</code> </td> <td> U+003C2 </td> <td> <span class="glyph" title="">ς</span> </td> </tr>
-     *       <tr id="entity-sigmav"><td> <code title="">sigmav;</code> </td> <td> U+003C2 </td> <td> <span class="glyph" title="">ς</span> </td> </tr>
-     *       <tr id="entity-sim"><td> <code title="">sim;</code> </td> <td> U+0223C </td> <td> <span class="glyph" title="">∼</span> </td> </tr>
-     *       <tr id="entity-simdot"><td> <code title="">simdot;</code> </td> <td> U+02A6A </td> <td> <span class="glyph" title="">⩪</span> </td> </tr>
-     *       <tr id="entity-sime"><td> <code title="">sime;</code> </td> <td> U+02243 </td> <td> <span class="glyph" title="">≃</span> </td> </tr>
-     *       <tr id="entity-simeq"><td> <code title="">simeq;</code> </td> <td> U+02243 </td> <td> <span class="glyph" title="">≃</span> </td> </tr>
-     *       <tr id="entity-simg"><td> <code title="">simg;</code> </td> <td> U+02A9E </td> <td> <span class="glyph" title="">⪞</span> </td> </tr>
-     *       <tr id="entity-simgE"><td> <code title="">simgE;</code> </td> <td> U+02AA0 </td> <td> <span class="glyph" title="">⪠</span> </td> </tr>
-     *       <tr id="entity-siml"><td> <code title="">siml;</code> </td> <td> U+02A9D </td> <td> <span class="glyph" title="">⪝</span> </td> </tr>
-     *       <tr id="entity-simlE"><td> <code title="">simlE;</code> </td> <td> U+02A9F </td> <td> <span class="glyph" title="">⪟</span> </td> </tr>
-     *       <tr id="entity-simne"><td> <code title="">simne;</code> </td> <td> U+02246 </td> <td> <span class="glyph" title="">≆</span> </td> </tr>
-     *       <tr id="entity-simplus"><td> <code title="">simplus;</code> </td> <td> U+02A24 </td> <td> <span class="glyph" title="">⨤</span> </td> </tr>
-     *       <tr id="entity-simrarr"><td> <code title="">simrarr;</code> </td> <td> U+02972 </td> <td> <span class="glyph" title="">⥲</span> </td> </tr>
-     *       <tr id="entity-slarr"><td> <code title="">slarr;</code> </td> <td> U+02190 </td> <td> <span class="glyph" title="">←</span> </td> </tr>
-     *       <tr id="entity-SmallCircle"><td> <code title="">SmallCircle;</code> </td> <td> U+02218 </td> <td> <span class="glyph" title="">∘</span> </td> </tr>
-     *       <tr id="entity-smallsetminus"><td> <code title="">smallsetminus;</code> </td> <td> U+02216 </td> <td> <span class="glyph" title="">∖</span> </td> </tr>
-     *       <tr id="entity-smashp"><td> <code title="">smashp;</code> </td> <td> U+02A33 </td> <td> <span class="glyph" title="">⨳</span> </td> </tr>
-     *       <tr id="entity-smeparsl"><td> <code title="">smeparsl;</code> </td> <td> U+029E4 </td> <td> <span class="glyph" title="">⧤</span> </td> </tr>
-     *       <tr id="entity-smid"><td> <code title="">smid;</code> </td> <td> U+02223 </td> <td> <span class="glyph" title="">∣</span> </td> </tr>
-     *       <tr id="entity-smile"><td> <code title="">smile;</code> </td> <td> U+02323 </td> <td> <span class="glyph" title="">⌣</span> </td> </tr>
-     *       <tr id="entity-smt"><td> <code title="">smt;</code> </td> <td> U+02AAA </td> <td> <span class="glyph" title="">⪪</span> </td> </tr>
-     *       <tr id="entity-smte"><td> <code title="">smte;</code> </td> <td> U+02AAC </td> <td> <span class="glyph" title="">⪬</span> </td> </tr>
-     *       <tr id="entity-smtes"><td> <code title="">smtes;</code> </td> <td> U+02AAC U+0FE00 </td> <td> <span class="glyph compound" title="">⪬︀</span> </td> </tr>
-     *       <tr id="entity-SOFTcy"><td> <code title="">SOFTcy;</code> </td> <td> U+0042C </td> <td> <span class="glyph" title="">Ь</span> </td> </tr>
-     *       <tr id="entity-softcy"><td> <code title="">softcy;</code> </td> <td> U+0044C </td> <td> <span class="glyph" title="">ь</span> </td> </tr>
-     *       <tr id="entity-sol"><td> <code title="">sol;</code> </td> <td> U+0002F </td> <td> <span class="glyph" title="">/</span> </td> </tr>
-     *       <tr id="entity-solb"><td> <code title="">solb;</code> </td> <td> U+029C4 </td> <td> <span class="glyph" title="">⧄</span> </td> </tr>
-     *       <tr id="entity-solbar"><td> <code title="">solbar;</code> </td> <td> U+0233F </td> <td> <span class="glyph" title="">⌿</span> </td> </tr>
-     *       <tr id="entity-Sopf"><td> <code title="">Sopf;</code> </td> <td> U+1D54A </td> <td> <span class="glyph" title="">𝕊</span> </td> </tr>
-     *       <tr id="entity-sopf"><td> <code title="">sopf;</code> </td> <td> U+1D564 </td> <td> <span class="glyph" title="">𝕤</span> </td> </tr>
-     *       <tr id="entity-spades"><td> <code title="">spades;</code> </td> <td> U+02660 </td> <td> <span class="glyph" title="">♠</span> </td> </tr>
-     *       <tr id="entity-spadesuit"><td> <code title="">spadesuit;</code> </td> <td> U+02660 </td> <td> <span class="glyph" title="">♠</span> </td> </tr>
-     *       <tr id="entity-spar"><td> <code title="">spar;</code> </td> <td> U+02225 </td> <td> <span class="glyph" title="">∥</span> </td> </tr>
-     *       <tr id="entity-sqcap"><td> <code title="">sqcap;</code> </td> <td> U+02293 </td> <td> <span class="glyph" title="">⊓</span> </td> </tr>
-     *       <tr id="entity-sqcaps"><td> <code title="">sqcaps;</code> </td> <td> U+02293 U+0FE00 </td> <td> <span class="glyph compound" title="">⊓︀</span> </td> </tr>
-     *       <tr id="entity-sqcup"><td> <code title="">sqcup;</code> </td> <td> U+02294 </td> <td> <span class="glyph" title="">⊔</span> </td> </tr>
-     *       <tr id="entity-sqcups"><td> <code title="">sqcups;</code> </td> <td> U+02294 U+0FE00 </td> <td> <span class="glyph compound" title="">⊔︀</span> </td> </tr>
-     *       <tr id="entity-Sqrt"><td> <code title="">Sqrt;</code> </td> <td> U+0221A </td> <td> <span class="glyph" title="">√</span> </td> </tr>
-     *       <tr id="entity-sqsub"><td> <code title="">sqsub;</code> </td> <td> U+0228F </td> <td> <span class="glyph" title="">⊏</span> </td> </tr>
-     *       <tr id="entity-sqsube"><td> <code title="">sqsube;</code> </td> <td> U+02291 </td> <td> <span class="glyph" title="">⊑</span> </td> </tr>
-     *       <tr id="entity-sqsubset"><td> <code title="">sqsubset;</code> </td> <td> U+0228F </td> <td> <span class="glyph" title="">⊏</span> </td> </tr>
-     *       <tr id="entity-sqsubseteq"><td> <code title="">sqsubseteq;</code> </td> <td> U+02291 </td> <td> <span class="glyph" title="">⊑</span> </td> </tr>
-     *       <tr id="entity-sqsup"><td> <code title="">sqsup;</code> </td> <td> U+02290 </td> <td> <span class="glyph" title="">⊐</span> </td> </tr>
-     *       <tr id="entity-sqsupe"><td> <code title="">sqsupe;</code> </td> <td> U+02292 </td> <td> <span class="glyph" title="">⊒</span> </td> </tr>
-     *       <tr id="entity-sqsupset"><td> <code title="">sqsupset;</code> </td> <td> U+02290 </td> <td> <span class="glyph" title="">⊐</span> </td> </tr>
-     *       <tr id="entity-sqsupseteq"><td> <code title="">sqsupseteq;</code> </td> <td> U+02292 </td> <td> <span class="glyph" title="">⊒</span> </td> </tr>
-     *       <tr id="entity-squ"><td> <code title="">squ;</code> </td> <td> U+025A1 </td> <td> <span class="glyph" title="">□</span> </td> </tr>
-     *       <tr id="entity-Square"><td> <code title="">Square;</code> </td> <td> U+025A1 </td> <td> <span class="glyph" title="">□</span> </td> </tr>
-     *       <tr id="entity-square"><td> <code title="">square;</code> </td> <td> U+025A1 </td> <td> <span class="glyph" title="">□</span> </td> </tr>
-     *       <tr id="entity-SquareIntersection"><td> <code title="">SquareIntersection;</code> </td> <td> U+02293 </td> <td> <span class="glyph" title="">⊓</span> </td> </tr>
-     *       <tr id="entity-SquareSubset"><td> <code title="">SquareSubset;</code> </td> <td> U+0228F </td> <td> <span class="glyph" title="">⊏</span> </td> </tr>
-     *       <tr id="entity-SquareSubsetEqual"><td> <code title="">SquareSubsetEqual;</code> </td> <td> U+02291 </td> <td> <span class="glyph" title="">⊑</span> </td> </tr>
-     *       <tr id="entity-SquareSuperset"><td> <code title="">SquareSuperset;</code> </td> <td> U+02290 </td> <td> <span class="glyph" title="">⊐</span> </td> </tr>
-     *       <tr id="entity-SquareSupersetEqual"><td> <code title="">SquareSupersetEqual;</code> </td> <td> U+02292 </td> <td> <span class="glyph" title="">⊒</span> </td> </tr>
-     *       <tr id="entity-SquareUnion"><td> <code title="">SquareUnion;</code> </td> <td> U+02294 </td> <td> <span class="glyph" title="">⊔</span> </td> </tr>
-     *       <tr id="entity-squarf"><td> <code title="">squarf;</code> </td> <td> U+025AA </td> <td> <span class="glyph" title="">▪</span> </td> </tr>
-     *       <tr id="entity-squf"><td> <code title="">squf;</code> </td> <td> U+025AA </td> <td> <span class="glyph" title="">▪</span> </td> </tr>
-     *       <tr id="entity-srarr"><td> <code title="">srarr;</code> </td> <td> U+02192 </td> <td> <span class="glyph" title="">→</span> </td> </tr>
-     *       <tr id="entity-Sscr"><td> <code title="">Sscr;</code> </td> <td> U+1D4AE </td> <td> <span class="glyph" title="">𝒮</span> </td> </tr>
-     *       <tr id="entity-sscr"><td> <code title="">sscr;</code> </td> <td> U+1D4C8 </td> <td> <span class="glyph" title="">𝓈</span> </td> </tr>
-     *       <tr id="entity-ssetmn"><td> <code title="">ssetmn;</code> </td> <td> U+02216 </td> <td> <span class="glyph" title="">∖</span> </td> </tr>
-     *       <tr id="entity-ssmile"><td> <code title="">ssmile;</code> </td> <td> U+02323 </td> <td> <span class="glyph" title="">⌣</span> </td> </tr>
-     *       <tr id="entity-sstarf"><td> <code title="">sstarf;</code> </td> <td> U+022C6 </td> <td> <span class="glyph" title="">⋆</span> </td> </tr>
-     *       <tr id="entity-Star"><td> <code title="">Star;</code> </td> <td> U+022C6 </td> <td> <span class="glyph" title="">⋆</span> </td> </tr>
-     *       <tr id="entity-star"><td> <code title="">star;</code> </td> <td> U+02606 </td> <td> <span class="glyph" title="">☆</span> </td> </tr>
-     *       <tr id="entity-starf"><td> <code title="">starf;</code> </td> <td> U+02605 </td> <td> <span class="glyph" title="">★</span> </td> </tr>
-     *       <tr id="entity-straightepsilon"><td> <code title="">straightepsilon;</code> </td> <td> U+003F5 </td> <td> <span class="glyph" title="">ϵ</span> </td> </tr>
-     *       <tr id="entity-straightphi"><td> <code title="">straightphi;</code> </td> <td> U+003D5 </td> <td> <span class="glyph" title="">ϕ</span> </td> </tr>
-     *       <tr id="entity-strns"><td> <code title="">strns;</code> </td> <td> U+000AF </td> <td> <span class="glyph" title="">¯</span> </td> </tr>
-     *       <tr id="entity-Sub"><td> <code title="">Sub;</code> </td> <td> U+022D0 </td> <td> <span class="glyph" title="">⋐</span> </td> </tr>
-     *       <tr id="entity-sub"><td> <code title="">sub;</code> </td> <td> U+02282 </td> <td> <span class="glyph" title="">⊂</span> </td> </tr>
-     *       <tr id="entity-subdot"><td> <code title="">subdot;</code> </td> <td> U+02ABD </td> <td> <span class="glyph" title="">⪽</span> </td> </tr>
-     *       <tr id="entity-subE"><td> <code title="">subE;</code> </td> <td> U+02AC5 </td> <td> <span class="glyph" title="">⫅</span> </td> </tr>
-     *       <tr id="entity-sube"><td> <code title="">sube;</code> </td> <td> U+02286 </td> <td> <span class="glyph" title="">⊆</span> </td> </tr>
-     *       <tr id="entity-subedot"><td> <code title="">subedot;</code> </td> <td> U+02AC3 </td> <td> <span class="glyph" title="">⫃</span> </td> </tr>
-     *       <tr id="entity-submult"><td> <code title="">submult;</code> </td> <td> U+02AC1 </td> <td> <span class="glyph" title="">⫁</span> </td> </tr>
-     *       <tr id="entity-subnE"><td> <code title="">subnE;</code> </td> <td> U+02ACB </td> <td> <span class="glyph" title="">⫋</span> </td> </tr>
-     *       <tr id="entity-subne"><td> <code title="">subne;</code> </td> <td> U+0228A </td> <td> <span class="glyph" title="">⊊</span> </td> </tr>
-     *       <tr id="entity-subplus"><td> <code title="">subplus;</code> </td> <td> U+02ABF </td> <td> <span class="glyph" title="">⪿</span> </td> </tr>
-     *       <tr id="entity-subrarr"><td> <code title="">subrarr;</code> </td> <td> U+02979 </td> <td> <span class="glyph" title="">⥹</span> </td> </tr>
-     *       <tr id="entity-Subset"><td> <code title="">Subset;</code> </td> <td> U+022D0 </td> <td> <span class="glyph" title="">⋐</span> </td> </tr>
-     *       <tr id="entity-subset"><td> <code title="">subset;</code> </td> <td> U+02282 </td> <td> <span class="glyph" title="">⊂</span> </td> </tr>
-     *       <tr id="entity-subseteq"><td> <code title="">subseteq;</code> </td> <td> U+02286 </td> <td> <span class="glyph" title="">⊆</span> </td> </tr>
-     *       <tr id="entity-subseteqq"><td> <code title="">subseteqq;</code> </td> <td> U+02AC5 </td> <td> <span class="glyph" title="">⫅</span> </td> </tr>
-     *       <tr id="entity-SubsetEqual"><td> <code title="">SubsetEqual;</code> </td> <td> U+02286 </td> <td> <span class="glyph" title="">⊆</span> </td> </tr>
-     *       <tr id="entity-subsetneq"><td> <code title="">subsetneq;</code> </td> <td> U+0228A </td> <td> <span class="glyph" title="">⊊</span> </td> </tr>
-     *       <tr id="entity-subsetneqq"><td> <code title="">subsetneqq;</code> </td> <td> U+02ACB </td> <td> <span class="glyph" title="">⫋</span> </td> </tr>
-     *       <tr id="entity-subsim"><td> <code title="">subsim;</code> </td> <td> U+02AC7 </td> <td> <span class="glyph" title="">⫇</span> </td> </tr>
-     *       <tr id="entity-subsub"><td> <code title="">subsub;</code> </td> <td> U+02AD5 </td> <td> <span class="glyph" title="">⫕</span> </td> </tr>
-     *       <tr id="entity-subsup"><td> <code title="">subsup;</code> </td> <td> U+02AD3 </td> <td> <span class="glyph" title="">⫓</span> </td> </tr>
-     *       <tr id="entity-succ"><td> <code title="">succ;</code> </td> <td> U+0227B </td> <td> <span class="glyph" title="">≻</span> </td> </tr>
-     *       <tr id="entity-succapprox"><td> <code title="">succapprox;</code> </td> <td> U+02AB8 </td> <td> <span class="glyph" title="">⪸</span> </td> </tr>
-     *       <tr id="entity-succcurlyeq"><td> <code title="">succcurlyeq;</code> </td> <td> U+0227D </td> <td> <span class="glyph" title="">≽</span> </td> </tr>
-     *       <tr id="entity-Succeeds"><td> <code title="">Succeeds;</code> </td> <td> U+0227B </td> <td> <span class="glyph" title="">≻</span> </td> </tr>
-     *       <tr id="entity-SucceedsEqual"><td> <code title="">SucceedsEqual;</code> </td> <td> U+02AB0 </td> <td> <span class="glyph" title="">⪰</span> </td> </tr>
-     *       <tr id="entity-SucceedsSlantEqual"><td> <code title="">SucceedsSlantEqual;</code> </td> <td> U+0227D </td> <td> <span class="glyph" title="">≽</span> </td> </tr>
-     *       <tr id="entity-SucceedsTilde"><td> <code title="">SucceedsTilde;</code> </td> <td> U+0227F </td> <td> <span class="glyph" title="">≿</span> </td> </tr>
-     *       <tr id="entity-succeq"><td> <code title="">succeq;</code> </td> <td> U+02AB0 </td> <td> <span class="glyph" title="">⪰</span> </td> </tr>
-     *       <tr id="entity-succnapprox"><td> <code title="">succnapprox;</code> </td> <td> U+02ABA </td> <td> <span class="glyph" title="">⪺</span> </td> </tr>
-     *       <tr id="entity-succneqq"><td> <code title="">succneqq;</code> </td> <td> U+02AB6 </td> <td> <span class="glyph" title="">⪶</span> </td> </tr>
-     *       <tr id="entity-succnsim"><td> <code title="">succnsim;</code> </td> <td> U+022E9 </td> <td> <span class="glyph" title="">⋩</span> </td> </tr>
-     *       <tr id="entity-succsim"><td> <code title="">succsim;</code> </td> <td> U+0227F </td> <td> <span class="glyph" title="">≿</span> </td> </tr>
-     *       <tr id="entity-SuchThat"><td> <code title="">SuchThat;</code> </td> <td> U+0220B </td> <td> <span class="glyph" title="">∋</span> </td> </tr>
-     *       <tr id="entity-Sum"><td> <code title="">Sum;</code> </td> <td> U+02211 </td> <td> <span class="glyph" title="">∑</span> </td> </tr>
-     *       <tr id="entity-sum"><td> <code title="">sum;</code> </td> <td> U+02211 </td> <td> <span class="glyph" title="">∑</span> </td> </tr>
-     *       <tr id="entity-sung"><td> <code title="">sung;</code> </td> <td> U+0266A </td> <td> <span class="glyph" title="">♪</span> </td> </tr>
-     *       <tr id="entity-Sup"><td> <code title="">Sup;</code> </td> <td> U+022D1 </td> <td> <span class="glyph" title="">⋑</span> </td> </tr>
-     *       <tr id="entity-sup"><td> <code title="">sup;</code> </td> <td> U+02283 </td> <td> <span class="glyph" title="">⊃</span> </td> </tr>
-     *       <tr id="entity-sup1"><td> <code title="">sup1;</code> </td> <td> U+000B9 </td> <td> <span class="glyph" title="">¹</span> </td> </tr>
-     *       <tr class="impl" id="entity-sup1-legacy"><td> <code title="">sup1</code> </td> <td> U+000B9 </td> <td> <span title="">¹</span> </td> </tr>
-     *       <tr id="entity-sup2"><td> <code title="">sup2;</code> </td> <td> U+000B2 </td> <td> <span class="glyph" title="">²</span> </td> </tr>
-     *       <tr class="impl" id="entity-sup2-legacy"><td> <code title="">sup2</code> </td> <td> U+000B2 </td> <td> <span title="">²</span> </td> </tr>
-     *       <tr id="entity-sup3"><td> <code title="">sup3;</code> </td> <td> U+000B3 </td> <td> <span class="glyph" title="">³</span> </td> </tr>
-     *       <tr class="impl" id="entity-sup3-legacy"><td> <code title="">sup3</code> </td> <td> U+000B3 </td> <td> <span title="">³</span> </td> </tr>
-     *       <tr id="entity-supdot"><td> <code title="">supdot;</code> </td> <td> U+02ABE </td> <td> <span class="glyph" title="">⪾</span> </td> </tr>
-     *       <tr id="entity-supdsub"><td> <code title="">supdsub;</code> </td> <td> U+02AD8 </td> <td> <span class="glyph" title="">⫘</span> </td> </tr>
-     *       <tr id="entity-supE"><td> <code title="">supE;</code> </td> <td> U+02AC6 </td> <td> <span class="glyph" title="">⫆</span> </td> </tr>
-     *       <tr id="entity-supe"><td> <code title="">supe;</code> </td> <td> U+02287 </td> <td> <span class="glyph" title="">⊇</span> </td> </tr>
-     *       <tr id="entity-supedot"><td> <code title="">supedot;</code> </td> <td> U+02AC4 </td> <td> <span class="glyph" title="">⫄</span> </td> </tr>
-     *       <tr id="entity-Superset"><td> <code title="">Superset;</code> </td> <td> U+02283 </td> <td> <span class="glyph" title="">⊃</span> </td> </tr>
-     *       <tr id="entity-SupersetEqual"><td> <code title="">SupersetEqual;</code> </td> <td> U+02287 </td> <td> <span class="glyph" title="">⊇</span> </td> </tr>
-     *       <tr id="entity-suphsol"><td> <code title="">suphsol;</code> </td> <td> U+027C9 </td> <td> <span class="glyph" title="">⟉</span> </td> </tr>
-     *       <tr id="entity-suphsub"><td> <code title="">suphsub;</code> </td> <td> U+02AD7 </td> <td> <span class="glyph" title="">⫗</span> </td> </tr>
-     *       <tr id="entity-suplarr"><td> <code title="">suplarr;</code> </td> <td> U+0297B </td> <td> <span class="glyph" title="">⥻</span> </td> </tr>
-     *       <tr id="entity-supmult"><td> <code title="">supmult;</code> </td> <td> U+02AC2 </td> <td> <span class="glyph" title="">⫂</span> </td> </tr>
-     *       <tr id="entity-supnE"><td> <code title="">supnE;</code> </td> <td> U+02ACC </td> <td> <span class="glyph" title="">⫌</span> </td> </tr>
-     *       <tr id="entity-supne"><td> <code title="">supne;</code> </td> <td> U+0228B </td> <td> <span class="glyph" title="">⊋</span> </td> </tr>
-     *       <tr id="entity-supplus"><td> <code title="">supplus;</code> </td> <td> U+02AC0 </td> <td> <span class="glyph" title="">⫀</span> </td> </tr>
-     *       <tr id="entity-Supset"><td> <code title="">Supset;</code> </td> <td> U+022D1 </td> <td> <span class="glyph" title="">⋑</span> </td> </tr>
-     *       <tr id="entity-supset"><td> <code title="">supset;</code> </td> <td> U+02283 </td> <td> <span class="glyph" title="">⊃</span> </td> </tr>
-     *       <tr id="entity-supseteq"><td> <code title="">supseteq;</code> </td> <td> U+02287 </td> <td> <span class="glyph" title="">⊇</span> </td> </tr>
-     *       <tr id="entity-supseteqq"><td> <code title="">supseteqq;</code> </td> <td> U+02AC6 </td> <td> <span class="glyph" title="">⫆</span> </td> </tr>
-     *       <tr id="entity-supsetneq"><td> <code title="">supsetneq;</code> </td> <td> U+0228B </td> <td> <span class="glyph" title="">⊋</span> </td> </tr>
-     *       <tr id="entity-supsetneqq"><td> <code title="">supsetneqq;</code> </td> <td> U+02ACC </td> <td> <span class="glyph" title="">⫌</span> </td> </tr>
-     *       <tr id="entity-supsim"><td> <code title="">supsim;</code> </td> <td> U+02AC8 </td> <td> <span class="glyph" title="">⫈</span> </td> </tr>
-     *       <tr id="entity-supsub"><td> <code title="">supsub;</code> </td> <td> U+02AD4 </td> <td> <span class="glyph" title="">⫔</span> </td> </tr>
-     *       <tr id="entity-supsup"><td> <code title="">supsup;</code> </td> <td> U+02AD6 </td> <td> <span class="glyph" title="">⫖</span> </td> </tr>
-     *       <tr id="entity-swarhk"><td> <code title="">swarhk;</code> </td> <td> U+02926 </td> <td> <span class="glyph" title="">⤦</span> </td> </tr>
-     *       <tr id="entity-swArr"><td> <code title="">swArr;</code> </td> <td> U+021D9 </td> <td> <span class="glyph" title="">⇙</span> </td> </tr>
-     *       <tr id="entity-swarr"><td> <code title="">swarr;</code> </td> <td> U+02199 </td> <td> <span class="glyph" title="">↙</span> </td> </tr>
-     *       <tr id="entity-swarrow"><td> <code title="">swarrow;</code> </td> <td> U+02199 </td> <td> <span class="glyph" title="">↙</span> </td> </tr>
-     *       <tr id="entity-swnwar"><td> <code title="">swnwar;</code> </td> <td> U+0292A </td> <td> <span class="glyph" title="">⤪</span> </td> </tr>
-     *       <tr id="entity-szlig"><td> <code title="">szlig;</code> </td> <td> U+000DF </td> <td> <span class="glyph" title="">ß</span> </td> </tr>
-     *       <tr class="impl" id="entity-szlig-legacy"><td> <code title="">szlig</code> </td> <td> U+000DF </td> <td> <span title="">ß</span> </td> </tr>
-     *       <tr id="entity-Tab"><td> <code title="">Tab;</code> </td> <td> U+00009 </td> <td> <span class="glyph control" title="">␉</span> </td> </tr>
-     *       <tr id="entity-target"><td> <code title="">target;</code> </td> <td> U+02316 </td> <td> <span class="glyph" title="">⌖</span> </td> </tr>
-     *       <tr id="entity-Tau"><td> <code title="">Tau;</code> </td> <td> U+003A4 </td> <td> <span class="glyph" title="">Τ</span> </td> </tr>
-     *       <tr id="entity-tau"><td> <code title="">tau;</code> </td> <td> U+003C4 </td> <td> <span class="glyph" title="">τ</span> </td> </tr>
-     *       <tr id="entity-tbrk"><td> <code title="">tbrk;</code> </td> <td> U+023B4 </td> <td> <span class="glyph" title="">⎴</span> </td> </tr>
-     *       <tr id="entity-Tcaron"><td> <code title="">Tcaron;</code> </td> <td> U+00164 </td> <td> <span class="glyph" title="">Ť</span> </td> </tr>
-     *       <tr id="entity-tcaron"><td> <code title="">tcaron;</code> </td> <td> U+00165 </td> <td> <span class="glyph" title="">ť</span> </td> </tr>
-     *       <tr id="entity-Tcedil"><td> <code title="">Tcedil;</code> </td> <td> U+00162 </td> <td> <span class="glyph" title="">Ţ</span> </td> </tr>
-     *       <tr id="entity-tcedil"><td> <code title="">tcedil;</code> </td> <td> U+00163 </td> <td> <span class="glyph" title="">ţ</span> </td> </tr>
-     *       <tr id="entity-Tcy"><td> <code title="">Tcy;</code> </td> <td> U+00422 </td> <td> <span class="glyph" title="">Т</span> </td> </tr>
-     *       <tr id="entity-tcy"><td> <code title="">tcy;</code> </td> <td> U+00442 </td> <td> <span class="glyph" title="">т</span> </td> </tr>
-     *       <tr id="entity-tdot"><td> <code title="">tdot;</code> </td> <td> U+020DB </td> <td> <span class="glyph composition" title="">◌⃛</span> </td> </tr>
-     *       <tr id="entity-telrec"><td> <code title="">telrec;</code> </td> <td> U+02315 </td> <td> <span class="glyph" title="">⌕</span> </td> </tr>
-     *       <tr id="entity-Tfr"><td> <code title="">Tfr;</code> </td> <td> U+1D517 </td> <td> <span class="glyph" title="">𝔗</span> </td> </tr>
-     *       <tr id="entity-tfr"><td> <code title="">tfr;</code> </td> <td> U+1D531 </td> <td> <span class="glyph" title="">𝔱</span> </td> </tr>
-     *       <tr id="entity-there4"><td> <code title="">there4;</code> </td> <td> U+02234 </td> <td> <span class="glyph" title="">∴</span> </td> </tr>
-     *       <tr id="entity-Therefore"><td> <code title="">Therefore;</code> </td> <td> U+02234 </td> <td> <span class="glyph" title="">∴</span> </td> </tr>
-     *       <tr id="entity-therefore"><td> <code title="">therefore;</code> </td> <td> U+02234 </td> <td> <span class="glyph" title="">∴</span> </td> </tr>
-     *       <tr id="entity-Theta"><td> <code title="">Theta;</code> </td> <td> U+00398 </td> <td> <span class="glyph" title="">Θ</span> </td> </tr>
-     *       <tr id="entity-theta"><td> <code title="">theta;</code> </td> <td> U+003B8 </td> <td> <span class="glyph" title="">θ</span> </td> </tr>
-     *       <tr id="entity-thetasym"><td> <code title="">thetasym;</code> </td> <td> U+003D1 </td> <td> <span class="glyph" title="">ϑ</span> </td> </tr>
-     *       <tr id="entity-thetav"><td> <code title="">thetav;</code> </td> <td> U+003D1 </td> <td> <span class="glyph" title="">ϑ</span> </td> </tr>
-     *       <tr id="entity-thickapprox"><td> <code title="">thickapprox;</code> </td> <td> U+02248 </td> <td> <span class="glyph" title="">≈</span> </td> </tr>
-     *       <tr id="entity-thicksim"><td> <code title="">thicksim;</code> </td> <td> U+0223C </td> <td> <span class="glyph" title="">∼</span> </td> </tr>
-     *       <tr id="entity-ThickSpace"><td> <code title="">ThickSpace;</code> </td> <td> U+0205F U+0200A </td> <td> <span class="glyph compound" title="">  </span> </td> </tr>
-     *       <tr id="entity-thinsp"><td> <code title="">thinsp;</code> </td> <td> U+02009 </td> <td> <span class="glyph" title=""> </span> </td> </tr>
-     *       <tr id="entity-ThinSpace"><td> <code title="">ThinSpace;</code> </td> <td> U+02009 </td> <td> <span class="glyph" title=""> </span> </td> </tr>
-     *       <tr id="entity-thkap"><td> <code title="">thkap;</code> </td> <td> U+02248 </td> <td> <span class="glyph" title="">≈</span> </td> </tr>
-     *       <tr id="entity-thksim"><td> <code title="">thksim;</code> </td> <td> U+0223C </td> <td> <span class="glyph" title="">∼</span> </td> </tr>
-     *       <tr id="entity-THORN"><td> <code title="">THORN;</code> </td> <td> U+000DE </td> <td> <span class="glyph" title="">Þ</span> </td> </tr>
-     *       <tr class="impl" id="entity-THORN-legacy"><td> <code title="">THORN</code> </td> <td> U+000DE </td> <td> <span title="">Þ</span> </td> </tr>
-     *       <tr id="entity-thorn"><td> <code title="">thorn;</code> </td> <td> U+000FE </td> <td> <span class="glyph" title="">þ</span> </td> </tr>
-     *       <tr class="impl" id="entity-thorn-legacy"><td> <code title="">thorn</code> </td> <td> U+000FE </td> <td> <span title="">þ</span> </td> </tr>
-     *       <tr id="entity-Tilde"><td> <code title="">Tilde;</code> </td> <td> U+0223C </td> <td> <span class="glyph" title="">∼</span> </td> </tr>
-     *       <tr id="entity-tilde"><td> <code title="">tilde;</code> </td> <td> U+002DC </td> <td> <span class="glyph" title="">˜</span> </td> </tr>
-     *       <tr id="entity-TildeEqual"><td> <code title="">TildeEqual;</code> </td> <td> U+02243 </td> <td> <span class="glyph" title="">≃</span> </td> </tr>
-     *       <tr id="entity-TildeFullEqual"><td> <code title="">TildeFullEqual;</code> </td> <td> U+02245 </td> <td> <span class="glyph" title="">≅</span> </td> </tr>
-     *       <tr id="entity-TildeTilde"><td> <code title="">TildeTilde;</code> </td> <td> U+02248 </td> <td> <span class="glyph" title="">≈</span> </td> </tr>
-     *       <tr id="entity-times"><td> <code title="">times;</code> </td> <td> U+000D7 </td> <td> <span class="glyph" title="">×</span> </td> </tr>
-     *       <tr class="impl" id="entity-times-legacy"><td> <code title="">times</code> </td> <td> U+000D7 </td> <td> <span title="">×</span> </td> </tr>
-     *       <tr id="entity-timesb"><td> <code title="">timesb;</code> </td> <td> U+022A0 </td> <td> <span class="glyph" title="">⊠</span> </td> </tr>
-     *       <tr id="entity-timesbar"><td> <code title="">timesbar;</code> </td> <td> U+02A31 </td> <td> <span class="glyph" title="">⨱</span> </td> </tr>
-     *       <tr id="entity-timesd"><td> <code title="">timesd;</code> </td> <td> U+02A30 </td> <td> <span class="glyph" title="">⨰</span> </td> </tr>
-     *       <tr id="entity-tint"><td> <code title="">tint;</code> </td> <td> U+0222D </td> <td> <span class="glyph" title="">∭</span> </td> </tr>
-     *       <tr id="entity-toea"><td> <code title="">toea;</code> </td> <td> U+02928 </td> <td> <span class="glyph" title="">⤨</span> </td> </tr>
-     *       <tr id="entity-top"><td> <code title="">top;</code> </td> <td> U+022A4 </td> <td> <span class="glyph" title="">⊤</span> </td> </tr>
-     *       <tr id="entity-topbot"><td> <code title="">topbot;</code> </td> <td> U+02336 </td> <td> <span class="glyph" title="">⌶</span> </td> </tr>
-     *       <tr id="entity-topcir"><td> <code title="">topcir;</code> </td> <td> U+02AF1 </td> <td> <span class="glyph" title="">⫱</span> </td> </tr>
-     *       <tr id="entity-Topf"><td> <code title="">Topf;</code> </td> <td> U+1D54B </td> <td> <span class="glyph" title="">𝕋</span> </td> </tr>
-     *       <tr id="entity-topf"><td> <code title="">topf;</code> </td> <td> U+1D565 </td> <td> <span class="glyph" title="">𝕥</span> </td> </tr>
-     *       <tr id="entity-topfork"><td> <code title="">topfork;</code> </td> <td> U+02ADA </td> <td> <span class="glyph" title="">⫚</span> </td> </tr>
-     *       <tr id="entity-tosa"><td> <code title="">tosa;</code> </td> <td> U+02929 </td> <td> <span class="glyph" title="">⤩</span> </td> </tr>
-     *       <tr id="entity-tprime"><td> <code title="">tprime;</code> </td> <td> U+02034 </td> <td> <span class="glyph" title="">‴</span> </td> </tr>
-     *       <tr id="entity-TRADE"><td> <code title="">TRADE;</code> </td> <td> U+02122 </td> <td> <span class="glyph" title="">™</span> </td> </tr>
-     *       <tr id="entity-trade"><td> <code title="">trade;</code> </td> <td> U+02122 </td> <td> <span class="glyph" title="">™</span> </td> </tr>
-     *       <tr id="entity-triangle"><td> <code title="">triangle;</code> </td> <td> U+025B5 </td> <td> <span class="glyph" title="">▵</span> </td> </tr>
-     *       <tr id="entity-triangledown"><td> <code title="">triangledown;</code> </td> <td> U+025BF </td> <td> <span class="glyph" title="">▿</span> </td> </tr>
-     *       <tr id="entity-triangleleft"><td> <code title="">triangleleft;</code> </td> <td> U+025C3 </td> <td> <span class="glyph" title="">◃</span> </td> </tr>
-     *       <tr id="entity-trianglelefteq"><td> <code title="">trianglelefteq;</code> </td> <td> U+022B4 </td> <td> <span class="glyph" title="">⊴</span> </td> </tr>
-     *       <tr id="entity-triangleq"><td> <code title="">triangleq;</code> </td> <td> U+0225C </td> <td> <span class="glyph" title="">≜</span> </td> </tr>
-     *       <tr id="entity-triangleright"><td> <code title="">triangleright;</code> </td> <td> U+025B9 </td> <td> <span class="glyph" title="">▹</span> </td> </tr>
-     *       <tr id="entity-trianglerighteq"><td> <code title="">trianglerighteq;</code> </td> <td> U+022B5 </td> <td> <span class="glyph" title="">⊵</span> </td> </tr>
-     *       <tr id="entity-tridot"><td> <code title="">tridot;</code> </td> <td> U+025EC </td> <td> <span class="glyph" title="">◬</span> </td> </tr>
-     *       <tr id="entity-trie"><td> <code title="">trie;</code> </td> <td> U+0225C </td> <td> <span class="glyph" title="">≜</span> </td> </tr>
-     *       <tr id="entity-triminus"><td> <code title="">triminus;</code> </td> <td> U+02A3A </td> <td> <span class="glyph" title="">⨺</span> </td> </tr>
-     *       <tr id="entity-TripleDot"><td> <code title="">TripleDot;</code> </td> <td> U+020DB </td> <td> <span class="glyph composition" title="">◌⃛</span> </td> </tr>
-     *       <tr id="entity-triplus"><td> <code title="">triplus;</code> </td> <td> U+02A39 </td> <td> <span class="glyph" title="">⨹</span> </td> </tr>
-     *       <tr id="entity-trisb"><td> <code title="">trisb;</code> </td> <td> U+029CD </td> <td> <span class="glyph" title="">⧍</span> </td> </tr>
-     *       <tr id="entity-tritime"><td> <code title="">tritime;</code> </td> <td> U+02A3B </td> <td> <span class="glyph" title="">⨻</span> </td> </tr>
-     *       <tr id="entity-trpezium"><td> <code title="">trpezium;</code> </td> <td> U+023E2 </td> <td> <span class="glyph" title="">⏢</span> </td> </tr>
-     *       <tr id="entity-Tscr"><td> <code title="">Tscr;</code> </td> <td> U+1D4AF </td> <td> <span class="glyph" title="">𝒯</span> </td> </tr>
-     *       <tr id="entity-tscr"><td> <code title="">tscr;</code> </td> <td> U+1D4C9 </td> <td> <span class="glyph" title="">𝓉</span> </td> </tr>
-     *       <tr id="entity-TScy"><td> <code title="">TScy;</code> </td> <td> U+00426 </td> <td> <span class="glyph" title="">Ц</span> </td> </tr>
-     *       <tr id="entity-tscy"><td> <code title="">tscy;</code> </td> <td> U+00446 </td> <td> <span class="glyph" title="">ц</span> </td> </tr>
-     *       <tr id="entity-TSHcy"><td> <code title="">TSHcy;</code> </td> <td> U+0040B </td> <td> <span class="glyph" title="">Ћ</span> </td> </tr>
-     *       <tr id="entity-tshcy"><td> <code title="">tshcy;</code> </td> <td> U+0045B </td> <td> <span class="glyph" title="">ћ</span> </td> </tr>
-     *       <tr id="entity-Tstrok"><td> <code title="">Tstrok;</code> </td> <td> U+00166 </td> <td> <span class="glyph" title="">Ŧ</span> </td> </tr>
-     *       <tr id="entity-tstrok"><td> <code title="">tstrok;</code> </td> <td> U+00167 </td> <td> <span class="glyph" title="">ŧ</span> </td> </tr>
-     *       <tr id="entity-twixt"><td> <code title="">twixt;</code> </td> <td> U+0226C </td> <td> <span class="glyph" title="">≬</span> </td> </tr>
-     *       <tr id="entity-twoheadleftarrow"><td> <code title="">twoheadleftarrow;</code> </td> <td> U+0219E </td> <td> <span class="glyph" title="">↞</span> </td> </tr>
-     *       <tr id="entity-twoheadrightarrow"><td> <code title="">twoheadrightarrow;</code> </td> <td> U+021A0 </td> <td> <span class="glyph" title="">↠</span> </td> </tr>
-     *       <tr id="entity-Uacute"><td> <code title="">Uacute;</code> </td> <td> U+000DA </td> <td> <span class="glyph" title="">Ú</span> </td> </tr>
-     *       <tr class="impl" id="entity-Uacute-legacy"><td> <code title="">Uacute</code> </td> <td> U+000DA </td> <td> <span title="">Ú</span> </td> </tr>
-     *       <tr id="entity-uacute"><td> <code title="">uacute;</code> </td> <td> U+000FA </td> <td> <span class="glyph" title="">ú</span> </td> </tr>
-     *       <tr class="impl" id="entity-uacute-legacy"><td> <code title="">uacute</code> </td> <td> U+000FA </td> <td> <span title="">ú</span> </td> </tr>
-     *       <tr id="entity-Uarr"><td> <code title="">Uarr;</code> </td> <td> U+0219F </td> <td> <span class="glyph" title="">↟</span> </td> </tr>
-     *       <tr id="entity-uArr"><td> <code title="">uArr;</code> </td> <td> U+021D1 </td> <td> <span class="glyph" title="">⇑</span> </td> </tr>
-     *       <tr id="entity-uarr"><td> <code title="">uarr;</code> </td> <td> U+02191 </td> <td> <span class="glyph" title="">↑</span> </td> </tr>
-     *       <tr id="entity-Uarrocir"><td> <code title="">Uarrocir;</code> </td> <td> U+02949 </td> <td> <span class="glyph" title="">⥉</span> </td> </tr>
-     *       <tr id="entity-Ubrcy"><td> <code title="">Ubrcy;</code> </td> <td> U+0040E </td> <td> <span class="glyph" title="">Ў</span> </td> </tr>
-     *       <tr id="entity-ubrcy"><td> <code title="">ubrcy;</code> </td> <td> U+0045E </td> <td> <span class="glyph" title="">ў</span> </td> </tr>
-     *       <tr id="entity-Ubreve"><td> <code title="">Ubreve;</code> </td> <td> U+0016C </td> <td> <span class="glyph" title="">Ŭ</span> </td> </tr>
-     *       <tr id="entity-ubreve"><td> <code title="">ubreve;</code> </td> <td> U+0016D </td> <td> <span class="glyph" title="">ŭ</span> </td> </tr>
-     *       <tr id="entity-Ucirc"><td> <code title="">Ucirc;</code> </td> <td> U+000DB </td> <td> <span class="glyph" title="">Û</span> </td> </tr>
-     *       <tr class="impl" id="entity-Ucirc-legacy"><td> <code title="">Ucirc</code> </td> <td> U+000DB </td> <td> <span title="">Û</span> </td> </tr>
-     *       <tr id="entity-ucirc"><td> <code title="">ucirc;</code> </td> <td> U+000FB </td> <td> <span class="glyph" title="">û</span> </td> </tr>
-     *       <tr class="impl" id="entity-ucirc-legacy"><td> <code title="">ucirc</code> </td> <td> U+000FB </td> <td> <span title="">û</span> </td> </tr>
-     *       <tr id="entity-Ucy"><td> <code title="">Ucy;</code> </td> <td> U+00423 </td> <td> <span class="glyph" title="">У</span> </td> </tr>
-     *       <tr id="entity-ucy"><td> <code title="">ucy;</code> </td> <td> U+00443 </td> <td> <span class="glyph" title="">у</span> </td> </tr>
-     *       <tr id="entity-udarr"><td> <code title="">udarr;</code> </td> <td> U+021C5 </td> <td> <span class="glyph" title="">⇅</span> </td> </tr>
-     *       <tr id="entity-Udblac"><td> <code title="">Udblac;</code> </td> <td> U+00170 </td> <td> <span class="glyph" title="">Ű</span> </td> </tr>
-     *       <tr id="entity-udblac"><td> <code title="">udblac;</code> </td> <td> U+00171 </td> <td> <span class="glyph" title="">ű</span> </td> </tr>
-     *       <tr id="entity-udhar"><td> <code title="">udhar;</code> </td> <td> U+0296E </td> <td> <span class="glyph" title="">⥮</span> </td> </tr>
-     *       <tr id="entity-ufisht"><td> <code title="">ufisht;</code> </td> <td> U+0297E </td> <td> <span class="glyph" title="">⥾</span> </td> </tr>
-     *       <tr id="entity-Ufr"><td> <code title="">Ufr;</code> </td> <td> U+1D518 </td> <td> <span class="glyph" title="">𝔘</span> </td> </tr>
-     *       <tr id="entity-ufr"><td> <code title="">ufr;</code> </td> <td> U+1D532 </td> <td> <span class="glyph" title="">𝔲</span> </td> </tr>
-     *       <tr id="entity-Ugrave"><td> <code title="">Ugrave;</code> </td> <td> U+000D9 </td> <td> <span class="glyph" title="">Ù</span> </td> </tr>
-     *       <tr class="impl" id="entity-Ugrave-legacy"><td> <code title="">Ugrave</code> </td> <td> U+000D9 </td> <td> <span title="">Ù</span> </td> </tr>
-     *       <tr id="entity-ugrave"><td> <code title="">ugrave;</code> </td> <td> U+000F9 </td> <td> <span class="glyph" title="">ù</span> </td> </tr>
-     *       <tr class="impl" id="entity-ugrave-legacy"><td> <code title="">ugrave</code> </td> <td> U+000F9 </td> <td> <span title="">ù</span> </td> </tr>
-     *       <tr id="entity-uHar"><td> <code title="">uHar;</code> </td> <td> U+02963 </td> <td> <span class="glyph" title="">⥣</span> </td> </tr>
-     *       <tr id="entity-uharl"><td> <code title="">uharl;</code> </td> <td> U+021BF </td> <td> <span class="glyph" title="">↿</span> </td> </tr>
-     *       <tr id="entity-uharr"><td> <code title="">uharr;</code> </td> <td> U+021BE </td> <td> <span class="glyph" title="">↾</span> </td> </tr>
-     *       <tr id="entity-uhblk"><td> <code title="">uhblk;</code> </td> <td> U+02580 </td> <td> <span class="glyph" title="">▀</span> </td> </tr>
-     *       <tr id="entity-ulcorn"><td> <code title="">ulcorn;</code> </td> <td> U+0231C </td> <td> <span class="glyph" title="">⌜</span> </td> </tr>
-     *       <tr id="entity-ulcorner"><td> <code title="">ulcorner;</code> </td> <td> U+0231C </td> <td> <span class="glyph" title="">⌜</span> </td> </tr>
-     *       <tr id="entity-ulcrop"><td> <code title="">ulcrop;</code> </td> <td> U+0230F </td> <td> <span class="glyph" title="">⌏</span> </td> </tr>
-     *       <tr id="entity-ultri"><td> <code title="">ultri;</code> </td> <td> U+025F8 </td> <td> <span class="glyph" title="">◸</span> </td> </tr>
-     *       <tr id="entity-Umacr"><td> <code title="">Umacr;</code> </td> <td> U+0016A </td> <td> <span class="glyph" title="">Ū</span> </td> </tr>
-     *       <tr id="entity-umacr"><td> <code title="">umacr;</code> </td> <td> U+0016B </td> <td> <span class="glyph" title="">ū</span> </td> </tr>
-     *       <tr id="entity-uml"><td> <code title="">uml;</code> </td> <td> U+000A8 </td> <td> <span class="glyph" title="">¨</span> </td> </tr>
-     *       <tr class="impl" id="entity-uml-legacy"><td> <code title="">uml</code> </td> <td> U+000A8 </td> <td> <span title="">¨</span> </td> </tr>
-     *       <tr id="entity-UnderBar"><td> <code title="">UnderBar;</code> </td> <td> U+0005F </td> <td> <span class="glyph" title="">_</span> </td> </tr>
-     *       <tr id="entity-UnderBrace"><td> <code title="">UnderBrace;</code> </td> <td> U+023DF </td> <td> <span class="glyph" title="">⏟</span> </td> </tr>
-     *       <tr id="entity-UnderBracket"><td> <code title="">UnderBracket;</code> </td> <td> U+023B5 </td> <td> <span class="glyph" title="">⎵</span> </td> </tr>
-     *       <tr id="entity-UnderParenthesis"><td> <code title="">UnderParenthesis;</code> </td> <td> U+023DD </td> <td> <span class="glyph" title="">⏝</span> </td> </tr>
-     *       <tr id="entity-Union"><td> <code title="">Union;</code> </td> <td> U+022C3 </td> <td> <span class="glyph" title="">⋃</span> </td> </tr>
-     *       <tr id="entity-UnionPlus"><td> <code title="">UnionPlus;</code> </td> <td> U+0228E </td> <td> <span class="glyph" title="">⊎</span> </td> </tr>
-     *       <tr id="entity-Uogon"><td> <code title="">Uogon;</code> </td> <td> U+00172 </td> <td> <span class="glyph" title="">Ų</span> </td> </tr>
-     *       <tr id="entity-uogon"><td> <code title="">uogon;</code> </td> <td> U+00173 </td> <td> <span class="glyph" title="">ų</span> </td> </tr>
-     *       <tr id="entity-Uopf"><td> <code title="">Uopf;</code> </td> <td> U+1D54C </td> <td> <span class="glyph" title="">𝕌</span> </td> </tr>
-     *       <tr id="entity-uopf"><td> <code title="">uopf;</code> </td> <td> U+1D566 </td> <td> <span class="glyph" title="">𝕦</span> </td> </tr>
-     *       <tr id="entity-UpArrow"><td> <code title="">UpArrow;</code> </td> <td> U+02191 </td> <td> <span class="glyph" title="">↑</span> </td> </tr>
-     *       <tr id="entity-Uparrow"><td> <code title="">Uparrow;</code> </td> <td> U+021D1 </td> <td> <span class="glyph" title="">⇑</span> </td> </tr>
-     *       <tr id="entity-uparrow"><td> <code title="">uparrow;</code> </td> <td> U+02191 </td> <td> <span class="glyph" title="">↑</span> </td> </tr>
-     *       <tr id="entity-UpArrowBar"><td> <code title="">UpArrowBar;</code> </td> <td> U+02912 </td> <td> <span class="glyph" title="">⤒</span> </td> </tr>
-     *       <tr id="entity-UpArrowDownArrow"><td> <code title="">UpArrowDownArrow;</code> </td> <td> U+021C5 </td> <td> <span class="glyph" title="">⇅</span> </td> </tr>
-     *       <tr id="entity-UpDownArrow"><td> <code title="">UpDownArrow;</code> </td> <td> U+02195 </td> <td> <span class="glyph" title="">↕</span> </td> </tr>
-     *       <tr id="entity-Updownarrow"><td> <code title="">Updownarrow;</code> </td> <td> U+021D5 </td> <td> <span class="glyph" title="">⇕</span> </td> </tr>
-     *       <tr id="entity-updownarrow"><td> <code title="">updownarrow;</code> </td> <td> U+02195 </td> <td> <span class="glyph" title="">↕</span> </td> </tr>
-     *       <tr id="entity-UpEquilibrium"><td> <code title="">UpEquilibrium;</code> </td> <td> U+0296E </td> <td> <span class="glyph" title="">⥮</span> </td> </tr>
-     *       <tr id="entity-upharpoonleft"><td> <code title="">upharpoonleft;</code> </td> <td> U+021BF </td> <td> <span class="glyph" title="">↿</span> </td> </tr>
-     *       <tr id="entity-upharpoonright"><td> <code title="">upharpoonright;</code> </td> <td> U+021BE </td> <td> <span class="glyph" title="">↾</span> </td> </tr>
-     *       <tr id="entity-uplus"><td> <code title="">uplus;</code> </td> <td> U+0228E </td> <td> <span class="glyph" title="">⊎</span> </td> </tr>
-     *       <tr id="entity-UpperLeftArrow"><td> <code title="">UpperLeftArrow;</code> </td> <td> U+02196 </td> <td> <span class="glyph" title="">↖</span> </td> </tr>
-     *       <tr id="entity-UpperRightArrow"><td> <code title="">UpperRightArrow;</code> </td> <td> U+02197 </td> <td> <span class="glyph" title="">↗</span> </td> </tr>
-     *       <tr id="entity-Upsi"><td> <code title="">Upsi;</code> </td> <td> U+003D2 </td> <td> <span class="glyph" title="">ϒ</span> </td> </tr>
-     *       <tr id="entity-upsi"><td> <code title="">upsi;</code> </td> <td> U+003C5 </td> <td> <span class="glyph" title="">υ</span> </td> </tr>
-     *       <tr id="entity-upsih"><td> <code title="">upsih;</code> </td> <td> U+003D2 </td> <td> <span class="glyph" title="">ϒ</span> </td> </tr>
-     *       <tr id="entity-Upsilon"><td> <code title="">Upsilon;</code> </td> <td> U+003A5 </td> <td> <span class="glyph" title="">Υ</span> </td> </tr>
-     *       <tr id="entity-upsilon"><td> <code title="">upsilon;</code> </td> <td> U+003C5 </td> <td> <span class="glyph" title="">υ</span> </td> </tr>
-     *       <tr id="entity-UpTee"><td> <code title="">UpTee;</code> </td> <td> U+022A5 </td> <td> <span class="glyph" title="">⊥</span> </td> </tr>
-     *       <tr id="entity-UpTeeArrow"><td> <code title="">UpTeeArrow;</code> </td> <td> U+021A5 </td> <td> <span class="glyph" title="">↥</span> </td> </tr>
-     *       <tr id="entity-upuparrows"><td> <code title="">upuparrows;</code> </td> <td> U+021C8 </td> <td> <span class="glyph" title="">⇈</span> </td> </tr>
-     *       <tr id="entity-urcorn"><td> <code title="">urcorn;</code> </td> <td> U+0231D </td> <td> <span class="glyph" title="">⌝</span> </td> </tr>
-     *       <tr id="entity-urcorner"><td> <code title="">urcorner;</code> </td> <td> U+0231D </td> <td> <span class="glyph" title="">⌝</span> </td> </tr>
-     *       <tr id="entity-urcrop"><td> <code title="">urcrop;</code> </td> <td> U+0230E </td> <td> <span class="glyph" title="">⌎</span> </td> </tr>
-     *       <tr id="entity-Uring"><td> <code title="">Uring;</code> </td> <td> U+0016E </td> <td> <span class="glyph" title="">Ů</span> </td> </tr>
-     *       <tr id="entity-uring"><td> <code title="">uring;</code> </td> <td> U+0016F </td> <td> <span class="glyph" title="">ů</span> </td> </tr>
-     *       <tr id="entity-urtri"><td> <code title="">urtri;</code> </td> <td> U+025F9 </td> <td> <span class="glyph" title="">◹</span> </td> </tr>
-     *       <tr id="entity-Uscr"><td> <code title="">Uscr;</code> </td> <td> U+1D4B0 </td> <td> <span class="glyph" title="">𝒰</span> </td> </tr>
-     *       <tr id="entity-uscr"><td> <code title="">uscr;</code> </td> <td> U+1D4CA </td> <td> <span class="glyph" title="">𝓊</span> </td> </tr>
-     *       <tr id="entity-utdot"><td> <code title="">utdot;</code> </td> <td> U+022F0 </td> <td> <span class="glyph" title="">⋰</span> </td> </tr>
-     *       <tr id="entity-Utilde"><td> <code title="">Utilde;</code> </td> <td> U+00168 </td> <td> <span class="glyph" title="">Ũ</span> </td> </tr>
-     *       <tr id="entity-utilde"><td> <code title="">utilde;</code> </td> <td> U+00169 </td> <td> <span class="glyph" title="">ũ</span> </td> </tr>
-     *       <tr id="entity-utri"><td> <code title="">utri;</code> </td> <td> U+025B5 </td> <td> <span class="glyph" title="">▵</span> </td> </tr>
-     *       <tr id="entity-utrif"><td> <code title="">utrif;</code> </td> <td> U+025B4 </td> <td> <span class="glyph" title="">▴</span> </td> </tr>
-     *       <tr id="entity-uuarr"><td> <code title="">uuarr;</code> </td> <td> U+021C8 </td> <td> <span class="glyph" title="">⇈</span> </td> </tr>
-     *       <tr id="entity-Uuml"><td> <code title="">Uuml;</code> </td> <td> U+000DC </td> <td> <span class="glyph" title="">Ü</span> </td> </tr>
-     *       <tr class="impl" id="entity-Uuml-legacy"><td> <code title="">Uuml</code> </td> <td> U+000DC </td> <td> <span title="">Ü</span> </td> </tr>
-     *       <tr id="entity-uuml"><td> <code title="">uuml;</code> </td> <td> U+000FC </td> <td> <span class="glyph" title="">ü</span> </td> </tr>
-     *       <tr class="impl" id="entity-uuml-legacy"><td> <code title="">uuml</code> </td> <td> U+000FC </td> <td> <span title="">ü</span> </td> </tr>
-     *       <tr id="entity-uwangle"><td> <code title="">uwangle;</code> </td> <td> U+029A7 </td> <td> <span class="glyph" title="">⦧</span> </td> </tr>
-     *       <tr id="entity-vangrt"><td> <code title="">vangrt;</code> </td> <td> U+0299C </td> <td> <span class="glyph" title="">⦜</span> </td> </tr>
-     *       <tr id="entity-varepsilon"><td> <code title="">varepsilon;</code> </td> <td> U+003F5 </td> <td> <span class="glyph" title="">ϵ</span> </td> </tr>
-     *       <tr id="entity-varkappa"><td> <code title="">varkappa;</code> </td> <td> U+003F0 </td> <td> <span class="glyph" title="">ϰ</span> </td> </tr>
-     *       <tr id="entity-varnothing"><td> <code title="">varnothing;</code> </td> <td> U+02205 </td> <td> <span class="glyph" title="">∅</span> </td> </tr>
-     *       <tr id="entity-varphi"><td> <code title="">varphi;</code> </td> <td> U+003D5 </td> <td> <span class="glyph" title="">ϕ</span> </td> </tr>
-     *       <tr id="entity-varpi"><td> <code title="">varpi;</code> </td> <td> U+003D6 </td> <td> <span class="glyph" title="">ϖ</span> </td> </tr>
-     *       <tr id="entity-varpropto"><td> <code title="">varpropto;</code> </td> <td> U+0221D </td> <td> <span class="glyph" title="">∝</span> </td> </tr>
-     *       <tr id="entity-vArr"><td> <code title="">vArr;</code> </td> <td> U+021D5 </td> <td> <span class="glyph" title="">⇕</span> </td> </tr>
-     *       <tr id="entity-varr"><td> <code title="">varr;</code> </td> <td> U+02195 </td> <td> <span class="glyph" title="">↕</span> </td> </tr>
-     *       <tr id="entity-varrho"><td> <code title="">varrho;</code> </td> <td> U+003F1 </td> <td> <span class="glyph" title="">ϱ</span> </td> </tr>
-     *       <tr id="entity-varsigma"><td> <code title="">varsigma;</code> </td> <td> U+003C2 </td> <td> <span class="glyph" title="">ς</span> </td> </tr>
-     *       <tr id="entity-varsubsetneq"><td> <code title="">varsubsetneq;</code> </td> <td> U+0228A U+0FE00 </td> <td> <span class="glyph compound" title="">⊊︀</span> </td> </tr>
-     *       <tr id="entity-varsubsetneqq"><td> <code title="">varsubsetneqq;</code> </td> <td> U+02ACB U+0FE00 </td> <td> <span class="glyph compound" title="">⫋︀</span> </td> </tr>
-     *       <tr id="entity-varsupsetneq"><td> <code title="">varsupsetneq;</code> </td> <td> U+0228B U+0FE00 </td> <td> <span class="glyph compound" title="">⊋︀</span> </td> </tr>
-     *       <tr id="entity-varsupsetneqq"><td> <code title="">varsupsetneqq;</code> </td> <td> U+02ACC U+0FE00 </td> <td> <span class="glyph compound" title="">⫌︀</span> </td> </tr>
-     *       <tr id="entity-vartheta"><td> <code title="">vartheta;</code> </td> <td> U+003D1 </td> <td> <span class="glyph" title="">ϑ</span> </td> </tr>
-     *       <tr id="entity-vartriangleleft"><td> <code title="">vartriangleleft;</code> </td> <td> U+022B2 </td> <td> <span class="glyph" title="">⊲</span> </td> </tr>
-     *       <tr id="entity-vartriangleright"><td> <code title="">vartriangleright;</code> </td> <td> U+022B3 </td> <td> <span class="glyph" title="">⊳</span> </td> </tr>
-     *       <tr id="entity-Vbar"><td> <code title="">Vbar;</code> </td> <td> U+02AEB </td> <td> <span class="glyph" title="">⫫</span> </td> </tr>
-     *       <tr id="entity-vBar"><td> <code title="">vBar;</code> </td> <td> U+02AE8 </td> <td> <span class="glyph" title="">⫨</span> </td> </tr>
-     *       <tr id="entity-vBarv"><td> <code title="">vBarv;</code> </td> <td> U+02AE9 </td> <td> <span class="glyph" title="">⫩</span> </td> </tr>
-     *       <tr id="entity-Vcy"><td> <code title="">Vcy;</code> </td> <td> U+00412 </td> <td> <span class="glyph" title="">В</span> </td> </tr>
-     *       <tr id="entity-vcy"><td> <code title="">vcy;</code> </td> <td> U+00432 </td> <td> <span class="glyph" title="">в</span> </td> </tr>
-     *       <tr id="entity-VDash"><td> <code title="">VDash;</code> </td> <td> U+022AB </td> <td> <span class="glyph" title="">⊫</span> </td> </tr>
-     *       <tr id="entity-Vdash"><td> <code title="">Vdash;</code> </td> <td> U+022A9 </td> <td> <span class="glyph" title="">⊩</span> </td> </tr>
-     *       <tr id="entity-vDash"><td> <code title="">vDash;</code> </td> <td> U+022A8 </td> <td> <span class="glyph" title="">⊨</span> </td> </tr>
-     *       <tr id="entity-vdash"><td> <code title="">vdash;</code> </td> <td> U+022A2 </td> <td> <span class="glyph" title="">⊢</span> </td> </tr>
-     *       <tr id="entity-Vdashl"><td> <code title="">Vdashl;</code> </td> <td> U+02AE6 </td> <td> <span class="glyph" title="">⫦</span> </td> </tr>
-     *       <tr id="entity-Vee"><td> <code title="">Vee;</code> </td> <td> U+022C1 </td> <td> <span class="glyph" title="">⋁</span> </td> </tr>
-     *       <tr id="entity-vee"><td> <code title="">vee;</code> </td> <td> U+02228 </td> <td> <span class="glyph" title="">∨</span> </td> </tr>
-     *       <tr id="entity-veebar"><td> <code title="">veebar;</code> </td> <td> U+022BB </td> <td> <span class="glyph" title="">⊻</span> </td> </tr>
-     *       <tr id="entity-veeeq"><td> <code title="">veeeq;</code> </td> <td> U+0225A </td> <td> <span class="glyph" title="">≚</span> </td> </tr>
-     *       <tr id="entity-vellip"><td> <code title="">vellip;</code> </td> <td> U+022EE </td> <td> <span class="glyph" title="">⋮</span> </td> </tr>
-     *       <tr id="entity-Verbar"><td> <code title="">Verbar;</code> </td> <td> U+02016 </td> <td> <span class="glyph" title="">‖</span> </td> </tr>
-     *       <tr id="entity-verbar"><td> <code title="">verbar;</code> </td> <td> U+0007C </td> <td> <span class="glyph" title="">|</span> </td> </tr>
-     *       <tr id="entity-Vert"><td> <code title="">Vert;</code> </td> <td> U+02016 </td> <td> <span class="glyph" title="">‖</span> </td> </tr>
-     *       <tr id="entity-vert"><td> <code title="">vert;</code> </td> <td> U+0007C </td> <td> <span class="glyph" title="">|</span> </td> </tr>
-     *       <tr id="entity-VerticalBar"><td> <code title="">VerticalBar;</code> </td> <td> U+02223 </td> <td> <span class="glyph" title="">∣</span> </td> </tr>
-     *       <tr id="entity-VerticalLine"><td> <code title="">VerticalLine;</code> </td> <td> U+0007C </td> <td> <span class="glyph" title="">|</span> </td> </tr>
-     *       <tr id="entity-VerticalSeparator"><td> <code title="">VerticalSeparator;</code> </td> <td> U+02758 </td> <td> <span class="glyph" title="">❘</span> </td> </tr>
-     *       <tr id="entity-VerticalTilde"><td> <code title="">VerticalTilde;</code> </td> <td> U+02240 </td> <td> <span class="glyph" title="">≀</span> </td> </tr>
-     *       <tr id="entity-VeryThinSpace"><td> <code title="">VeryThinSpace;</code> </td> <td> U+0200A </td> <td> <span class="glyph" title=""> </span> </td> </tr>
-     *       <tr id="entity-Vfr"><td> <code title="">Vfr;</code> </td> <td> U+1D519 </td> <td> <span class="glyph" title="">𝔙</span> </td> </tr>
-     *       <tr id="entity-vfr"><td> <code title="">vfr;</code> </td> <td> U+1D533 </td> <td> <span class="glyph" title="">𝔳</span> </td> </tr>
-     *       <tr id="entity-vltri"><td> <code title="">vltri;</code> </td> <td> U+022B2 </td> <td> <span class="glyph" title="">⊲</span> </td> </tr>
-     *       <tr id="entity-vnsub"><td> <code title="">vnsub;</code> </td> <td> U+02282 U+020D2 </td> <td> <span class="glyph compound" title="">⊂⃒</span> </td> </tr>
-     *       <tr id="entity-vnsup"><td> <code title="">vnsup;</code> </td> <td> U+02283 U+020D2 </td> <td> <span class="glyph compound" title="">⊃⃒</span> </td> </tr>
-     *       <tr id="entity-Vopf"><td> <code title="">Vopf;</code> </td> <td> U+1D54D </td> <td> <span class="glyph" title="">𝕍</span> </td> </tr>
-     *       <tr id="entity-vopf"><td> <code title="">vopf;</code> </td> <td> U+1D567 </td> <td> <span class="glyph" title="">𝕧</span> </td> </tr>
-     *       <tr id="entity-vprop"><td> <code title="">vprop;</code> </td> <td> U+0221D </td> <td> <span class="glyph" title="">∝</span> </td> </tr>
-     *       <tr id="entity-vrtri"><td> <code title="">vrtri;</code> </td> <td> U+022B3 </td> <td> <span class="glyph" title="">⊳</span> </td> </tr>
-     *       <tr id="entity-Vscr"><td> <code title="">Vscr;</code> </td> <td> U+1D4B1 </td> <td> <span class="glyph" title="">𝒱</span> </td> </tr>
-     *       <tr id="entity-vscr"><td> <code title="">vscr;</code> </td> <td> U+1D4CB </td> <td> <span class="glyph" title="">𝓋</span> </td> </tr>
-     *       <tr id="entity-vsubnE"><td> <code title="">vsubnE;</code> </td> <td> U+02ACB U+0FE00 </td> <td> <span class="glyph compound" title="">⫋︀</span> </td> </tr>
-     *       <tr id="entity-vsubne"><td> <code title="">vsubne;</code> </td> <td> U+0228A U+0FE00 </td> <td> <span class="glyph compound" title="">⊊︀</span> </td> </tr>
-     *       <tr id="entity-vsupnE"><td> <code title="">vsupnE;</code> </td> <td> U+02ACC U+0FE00 </td> <td> <span class="glyph compound" title="">⫌︀</span> </td> </tr>
-     *       <tr id="entity-vsupne"><td> <code title="">vsupne;</code> </td> <td> U+0228B U+0FE00 </td> <td> <span class="glyph compound" title="">⊋︀</span> </td> </tr>
-     *       <tr id="entity-Vvdash"><td> <code title="">Vvdash;</code> </td> <td> U+022AA </td> <td> <span class="glyph" title="">⊪</span> </td> </tr>
-     *       <tr id="entity-vzigzag"><td> <code title="">vzigzag;</code> </td> <td> U+0299A </td> <td> <span class="glyph" title="">⦚</span> </td> </tr>
-     *       <tr id="entity-Wcirc"><td> <code title="">Wcirc;</code> </td> <td> U+00174 </td> <td> <span class="glyph" title="">Ŵ</span> </td> </tr>
-     *       <tr id="entity-wcirc"><td> <code title="">wcirc;</code> </td> <td> U+00175 </td> <td> <span class="glyph" title="">ŵ</span> </td> </tr>
-     *       <tr id="entity-wedbar"><td> <code title="">wedbar;</code> </td> <td> U+02A5F </td> <td> <span class="glyph" title="">⩟</span> </td> </tr>
-     *       <tr id="entity-Wedge"><td> <code title="">Wedge;</code> </td> <td> U+022C0 </td> <td> <span class="glyph" title="">⋀</span> </td> </tr>
-     *       <tr id="entity-wedge"><td> <code title="">wedge;</code> </td> <td> U+02227 </td> <td> <span class="glyph" title="">∧</span> </td> </tr>
-     *       <tr id="entity-wedgeq"><td> <code title="">wedgeq;</code> </td> <td> U+02259 </td> <td> <span class="glyph" title="">≙</span> </td> </tr>
-     *       <tr id="entity-weierp"><td> <code title="">weierp;</code> </td> <td> U+02118 </td> <td> <span class="glyph" title="">℘</span> </td> </tr>
-     *       <tr id="entity-Wfr"><td> <code title="">Wfr;</code> </td> <td> U+1D51A </td> <td> <span class="glyph" title="">𝔚</span> </td> </tr>
-     *       <tr id="entity-wfr"><td> <code title="">wfr;</code> </td> <td> U+1D534 </td> <td> <span class="glyph" title="">𝔴</span> </td> </tr>
-     *       <tr id="entity-Wopf"><td> <code title="">Wopf;</code> </td> <td> U+1D54E </td> <td> <span class="glyph" title="">𝕎</span> </td> </tr>
-     *       <tr id="entity-wopf"><td> <code title="">wopf;</code> </td> <td> U+1D568 </td> <td> <span class="glyph" title="">𝕨</span> </td> </tr>
-     *       <tr id="entity-wp"><td> <code title="">wp;</code> </td> <td> U+02118 </td> <td> <span class="glyph" title="">℘</span> </td> </tr>
-     *       <tr id="entity-wr"><td> <code title="">wr;</code> </td> <td> U+02240 </td> <td> <span class="glyph" title="">≀</span> </td> </tr>
-     *       <tr id="entity-wreath"><td> <code title="">wreath;</code> </td> <td> U+02240 </td> <td> <span class="glyph" title="">≀</span> </td> </tr>
-     *       <tr id="entity-Wscr"><td> <code title="">Wscr;</code> </td> <td> U+1D4B2 </td> <td> <span class="glyph" title="">𝒲</span> </td> </tr>
-     *       <tr id="entity-wscr"><td> <code title="">wscr;</code> </td> <td> U+1D4CC </td> <td> <span class="glyph" title="">𝓌</span> </td> </tr>
-     *       <tr id="entity-xcap"><td> <code title="">xcap;</code> </td> <td> U+022C2 </td> <td> <span class="glyph" title="">⋂</span> </td> </tr>
-     *       <tr id="entity-xcirc"><td> <code title="">xcirc;</code> </td> <td> U+025EF </td> <td> <span class="glyph" title="">◯</span> </td> </tr>
-     *       <tr id="entity-xcup"><td> <code title="">xcup;</code> </td> <td> U+022C3 </td> <td> <span class="glyph" title="">⋃</span> </td> </tr>
-     *       <tr id="entity-xdtri"><td> <code title="">xdtri;</code> </td> <td> U+025BD </td> <td> <span class="glyph" title="">▽</span> </td> </tr>
-     *       <tr id="entity-Xfr"><td> <code title="">Xfr;</code> </td> <td> U+1D51B </td> <td> <span class="glyph" title="">𝔛</span> </td> </tr>
-     *       <tr id="entity-xfr"><td> <code title="">xfr;</code> </td> <td> U+1D535 </td> <td> <span class="glyph" title="">𝔵</span> </td> </tr>
-     *       <tr id="entity-xhArr"><td> <code title="">xhArr;</code> </td> <td> U+027FA </td> <td> <span class="glyph" title="">⟺</span> </td> </tr>
-     *       <tr id="entity-xharr"><td> <code title="">xharr;</code> </td> <td> U+027F7 </td> <td> <span class="glyph" title="">⟷</span> </td> </tr>
-     *       <tr id="entity-Xi"><td> <code title="">Xi;</code> </td> <td> U+0039E </td> <td> <span class="glyph" title="">Ξ</span> </td> </tr>
-     *       <tr id="entity-xi"><td> <code title="">xi;</code> </td> <td> U+003BE </td> <td> <span class="glyph" title="">ξ</span> </td> </tr>
-     *       <tr id="entity-xlArr"><td> <code title="">xlArr;</code> </td> <td> U+027F8 </td> <td> <span class="glyph" title="">⟸</span> </td> </tr>
-     *       <tr id="entity-xlarr"><td> <code title="">xlarr;</code> </td> <td> U+027F5 </td> <td> <span class="glyph" title="">⟵</span> </td> </tr>
-     *       <tr id="entity-xmap"><td> <code title="">xmap;</code> </td> <td> U+027FC </td> <td> <span class="glyph" title="">⟼</span> </td> </tr>
-     *       <tr id="entity-xnis"><td> <code title="">xnis;</code> </td> <td> U+022FB </td> <td> <span class="glyph" title="">⋻</span> </td> </tr>
-     *       <tr id="entity-xodot"><td> <code title="">xodot;</code> </td> <td> U+02A00 </td> <td> <span class="glyph" title="">⨀</span> </td> </tr>
-     *       <tr id="entity-Xopf"><td> <code title="">Xopf;</code> </td> <td> U+1D54F </td> <td> <span class="glyph" title="">𝕏</span> </td> </tr>
-     *       <tr id="entity-xopf"><td> <code title="">xopf;</code> </td> <td> U+1D569 </td> <td> <span class="glyph" title="">𝕩</span> </td> </tr>
-     *       <tr id="entity-xoplus"><td> <code title="">xoplus;</code> </td> <td> U+02A01 </td> <td> <span class="glyph" title="">⨁</span> </td> </tr>
-     *       <tr id="entity-xotime"><td> <code title="">xotime;</code> </td> <td> U+02A02 </td> <td> <span class="glyph" title="">⨂</span> </td> </tr>
-     *       <tr id="entity-xrArr"><td> <code title="">xrArr;</code> </td> <td> U+027F9 </td> <td> <span class="glyph" title="">⟹</span> </td> </tr>
-     *       <tr id="entity-xrarr"><td> <code title="">xrarr;</code> </td> <td> U+027F6 </td> <td> <span class="glyph" title="">⟶</span> </td> </tr>
-     *       <tr id="entity-Xscr"><td> <code title="">Xscr;</code> </td> <td> U+1D4B3 </td> <td> <span class="glyph" title="">𝒳</span> </td> </tr>
-     *       <tr id="entity-xscr"><td> <code title="">xscr;</code> </td> <td> U+1D4CD </td> <td> <span class="glyph" title="">𝓍</span> </td> </tr>
-     *       <tr id="entity-xsqcup"><td> <code title="">xsqcup;</code> </td> <td> U+02A06 </td> <td> <span class="glyph" title="">⨆</span> </td> </tr>
-     *       <tr id="entity-xuplus"><td> <code title="">xuplus;</code> </td> <td> U+02A04 </td> <td> <span class="glyph" title="">⨄</span> </td> </tr>
-     *       <tr id="entity-xutri"><td> <code title="">xutri;</code> </td> <td> U+025B3 </td> <td> <span class="glyph" title="">△</span> </td> </tr>
-     *       <tr id="entity-xvee"><td> <code title="">xvee;</code> </td> <td> U+022C1 </td> <td> <span class="glyph" title="">⋁</span> </td> </tr>
-     *       <tr id="entity-xwedge"><td> <code title="">xwedge;</code> </td> <td> U+022C0 </td> <td> <span class="glyph" title="">⋀</span> </td> </tr>
-     *       <tr id="entity-Yacute"><td> <code title="">Yacute;</code> </td> <td> U+000DD </td> <td> <span class="glyph" title="">Ý</span> </td> </tr>
-     *       <tr class="impl" id="entity-Yacute-legacy"><td> <code title="">Yacute</code> </td> <td> U+000DD </td> <td> <span title="">Ý</span> </td> </tr>
-     *       <tr id="entity-yacute"><td> <code title="">yacute;</code> </td> <td> U+000FD </td> <td> <span class="glyph" title="">ý</span> </td> </tr>
-     *       <tr class="impl" id="entity-yacute-legacy"><td> <code title="">yacute</code> </td> <td> U+000FD </td> <td> <span title="">ý</span> </td> </tr>
-     *       <tr id="entity-YAcy"><td> <code title="">YAcy;</code> </td> <td> U+0042F </td> <td> <span class="glyph" title="">Я</span> </td> </tr>
-     *       <tr id="entity-yacy"><td> <code title="">yacy;</code> </td> <td> U+0044F </td> <td> <span class="glyph" title="">я</span> </td> </tr>
-     *       <tr id="entity-Ycirc"><td> <code title="">Ycirc;</code> </td> <td> U+00176 </td> <td> <span class="glyph" title="">Ŷ</span> </td> </tr>
-     *       <tr id="entity-ycirc"><td> <code title="">ycirc;</code> </td> <td> U+00177 </td> <td> <span class="glyph" title="">ŷ</span> </td> </tr>
-     *       <tr id="entity-Ycy"><td> <code title="">Ycy;</code> </td> <td> U+0042B </td> <td> <span class="glyph" title="">Ы</span> </td> </tr>
-     *       <tr id="entity-ycy"><td> <code title="">ycy;</code> </td> <td> U+0044B </td> <td> <span class="glyph" title="">ы</span> </td> </tr>
-     *       <tr id="entity-yen"><td> <code title="">yen;</code> </td> <td> U+000A5 </td> <td> <span class="glyph" title="">¥</span> </td> </tr>
-     *       <tr class="impl" id="entity-yen-legacy"><td> <code title="">yen</code> </td> <td> U+000A5 </td> <td> <span title="">¥</span> </td> </tr>
-     *       <tr id="entity-Yfr"><td> <code title="">Yfr;</code> </td> <td> U+1D51C </td> <td> <span class="glyph" title="">𝔜</span> </td> </tr>
-     *       <tr id="entity-yfr"><td> <code title="">yfr;</code> </td> <td> U+1D536 </td> <td> <span class="glyph" title="">𝔶</span> </td> </tr>
-     *       <tr id="entity-YIcy"><td> <code title="">YIcy;</code> </td> <td> U+00407 </td> <td> <span class="glyph" title="">Ї</span> </td> </tr>
-     *       <tr id="entity-yicy"><td> <code title="">yicy;</code> </td> <td> U+00457 </td> <td> <span class="glyph" title="">ї</span> </td> </tr>
-     *       <tr id="entity-Yopf"><td> <code title="">Yopf;</code> </td> <td> U+1D550 </td> <td> <span class="glyph" title="">𝕐</span> </td> </tr>
-     *       <tr id="entity-yopf"><td> <code title="">yopf;</code> </td> <td> U+1D56A </td> <td> <span class="glyph" title="">𝕪</span> </td> </tr>
-     *       <tr id="entity-Yscr"><td> <code title="">Yscr;</code> </td> <td> U+1D4B4 </td> <td> <span class="glyph" title="">𝒴</span> </td> </tr>
-     *       <tr id="entity-yscr"><td> <code title="">yscr;</code> </td> <td> U+1D4CE </td> <td> <span class="glyph" title="">𝓎</span> </td> </tr>
-     *       <tr id="entity-YUcy"><td> <code title="">YUcy;</code> </td> <td> U+0042E </td> <td> <span class="glyph" title="">Ю</span> </td> </tr>
-     *       <tr id="entity-yucy"><td> <code title="">yucy;</code> </td> <td> U+0044E </td> <td> <span class="glyph" title="">ю</span> </td> </tr>
-     *       <tr id="entity-Yuml"><td> <code title="">Yuml;</code> </td> <td> U+00178 </td> <td> <span class="glyph" title="">Ÿ</span> </td> </tr>
-     *       <tr id="entity-yuml"><td> <code title="">yuml;</code> </td> <td> U+000FF </td> <td> <span class="glyph" title="">ÿ</span> </td> </tr>
-     *       <tr class="impl" id="entity-yuml-legacy"><td> <code title="">yuml</code> </td> <td> U+000FF </td> <td> <span title="">ÿ</span> </td> </tr>
-     *       <tr id="entity-Zacute"><td> <code title="">Zacute;</code> </td> <td> U+00179 </td> <td> <span class="glyph" title="">Ź</span> </td> </tr>
-     *       <tr id="entity-zacute"><td> <code title="">zacute;</code> </td> <td> U+0017A </td> <td> <span class="glyph" title="">ź</span> </td> </tr>
-     *       <tr id="entity-Zcaron"><td> <code title="">Zcaron;</code> </td> <td> U+0017D </td> <td> <span class="glyph" title="">Ž</span> </td> </tr>
-     *       <tr id="entity-zcaron"><td> <code title="">zcaron;</code> </td> <td> U+0017E </td> <td> <span class="glyph" title="">ž</span> </td> </tr>
-     *       <tr id="entity-Zcy"><td> <code title="">Zcy;</code> </td> <td> U+00417 </td> <td> <span class="glyph" title="">З</span> </td> </tr>
-     *       <tr id="entity-zcy"><td> <code title="">zcy;</code> </td> <td> U+00437 </td> <td> <span class="glyph" title="">з</span> </td> </tr>
-     *       <tr id="entity-Zdot"><td> <code title="">Zdot;</code> </td> <td> U+0017B </td> <td> <span class="glyph" title="">Ż</span> </td> </tr>
-     *       <tr id="entity-zdot"><td> <code title="">zdot;</code> </td> <td> U+0017C </td> <td> <span class="glyph" title="">ż</span> </td> </tr>
-     *       <tr id="entity-zeetrf"><td> <code title="">zeetrf;</code> </td> <td> U+02128 </td> <td> <span class="glyph" title="">ℨ</span> </td> </tr>
-     *       <tr id="entity-ZeroWidthSpace"><td> <code title="">ZeroWidthSpace;</code> </td> <td> U+0200B </td> <td> <span class="glyph" title="">​</span> </td> </tr>
-     *       <tr id="entity-Zeta"><td> <code title="">Zeta;</code> </td> <td> U+00396 </td> <td> <span class="glyph" title="">Ζ</span> </td> </tr>
-     *       <tr id="entity-zeta"><td> <code title="">zeta;</code> </td> <td> U+003B6 </td> <td> <span class="glyph" title="">ζ</span> </td> </tr>
-     *       <tr id="entity-Zfr"><td> <code title="">Zfr;</code> </td> <td> U+02128 </td> <td> <span class="glyph" title="">ℨ</span> </td> </tr>
-     *       <tr id="entity-zfr"><td> <code title="">zfr;</code> </td> <td> U+1D537 </td> <td> <span class="glyph" title="">𝔷</span> </td> </tr>
-     *       <tr id="entity-ZHcy"><td> <code title="">ZHcy;</code> </td> <td> U+00416 </td> <td> <span class="glyph" title="">Ж</span> </td> </tr>
-     *       <tr id="entity-zhcy"><td> <code title="">zhcy;</code> </td> <td> U+00436 </td> <td> <span class="glyph" title="">ж</span> </td> </tr>
-     *       <tr id="entity-zigrarr"><td> <code title="">zigrarr;</code> </td> <td> U+021DD </td> <td> <span class="glyph" title="">⇝</span> </td> </tr>
-     *       <tr id="entity-Zopf"><td> <code title="">Zopf;</code> </td> <td> U+02124 </td> <td> <span class="glyph" title="">ℤ</span> </td> </tr>
-     *       <tr id="entity-zopf"><td> <code title="">zopf;</code> </td> <td> U+1D56B </td> <td> <span class="glyph" title="">𝕫</span> </td> </tr>
-     *       <tr id="entity-Zscr"><td> <code title="">Zscr;</code> </td> <td> U+1D4B5 </td> <td> <span class="glyph" title="">𝒵</span> </td> </tr>
-     *       <tr id="entity-zscr"><td> <code title="">zscr;</code> </td> <td> U+1D4CF </td> <td> <span class="glyph" title="">𝓏</span> </td> </tr>
-     *       <tr id="entity-zwj"><td> <code title="">zwj;</code> </td> <td> U+0200D </td> <td> <span class="glyph" title="">‍</span> </td> </tr>
-     *       <tr id="entity-zwnj"><td> <code title="">zwnj;</code> </td> <td> U+0200C </td> <td> <span class="glyph" title="">‌</span> </td> </tr>
-     *     </tbody>
-     *   </table>
-     * </div>
-     * <p>This data is also available <a href="entities.json">as a JSON file</a>.</p>
+     * <table>
+     *   <thead>
+     *     <tr><th>Name</th><th>Character(s)</th><th>Glyph</th></tr>
+     *   </thead>
+     *   <tbody>
+     *     <tr><td><code>Aacute;</code></td><td>U+000C1</td><td>Á</td></tr>
+     *     <tr><td><code>Aacute</code></td><td>U+000C1</td><td>Á</td></tr>
+     *     <tr><td><code>aacute;</code></td><td>U+000E1</td><td>á</td></tr>
+     *     <tr><td><code>aacute</code></td><td>U+000E1</td><td>á</td></tr>
+     *     <tr><td><code>Abreve;</code></td><td>U+00102</td><td>Ă</td></tr>
+     *     <tr><td><code>abreve;</code></td><td>U+00103</td><td>ă</td></tr>
+     *     <tr><td><code>ac;</code></td><td>U+0223E</td><td>∾</td></tr>
+     *     <tr><td><code>acd;</code></td><td>U+0223F</td><td>∿</td></tr>
+     *     <tr><td><code>acE;</code></td><td>U+0223E U+00333</td><td>∾̳</td></tr>
+     *     <tr><td><code>Acirc;</code></td><td>U+000C2</td><td>Â</td></tr>
+     *     <tr><td><code>Acirc</code></td><td>U+000C2</td><td>Â</td></tr>
+     *     <tr><td><code>acirc;</code></td><td>U+000E2</td><td>â</td></tr>
+     *     <tr><td><code>acirc</code></td><td>U+000E2</td><td>â</td></tr>
+     *     <tr><td><code>acute;</code></td><td>U+000B4</td><td>´</td></tr>
+     *     <tr><td><code>acute</code></td><td>U+000B4</td><td>´</td></tr>
+     *     <tr><td><code>Acy;</code></td><td>U+00410</td><td>А</td></tr>
+     *     <tr><td><code>acy;</code></td><td>U+00430</td><td>а</td></tr>
+     *     <tr><td><code>AElig;</code></td><td>U+000C6</td><td>Æ</td></tr>
+     *     <tr><td><code>AElig</code></td><td>U+000C6</td><td>Æ</td></tr>
+     *     <tr><td><code>aelig;</code></td><td>U+000E6</td><td>æ</td></tr>
+     *     <tr><td><code>aelig</code></td><td>U+000E6</td><td>æ</td></tr>
+     *     <tr><td><code>af;</code></td><td>U+02061</td><td>⁡</td></tr>
+     *     <tr><td><code>Afr;</code></td><td>U+1D504</td><td>𝔄</td></tr>
+     *     <tr><td><code>afr;</code></td><td>U+1D51E</td><td>𝔞</td></tr>
+     *     <tr><td><code>Agrave;</code></td><td>U+000C0</td><td>À</td></tr>
+     *     <tr><td><code>Agrave</code></td><td>U+000C0</td><td>À</td></tr>
+     *     <tr><td><code>agrave;</code></td><td>U+000E0</td><td>à</td></tr>
+     *     <tr><td><code>agrave</code></td><td>U+000E0</td><td>à</td></tr>
+     *     <tr><td><code>alefsym;</code></td><td>U+02135</td><td>ℵ</td></tr>
+     *     <tr><td><code>aleph;</code></td><td>U+02135</td><td>ℵ</td></tr>
+     *     <tr><td><code>Alpha;</code></td><td>U+00391</td><td>Α</td></tr>
+     *     <tr><td><code>alpha;</code></td><td>U+003B1</td><td>α</td></tr>
+     *     <tr><td><code>Amacr;</code></td><td>U+00100</td><td>Ā</td></tr>
+     *     <tr><td><code>amacr;</code></td><td>U+00101</td><td>ā</td></tr>
+     *     <tr><td><code>amalg;</code></td><td>U+02A3F</td><td>⨿</td></tr>
+     *     <tr><td><code>AMP;</code></td><td>U+00026</td><td>&amp;</td></tr>
+     *     <tr><td><code>AMP</code></td><td>U+00026</td><td>&amp;</td></tr>
+     *     <tr><td><code>amp;</code></td><td>U+00026</td><td>&amp;</td></tr>
+     *     <tr><td><code>amp</code></td><td>U+00026</td><td>&amp;</td></tr>
+     *     <tr><td><code>And;</code></td><td>U+02A53</td><td>⩓</td></tr>
+     *     <tr><td><code>and;</code></td><td>U+02227</td><td>∧</td></tr>
+     *     <tr><td><code>andand;</code></td><td>U+02A55</td><td>⩕</td></tr>
+     *     <tr><td><code>andd;</code></td><td>U+02A5C</td><td>⩜</td></tr>
+     *     <tr><td><code>andslope;</code></td><td>U+02A58</td><td>⩘</td></tr>
+     *     <tr><td><code>andv;</code></td><td>U+02A5A</td><td>⩚</td></tr>
+     *     <tr><td><code>ang;</code></td><td>U+02220</td><td>∠</td></tr>
+     *     <tr><td><code>ange;</code></td><td>U+029A4</td><td>⦤</td></tr>
+     *     <tr><td><code>angle;</code></td><td>U+02220</td><td>∠</td></tr>
+     *     <tr><td><code>angmsd;</code></td><td>U+02221</td><td>∡</td></tr>
+     *     <tr><td><code>angmsdaa;</code></td><td>U+029A8</td><td>⦨</td></tr>
+     *     <tr><td><code>angmsdab;</code></td><td>U+029A9</td><td>⦩</td></tr>
+     *     <tr><td><code>angmsdac;</code></td><td>U+029AA</td><td>⦪</td></tr>
+     *     <tr><td><code>angmsdad;</code></td><td>U+029AB</td><td>⦫</td></tr>
+     *     <tr><td><code>angmsdae;</code></td><td>U+029AC</td><td>⦬</td></tr>
+     *     <tr><td><code>angmsdaf;</code></td><td>U+029AD</td><td>⦭</td></tr>
+     *     <tr><td><code>angmsdag;</code></td><td>U+029AE</td><td>⦮</td></tr>
+     *     <tr><td><code>angmsdah;</code></td><td>U+029AF</td><td>⦯</td></tr>
+     *     <tr><td><code>angrt;</code></td><td>U+0221F</td><td>∟</td></tr>
+     *     <tr><td><code>angrtvb;</code></td><td>U+022BE</td><td>⊾</td></tr>
+     *     <tr><td><code>angrtvbd;</code></td><td>U+0299D</td><td>⦝</td></tr>
+     *     <tr><td><code>angsph;</code></td><td>U+02222</td><td>∢</td></tr>
+     *     <tr><td><code>angst;</code></td><td>U+000C5</td><td>Å</td></tr>
+     *     <tr><td><code>angzarr;</code></td><td>U+0237C</td><td>⍼</td></tr>
+     *     <tr><td><code>Aogon;</code></td><td>U+00104</td><td>Ą</td></tr>
+     *     <tr><td><code>aogon;</code></td><td>U+00105</td><td>ą</td></tr>
+     *     <tr><td><code>Aopf;</code></td><td>U+1D538</td><td>𝔸</td></tr>
+     *     <tr><td><code>aopf;</code></td><td>U+1D552</td><td>𝕒</td></tr>
+     *     <tr><td><code>ap;</code></td><td>U+02248</td><td>≈</td></tr>
+     *     <tr><td><code>apacir;</code></td><td>U+02A6F</td><td>⩯</td></tr>
+     *     <tr><td><code>apE;</code></td><td>U+02A70</td><td>⩰</td></tr>
+     *     <tr><td><code>ape;</code></td><td>U+0224A</td><td>≊</td></tr>
+     *     <tr><td><code>apid;</code></td><td>U+0224B</td><td>≋</td></tr>
+     *     <tr><td><code>apos;</code></td><td>U+00027</td><td>'</td></tr>
+     *     <tr><td><code>ApplyFunction;</code></td><td>U+02061</td><td>⁡</td></tr>
+     *     <tr><td><code>approx;</code></td><td>U+02248</td><td>≈</td></tr>
+     *     <tr><td><code>approxeq;</code></td><td>U+0224A</td><td>≊</td></tr>
+     *     <tr><td><code>Aring;</code></td><td>U+000C5</td><td>Å</td></tr>
+     *     <tr><td><code>Aring</code></td><td>U+000C5</td><td>Å</td></tr>
+     *     <tr><td><code>aring;</code></td><td>U+000E5</td><td>å</td></tr>
+     *     <tr><td><code>aring</code></td><td>U+000E5</td><td>å</td></tr>
+     *     <tr><td><code>Ascr;</code></td><td>U+1D49C</td><td>𝒜</td></tr>
+     *     <tr><td><code>ascr;</code></td><td>U+1D4B6</td><td>𝒶</td></tr>
+     *     <tr><td><code>Assign;</code></td><td>U+02254</td><td>≔</td></tr>
+     *     <tr><td><code>ast;</code></td><td>U+0002A</td><td>*</td></tr>
+     *     <tr><td><code>asymp;</code></td><td>U+02248</td><td>≈</td></tr>
+     *     <tr><td><code>asympeq;</code></td><td>U+0224D</td><td>≍</td></tr>
+     *     <tr><td><code>Atilde;</code></td><td>U+000C3</td><td>Ã</td></tr>
+     *     <tr><td><code>Atilde</code></td><td>U+000C3</td><td>Ã</td></tr>
+     *     <tr><td><code>atilde;</code></td><td>U+000E3</td><td>ã</td></tr>
+     *     <tr><td><code>atilde</code></td><td>U+000E3</td><td>ã</td></tr>
+     *     <tr><td><code>Auml;</code></td><td>U+000C4</td><td>Ä</td></tr>
+     *     <tr><td><code>Auml</code></td><td>U+000C4</td><td>Ä</td></tr>
+     *     <tr><td><code>auml;</code></td><td>U+000E4</td><td>ä</td></tr>
+     *     <tr><td><code>auml</code></td><td>U+000E4</td><td>ä</td></tr>
+     *     <tr><td><code>awconint;</code></td><td>U+02233</td><td>∳</td></tr>
+     *     <tr><td><code>awint;</code></td><td>U+02A11</td><td>⨑</td></tr>
+     *     <tr><td><code>backcong;</code></td><td>U+0224C</td><td>≌</td></tr>
+     *     <tr><td><code>backepsilon;</code></td><td>U+003F6</td><td>϶</td></tr>
+     *     <tr><td><code>backprime;</code></td><td>U+02035</td><td>‵</td></tr>
+     *     <tr><td><code>backsim;</code></td><td>U+0223D</td><td>∽</td></tr>
+     *     <tr><td><code>backsimeq;</code></td><td>U+022CD</td><td>⋍</td></tr>
+     *     <tr><td><code>Backslash;</code></td><td>U+02216</td><td>∖</td></tr>
+     *     <tr><td><code>Barv;</code></td><td>U+02AE7</td><td>⫧</td></tr>
+     *     <tr><td><code>barvee;</code></td><td>U+022BD</td><td>⊽</td></tr>
+     *     <tr><td><code>Barwed;</code></td><td>U+02306</td><td>⌆</td></tr>
+     *     <tr><td><code>barwed;</code></td><td>U+02305</td><td>⌅</td></tr>
+     *     <tr><td><code>barwedge;</code></td><td>U+02305</td><td>⌅</td></tr>
+     *     <tr><td><code>bbrk;</code></td><td>U+023B5</td><td>⎵</td></tr>
+     *     <tr><td><code>bbrktbrk;</code></td><td>U+023B6</td><td>⎶</td></tr>
+     *     <tr><td><code>bcong;</code></td><td>U+0224C</td><td>≌</td></tr>
+     *     <tr><td><code>Bcy;</code></td><td>U+00411</td><td>Б</td></tr>
+     *     <tr><td><code>bcy;</code></td><td>U+00431</td><td>б</td></tr>
+     *     <tr><td><code>bdquo;</code></td><td>U+0201E</td><td>„</td></tr>
+     *     <tr><td><code>becaus;</code></td><td>U+02235</td><td>∵</td></tr>
+     *     <tr><td><code>Because;</code></td><td>U+02235</td><td>∵</td></tr>
+     *     <tr><td><code>because;</code></td><td>U+02235</td><td>∵</td></tr>
+     *     <tr><td><code>bemptyv;</code></td><td>U+029B0</td><td>⦰</td></tr>
+     *     <tr><td><code>bepsi;</code></td><td>U+003F6</td><td>϶</td></tr>
+     *     <tr><td><code>bernou;</code></td><td>U+0212C</td><td>ℬ</td></tr>
+     *     <tr><td><code>Bernoullis;</code></td><td>U+0212C</td><td>ℬ</td></tr>
+     *     <tr><td><code>Beta;</code></td><td>U+00392</td><td>Β</td></tr>
+     *     <tr><td><code>beta;</code></td><td>U+003B2</td><td>β</td></tr>
+     *     <tr><td><code>beth;</code></td><td>U+02136</td><td>ℶ</td></tr>
+     *     <tr><td><code>between;</code></td><td>U+0226C</td><td>≬</td></tr>
+     *     <tr><td><code>Bfr;</code></td><td>U+1D505</td><td>𝔅</td></tr>
+     *     <tr><td><code>bfr;</code></td><td>U+1D51F</td><td>𝔟</td></tr>
+     *     <tr><td><code>bigcap;</code></td><td>U+022C2</td><td>⋂</td></tr>
+     *     <tr><td><code>bigcirc;</code></td><td>U+025EF</td><td>◯</td></tr>
+     *     <tr><td><code>bigcup;</code></td><td>U+022C3</td><td>⋃</td></tr>
+     *     <tr><td><code>bigodot;</code></td><td>U+02A00</td><td>⨀</td></tr>
+     *     <tr><td><code>bigoplus;</code></td><td>U+02A01</td><td>⨁</td></tr>
+     *     <tr><td><code>bigotimes;</code></td><td>U+02A02</td><td>⨂</td></tr>
+     *     <tr><td><code>bigsqcup;</code></td><td>U+02A06</td><td>⨆</td></tr>
+     *     <tr><td><code>bigstar;</code></td><td>U+02605</td><td>★</td></tr>
+     *     <tr><td><code>bigtriangledown;</code></td><td>U+025BD</td><td>▽</td></tr>
+     *     <tr><td><code>bigtriangleup;</code></td><td>U+025B3</td><td>△</td></tr>
+     *     <tr><td><code>biguplus;</code></td><td>U+02A04</td><td>⨄</td></tr>
+     *     <tr><td><code>bigvee;</code></td><td>U+022C1</td><td>⋁</td></tr>
+     *     <tr><td><code>bigwedge;</code></td><td>U+022C0</td><td>⋀</td></tr>
+     *     <tr><td><code>bkarow;</code></td><td>U+0290D</td><td>⤍</td></tr>
+     *     <tr><td><code>blacklozenge;</code></td><td>U+029EB</td><td>⧫</td></tr>
+     *     <tr><td><code>blacksquare;</code></td><td>U+025AA</td><td>▪</td></tr>
+     *     <tr><td><code>blacktriangle;</code></td><td>U+025B4</td><td>▴</td></tr>
+     *     <tr><td><code>blacktriangledown;</code></td><td>U+025BE</td><td>▾</td></tr>
+     *     <tr><td><code>blacktriangleleft;</code></td><td>U+025C2</td><td>◂</td></tr>
+     *     <tr><td><code>blacktriangleright;</code></td><td>U+025B8</td><td>▸</td></tr>
+     *     <tr><td><code>blank;</code></td><td>U+02423</td><td>␣</td></tr>
+     *     <tr><td><code>blk12;</code></td><td>U+02592</td><td>▒</td></tr>
+     *     <tr><td><code>blk14;</code></td><td>U+02591</td><td>░</td></tr>
+     *     <tr><td><code>blk34;</code></td><td>U+02593</td><td>▓</td></tr>
+     *     <tr><td><code>block;</code></td><td>U+02588</td><td>█</td></tr>
+     *     <tr><td><code>bne;</code></td><td>U+0003D U+020E5</td><td>=⃥</td></tr>
+     *     <tr><td><code>bnequiv;</code></td><td>U+02261 U+020E5</td><td>≡⃥</td></tr>
+     *     <tr><td><code>bNot;</code></td><td>U+02AED</td><td>⫭</td></tr>
+     *     <tr><td><code>bnot;</code></td><td>U+02310</td><td>⌐</td></tr>
+     *     <tr><td><code>Bopf;</code></td><td>U+1D539</td><td>𝔹</td></tr>
+     *     <tr><td><code>bopf;</code></td><td>U+1D553</td><td>𝕓</td></tr>
+     *     <tr><td><code>bot;</code></td><td>U+022A5</td><td>⊥</td></tr>
+     *     <tr><td><code>bottom;</code></td><td>U+022A5</td><td>⊥</td></tr>
+     *     <tr><td><code>bowtie;</code></td><td>U+022C8</td><td>⋈</td></tr>
+     *     <tr><td><code>boxbox;</code></td><td>U+029C9</td><td>⧉</td></tr>
+     *     <tr><td><code>boxDL;</code></td><td>U+02557</td><td>╗</td></tr>
+     *     <tr><td><code>boxDl;</code></td><td>U+02556</td><td>╖</td></tr>
+     *     <tr><td><code>boxdL;</code></td><td>U+02555</td><td>╕</td></tr>
+     *     <tr><td><code>boxdl;</code></td><td>U+02510</td><td>┐</td></tr>
+     *     <tr><td><code>boxDR;</code></td><td>U+02554</td><td>╔</td></tr>
+     *     <tr><td><code>boxDr;</code></td><td>U+02553</td><td>╓</td></tr>
+     *     <tr><td><code>boxdR;</code></td><td>U+02552</td><td>╒</td></tr>
+     *     <tr><td><code>boxdr;</code></td><td>U+0250C</td><td>┌</td></tr>
+     *     <tr><td><code>boxH;</code></td><td>U+02550</td><td>═</td></tr>
+     *     <tr><td><code>boxh;</code></td><td>U+02500</td><td>─</td></tr>
+     *     <tr><td><code>boxHD;</code></td><td>U+02566</td><td>╦</td></tr>
+     *     <tr><td><code>boxHd;</code></td><td>U+02564</td><td>╤</td></tr>
+     *     <tr><td><code>boxhD;</code></td><td>U+02565</td><td>╥</td></tr>
+     *     <tr><td><code>boxhd;</code></td><td>U+0252C</td><td>┬</td></tr>
+     *     <tr><td><code>boxHU;</code></td><td>U+02569</td><td>╩</td></tr>
+     *     <tr><td><code>boxHu;</code></td><td>U+02567</td><td>╧</td></tr>
+     *     <tr><td><code>boxhU;</code></td><td>U+02568</td><td>╨</td></tr>
+     *     <tr><td><code>boxhu;</code></td><td>U+02534</td><td>┴</td></tr>
+     *     <tr><td><code>boxminus;</code></td><td>U+0229F</td><td>⊟</td></tr>
+     *     <tr><td><code>boxplus;</code></td><td>U+0229E</td><td>⊞</td></tr>
+     *     <tr><td><code>boxtimes;</code></td><td>U+022A0</td><td>⊠</td></tr>
+     *     <tr><td><code>boxUL;</code></td><td>U+0255D</td><td>╝</td></tr>
+     *     <tr><td><code>boxUl;</code></td><td>U+0255C</td><td>╜</td></tr>
+     *     <tr><td><code>boxuL;</code></td><td>U+0255B</td><td>╛</td></tr>
+     *     <tr><td><code>boxul;</code></td><td>U+02518</td><td>┘</td></tr>
+     *     <tr><td><code>boxUR;</code></td><td>U+0255A</td><td>╚</td></tr>
+     *     <tr><td><code>boxUr;</code></td><td>U+02559</td><td>╙</td></tr>
+     *     <tr><td><code>boxuR;</code></td><td>U+02558</td><td>╘</td></tr>
+     *     <tr><td><code>boxur;</code></td><td>U+02514</td><td>└</td></tr>
+     *     <tr><td><code>boxV;</code></td><td>U+02551</td><td>║</td></tr>
+     *     <tr><td><code>boxv;</code></td><td>U+02502</td><td>│</td></tr>
+     *     <tr><td><code>boxVH;</code></td><td>U+0256C</td><td>╬</td></tr>
+     *     <tr><td><code>boxVh;</code></td><td>U+0256B</td><td>╫</td></tr>
+     *     <tr><td><code>boxvH;</code></td><td>U+0256A</td><td>╪</td></tr>
+     *     <tr><td><code>boxvh;</code></td><td>U+0253C</td><td>┼</td></tr>
+     *     <tr><td><code>boxVL;</code></td><td>U+02563</td><td>╣</td></tr>
+     *     <tr><td><code>boxVl;</code></td><td>U+02562</td><td>╢</td></tr>
+     *     <tr><td><code>boxvL;</code></td><td>U+02561</td><td>╡</td></tr>
+     *     <tr><td><code>boxvl;</code></td><td>U+02524</td><td>┤</td></tr>
+     *     <tr><td><code>boxVR;</code></td><td>U+02560</td><td>╠</td></tr>
+     *     <tr><td><code>boxVr;</code></td><td>U+0255F</td><td>╟</td></tr>
+     *     <tr><td><code>boxvR;</code></td><td>U+0255E</td><td>╞</td></tr>
+     *     <tr><td><code>boxvr;</code></td><td>U+0251C</td><td>├</td></tr>
+     *     <tr><td><code>bprime;</code></td><td>U+02035</td><td>‵</td></tr>
+     *     <tr><td><code>Breve;</code></td><td>U+002D8</td><td>˘</td></tr>
+     *     <tr><td><code>breve;</code></td><td>U+002D8</td><td>˘</td></tr>
+     *     <tr><td><code>brvbar;</code></td><td>U+000A6</td><td>¦</td></tr>
+     *     <tr><td><code>brvbar</code></td><td>U+000A6</td><td>¦</td></tr>
+     *     <tr><td><code>Bscr;</code></td><td>U+0212C</td><td>ℬ</td></tr>
+     *     <tr><td><code>bscr;</code></td><td>U+1D4B7</td><td>𝒷</td></tr>
+     *     <tr><td><code>bsemi;</code></td><td>U+0204F</td><td>⁏</td></tr>
+     *     <tr><td><code>bsim;</code></td><td>U+0223D</td><td>∽</td></tr>
+     *     <tr><td><code>bsime;</code></td><td>U+022CD</td><td>⋍</td></tr>
+     *     <tr><td><code>bsol;</code></td><td>U+0005C</td><td>\</td></tr>
+     *     <tr><td><code>bsolb;</code></td><td>U+029C5</td><td>⧅</td></tr>
+     *     <tr><td><code>bsolhsub;</code></td><td>U+027C8</td><td>⟈</td></tr>
+     *     <tr><td><code>bull;</code></td><td>U+02022</td><td>•</td></tr>
+     *     <tr><td><code>bullet;</code></td><td>U+02022</td><td>•</td></tr>
+     *     <tr><td><code>bump;</code></td><td>U+0224E</td><td>≎</td></tr>
+     *     <tr><td><code>bumpE;</code></td><td>U+02AAE</td><td>⪮</td></tr>
+     *     <tr><td><code>bumpe;</code></td><td>U+0224F</td><td>≏</td></tr>
+     *     <tr><td><code>Bumpeq;</code></td><td>U+0224E</td><td>≎</td></tr>
+     *     <tr><td><code>bumpeq;</code></td><td>U+0224F</td><td>≏</td></tr>
+     *     <tr><td><code>Cacute;</code></td><td>U+00106</td><td>Ć</td></tr>
+     *     <tr><td><code>cacute;</code></td><td>U+00107</td><td>ć</td></tr>
+     *     <tr><td><code>Cap;</code></td><td>U+022D2</td><td>⋒</td></tr>
+     *     <tr><td><code>cap;</code></td><td>U+02229</td><td>∩</td></tr>
+     *     <tr><td><code>capand;</code></td><td>U+02A44</td><td>⩄</td></tr>
+     *     <tr><td><code>capbrcup;</code></td><td>U+02A49</td><td>⩉</td></tr>
+     *     <tr><td><code>capcap;</code></td><td>U+02A4B</td><td>⩋</td></tr>
+     *     <tr><td><code>capcup;</code></td><td>U+02A47</td><td>⩇</td></tr>
+     *     <tr><td><code>capdot;</code></td><td>U+02A40</td><td>⩀</td></tr>
+     *     <tr><td><code>CapitalDifferentialD;</code></td><td>U+02145</td><td>ⅅ</td></tr>
+     *     <tr><td><code>caps;</code></td><td>U+02229 U+0FE00</td><td>∩︀</td></tr>
+     *     <tr><td><code>caret;</code></td><td>U+02041</td><td>⁁</td></tr>
+     *     <tr><td><code>caron;</code></td><td>U+002C7</td><td>ˇ</td></tr>
+     *     <tr><td><code>Cayleys;</code></td><td>U+0212D</td><td>ℭ</td></tr>
+     *     <tr><td><code>ccaps;</code></td><td>U+02A4D</td><td>⩍</td></tr>
+     *     <tr><td><code>Ccaron;</code></td><td>U+0010C</td><td>Č</td></tr>
+     *     <tr><td><code>ccaron;</code></td><td>U+0010D</td><td>č</td></tr>
+     *     <tr><td><code>Ccedil;</code></td><td>U+000C7</td><td>Ç</td></tr>
+     *     <tr><td><code>Ccedil</code></td><td>U+000C7</td><td>Ç</td></tr>
+     *     <tr><td><code>ccedil;</code></td><td>U+000E7</td><td>ç</td></tr>
+     *     <tr><td><code>ccedil</code></td><td>U+000E7</td><td>ç</td></tr>
+     *     <tr><td><code>Ccirc;</code></td><td>U+00108</td><td>Ĉ</td></tr>
+     *     <tr><td><code>ccirc;</code></td><td>U+00109</td><td>ĉ</td></tr>
+     *     <tr><td><code>Cconint;</code></td><td>U+02230</td><td>∰</td></tr>
+     *     <tr><td><code>ccups;</code></td><td>U+02A4C</td><td>⩌</td></tr>
+     *     <tr><td><code>ccupssm;</code></td><td>U+02A50</td><td>⩐</td></tr>
+     *     <tr><td><code>Cdot;</code></td><td>U+0010A</td><td>Ċ</td></tr>
+     *     <tr><td><code>cdot;</code></td><td>U+0010B</td><td>ċ</td></tr>
+     *     <tr><td><code>cedil;</code></td><td>U+000B8</td><td>¸</td></tr>
+     *     <tr><td><code>cedil</code></td><td>U+000B8</td><td>¸</td></tr>
+     *     <tr><td><code>Cedilla;</code></td><td>U+000B8</td><td>¸</td></tr>
+     *     <tr><td><code>cemptyv;</code></td><td>U+029B2</td><td>⦲</td></tr>
+     *     <tr><td><code>cent;</code></td><td>U+000A2</td><td>¢</td></tr>
+     *     <tr><td><code>cent</code></td><td>U+000A2</td><td>¢</td></tr>
+     *     <tr><td><code>CenterDot;</code></td><td>U+000B7</td><td>·</td></tr>
+     *     <tr><td><code>centerdot;</code></td><td>U+000B7</td><td>·</td></tr>
+     *     <tr><td><code>Cfr;</code></td><td>U+0212D</td><td>ℭ</td></tr>
+     *     <tr><td><code>cfr;</code></td><td>U+1D520</td><td>𝔠</td></tr>
+     *     <tr><td><code>CHcy;</code></td><td>U+00427</td><td>Ч</td></tr>
+     *     <tr><td><code>chcy;</code></td><td>U+00447</td><td>ч</td></tr>
+     *     <tr><td><code>check;</code></td><td>U+02713</td><td>✓</td></tr>
+     *     <tr><td><code>checkmark;</code></td><td>U+02713</td><td>✓</td></tr>
+     *     <tr><td><code>Chi;</code></td><td>U+003A7</td><td>Χ</td></tr>
+     *     <tr><td><code>chi;</code></td><td>U+003C7</td><td>χ</td></tr>
+     *     <tr><td><code>cir;</code></td><td>U+025CB</td><td>○</td></tr>
+     *     <tr><td><code>circ;</code></td><td>U+002C6</td><td>ˆ</td></tr>
+     *     <tr><td><code>circeq;</code></td><td>U+02257</td><td>≗</td></tr>
+     *     <tr><td><code>circlearrowleft;</code></td><td>U+021BA</td><td>↺</td></tr>
+     *     <tr><td><code>circlearrowright;</code></td><td>U+021BB</td><td>↻</td></tr>
+     *     <tr><td><code>circledast;</code></td><td>U+0229B</td><td>⊛</td></tr>
+     *     <tr><td><code>circledcirc;</code></td><td>U+0229A</td><td>⊚</td></tr>
+     *     <tr><td><code>circleddash;</code></td><td>U+0229D</td><td>⊝</td></tr>
+     *     <tr><td><code>CircleDot;</code></td><td>U+02299</td><td>⊙</td></tr>
+     *     <tr><td><code>circledR;</code></td><td>U+000AE</td><td>®</td></tr>
+     *     <tr><td><code>circledS;</code></td><td>U+024C8</td><td>Ⓢ</td></tr>
+     *     <tr><td><code>CircleMinus;</code></td><td>U+02296</td><td>⊖</td></tr>
+     *     <tr><td><code>CirclePlus;</code></td><td>U+02295</td><td>⊕</td></tr>
+     *     <tr><td><code>CircleTimes;</code></td><td>U+02297</td><td>⊗</td></tr>
+     *     <tr><td><code>cirE;</code></td><td>U+029C3</td><td>⧃</td></tr>
+     *     <tr><td><code>cire;</code></td><td>U+02257</td><td>≗</td></tr>
+     *     <tr><td><code>cirfnint;</code></td><td>U+02A10</td><td>⨐</td></tr>
+     *     <tr><td><code>cirmid;</code></td><td>U+02AEF</td><td>⫯</td></tr>
+     *     <tr><td><code>cirscir;</code></td><td>U+029C2</td><td>⧂</td></tr>
+     *     <tr><td><code>ClockwiseContourIntegral;</code></td><td>U+02232</td><td>∲</td></tr>
+     *     <tr><td><code>CloseCurlyDoubleQuote;</code></td><td>U+0201D</td><td>”</td></tr>
+     *     <tr><td><code>CloseCurlyQuote;</code></td><td>U+02019</td><td>’</td></tr>
+     *     <tr><td><code>clubs;</code></td><td>U+02663</td><td>♣</td></tr>
+     *     <tr><td><code>clubsuit;</code></td><td>U+02663</td><td>♣</td></tr>
+     *     <tr><td><code>Colon;</code></td><td>U+02237</td><td>∷</td></tr>
+     *     <tr><td><code>colon;</code></td><td>U+0003A</td><td>:</td></tr>
+     *     <tr><td><code>Colone;</code></td><td>U+02A74</td><td>⩴</td></tr>
+     *     <tr><td><code>colone;</code></td><td>U+02254</td><td>≔</td></tr>
+     *     <tr><td><code>coloneq;</code></td><td>U+02254</td><td>≔</td></tr>
+     *     <tr><td><code>comma;</code></td><td>U+0002C</td><td>,</td></tr>
+     *     <tr><td><code>commat;</code></td><td>U+00040</td><td>@</td></tr>
+     *     <tr><td><code>comp;</code></td><td>U+02201</td><td>∁</td></tr>
+     *     <tr><td><code>compfn;</code></td><td>U+02218</td><td>∘</td></tr>
+     *     <tr><td><code>complement;</code></td><td>U+02201</td><td>∁</td></tr>
+     *     <tr><td><code>complexes;</code></td><td>U+02102</td><td>ℂ</td></tr>
+     *     <tr><td><code>cong;</code></td><td>U+02245</td><td>≅</td></tr>
+     *     <tr><td><code>congdot;</code></td><td>U+02A6D</td><td>⩭</td></tr>
+     *     <tr><td><code>Congruent;</code></td><td>U+02261</td><td>≡</td></tr>
+     *     <tr><td><code>Conint;</code></td><td>U+0222F</td><td>∯</td></tr>
+     *     <tr><td><code>conint;</code></td><td>U+0222E</td><td>∮</td></tr>
+     *     <tr><td><code>ContourIntegral;</code></td><td>U+0222E</td><td>∮</td></tr>
+     *     <tr><td><code>Copf;</code></td><td>U+02102</td><td>ℂ</td></tr>
+     *     <tr><td><code>copf;</code></td><td>U+1D554</td><td>𝕔</td></tr>
+     *     <tr><td><code>coprod;</code></td><td>U+02210</td><td>∐</td></tr>
+     *     <tr><td><code>Coproduct;</code></td><td>U+02210</td><td>∐</td></tr>
+     *     <tr><td><code>COPY;</code></td><td>U+000A9</td><td>©</td></tr>
+     *     <tr><td><code>COPY</code></td><td>U+000A9</td><td>©</td></tr>
+     *     <tr><td><code>copy;</code></td><td>U+000A9</td><td>©</td></tr>
+     *     <tr><td><code>copy</code></td><td>U+000A9</td><td>©</td></tr>
+     *     <tr><td><code>copysr;</code></td><td>U+02117</td><td>℗</td></tr>
+     *     <tr><td><code>CounterClockwiseContourIntegral;</code></td><td>U+02233</td><td>∳</td></tr>
+     *     <tr><td><code>crarr;</code></td><td>U+021B5</td><td>↵</td></tr>
+     *     <tr><td><code>Cross;</code></td><td>U+02A2F</td><td>⨯</td></tr>
+     *     <tr><td><code>cross;</code></td><td>U+02717</td><td>✗</td></tr>
+     *     <tr><td><code>Cscr;</code></td><td>U+1D49E</td><td>𝒞</td></tr>
+     *     <tr><td><code>cscr;</code></td><td>U+1D4B8</td><td>𝒸</td></tr>
+     *     <tr><td><code>csub;</code></td><td>U+02ACF</td><td>⫏</td></tr>
+     *     <tr><td><code>csube;</code></td><td>U+02AD1</td><td>⫑</td></tr>
+     *     <tr><td><code>csup;</code></td><td>U+02AD0</td><td>⫐</td></tr>
+     *     <tr><td><code>csupe;</code></td><td>U+02AD2</td><td>⫒</td></tr>
+     *     <tr><td><code>ctdot;</code></td><td>U+022EF</td><td>⋯</td></tr>
+     *     <tr><td><code>cudarrl;</code></td><td>U+02938</td><td>⤸</td></tr>
+     *     <tr><td><code>cudarrr;</code></td><td>U+02935</td><td>⤵</td></tr>
+     *     <tr><td><code>cuepr;</code></td><td>U+022DE</td><td>⋞</td></tr>
+     *     <tr><td><code>cuesc;</code></td><td>U+022DF</td><td>⋟</td></tr>
+     *     <tr><td><code>cularr;</code></td><td>U+021B6</td><td>↶</td></tr>
+     *     <tr><td><code>cularrp;</code></td><td>U+0293D</td><td>⤽</td></tr>
+     *     <tr><td><code>Cup;</code></td><td>U+022D3</td><td>⋓</td></tr>
+     *     <tr><td><code>cup;</code></td><td>U+0222A</td><td>∪</td></tr>
+     *     <tr><td><code>cupbrcap;</code></td><td>U+02A48</td><td>⩈</td></tr>
+     *     <tr><td><code>CupCap;</code></td><td>U+0224D</td><td>≍</td></tr>
+     *     <tr><td><code>cupcap;</code></td><td>U+02A46</td><td>⩆</td></tr>
+     *     <tr><td><code>cupcup;</code></td><td>U+02A4A</td><td>⩊</td></tr>
+     *     <tr><td><code>cupdot;</code></td><td>U+0228D</td><td>⊍</td></tr>
+     *     <tr><td><code>cupor;</code></td><td>U+02A45</td><td>⩅</td></tr>
+     *     <tr><td><code>cups;</code></td><td>U+0222A U+0FE00</td><td>∪︀</td></tr>
+     *     <tr><td><code>curarr;</code></td><td>U+021B7</td><td>↷</td></tr>
+     *     <tr><td><code>curarrm;</code></td><td>U+0293C</td><td>⤼</td></tr>
+     *     <tr><td><code>curlyeqprec;</code></td><td>U+022DE</td><td>⋞</td></tr>
+     *     <tr><td><code>curlyeqsucc;</code></td><td>U+022DF</td><td>⋟</td></tr>
+     *     <tr><td><code>curlyvee;</code></td><td>U+022CE</td><td>⋎</td></tr>
+     *     <tr><td><code>curlywedge;</code></td><td>U+022CF</td><td>⋏</td></tr>
+     *     <tr><td><code>curren;</code></td><td>U+000A4</td><td>¤</td></tr>
+     *     <tr><td><code>curren</code></td><td>U+000A4</td><td>¤</td></tr>
+     *     <tr><td><code>curvearrowleft;</code></td><td>U+021B6</td><td>↶</td></tr>
+     *     <tr><td><code>curvearrowright;</code></td><td>U+021B7</td><td>↷</td></tr>
+     *     <tr><td><code>cuvee;</code></td><td>U+022CE</td><td>⋎</td></tr>
+     *     <tr><td><code>cuwed;</code></td><td>U+022CF</td><td>⋏</td></tr>
+     *     <tr><td><code>cwconint;</code></td><td>U+02232</td><td>∲</td></tr>
+     *     <tr><td><code>cwint;</code></td><td>U+02231</td><td>∱</td></tr>
+     *     <tr><td><code>cylcty;</code></td><td>U+0232D</td><td>⌭</td></tr>
+     *     <tr><td><code>Dagger;</code></td><td>U+02021</td><td>‡</td></tr>
+     *     <tr><td><code>dagger;</code></td><td>U+02020</td><td>†</td></tr>
+     *     <tr><td><code>daleth;</code></td><td>U+02138</td><td>ℸ</td></tr>
+     *     <tr><td><code>Darr;</code></td><td>U+021A1</td><td>↡</td></tr>
+     *     <tr><td><code>dArr;</code></td><td>U+021D3</td><td>⇓</td></tr>
+     *     <tr><td><code>darr;</code></td><td>U+02193</td><td>↓</td></tr>
+     *     <tr><td><code>dash;</code></td><td>U+02010</td><td>‐</td></tr>
+     *     <tr><td><code>Dashv;</code></td><td>U+02AE4</td><td>⫤</td></tr>
+     *     <tr><td><code>dashv;</code></td><td>U+022A3</td><td>⊣</td></tr>
+     *     <tr><td><code>dbkarow;</code></td><td>U+0290F</td><td>⤏</td></tr>
+     *     <tr><td><code>dblac;</code></td><td>U+002DD</td><td>˝</td></tr>
+     *     <tr><td><code>Dcaron;</code></td><td>U+0010E</td><td>Ď</td></tr>
+     *     <tr><td><code>dcaron;</code></td><td>U+0010F</td><td>ď</td></tr>
+     *     <tr><td><code>Dcy;</code></td><td>U+00414</td><td>Д</td></tr>
+     *     <tr><td><code>dcy;</code></td><td>U+00434</td><td>д</td></tr>
+     *     <tr><td><code>DD;</code></td><td>U+02145</td><td>ⅅ</td></tr>
+     *     <tr><td><code>dd;</code></td><td>U+02146</td><td>ⅆ</td></tr>
+     *     <tr><td><code>ddagger;</code></td><td>U+02021</td><td>‡</td></tr>
+     *     <tr><td><code>ddarr;</code></td><td>U+021CA</td><td>⇊</td></tr>
+     *     <tr><td><code>DDotrahd;</code></td><td>U+02911</td><td>⤑</td></tr>
+     *     <tr><td><code>ddotseq;</code></td><td>U+02A77</td><td>⩷</td></tr>
+     *     <tr><td><code>deg;</code></td><td>U+000B0</td><td>°</td></tr>
+     *     <tr><td><code>deg</code></td><td>U+000B0</td><td>°</td></tr>
+     *     <tr><td><code>Del;</code></td><td>U+02207</td><td>∇</td></tr>
+     *     <tr><td><code>Delta;</code></td><td>U+00394</td><td>Δ</td></tr>
+     *     <tr><td><code>delta;</code></td><td>U+003B4</td><td>δ</td></tr>
+     *     <tr><td><code>demptyv;</code></td><td>U+029B1</td><td>⦱</td></tr>
+     *     <tr><td><code>dfisht;</code></td><td>U+0297F</td><td>⥿</td></tr>
+     *     <tr><td><code>Dfr;</code></td><td>U+1D507</td><td>𝔇</td></tr>
+     *     <tr><td><code>dfr;</code></td><td>U+1D521</td><td>𝔡</td></tr>
+     *     <tr><td><code>dHar;</code></td><td>U+02965</td><td>⥥</td></tr>
+     *     <tr><td><code>dharl;</code></td><td>U+021C3</td><td>⇃</td></tr>
+     *     <tr><td><code>dharr;</code></td><td>U+021C2</td><td>⇂</td></tr>
+     *     <tr><td><code>DiacriticalAcute;</code></td><td>U+000B4</td><td>´</td></tr>
+     *     <tr><td><code>DiacriticalDot;</code></td><td>U+002D9</td><td>˙</td></tr>
+     *     <tr><td><code>DiacriticalDoubleAcute;</code></td><td>U+002DD</td><td>˝</td></tr>
+     *     <tr><td><code>DiacriticalGrave;</code></td><td>U+00060</td><td>`</td></tr>
+     *     <tr><td><code>DiacriticalTilde;</code></td><td>U+002DC</td><td>˜</td></tr>
+     *     <tr><td><code>diam;</code></td><td>U+022C4</td><td>⋄</td></tr>
+     *     <tr><td><code>Diamond;</code></td><td>U+022C4</td><td>⋄</td></tr>
+     *     <tr><td><code>diamond;</code></td><td>U+022C4</td><td>⋄</td></tr>
+     *     <tr><td><code>diamondsuit;</code></td><td>U+02666</td><td>♦</td></tr>
+     *     <tr><td><code>diams;</code></td><td>U+02666</td><td>♦</td></tr>
+     *     <tr><td><code>die;</code></td><td>U+000A8</td><td>¨</td></tr>
+     *     <tr><td><code>DifferentialD;</code></td><td>U+02146</td><td>ⅆ</td></tr>
+     *     <tr><td><code>digamma;</code></td><td>U+003DD</td><td>ϝ</td></tr>
+     *     <tr><td><code>disin;</code></td><td>U+022F2</td><td>⋲</td></tr>
+     *     <tr><td><code>div;</code></td><td>U+000F7</td><td>÷</td></tr>
+     *     <tr><td><code>divide;</code></td><td>U+000F7</td><td>÷</td></tr>
+     *     <tr><td><code>divide</code></td><td>U+000F7</td><td>÷</td></tr>
+     *     <tr><td><code>divideontimes;</code></td><td>U+022C7</td><td>⋇</td></tr>
+     *     <tr><td><code>divonx;</code></td><td>U+022C7</td><td>⋇</td></tr>
+     *     <tr><td><code>DJcy;</code></td><td>U+00402</td><td>Ђ</td></tr>
+     *     <tr><td><code>djcy;</code></td><td>U+00452</td><td>ђ</td></tr>
+     *     <tr><td><code>dlcorn;</code></td><td>U+0231E</td><td>⌞</td></tr>
+     *     <tr><td><code>dlcrop;</code></td><td>U+0230D</td><td>⌍</td></tr>
+     *     <tr><td><code>dollar;</code></td><td>U+00024</td><td>$</td></tr>
+     *     <tr><td><code>Dopf;</code></td><td>U+1D53B</td><td>𝔻</td></tr>
+     *     <tr><td><code>dopf;</code></td><td>U+1D555</td><td>𝕕</td></tr>
+     *     <tr><td><code>Dot;</code></td><td>U+000A8</td><td>¨</td></tr>
+     *     <tr><td><code>dot;</code></td><td>U+002D9</td><td>˙</td></tr>
+     *     <tr><td><code>DotDot;</code></td><td>U+020DC</td><td>◌⃜</td></tr>
+     *     <tr><td><code>doteq;</code></td><td>U+02250</td><td>≐</td></tr>
+     *     <tr><td><code>doteqdot;</code></td><td>U+02251</td><td>≑</td></tr>
+     *     <tr><td><code>DotEqual;</code></td><td>U+02250</td><td>≐</td></tr>
+     *     <tr><td><code>dotminus;</code></td><td>U+02238</td><td>∸</td></tr>
+     *     <tr><td><code>dotplus;</code></td><td>U+02214</td><td>∔</td></tr>
+     *     <tr><td><code>dotsquare;</code></td><td>U+022A1</td><td>⊡</td></tr>
+     *     <tr><td><code>doublebarwedge;</code></td><td>U+02306</td><td>⌆</td></tr>
+     *     <tr><td><code>DoubleContourIntegral;</code></td><td>U+0222F</td><td>∯</td></tr>
+     *     <tr><td><code>DoubleDot;</code></td><td>U+000A8</td><td>¨</td></tr>
+     *     <tr><td><code>DoubleDownArrow;</code></td><td>U+021D3</td><td>⇓</td></tr>
+     *     <tr><td><code>DoubleLeftArrow;</code></td><td>U+021D0</td><td>⇐</td></tr>
+     *     <tr><td><code>DoubleLeftRightArrow;</code></td><td>U+021D4</td><td>⇔</td></tr>
+     *     <tr><td><code>DoubleLeftTee;</code></td><td>U+02AE4</td><td>⫤</td></tr>
+     *     <tr><td><code>DoubleLongLeftArrow;</code></td><td>U+027F8</td><td>⟸</td></tr>
+     *     <tr><td><code>DoubleLongLeftRightArrow;</code></td><td>U+027FA</td><td>⟺</td></tr>
+     *     <tr><td><code>DoubleLongRightArrow;</code></td><td>U+027F9</td><td>⟹</td></tr>
+     *     <tr><td><code>DoubleRightArrow;</code></td><td>U+021D2</td><td>⇒</td></tr>
+     *     <tr><td><code>DoubleRightTee;</code></td><td>U+022A8</td><td>⊨</td></tr>
+     *     <tr><td><code>DoubleUpArrow;</code></td><td>U+021D1</td><td>⇑</td></tr>
+     *     <tr><td><code>DoubleUpDownArrow;</code></td><td>U+021D5</td><td>⇕</td></tr>
+     *     <tr><td><code>DoubleVerticalBar;</code></td><td>U+02225</td><td>∥</td></tr>
+     *     <tr><td><code>DownArrow;</code></td><td>U+02193</td><td>↓</td></tr>
+     *     <tr><td><code>Downarrow;</code></td><td>U+021D3</td><td>⇓</td></tr>
+     *     <tr><td><code>downarrow;</code></td><td>U+02193</td><td>↓</td></tr>
+     *     <tr><td><code>DownArrowBar;</code></td><td>U+02913</td><td>⤓</td></tr>
+     *     <tr><td><code>DownArrowUpArrow;</code></td><td>U+021F5</td><td>⇵</td></tr>
+     *     <tr><td><code>DownBreve;</code></td><td>U+00311</td><td>◌̑</td></tr>
+     *     <tr><td><code>downdownarrows;</code></td><td>U+021CA</td><td>⇊</td></tr>
+     *     <tr><td><code>downharpoonleft;</code></td><td>U+021C3</td><td>⇃</td></tr>
+     *     <tr><td><code>downharpoonright;</code></td><td>U+021C2</td><td>⇂</td></tr>
+     *     <tr><td><code>DownLeftRightVector;</code></td><td>U+02950</td><td>⥐</td></tr>
+     *     <tr><td><code>DownLeftTeeVector;</code></td><td>U+0295E</td><td>⥞</td></tr>
+     *     <tr><td><code>DownLeftVector;</code></td><td>U+021BD</td><td>↽</td></tr>
+     *     <tr><td><code>DownLeftVectorBar;</code></td><td>U+02956</td><td>⥖</td></tr>
+     *     <tr><td><code>DownRightTeeVector;</code></td><td>U+0295F</td><td>⥟</td></tr>
+     *     <tr><td><code>DownRightVector;</code></td><td>U+021C1</td><td>⇁</td></tr>
+     *     <tr><td><code>DownRightVectorBar;</code></td><td>U+02957</td><td>⥗</td></tr>
+     *     <tr><td><code>DownTee;</code></td><td>U+022A4</td><td>⊤</td></tr>
+     *     <tr><td><code>DownTeeArrow;</code></td><td>U+021A7</td><td>↧</td></tr>
+     *     <tr><td><code>drbkarow;</code></td><td>U+02910</td><td>⤐</td></tr>
+     *     <tr><td><code>drcorn;</code></td><td>U+0231F</td><td>⌟</td></tr>
+     *     <tr><td><code>drcrop;</code></td><td>U+0230C</td><td>⌌</td></tr>
+     *     <tr><td><code>Dscr;</code></td><td>U+1D49F</td><td>𝒟</td></tr>
+     *     <tr><td><code>dscr;</code></td><td>U+1D4B9</td><td>𝒹</td></tr>
+     *     <tr><td><code>DScy;</code></td><td>U+00405</td><td>Ѕ</td></tr>
+     *     <tr><td><code>dscy;</code></td><td>U+00455</td><td>ѕ</td></tr>
+     *     <tr><td><code>dsol;</code></td><td>U+029F6</td><td>⧶</td></tr>
+     *     <tr><td><code>Dstrok;</code></td><td>U+00110</td><td>Đ</td></tr>
+     *     <tr><td><code>dstrok;</code></td><td>U+00111</td><td>đ</td></tr>
+     *     <tr><td><code>dtdot;</code></td><td>U+022F1</td><td>⋱</td></tr>
+     *     <tr><td><code>dtri;</code></td><td>U+025BF</td><td>▿</td></tr>
+     *     <tr><td><code>dtrif;</code></td><td>U+025BE</td><td>▾</td></tr>
+     *     <tr><td><code>duarr;</code></td><td>U+021F5</td><td>⇵</td></tr>
+     *     <tr><td><code>duhar;</code></td><td>U+0296F</td><td>⥯</td></tr>
+     *     <tr><td><code>dwangle;</code></td><td>U+029A6</td><td>⦦</td></tr>
+     *     <tr><td><code>DZcy;</code></td><td>U+0040F</td><td>Џ</td></tr>
+     *     <tr><td><code>dzcy;</code></td><td>U+0045F</td><td>џ</td></tr>
+     *     <tr><td><code>dzigrarr;</code></td><td>U+027FF</td><td>⟿</td></tr>
+     *     <tr><td><code>Eacute;</code></td><td>U+000C9</td><td>É</td></tr>
+     *     <tr><td><code>Eacute</code></td><td>U+000C9</td><td>É</td></tr>
+     *     <tr><td><code>eacute;</code></td><td>U+000E9</td><td>é</td></tr>
+     *     <tr><td><code>eacute</code></td><td>U+000E9</td><td>é</td></tr>
+     *     <tr><td><code>easter;</code></td><td>U+02A6E</td><td>⩮</td></tr>
+     *     <tr><td><code>Ecaron;</code></td><td>U+0011A</td><td>Ě</td></tr>
+     *     <tr><td><code>ecaron;</code></td><td>U+0011B</td><td>ě</td></tr>
+     *     <tr><td><code>ecir;</code></td><td>U+02256</td><td>≖</td></tr>
+     *     <tr><td><code>Ecirc;</code></td><td>U+000CA</td><td>Ê</td></tr>
+     *     <tr><td><code>Ecirc</code></td><td>U+000CA</td><td>Ê</td></tr>
+     *     <tr><td><code>ecirc;</code></td><td>U+000EA</td><td>ê</td></tr>
+     *     <tr><td><code>ecirc</code></td><td>U+000EA</td><td>ê</td></tr>
+     *     <tr><td><code>ecolon;</code></td><td>U+02255</td><td>≕</td></tr>
+     *     <tr><td><code>Ecy;</code></td><td>U+0042D</td><td>Э</td></tr>
+     *     <tr><td><code>ecy;</code></td><td>U+0044D</td><td>э</td></tr>
+     *     <tr><td><code>eDDot;</code></td><td>U+02A77</td><td>⩷</td></tr>
+     *     <tr><td><code>Edot;</code></td><td>U+00116</td><td>Ė</td></tr>
+     *     <tr><td><code>eDot;</code></td><td>U+02251</td><td>≑</td></tr>
+     *     <tr><td><code>edot;</code></td><td>U+00117</td><td>ė</td></tr>
+     *     <tr><td><code>ee;</code></td><td>U+02147</td><td>ⅇ</td></tr>
+     *     <tr><td><code>efDot;</code></td><td>U+02252</td><td>≒</td></tr>
+     *     <tr><td><code>Efr;</code></td><td>U+1D508</td><td>𝔈</td></tr>
+     *     <tr><td><code>efr;</code></td><td>U+1D522</td><td>𝔢</td></tr>
+     *     <tr><td><code>eg;</code></td><td>U+02A9A</td><td>⪚</td></tr>
+     *     <tr><td><code>Egrave;</code></td><td>U+000C8</td><td>È</td></tr>
+     *     <tr><td><code>Egrave</code></td><td>U+000C8</td><td>È</td></tr>
+     *     <tr><td><code>egrave;</code></td><td>U+000E8</td><td>è</td></tr>
+     *     <tr><td><code>egrave</code></td><td>U+000E8</td><td>è</td></tr>
+     *     <tr><td><code>egs;</code></td><td>U+02A96</td><td>⪖</td></tr>
+     *     <tr><td><code>egsdot;</code></td><td>U+02A98</td><td>⪘</td></tr>
+     *     <tr><td><code>el;</code></td><td>U+02A99</td><td>⪙</td></tr>
+     *     <tr><td><code>Element;</code></td><td>U+02208</td><td>∈</td></tr>
+     *     <tr><td><code>elinters;</code></td><td>U+023E7</td><td>⏧</td></tr>
+     *     <tr><td><code>ell;</code></td><td>U+02113</td><td>ℓ</td></tr>
+     *     <tr><td><code>els;</code></td><td>U+02A95</td><td>⪕</td></tr>
+     *     <tr><td><code>elsdot;</code></td><td>U+02A97</td><td>⪗</td></tr>
+     *     <tr><td><code>Emacr;</code></td><td>U+00112</td><td>Ē</td></tr>
+     *     <tr><td><code>emacr;</code></td><td>U+00113</td><td>ē</td></tr>
+     *     <tr><td><code>empty;</code></td><td>U+02205</td><td>∅</td></tr>
+     *     <tr><td><code>emptyset;</code></td><td>U+02205</td><td>∅</td></tr>
+     *     <tr><td><code>EmptySmallSquare;</code></td><td>U+025FB</td><td>◻</td></tr>
+     *     <tr><td><code>emptyv;</code></td><td>U+02205</td><td>∅</td></tr>
+     *     <tr><td><code>EmptyVerySmallSquare;</code></td><td>U+025AB</td><td>▫</td></tr>
+     *     <tr><td><code>emsp;</code></td><td>U+02003</td><td> </td></tr>
+     *     <tr><td><code>emsp13;</code></td><td>U+02004</td><td> </td></tr>
+     *     <tr><td><code>emsp14;</code></td><td>U+02005</td><td> </td></tr>
+     *     <tr><td><code>ENG;</code></td><td>U+0014A</td><td>Ŋ</td></tr>
+     *     <tr><td><code>eng;</code></td><td>U+0014B</td><td>ŋ</td></tr>
+     *     <tr><td><code>ensp;</code></td><td>U+02002</td><td> </td></tr>
+     *     <tr><td><code>Eogon;</code></td><td>U+00118</td><td>Ę</td></tr>
+     *     <tr><td><code>eogon;</code></td><td>U+00119</td><td>ę</td></tr>
+     *     <tr><td><code>Eopf;</code></td><td>U+1D53C</td><td>𝔼</td></tr>
+     *     <tr><td><code>eopf;</code></td><td>U+1D556</td><td>𝕖</td></tr>
+     *     <tr><td><code>epar;</code></td><td>U+022D5</td><td>⋕</td></tr>
+     *     <tr><td><code>eparsl;</code></td><td>U+029E3</td><td>⧣</td></tr>
+     *     <tr><td><code>eplus;</code></td><td>U+02A71</td><td>⩱</td></tr>
+     *     <tr><td><code>epsi;</code></td><td>U+003B5</td><td>ε</td></tr>
+     *     <tr><td><code>Epsilon;</code></td><td>U+00395</td><td>Ε</td></tr>
+     *     <tr><td><code>epsilon;</code></td><td>U+003B5</td><td>ε</td></tr>
+     *     <tr><td><code>epsiv;</code></td><td>U+003F5</td><td>ϵ</td></tr>
+     *     <tr><td><code>eqcirc;</code></td><td>U+02256</td><td>≖</td></tr>
+     *     <tr><td><code>eqcolon;</code></td><td>U+02255</td><td>≕</td></tr>
+     *     <tr><td><code>eqsim;</code></td><td>U+02242</td><td>≂</td></tr>
+     *     <tr><td><code>eqslantgtr;</code></td><td>U+02A96</td><td>⪖</td></tr>
+     *     <tr><td><code>eqslantless;</code></td><td>U+02A95</td><td>⪕</td></tr>
+     *     <tr><td><code>Equal;</code></td><td>U+02A75</td><td>⩵</td></tr>
+     *     <tr><td><code>equals;</code></td><td>U+0003D</td><td>=</td></tr>
+     *     <tr><td><code>EqualTilde;</code></td><td>U+02242</td><td>≂</td></tr>
+     *     <tr><td><code>equest;</code></td><td>U+0225F</td><td>≟</td></tr>
+     *     <tr><td><code>Equilibrium;</code></td><td>U+021CC</td><td>⇌</td></tr>
+     *     <tr><td><code>equiv;</code></td><td>U+02261</td><td>≡</td></tr>
+     *     <tr><td><code>equivDD;</code></td><td>U+02A78</td><td>⩸</td></tr>
+     *     <tr><td><code>eqvparsl;</code></td><td>U+029E5</td><td>⧥</td></tr>
+     *     <tr><td><code>erarr;</code></td><td>U+02971</td><td>⥱</td></tr>
+     *     <tr><td><code>erDot;</code></td><td>U+02253</td><td>≓</td></tr>
+     *     <tr><td><code>Escr;</code></td><td>U+02130</td><td>ℰ</td></tr>
+     *     <tr><td><code>escr;</code></td><td>U+0212F</td><td>ℯ</td></tr>
+     *     <tr><td><code>esdot;</code></td><td>U+02250</td><td>≐</td></tr>
+     *     <tr><td><code>Esim;</code></td><td>U+02A73</td><td>⩳</td></tr>
+     *     <tr><td><code>esim;</code></td><td>U+02242</td><td>≂</td></tr>
+     *     <tr><td><code>Eta;</code></td><td>U+00397</td><td>Η</td></tr>
+     *     <tr><td><code>eta;</code></td><td>U+003B7</td><td>η</td></tr>
+     *     <tr><td><code>ETH;</code></td><td>U+000D0</td><td>Ð</td></tr>
+     *     <tr><td><code>ETH</code></td><td>U+000D0</td><td>Ð</td></tr>
+     *     <tr><td><code>eth;</code></td><td>U+000F0</td><td>ð</td></tr>
+     *     <tr><td><code>eth</code></td><td>U+000F0</td><td>ð</td></tr>
+     *     <tr><td><code>Euml;</code></td><td>U+000CB</td><td>Ë</td></tr>
+     *     <tr><td><code>Euml</code></td><td>U+000CB</td><td>Ë</td></tr>
+     *     <tr><td><code>euml;</code></td><td>U+000EB</td><td>ë</td></tr>
+     *     <tr><td><code>euml</code></td><td>U+000EB</td><td>ë</td></tr>
+     *     <tr><td><code>euro;</code></td><td>U+020AC</td><td>€</td></tr>
+     *     <tr><td><code>excl;</code></td><td>U+00021</td><td>!</td></tr>
+     *     <tr><td><code>exist;</code></td><td>U+02203</td><td>∃</td></tr>
+     *     <tr><td><code>Exists;</code></td><td>U+02203</td><td>∃</td></tr>
+     *     <tr><td><code>expectation;</code></td><td>U+02130</td><td>ℰ</td></tr>
+     *     <tr><td><code>ExponentialE;</code></td><td>U+02147</td><td>ⅇ</td></tr>
+     *     <tr><td><code>exponentiale;</code></td><td>U+02147</td><td>ⅇ</td></tr>
+     *     <tr><td><code>fallingdotseq;</code></td><td>U+02252</td><td>≒</td></tr>
+     *     <tr><td><code>Fcy;</code></td><td>U+00424</td><td>Ф</td></tr>
+     *     <tr><td><code>fcy;</code></td><td>U+00444</td><td>ф</td></tr>
+     *     <tr><td><code>female;</code></td><td>U+02640</td><td>♀</td></tr>
+     *     <tr><td><code>ffilig;</code></td><td>U+0FB03</td><td>ﬃ</td></tr>
+     *     <tr><td><code>fflig;</code></td><td>U+0FB00</td><td>ﬀ</td></tr>
+     *     <tr><td><code>ffllig;</code></td><td>U+0FB04</td><td>ﬄ</td></tr>
+     *     <tr><td><code>Ffr;</code></td><td>U+1D509</td><td>𝔉</td></tr>
+     *     <tr><td><code>ffr;</code></td><td>U+1D523</td><td>𝔣</td></tr>
+     *     <tr><td><code>filig;</code></td><td>U+0FB01</td><td>ﬁ</td></tr>
+     *     <tr><td><code>FilledSmallSquare;</code></td><td>U+025FC</td><td>◼</td></tr>
+     *     <tr><td><code>FilledVerySmallSquare;</code></td><td>U+025AA</td><td>▪</td></tr>
+     *     <tr><td><code>fjlig;</code></td><td>U+00066 U+0006A</td><td>fj</td></tr>
+     *     <tr><td><code>flat;</code></td><td>U+0266D</td><td>♭</td></tr>
+     *     <tr><td><code>fllig;</code></td><td>U+0FB02</td><td>ﬂ</td></tr>
+     *     <tr><td><code>fltns;</code></td><td>U+025B1</td><td>▱</td></tr>
+     *     <tr><td><code>fnof;</code></td><td>U+00192</td><td>ƒ</td></tr>
+     *     <tr><td><code>Fopf;</code></td><td>U+1D53D</td><td>𝔽</td></tr>
+     *     <tr><td><code>fopf;</code></td><td>U+1D557</td><td>𝕗</td></tr>
+     *     <tr><td><code>ForAll;</code></td><td>U+02200</td><td>∀</td></tr>
+     *     <tr><td><code>forall;</code></td><td>U+02200</td><td>∀</td></tr>
+     *     <tr><td><code>fork;</code></td><td>U+022D4</td><td>⋔</td></tr>
+     *     <tr><td><code>forkv;</code></td><td>U+02AD9</td><td>⫙</td></tr>
+     *     <tr><td><code>Fouriertrf;</code></td><td>U+02131</td><td>ℱ</td></tr>
+     *     <tr><td><code>fpartint;</code></td><td>U+02A0D</td><td>⨍</td></tr>
+     *     <tr><td><code>frac12;</code></td><td>U+000BD</td><td>½</td></tr>
+     *     <tr><td><code>frac12</code></td><td>U+000BD</td><td>½</td></tr>
+     *     <tr><td><code>frac13;</code></td><td>U+02153</td><td>⅓</td></tr>
+     *     <tr><td><code>frac14;</code></td><td>U+000BC</td><td>¼</td></tr>
+     *     <tr><td><code>frac14</code></td><td>U+000BC</td><td>¼</td></tr>
+     *     <tr><td><code>frac15;</code></td><td>U+02155</td><td>⅕</td></tr>
+     *     <tr><td><code>frac16;</code></td><td>U+02159</td><td>⅙</td></tr>
+     *     <tr><td><code>frac18;</code></td><td>U+0215B</td><td>⅛</td></tr>
+     *     <tr><td><code>frac23;</code></td><td>U+02154</td><td>⅔</td></tr>
+     *     <tr><td><code>frac25;</code></td><td>U+02156</td><td>⅖</td></tr>
+     *     <tr><td><code>frac34;</code></td><td>U+000BE</td><td>¾</td></tr>
+     *     <tr><td><code>frac34</code></td><td>U+000BE</td><td>¾</td></tr>
+     *     <tr><td><code>frac35;</code></td><td>U+02157</td><td>⅗</td></tr>
+     *     <tr><td><code>frac38;</code></td><td>U+0215C</td><td>⅜</td></tr>
+     *     <tr><td><code>frac45;</code></td><td>U+02158</td><td>⅘</td></tr>
+     *     <tr><td><code>frac56;</code></td><td>U+0215A</td><td>⅚</td></tr>
+     *     <tr><td><code>frac58;</code></td><td>U+0215D</td><td>⅝</td></tr>
+     *     <tr><td><code>frac78;</code></td><td>U+0215E</td><td>⅞</td></tr>
+     *     <tr><td><code>frasl;</code></td><td>U+02044</td><td>⁄</td></tr>
+     *     <tr><td><code>frown;</code></td><td>U+02322</td><td>⌢</td></tr>
+     *     <tr><td><code>Fscr;</code></td><td>U+02131</td><td>ℱ</td></tr>
+     *     <tr><td><code>fscr;</code></td><td>U+1D4BB</td><td>𝒻</td></tr>
+     *     <tr><td><code>gacute;</code></td><td>U+001F5</td><td>ǵ</td></tr>
+     *     <tr><td><code>Gamma;</code></td><td>U+00393</td><td>Γ</td></tr>
+     *     <tr><td><code>gamma;</code></td><td>U+003B3</td><td>γ</td></tr>
+     *     <tr><td><code>Gammad;</code></td><td>U+003DC</td><td>Ϝ</td></tr>
+     *     <tr><td><code>gammad;</code></td><td>U+003DD</td><td>ϝ</td></tr>
+     *     <tr><td><code>gap;</code></td><td>U+02A86</td><td>⪆</td></tr>
+     *     <tr><td><code>Gbreve;</code></td><td>U+0011E</td><td>Ğ</td></tr>
+     *     <tr><td><code>gbreve;</code></td><td>U+0011F</td><td>ğ</td></tr>
+     *     <tr><td><code>Gcedil;</code></td><td>U+00122</td><td>Ģ</td></tr>
+     *     <tr><td><code>Gcirc;</code></td><td>U+0011C</td><td>Ĝ</td></tr>
+     *     <tr><td><code>gcirc;</code></td><td>U+0011D</td><td>ĝ</td></tr>
+     *     <tr><td><code>Gcy;</code></td><td>U+00413</td><td>Г</td></tr>
+     *     <tr><td><code>gcy;</code></td><td>U+00433</td><td>г</td></tr>
+     *     <tr><td><code>Gdot;</code></td><td>U+00120</td><td>Ġ</td></tr>
+     *     <tr><td><code>gdot;</code></td><td>U+00121</td><td>ġ</td></tr>
+     *     <tr><td><code>gE;</code></td><td>U+02267</td><td>≧</td></tr>
+     *     <tr><td><code>ge;</code></td><td>U+02265</td><td>≥</td></tr>
+     *     <tr><td><code>gEl;</code></td><td>U+02A8C</td><td>⪌</td></tr>
+     *     <tr><td><code>gel;</code></td><td>U+022DB</td><td>⋛</td></tr>
+     *     <tr><td><code>geq;</code></td><td>U+02265</td><td>≥</td></tr>
+     *     <tr><td><code>geqq;</code></td><td>U+02267</td><td>≧</td></tr>
+     *     <tr><td><code>geqslant;</code></td><td>U+02A7E</td><td>⩾</td></tr>
+     *     <tr><td><code>ges;</code></td><td>U+02A7E</td><td>⩾</td></tr>
+     *     <tr><td><code>gescc;</code></td><td>U+02AA9</td><td>⪩</td></tr>
+     *     <tr><td><code>gesdot;</code></td><td>U+02A80</td><td>⪀</td></tr>
+     *     <tr><td><code>gesdoto;</code></td><td>U+02A82</td><td>⪂</td></tr>
+     *     <tr><td><code>gesdotol;</code></td><td>U+02A84</td><td>⪄</td></tr>
+     *     <tr><td><code>gesl;</code></td><td>U+022DB U+0FE00</td><td>⋛︀</td></tr>
+     *     <tr><td><code>gesles;</code></td><td>U+02A94</td><td>⪔</td></tr>
+     *     <tr><td><code>Gfr;</code></td><td>U+1D50A</td><td>𝔊</td></tr>
+     *     <tr><td><code>gfr;</code></td><td>U+1D524</td><td>𝔤</td></tr>
+     *     <tr><td><code>Gg;</code></td><td>U+022D9</td><td>⋙</td></tr>
+     *     <tr><td><code>gg;</code></td><td>U+0226B</td><td>≫</td></tr>
+     *     <tr><td><code>ggg;</code></td><td>U+022D9</td><td>⋙</td></tr>
+     *     <tr><td><code>gimel;</code></td><td>U+02137</td><td>ℷ</td></tr>
+     *     <tr><td><code>GJcy;</code></td><td>U+00403</td><td>Ѓ</td></tr>
+     *     <tr><td><code>gjcy;</code></td><td>U+00453</td><td>ѓ</td></tr>
+     *     <tr><td><code>gl;</code></td><td>U+02277</td><td>≷</td></tr>
+     *     <tr><td><code>gla;</code></td><td>U+02AA5</td><td>⪥</td></tr>
+     *     <tr><td><code>glE;</code></td><td>U+02A92</td><td>⪒</td></tr>
+     *     <tr><td><code>glj;</code></td><td>U+02AA4</td><td>⪤</td></tr>
+     *     <tr><td><code>gnap;</code></td><td>U+02A8A</td><td>⪊</td></tr>
+     *     <tr><td><code>gnapprox;</code></td><td>U+02A8A</td><td>⪊</td></tr>
+     *     <tr><td><code>gnE;</code></td><td>U+02269</td><td>≩</td></tr>
+     *     <tr><td><code>gne;</code></td><td>U+02A88</td><td>⪈</td></tr>
+     *     <tr><td><code>gneq;</code></td><td>U+02A88</td><td>⪈</td></tr>
+     *     <tr><td><code>gneqq;</code></td><td>U+02269</td><td>≩</td></tr>
+     *     <tr><td><code>gnsim;</code></td><td>U+022E7</td><td>⋧</td></tr>
+     *     <tr><td><code>Gopf;</code></td><td>U+1D53E</td><td>𝔾</td></tr>
+     *     <tr><td><code>gopf;</code></td><td>U+1D558</td><td>𝕘</td></tr>
+     *     <tr><td><code>grave;</code></td><td>U+00060</td><td>`</td></tr>
+     *     <tr><td><code>GreaterEqual;</code></td><td>U+02265</td><td>≥</td></tr>
+     *     <tr><td><code>GreaterEqualLess;</code></td><td>U+022DB</td><td>⋛</td></tr>
+     *     <tr><td><code>GreaterFullEqual;</code></td><td>U+02267</td><td>≧</td></tr>
+     *     <tr><td><code>GreaterGreater;</code></td><td>U+02AA2</td><td>⪢</td></tr>
+     *     <tr><td><code>GreaterLess;</code></td><td>U+02277</td><td>≷</td></tr>
+     *     <tr><td><code>GreaterSlantEqual;</code></td><td>U+02A7E</td><td>⩾</td></tr>
+     *     <tr><td><code>GreaterTilde;</code></td><td>U+02273</td><td>≳</td></tr>
+     *     <tr><td><code>Gscr;</code></td><td>U+1D4A2</td><td>𝒢</td></tr>
+     *     <tr><td><code>gscr;</code></td><td>U+0210A</td><td>ℊ</td></tr>
+     *     <tr><td><code>gsim;</code></td><td>U+02273</td><td>≳</td></tr>
+     *     <tr><td><code>gsime;</code></td><td>U+02A8E</td><td>⪎</td></tr>
+     *     <tr><td><code>gsiml;</code></td><td>U+02A90</td><td>⪐</td></tr>
+     *     <tr><td><code>GT;</code></td><td>U+0003E</td><td>&gt;</td></tr>
+     *     <tr><td><code>GT</code></td><td>U+0003E</td><td>&gt;</td></tr>
+     *     <tr><td><code>Gt;</code></td><td>U+0226B</td><td>≫</td></tr>
+     *     <tr><td><code>gt;</code></td><td>U+0003E</td><td>&gt;</td></tr>
+     *     <tr><td><code>gt</code></td><td>U+0003E</td><td>&gt;</td></tr>
+     *     <tr><td><code>gtcc;</code></td><td>U+02AA7</td><td>⪧</td></tr>
+     *     <tr><td><code>gtcir;</code></td><td>U+02A7A</td><td>⩺</td></tr>
+     *     <tr><td><code>gtdot;</code></td><td>U+022D7</td><td>⋗</td></tr>
+     *     <tr><td><code>gtlPar;</code></td><td>U+02995</td><td>⦕</td></tr>
+     *     <tr><td><code>gtquest;</code></td><td>U+02A7C</td><td>⩼</td></tr>
+     *     <tr><td><code>gtrapprox;</code></td><td>U+02A86</td><td>⪆</td></tr>
+     *     <tr><td><code>gtrarr;</code></td><td>U+02978</td><td>⥸</td></tr>
+     *     <tr><td><code>gtrdot;</code></td><td>U+022D7</td><td>⋗</td></tr>
+     *     <tr><td><code>gtreqless;</code></td><td>U+022DB</td><td>⋛</td></tr>
+     *     <tr><td><code>gtreqqless;</code></td><td>U+02A8C</td><td>⪌</td></tr>
+     *     <tr><td><code>gtrless;</code></td><td>U+02277</td><td>≷</td></tr>
+     *     <tr><td><code>gtrsim;</code></td><td>U+02273</td><td>≳</td></tr>
+     *     <tr><td><code>gvertneqq;</code></td><td>U+02269 U+0FE00</td><td>≩︀</td></tr>
+     *     <tr><td><code>gvnE;</code></td><td>U+02269 U+0FE00</td><td>≩︀</td></tr>
+     *     <tr><td><code>Hacek;</code></td><td>U+002C7</td><td>ˇ</td></tr>
+     *     <tr><td><code>hairsp;</code></td><td>U+0200A</td><td> </td></tr>
+     *     <tr><td><code>half;</code></td><td>U+000BD</td><td>½</td></tr>
+     *     <tr><td><code>hamilt;</code></td><td>U+0210B</td><td>ℋ</td></tr>
+     *     <tr><td><code>HARDcy;</code></td><td>U+0042A</td><td>Ъ</td></tr>
+     *     <tr><td><code>hardcy;</code></td><td>U+0044A</td><td>ъ</td></tr>
+     *     <tr><td><code>hArr;</code></td><td>U+021D4</td><td>⇔</td></tr>
+     *     <tr><td><code>harr;</code></td><td>U+02194</td><td>↔</td></tr>
+     *     <tr><td><code>harrcir;</code></td><td>U+02948</td><td>⥈</td></tr>
+     *     <tr><td><code>harrw;</code></td><td>U+021AD</td><td>↭</td></tr>
+     *     <tr><td><code>Hat;</code></td><td>U+0005E</td><td>^</td></tr>
+     *     <tr><td><code>hbar;</code></td><td>U+0210F</td><td>ℏ</td></tr>
+     *     <tr><td><code>Hcirc;</code></td><td>U+00124</td><td>Ĥ</td></tr>
+     *     <tr><td><code>hcirc;</code></td><td>U+00125</td><td>ĥ</td></tr>
+     *     <tr><td><code>hearts;</code></td><td>U+02665</td><td>♥</td></tr>
+     *     <tr><td><code>heartsuit;</code></td><td>U+02665</td><td>♥</td></tr>
+     *     <tr><td><code>hellip;</code></td><td>U+02026</td><td>…</td></tr>
+     *     <tr><td><code>hercon;</code></td><td>U+022B9</td><td>⊹</td></tr>
+     *     <tr><td><code>Hfr;</code></td><td>U+0210C</td><td>ℌ</td></tr>
+     *     <tr><td><code>hfr;</code></td><td>U+1D525</td><td>𝔥</td></tr>
+     *     <tr><td><code>HilbertSpace;</code></td><td>U+0210B</td><td>ℋ</td></tr>
+     *     <tr><td><code>hksearow;</code></td><td>U+02925</td><td>⤥</td></tr>
+     *     <tr><td><code>hkswarow;</code></td><td>U+02926</td><td>⤦</td></tr>
+     *     <tr><td><code>hoarr;</code></td><td>U+021FF</td><td>⇿</td></tr>
+     *     <tr><td><code>homtht;</code></td><td>U+0223B</td><td>∻</td></tr>
+     *     <tr><td><code>hookleftarrow;</code></td><td>U+021A9</td><td>↩</td></tr>
+     *     <tr><td><code>hookrightarrow;</code></td><td>U+021AA</td><td>↪</td></tr>
+     *     <tr><td><code>Hopf;</code></td><td>U+0210D</td><td>ℍ</td></tr>
+     *     <tr><td><code>hopf;</code></td><td>U+1D559</td><td>𝕙</td></tr>
+     *     <tr><td><code>horbar;</code></td><td>U+02015</td><td>―</td></tr>
+     *     <tr><td><code>HorizontalLine;</code></td><td>U+02500</td><td>─</td></tr>
+     *     <tr><td><code>Hscr;</code></td><td>U+0210B</td><td>ℋ</td></tr>
+     *     <tr><td><code>hscr;</code></td><td>U+1D4BD</td><td>𝒽</td></tr>
+     *     <tr><td><code>hslash;</code></td><td>U+0210F</td><td>ℏ</td></tr>
+     *     <tr><td><code>Hstrok;</code></td><td>U+00126</td><td>Ħ</td></tr>
+     *     <tr><td><code>hstrok;</code></td><td>U+00127</td><td>ħ</td></tr>
+     *     <tr><td><code>HumpDownHump;</code></td><td>U+0224E</td><td>≎</td></tr>
+     *     <tr><td><code>HumpEqual;</code></td><td>U+0224F</td><td>≏</td></tr>
+     *     <tr><td><code>hybull;</code></td><td>U+02043</td><td>⁃</td></tr>
+     *     <tr><td><code>hyphen;</code></td><td>U+02010</td><td>‐</td></tr>
+     *     <tr><td><code>Iacute;</code></td><td>U+000CD</td><td>Í</td></tr>
+     *     <tr><td><code>Iacute</code></td><td>U+000CD</td><td>Í</td></tr>
+     *     <tr><td><code>iacute;</code></td><td>U+000ED</td><td>í</td></tr>
+     *     <tr><td><code>iacute</code></td><td>U+000ED</td><td>í</td></tr>
+     *     <tr><td><code>ic;</code></td><td>U+02063</td><td>⁣</td></tr>
+     *     <tr><td><code>Icirc;</code></td><td>U+000CE</td><td>Î</td></tr>
+     *     <tr><td><code>Icirc</code></td><td>U+000CE</td><td>Î</td></tr>
+     *     <tr><td><code>icirc;</code></td><td>U+000EE</td><td>î</td></tr>
+     *     <tr><td><code>icirc</code></td><td>U+000EE</td><td>î</td></tr>
+     *     <tr><td><code>Icy;</code></td><td>U+00418</td><td>И</td></tr>
+     *     <tr><td><code>icy;</code></td><td>U+00438</td><td>и</td></tr>
+     *     <tr><td><code>Idot;</code></td><td>U+00130</td><td>İ</td></tr>
+     *     <tr><td><code>IEcy;</code></td><td>U+00415</td><td>Е</td></tr>
+     *     <tr><td><code>iecy;</code></td><td>U+00435</td><td>е</td></tr>
+     *     <tr><td><code>iexcl;</code></td><td>U+000A1</td><td>¡</td></tr>
+     *     <tr><td><code>iexcl</code></td><td>U+000A1</td><td>¡</td></tr>
+     *     <tr><td><code>iff;</code></td><td>U+021D4</td><td>⇔</td></tr>
+     *     <tr><td><code>Ifr;</code></td><td>U+02111</td><td>ℑ</td></tr>
+     *     <tr><td><code>ifr;</code></td><td>U+1D526</td><td>𝔦</td></tr>
+     *     <tr><td><code>Igrave;</code></td><td>U+000CC</td><td>Ì</td></tr>
+     *     <tr><td><code>Igrave</code></td><td>U+000CC</td><td>Ì</td></tr>
+     *     <tr><td><code>igrave;</code></td><td>U+000EC</td><td>ì</td></tr>
+     *     <tr><td><code>igrave</code></td><td>U+000EC</td><td>ì</td></tr>
+     *     <tr><td><code>ii;</code></td><td>U+02148</td><td>ⅈ</td></tr>
+     *     <tr><td><code>iiiint;</code></td><td>U+02A0C</td><td>⨌</td></tr>
+     *     <tr><td><code>iiint;</code></td><td>U+0222D</td><td>∭</td></tr>
+     *     <tr><td><code>iinfin;</code></td><td>U+029DC</td><td>⧜</td></tr>
+     *     <tr><td><code>iiota;</code></td><td>U+02129</td><td>℩</td></tr>
+     *     <tr><td><code>IJlig;</code></td><td>U+00132</td><td>Ĳ</td></tr>
+     *     <tr><td><code>ijlig;</code></td><td>U+00133</td><td>ĳ</td></tr>
+     *     <tr><td><code>Im;</code></td><td>U+02111</td><td>ℑ</td></tr>
+     *     <tr><td><code>Imacr;</code></td><td>U+0012A</td><td>Ī</td></tr>
+     *     <tr><td><code>imacr;</code></td><td>U+0012B</td><td>ī</td></tr>
+     *     <tr><td><code>image;</code></td><td>U+02111</td><td>ℑ</td></tr>
+     *     <tr><td><code>ImaginaryI;</code></td><td>U+02148</td><td>ⅈ</td></tr>
+     *     <tr><td><code>imagline;</code></td><td>U+02110</td><td>ℐ</td></tr>
+     *     <tr><td><code>imagpart;</code></td><td>U+02111</td><td>ℑ</td></tr>
+     *     <tr><td><code>imath;</code></td><td>U+00131</td><td>ı</td></tr>
+     *     <tr><td><code>imof;</code></td><td>U+022B7</td><td>⊷</td></tr>
+     *     <tr><td><code>imped;</code></td><td>U+001B5</td><td>Ƶ</td></tr>
+     *     <tr><td><code>Implies;</code></td><td>U+021D2</td><td>⇒</td></tr>
+     *     <tr><td><code>in;</code></td><td>U+02208</td><td>∈</td></tr>
+     *     <tr><td><code>incare;</code></td><td>U+02105</td><td>℅</td></tr>
+     *     <tr><td><code>infin;</code></td><td>U+0221E</td><td>∞</td></tr>
+     *     <tr><td><code>infintie;</code></td><td>U+029DD</td><td>⧝</td></tr>
+     *     <tr><td><code>inodot;</code></td><td>U+00131</td><td>ı</td></tr>
+     *     <tr><td><code>Int;</code></td><td>U+0222C</td><td>∬</td></tr>
+     *     <tr><td><code>int;</code></td><td>U+0222B</td><td>∫</td></tr>
+     *     <tr><td><code>intcal;</code></td><td>U+022BA</td><td>⊺</td></tr>
+     *     <tr><td><code>integers;</code></td><td>U+02124</td><td>ℤ</td></tr>
+     *     <tr><td><code>Integral;</code></td><td>U+0222B</td><td>∫</td></tr>
+     *     <tr><td><code>intercal;</code></td><td>U+022BA</td><td>⊺</td></tr>
+     *     <tr><td><code>Intersection;</code></td><td>U+022C2</td><td>⋂</td></tr>
+     *     <tr><td><code>intlarhk;</code></td><td>U+02A17</td><td>⨗</td></tr>
+     *     <tr><td><code>intprod;</code></td><td>U+02A3C</td><td>⨼</td></tr>
+     *     <tr><td><code>InvisibleComma;</code></td><td>U+02063</td><td>⁣</td></tr>
+     *     <tr><td><code>InvisibleTimes;</code></td><td>U+02062</td><td>⁢</td></tr>
+     *     <tr><td><code>IOcy;</code></td><td>U+00401</td><td>Ё</td></tr>
+     *     <tr><td><code>iocy;</code></td><td>U+00451</td><td>ё</td></tr>
+     *     <tr><td><code>Iogon;</code></td><td>U+0012E</td><td>Į</td></tr>
+     *     <tr><td><code>iogon;</code></td><td>U+0012F</td><td>į</td></tr>
+     *     <tr><td><code>Iopf;</code></td><td>U+1D540</td><td>𝕀</td></tr>
+     *     <tr><td><code>iopf;</code></td><td>U+1D55A</td><td>𝕚</td></tr>
+     *     <tr><td><code>Iota;</code></td><td>U+00399</td><td>Ι</td></tr>
+     *     <tr><td><code>iota;</code></td><td>U+003B9</td><td>ι</td></tr>
+     *     <tr><td><code>iprod;</code></td><td>U+02A3C</td><td>⨼</td></tr>
+     *     <tr><td><code>iquest;</code></td><td>U+000BF</td><td>¿</td></tr>
+     *     <tr><td><code>iquest</code></td><td>U+000BF</td><td>¿</td></tr>
+     *     <tr><td><code>Iscr;</code></td><td>U+02110</td><td>ℐ</td></tr>
+     *     <tr><td><code>iscr;</code></td><td>U+1D4BE</td><td>𝒾</td></tr>
+     *     <tr><td><code>isin;</code></td><td>U+02208</td><td>∈</td></tr>
+     *     <tr><td><code>isindot;</code></td><td>U+022F5</td><td>⋵</td></tr>
+     *     <tr><td><code>isinE;</code></td><td>U+022F9</td><td>⋹</td></tr>
+     *     <tr><td><code>isins;</code></td><td>U+022F4</td><td>⋴</td></tr>
+     *     <tr><td><code>isinsv;</code></td><td>U+022F3</td><td>⋳</td></tr>
+     *     <tr><td><code>isinv;</code></td><td>U+02208</td><td>∈</td></tr>
+     *     <tr><td><code>it;</code></td><td>U+02062</td><td>⁢</td></tr>
+     *     <tr><td><code>Itilde;</code></td><td>U+00128</td><td>Ĩ</td></tr>
+     *     <tr><td><code>itilde;</code></td><td>U+00129</td><td>ĩ</td></tr>
+     *     <tr><td><code>Iukcy;</code></td><td>U+00406</td><td>І</td></tr>
+     *     <tr><td><code>iukcy;</code></td><td>U+00456</td><td>і</td></tr>
+     *     <tr><td><code>Iuml;</code></td><td>U+000CF</td><td>Ï</td></tr>
+     *     <tr><td><code>Iuml</code></td><td>U+000CF</td><td>Ï</td></tr>
+     *     <tr><td><code>iuml;</code></td><td>U+000EF</td><td>ï</td></tr>
+     *     <tr><td><code>iuml</code></td><td>U+000EF</td><td>ï</td></tr>
+     *     <tr><td><code>Jcirc;</code></td><td>U+00134</td><td>Ĵ</td></tr>
+     *     <tr><td><code>jcirc;</code></td><td>U+00135</td><td>ĵ</td></tr>
+     *     <tr><td><code>Jcy;</code></td><td>U+00419</td><td>Й</td></tr>
+     *     <tr><td><code>jcy;</code></td><td>U+00439</td><td>й</td></tr>
+     *     <tr><td><code>Jfr;</code></td><td>U+1D50D</td><td>𝔍</td></tr>
+     *     <tr><td><code>jfr;</code></td><td>U+1D527</td><td>𝔧</td></tr>
+     *     <tr><td><code>jmath;</code></td><td>U+00237</td><td>ȷ</td></tr>
+     *     <tr><td><code>Jopf;</code></td><td>U+1D541</td><td>𝕁</td></tr>
+     *     <tr><td><code>jopf;</code></td><td>U+1D55B</td><td>𝕛</td></tr>
+     *     <tr><td><code>Jscr;</code></td><td>U+1D4A5</td><td>𝒥</td></tr>
+     *     <tr><td><code>jscr;</code></td><td>U+1D4BF</td><td>𝒿</td></tr>
+     *     <tr><td><code>Jsercy;</code></td><td>U+00408</td><td>Ј</td></tr>
+     *     <tr><td><code>jsercy;</code></td><td>U+00458</td><td>ј</td></tr>
+     *     <tr><td><code>Jukcy;</code></td><td>U+00404</td><td>Є</td></tr>
+     *     <tr><td><code>jukcy;</code></td><td>U+00454</td><td>є</td></tr>
+     *     <tr><td><code>Kappa;</code></td><td>U+0039A</td><td>Κ</td></tr>
+     *     <tr><td><code>kappa;</code></td><td>U+003BA</td><td>κ</td></tr>
+     *     <tr><td><code>kappav;</code></td><td>U+003F0</td><td>ϰ</td></tr>
+     *     <tr><td><code>Kcedil;</code></td><td>U+00136</td><td>Ķ</td></tr>
+     *     <tr><td><code>kcedil;</code></td><td>U+00137</td><td>ķ</td></tr>
+     *     <tr><td><code>Kcy;</code></td><td>U+0041A</td><td>К</td></tr>
+     *     <tr><td><code>kcy;</code></td><td>U+0043A</td><td>к</td></tr>
+     *     <tr><td><code>Kfr;</code></td><td>U+1D50E</td><td>𝔎</td></tr>
+     *     <tr><td><code>kfr;</code></td><td>U+1D528</td><td>𝔨</td></tr>
+     *     <tr><td><code>kgreen;</code></td><td>U+00138</td><td>ĸ</td></tr>
+     *     <tr><td><code>KHcy;</code></td><td>U+00425</td><td>Х</td></tr>
+     *     <tr><td><code>khcy;</code></td><td>U+00445</td><td>х</td></tr>
+     *     <tr><td><code>KJcy;</code></td><td>U+0040C</td><td>Ќ</td></tr>
+     *     <tr><td><code>kjcy;</code></td><td>U+0045C</td><td>ќ</td></tr>
+     *     <tr><td><code>Kopf;</code></td><td>U+1D542</td><td>𝕂</td></tr>
+     *     <tr><td><code>kopf;</code></td><td>U+1D55C</td><td>𝕜</td></tr>
+     *     <tr><td><code>Kscr;</code></td><td>U+1D4A6</td><td>𝒦</td></tr>
+     *     <tr><td><code>kscr;</code></td><td>U+1D4C0</td><td>𝓀</td></tr>
+     *     <tr><td><code>lAarr;</code></td><td>U+021DA</td><td>⇚</td></tr>
+     *     <tr><td><code>Lacute;</code></td><td>U+00139</td><td>Ĺ</td></tr>
+     *     <tr><td><code>lacute;</code></td><td>U+0013A</td><td>ĺ</td></tr>
+     *     <tr><td><code>laemptyv;</code></td><td>U+029B4</td><td>⦴</td></tr>
+     *     <tr><td><code>lagran;</code></td><td>U+02112</td><td>ℒ</td></tr>
+     *     <tr><td><code>Lambda;</code></td><td>U+0039B</td><td>Λ</td></tr>
+     *     <tr><td><code>lambda;</code></td><td>U+003BB</td><td>λ</td></tr>
+     *     <tr><td><code>Lang;</code></td><td>U+027EA</td><td>⟪</td></tr>
+     *     <tr><td><code>lang;</code></td><td>U+027E8</td><td>⟨</td></tr>
+     *     <tr><td><code>langd;</code></td><td>U+02991</td><td>⦑</td></tr>
+     *     <tr><td><code>langle;</code></td><td>U+027E8</td><td>〈</td></tr>
+     *     <tr><td><code>lap;</code></td><td>U+02A85</td><td>⪅</td></tr>
+     *     <tr><td><code>Laplacetrf;</code></td><td>U+02112</td><td>ℒ</td></tr>
+     *     <tr><td><code>laquo;</code></td><td>U+000AB</td><td>«</td></tr>
+     *     <tr><td><code>laquo</code></td><td>U+000AB</td><td>«</td></tr>
+     *     <tr><td><code>Larr;</code></td><td>U+0219E</td><td>↞</td></tr>
+     *     <tr><td><code>lArr;</code></td><td>U+021D0</td><td>⇐</td></tr>
+     *     <tr><td><code>larr;</code></td><td>U+02190</td><td>←</td></tr>
+     *     <tr><td><code>larrb;</code></td><td>U+021E4</td><td>⇤</td></tr>
+     *     <tr><td><code>larrbfs;</code></td><td>U+0291F</td><td>⤟</td></tr>
+     *     <tr><td><code>larrfs;</code></td><td>U+0291D</td><td>⤝</td></tr>
+     *     <tr><td><code>larrhk;</code></td><td>U+021A9</td><td>↩</td></tr>
+     *     <tr><td><code>larrlp;</code></td><td>U+021AB</td><td>↫</td></tr>
+     *     <tr><td><code>larrpl;</code></td><td>U+02939</td><td>⤹</td></tr>
+     *     <tr><td><code>larrsim;</code></td><td>U+02973</td><td>⥳</td></tr>
+     *     <tr><td><code>larrtl;</code></td><td>U+021A2</td><td>↢</td></tr>
+     *     <tr><td><code>lat;</code></td><td>U+02AAB</td><td>⪫</td></tr>
+     *     <tr><td><code>lAtail;</code></td><td>U+0291B</td><td>⤛</td></tr>
+     *     <tr><td><code>latail;</code></td><td>U+02919</td><td>⤙</td></tr>
+     *     <tr><td><code>late;</code></td><td>U+02AAD</td><td>⪭</td></tr>
+     *     <tr><td><code>lates;</code></td><td>U+02AAD U+0FE00</td><td>⪭︀</td></tr>
+     *     <tr><td><code>lBarr;</code></td><td>U+0290E</td><td>⤎</td></tr>
+     *     <tr><td><code>lbarr;</code></td><td>U+0290C</td><td>⤌</td></tr>
+     *     <tr><td><code>lbbrk;</code></td><td>U+02772</td><td>❲</td></tr>
+     *     <tr><td><code>lbrace;</code></td><td>U+0007B</td><td>{</td></tr>
+     *     <tr><td><code>lbrack;</code></td><td>U+0005B</td><td>[</td></tr>
+     *     <tr><td><code>lbrke;</code></td><td>U+0298B</td><td>⦋</td></tr>
+     *     <tr><td><code>lbrksld;</code></td><td>U+0298F</td><td>⦏</td></tr>
+     *     <tr><td><code>lbrkslu;</code></td><td>U+0298D</td><td>⦍</td></tr>
+     *     <tr><td><code>Lcaron;</code></td><td>U+0013D</td><td>Ľ</td></tr>
+     *     <tr><td><code>lcaron;</code></td><td>U+0013E</td><td>ľ</td></tr>
+     *     <tr><td><code>Lcedil;</code></td><td>U+0013B</td><td>Ļ</td></tr>
+     *     <tr><td><code>lcedil;</code></td><td>U+0013C</td><td>ļ</td></tr>
+     *     <tr><td><code>lceil;</code></td><td>U+02308</td><td>⌈</td></tr>
+     *     <tr><td><code>lcub;</code></td><td>U+0007B</td><td>{</td></tr>
+     *     <tr><td><code>Lcy;</code></td><td>U+0041B</td><td>Л</td></tr>
+     *     <tr><td><code>lcy;</code></td><td>U+0043B</td><td>л</td></tr>
+     *     <tr><td><code>ldca;</code></td><td>U+02936</td><td>⤶</td></tr>
+     *     <tr><td><code>ldquo;</code></td><td>U+0201C</td><td>“</td></tr>
+     *     <tr><td><code>ldquor;</code></td><td>U+0201E</td><td>„</td></tr>
+     *     <tr><td><code>ldrdhar;</code></td><td>U+02967</td><td>⥧</td></tr>
+     *     <tr><td><code>ldrushar;</code></td><td>U+0294B</td><td>⥋</td></tr>
+     *     <tr><td><code>ldsh;</code></td><td>U+021B2</td><td>↲</td></tr>
+     *     <tr><td><code>lE;</code></td><td>U+02266</td><td>≦</td></tr>
+     *     <tr><td><code>le;</code></td><td>U+02264</td><td>≤</td></tr>
+     *     <tr><td><code>LeftAngleBracket;</code></td><td>U+027E8</td><td>〈</td></tr>
+     *     <tr><td><code>LeftArrow;</code></td><td>U+02190</td><td>←</td></tr>
+     *     <tr><td><code>Leftarrow;</code></td><td>U+021D0</td><td>⇐</td></tr>
+     *     <tr><td><code>leftarrow;</code></td><td>U+02190</td><td>←</td></tr>
+     *     <tr><td><code>LeftArrowBar;</code></td><td>U+021E4</td><td>⇤</td></tr>
+     *     <tr><td><code>LeftArrowRightArrow;</code></td><td>U+021C6</td><td>⇆</td></tr>
+     *     <tr><td><code>leftarrowtail;</code></td><td>U+021A2</td><td>↢</td></tr>
+     *     <tr><td><code>LeftCeiling;</code></td><td>U+02308</td><td>⌈</td></tr>
+     *     <tr><td><code>LeftDoubleBracket;</code></td><td>U+027E6</td><td>⟦</td></tr>
+     *     <tr><td><code>LeftDownTeeVector;</code></td><td>U+02961</td><td>⥡</td></tr>
+     *     <tr><td><code>LeftDownVector;</code></td><td>U+021C3</td><td>⇃</td></tr>
+     *     <tr><td><code>LeftDownVectorBar;</code></td><td>U+02959</td><td>⥙</td></tr>
+     *     <tr><td><code>LeftFloor;</code></td><td>U+0230A</td><td>⌊</td></tr>
+     *     <tr><td><code>leftharpoondown;</code></td><td>U+021BD</td><td>↽</td></tr>
+     *     <tr><td><code>leftharpoonup;</code></td><td>U+021BC</td><td>↼</td></tr>
+     *     <tr><td><code>leftleftarrows;</code></td><td>U+021C7</td><td>⇇</td></tr>
+     *     <tr><td><code>LeftRightArrow;</code></td><td>U+02194</td><td>↔</td></tr>
+     *     <tr><td><code>Leftrightarrow;</code></td><td>U+021D4</td><td>⇔</td></tr>
+     *     <tr><td><code>leftrightarrow;</code></td><td>U+02194</td><td>↔</td></tr>
+     *     <tr><td><code>leftrightarrows;</code></td><td>U+021C6</td><td>⇆</td></tr>
+     *     <tr><td><code>leftrightharpoons;</code></td><td>U+021CB</td><td>⇋</td></tr>
+     *     <tr><td><code>leftrightsquigarrow;</code></td><td>U+021AD</td><td>↭</td></tr>
+     *     <tr><td><code>LeftRightVector;</code></td><td>U+0294E</td><td>⥎</td></tr>
+     *     <tr><td><code>LeftTee;</code></td><td>U+022A3</td><td>⊣</td></tr>
+     *     <tr><td><code>LeftTeeArrow;</code></td><td>U+021A4</td><td>↤</td></tr>
+     *     <tr><td><code>LeftTeeVector;</code></td><td>U+0295A</td><td>⥚</td></tr>
+     *     <tr><td><code>leftthreetimes;</code></td><td>U+022CB</td><td>⋋</td></tr>
+     *     <tr><td><code>LeftTriangle;</code></td><td>U+022B2</td><td>⊲</td></tr>
+     *     <tr><td><code>LeftTriangleBar;</code></td><td>U+029CF</td><td>⧏</td></tr>
+     *     <tr><td><code>LeftTriangleEqual;</code></td><td>U+022B4</td><td>⊴</td></tr>
+     *     <tr><td><code>LeftUpDownVector;</code></td><td>U+02951</td><td>⥑</td></tr>
+     *     <tr><td><code>LeftUpTeeVector;</code></td><td>U+02960</td><td>⥠</td></tr>
+     *     <tr><td><code>LeftUpVector;</code></td><td>U+021BF</td><td>↿</td></tr>
+     *     <tr><td><code>LeftUpVectorBar;</code></td><td>U+02958</td><td>⥘</td></tr>
+     *     <tr><td><code>LeftVector;</code></td><td>U+021BC</td><td>↼</td></tr>
+     *     <tr><td><code>LeftVectorBar;</code></td><td>U+02952</td><td>⥒</td></tr>
+     *     <tr><td><code>lEg;</code></td><td>U+02A8B</td><td>⪋</td></tr>
+     *     <tr><td><code>leg;</code></td><td>U+022DA</td><td>⋚</td></tr>
+     *     <tr><td><code>leq;</code></td><td>U+02264</td><td>≤</td></tr>
+     *     <tr><td><code>leqq;</code></td><td>U+02266</td><td>≦</td></tr>
+     *     <tr><td><code>leqslant;</code></td><td>U+02A7D</td><td>⩽</td></tr>
+     *     <tr><td><code>les;</code></td><td>U+02A7D</td><td>⩽</td></tr>
+     *     <tr><td><code>lescc;</code></td><td>U+02AA8</td><td>⪨</td></tr>
+     *     <tr><td><code>lesdot;</code></td><td>U+02A7F</td><td>⩿</td></tr>
+     *     <tr><td><code>lesdoto;</code></td><td>U+02A81</td><td>⪁</td></tr>
+     *     <tr><td><code>lesdotor;</code></td><td>U+02A83</td><td>⪃</td></tr>
+     *     <tr><td><code>lesg;</code></td><td>U+022DA U+0FE00</td><td>⋚︀</td></tr>
+     *     <tr><td><code>lesges;</code></td><td>U+02A93</td><td>⪓</td></tr>
+     *     <tr><td><code>lessapprox;</code></td><td>U+02A85</td><td>⪅</td></tr>
+     *     <tr><td><code>lessdot;</code></td><td>U+022D6</td><td>⋖</td></tr>
+     *     <tr><td><code>lesseqgtr;</code></td><td>U+022DA</td><td>⋚</td></tr>
+     *     <tr><td><code>lesseqqgtr;</code></td><td>U+02A8B</td><td>⪋</td></tr>
+     *     <tr><td><code>LessEqualGreater;</code></td><td>U+022DA</td><td>⋚</td></tr>
+     *     <tr><td><code>LessFullEqual;</code></td><td>U+02266</td><td>≦</td></tr>
+     *     <tr><td><code>LessGreater;</code></td><td>U+02276</td><td>≶</td></tr>
+     *     <tr><td><code>lessgtr;</code></td><td>U+02276</td><td>≶</td></tr>
+     *     <tr><td><code>LessLess;</code></td><td>U+02AA1</td><td>⪡</td></tr>
+     *     <tr><td><code>lesssim;</code></td><td>U+02272</td><td>≲</td></tr>
+     *     <tr><td><code>LessSlantEqual;</code></td><td>U+02A7D</td><td>⩽</td></tr>
+     *     <tr><td><code>LessTilde;</code></td><td>U+02272</td><td>≲</td></tr>
+     *     <tr><td><code>lfisht;</code></td><td>U+0297C</td><td>⥼</td></tr>
+     *     <tr><td><code>lfloor;</code></td><td>U+0230A</td><td>⌊</td></tr>
+     *     <tr><td><code>Lfr;</code></td><td>U+1D50F</td><td>𝔏</td></tr>
+     *     <tr><td><code>lfr;</code></td><td>U+1D529</td><td>𝔩</td></tr>
+     *     <tr><td><code>lg;</code></td><td>U+02276</td><td>≶</td></tr>
+     *     <tr><td><code>lgE;</code></td><td>U+02A91</td><td>⪑</td></tr>
+     *     <tr><td><code>lHar;</code></td><td>U+02962</td><td>⥢</td></tr>
+     *     <tr><td><code>lhard;</code></td><td>U+021BD</td><td>↽</td></tr>
+     *     <tr><td><code>lharu;</code></td><td>U+021BC</td><td>↼</td></tr>
+     *     <tr><td><code>lharul;</code></td><td>U+0296A</td><td>⥪</td></tr>
+     *     <tr><td><code>lhblk;</code></td><td>U+02584</td><td>▄</td></tr>
+     *     <tr><td><code>LJcy;</code></td><td>U+00409</td><td>Љ</td></tr>
+     *     <tr><td><code>ljcy;</code></td><td>U+00459</td><td>љ</td></tr>
+     *     <tr><td><code>Ll;</code></td><td>U+022D8</td><td>⋘</td></tr>
+     *     <tr><td><code>ll;</code></td><td>U+0226A</td><td>≪</td></tr>
+     *     <tr><td><code>llarr;</code></td><td>U+021C7</td><td>⇇</td></tr>
+     *     <tr><td><code>llcorner;</code></td><td>U+0231E</td><td>⌞</td></tr>
+     *     <tr><td><code>Lleftarrow;</code></td><td>U+021DA</td><td>⇚</td></tr>
+     *     <tr><td><code>llhard;</code></td><td>U+0296B</td><td>⥫</td></tr>
+     *     <tr><td><code>lltri;</code></td><td>U+025FA</td><td>◺</td></tr>
+     *     <tr><td><code>Lmidot;</code></td><td>U+0013F</td><td>Ŀ</td></tr>
+     *     <tr><td><code>lmidot;</code></td><td>U+00140</td><td>ŀ</td></tr>
+     *     <tr><td><code>lmoust;</code></td><td>U+023B0</td><td>⎰</td></tr>
+     *     <tr><td><code>lmoustache;</code></td><td>U+023B0</td><td>⎰</td></tr>
+     *     <tr><td><code>lnap;</code></td><td>U+02A89</td><td>⪉</td></tr>
+     *     <tr><td><code>lnapprox;</code></td><td>U+02A89</td><td>⪉</td></tr>
+     *     <tr><td><code>lnE;</code></td><td>U+02268</td><td>≨</td></tr>
+     *     <tr><td><code>lne;</code></td><td>U+02A87</td><td>⪇</td></tr>
+     *     <tr><td><code>lneq;</code></td><td>U+02A87</td><td>⪇</td></tr>
+     *     <tr><td><code>lneqq;</code></td><td>U+02268</td><td>≨</td></tr>
+     *     <tr><td><code>lnsim;</code></td><td>U+022E6</td><td>⋦</td></tr>
+     *     <tr><td><code>loang;</code></td><td>U+027EC</td><td>⟬</td></tr>
+     *     <tr><td><code>loarr;</code></td><td>U+021FD</td><td>⇽</td></tr>
+     *     <tr><td><code>lobrk;</code></td><td>U+027E6</td><td>⟦</td></tr>
+     *     <tr><td><code>LongLeftArrow;</code></td><td>U+027F5</td><td>⟵</td></tr>
+     *     <tr><td><code>Longleftarrow;</code></td><td>U+027F8</td><td>⟸</td></tr>
+     *     <tr><td><code>longleftarrow;</code></td><td>U+027F5</td><td>⟵</td></tr>
+     *     <tr><td><code>LongLeftRightArrow;</code></td><td>U+027F7</td><td>⟷</td></tr>
+     *     <tr><td><code>Longleftrightarrow;</code></td><td>U+027FA</td><td>⟺</td></tr>
+     *     <tr><td><code>longleftrightarrow;</code></td><td>U+027F7</td><td>⟷</td></tr>
+     *     <tr><td><code>longmapsto;</code></td><td>U+027FC</td><td>⟼</td></tr>
+     *     <tr><td><code>LongRightArrow;</code></td><td>U+027F6</td><td>⟶</td></tr>
+     *     <tr><td><code>Longrightarrow;</code></td><td>U+027F9</td><td>⟹</td></tr>
+     *     <tr><td><code>longrightarrow;</code></td><td>U+027F6</td><td>⟶</td></tr>
+     *     <tr><td><code>looparrowleft;</code></td><td>U+021AB</td><td>↫</td></tr>
+     *     <tr><td><code>looparrowright;</code></td><td>U+021AC</td><td>↬</td></tr>
+     *     <tr><td><code>lopar;</code></td><td>U+02985</td><td>⦅</td></tr>
+     *     <tr><td><code>Lopf;</code></td><td>U+1D543</td><td>𝕃</td></tr>
+     *     <tr><td><code>lopf;</code></td><td>U+1D55D</td><td>𝕝</td></tr>
+     *     <tr><td><code>loplus;</code></td><td>U+02A2D</td><td>⨭</td></tr>
+     *     <tr><td><code>lotimes;</code></td><td>U+02A34</td><td>⨴</td></tr>
+     *     <tr><td><code>lowast;</code></td><td>U+02217</td><td>∗</td></tr>
+     *     <tr><td><code>lowbar;</code></td><td>U+0005F</td><td>_</td></tr>
+     *     <tr><td><code>LowerLeftArrow;</code></td><td>U+02199</td><td>↙</td></tr>
+     *     <tr><td><code>LowerRightArrow;</code></td><td>U+02198</td><td>↘</td></tr>
+     *     <tr><td><code>loz;</code></td><td>U+025CA</td><td>◊</td></tr>
+     *     <tr><td><code>lozenge;</code></td><td>U+025CA</td><td>◊</td></tr>
+     *     <tr><td><code>lozf;</code></td><td>U+029EB</td><td>⧫</td></tr>
+     *     <tr><td><code>lpar;</code></td><td>U+00028</td><td>(</td></tr>
+     *     <tr><td><code>lparlt;</code></td><td>U+02993</td><td>⦓</td></tr>
+     *     <tr><td><code>lrarr;</code></td><td>U+021C6</td><td>⇆</td></tr>
+     *     <tr><td><code>lrcorner;</code></td><td>U+0231F</td><td>⌟</td></tr>
+     *     <tr><td><code>lrhar;</code></td><td>U+021CB</td><td>⇋</td></tr>
+     *     <tr><td><code>lrhard;</code></td><td>U+0296D</td><td>⥭</td></tr>
+     *     <tr><td><code>lrm;</code></td><td>U+0200E</td><td>‎</td></tr>
+     *     <tr><td><code>lrtri;</code></td><td>U+022BF</td><td>⊿</td></tr>
+     *     <tr><td><code>lsaquo;</code></td><td>U+02039</td><td>‹</td></tr>
+     *     <tr><td><code>Lscr;</code></td><td>U+02112</td><td>ℒ</td></tr>
+     *     <tr><td><code>lscr;</code></td><td>U+1D4C1</td><td>𝓁</td></tr>
+     *     <tr><td><code>Lsh;</code></td><td>U+021B0</td><td>↰</td></tr>
+     *     <tr><td><code>lsh;</code></td><td>U+021B0</td><td>↰</td></tr>
+     *     <tr><td><code>lsim;</code></td><td>U+02272</td><td>≲</td></tr>
+     *     <tr><td><code>lsime;</code></td><td>U+02A8D</td><td>⪍</td></tr>
+     *     <tr><td><code>lsimg;</code></td><td>U+02A8F</td><td>⪏</td></tr>
+     *     <tr><td><code>lsqb;</code></td><td>U+0005B</td><td>[</td></tr>
+     *     <tr><td><code>lsquo;</code></td><td>U+02018</td><td>‘</td></tr>
+     *     <tr><td><code>lsquor;</code></td><td>U+0201A</td><td>‚</td></tr>
+     *     <tr><td><code>Lstrok;</code></td><td>U+00141</td><td>Ł</td></tr>
+     *     <tr><td><code>lstrok;</code></td><td>U+00142</td><td>ł</td></tr>
+     *     <tr><td><code>LT;</code></td><td>U+0003C</td><td>&lt;</td></tr>
+     *     <tr><td><code>LT</code></td><td>U+0003C</td><td>&lt;</td></tr>
+     *     <tr><td><code>Lt;</code></td><td>U+0226A</td><td>≪</td></tr>
+     *     <tr><td><code>lt;</code></td><td>U+0003C</td><td>&lt;</td></tr>
+     *     <tr><td><code>lt</code></td><td>U+0003C</td><td>&lt;</td></tr>
+     *     <tr><td><code>ltcc;</code></td><td>U+02AA6</td><td>⪦</td></tr>
+     *     <tr><td><code>ltcir;</code></td><td>U+02A79</td><td>⩹</td></tr>
+     *     <tr><td><code>ltdot;</code></td><td>U+022D6</td><td>⋖</td></tr>
+     *     <tr><td><code>lthree;</code></td><td>U+022CB</td><td>⋋</td></tr>
+     *     <tr><td><code>ltimes;</code></td><td>U+022C9</td><td>⋉</td></tr>
+     *     <tr><td><code>ltlarr;</code></td><td>U+02976</td><td>⥶</td></tr>
+     *     <tr><td><code>ltquest;</code></td><td>U+02A7B</td><td>⩻</td></tr>
+     *     <tr><td><code>ltri;</code></td><td>U+025C3</td><td>◃</td></tr>
+     *     <tr><td><code>ltrie;</code></td><td>U+022B4</td><td>⊴</td></tr>
+     *     <tr><td><code>ltrif;</code></td><td>U+025C2</td><td>◂</td></tr>
+     *     <tr><td><code>ltrPar;</code></td><td>U+02996</td><td>⦖</td></tr>
+     *     <tr><td><code>lurdshar;</code></td><td>U+0294A</td><td>⥊</td></tr>
+     *     <tr><td><code>luruhar;</code></td><td>U+02966</td><td>⥦</td></tr>
+     *     <tr><td><code>lvertneqq;</code></td><td>U+02268 U+0FE00</td><td>≨︀</td></tr>
+     *     <tr><td><code>lvnE;</code></td><td>U+02268 U+0FE00</td><td>≨︀</td></tr>
+     *     <tr><td><code>macr;</code></td><td>U+000AF</td><td>¯</td></tr>
+     *     <tr><td><code>macr</code></td><td>U+000AF</td><td>¯</td></tr>
+     *     <tr><td><code>male;</code></td><td>U+02642</td><td>♂</td></tr>
+     *     <tr><td><code>malt;</code></td><td>U+02720</td><td>✠</td></tr>
+     *     <tr><td><code>maltese;</code></td><td>U+02720</td><td>✠</td></tr>
+     *     <tr><td><code>Map;</code></td><td>U+02905</td><td>⤅</td></tr>
+     *     <tr><td><code>map;</code></td><td>U+021A6</td><td>↦</td></tr>
+     *     <tr><td><code>mapsto;</code></td><td>U+021A6</td><td>↦</td></tr>
+     *     <tr><td><code>mapstodown;</code></td><td>U+021A7</td><td>↧</td></tr>
+     *     <tr><td><code>mapstoleft;</code></td><td>U+021A4</td><td>↤</td></tr>
+     *     <tr><td><code>mapstoup;</code></td><td>U+021A5</td><td>↥</td></tr>
+     *     <tr><td><code>marker;</code></td><td>U+025AE</td><td>▮</td></tr>
+     *     <tr><td><code>mcomma;</code></td><td>U+02A29</td><td>⨩</td></tr>
+     *     <tr><td><code>Mcy;</code></td><td>U+0041C</td><td>М</td></tr>
+     *     <tr><td><code>mcy;</code></td><td>U+0043C</td><td>м</td></tr>
+     *     <tr><td><code>mdash;</code></td><td>U+02014</td><td>—</td></tr>
+     *     <tr><td><code>mDDot;</code></td><td>U+0223A</td><td>∺</td></tr>
+     *     <tr><td><code>measuredangle;</code></td><td>U+02221</td><td>∡</td></tr>
+     *     <tr><td><code>MediumSpace;</code></td><td>U+0205F</td><td> </td></tr>
+     *     <tr><td><code>Mellintrf;</code></td><td>U+02133</td><td>ℳ</td></tr>
+     *     <tr><td><code>Mfr;</code></td><td>U+1D510</td><td>𝔐</td></tr>
+     *     <tr><td><code>mfr;</code></td><td>U+1D52A</td><td>𝔪</td></tr>
+     *     <tr><td><code>mho;</code></td><td>U+02127</td><td>℧</td></tr>
+     *     <tr><td><code>micro;</code></td><td>U+000B5</td><td>µ</td></tr>
+     *     <tr><td><code>micro</code></td><td>U+000B5</td><td>µ</td></tr>
+     *     <tr><td><code>mid;</code></td><td>U+02223</td><td>∣</td></tr>
+     *     <tr><td><code>midast;</code></td><td>U+0002A</td><td>*</td></tr>
+     *     <tr><td><code>midcir;</code></td><td>U+02AF0</td><td>⫰</td></tr>
+     *     <tr><td><code>middot;</code></td><td>U+000B7</td><td>·</td></tr>
+     *     <tr><td><code>middot</code></td><td>U+000B7</td><td>·</td></tr>
+     *     <tr><td><code>minus;</code></td><td>U+02212</td><td>−</td></tr>
+     *     <tr><td><code>minusb;</code></td><td>U+0229F</td><td>⊟</td></tr>
+     *     <tr><td><code>minusd;</code></td><td>U+02238</td><td>∸</td></tr>
+     *     <tr><td><code>minusdu;</code></td><td>U+02A2A</td><td>⨪</td></tr>
+     *     <tr><td><code>MinusPlus;</code></td><td>U+02213</td><td>∓</td></tr>
+     *     <tr><td><code>mlcp;</code></td><td>U+02ADB</td><td>⫛</td></tr>
+     *     <tr><td><code>mldr;</code></td><td>U+02026</td><td>…</td></tr>
+     *     <tr><td><code>mnplus;</code></td><td>U+02213</td><td>∓</td></tr>
+     *     <tr><td><code>models;</code></td><td>U+022A7</td><td>⊧</td></tr>
+     *     <tr><td><code>Mopf;</code></td><td>U+1D544</td><td>𝕄</td></tr>
+     *     <tr><td><code>mopf;</code></td><td>U+1D55E</td><td>𝕞</td></tr>
+     *     <tr><td><code>mp;</code></td><td>U+02213</td><td>∓</td></tr>
+     *     <tr><td><code>Mscr;</code></td><td>U+02133</td><td>ℳ</td></tr>
+     *     <tr><td><code>mscr;</code></td><td>U+1D4C2</td><td>𝓂</td></tr>
+     *     <tr><td><code>mstpos;</code></td><td>U+0223E</td><td>∾</td></tr>
+     *     <tr><td><code>Mu;</code></td><td>U+0039C</td><td>Μ</td></tr>
+     *     <tr><td><code>mu;</code></td><td>U+003BC</td><td>μ</td></tr>
+     *     <tr><td><code>multimap;</code></td><td>U+022B8</td><td>⊸</td></tr>
+     *     <tr><td><code>mumap;</code></td><td>U+022B8</td><td>⊸</td></tr>
+     *     <tr><td><code>nabla;</code></td><td>U+02207</td><td>∇</td></tr>
+     *     <tr><td><code>Nacute;</code></td><td>U+00143</td><td>Ń</td></tr>
+     *     <tr><td><code>nacute;</code></td><td>U+00144</td><td>ń</td></tr>
+     *     <tr><td><code>nang;</code></td><td>U+02220 U+020D2</td><td>∠⃒</td></tr>
+     *     <tr><td><code>nap;</code></td><td>U+02249</td><td>≉</td></tr>
+     *     <tr><td><code>napE;</code></td><td>U+02A70 U+00338</td><td>⩰̸</td></tr>
+     *     <tr><td><code>napid;</code></td><td>U+0224B U+00338</td><td>≋̸</td></tr>
+     *     <tr><td><code>napos;</code></td><td>U+00149</td><td>ŉ</td></tr>
+     *     <tr><td><code>napprox;</code></td><td>U+02249</td><td>≉</td></tr>
+     *     <tr><td><code>natur;</code></td><td>U+0266E</td><td>♮</td></tr>
+     *     <tr><td><code>natural;</code></td><td>U+0266E</td><td>♮</td></tr>
+     *     <tr><td><code>naturals;</code></td><td>U+02115</td><td>ℕ</td></tr>
+     *     <tr><td><code>nbsp;</code></td><td>U+000A0</td><td>&nbsp;</td></tr>
+     *     <tr><td><code>nbsp</code></td><td>U+000A0</td><td>&nbsp;</td></tr>
+     *     <tr><td><code>nbump;</code></td><td>U+0224E U+00338</td><td>≎̸</td></tr>
+     *     <tr><td><code>nbumpe;</code></td><td>U+0224F U+00338</td><td>≏̸</td></tr>
+     *     <tr><td><code>ncap;</code></td><td>U+02A43</td><td>⩃</td></tr>
+     *     <tr><td><code>Ncaron;</code></td><td>U+00147</td><td>Ň</td></tr>
+     *     <tr><td><code>ncaron;</code></td><td>U+00148</td><td>ň</td></tr>
+     *     <tr><td><code>Ncedil;</code></td><td>U+00145</td><td>Ņ</td></tr>
+     *     <tr><td><code>ncedil;</code></td><td>U+00146</td><td>ņ</td></tr>
+     *     <tr><td><code>ncong;</code></td><td>U+02247</td><td>≇</td></tr>
+     *     <tr><td><code>ncongdot;</code></td><td>U+02A6D U+00338</td><td>⩭̸</td></tr>
+     *     <tr><td><code>ncup;</code></td><td>U+02A42</td><td>⩂</td></tr>
+     *     <tr><td><code>Ncy;</code></td><td>U+0041D</td><td>Н</td></tr>
+     *     <tr><td><code>ncy;</code></td><td>U+0043D</td><td>н</td></tr>
+     *     <tr><td><code>ndash;</code></td><td>U+02013</td><td>–</td></tr>
+     *     <tr><td><code>ne;</code></td><td>U+02260</td><td>≠</td></tr>
+     *     <tr><td><code>nearhk;</code></td><td>U+02924</td><td>⤤</td></tr>
+     *     <tr><td><code>neArr;</code></td><td>U+021D7</td><td>⇗</td></tr>
+     *     <tr><td><code>nearr;</code></td><td>U+02197</td><td>↗</td></tr>
+     *     <tr><td><code>nearrow;</code></td><td>U+02197</td><td>↗</td></tr>
+     *     <tr><td><code>nedot;</code></td><td>U+02250 U+00338</td><td>≐̸</td></tr>
+     *     <tr><td><code>NegativeMediumSpace;</code></td><td>U+0200B</td><td>​</td></tr>
+     *     <tr><td><code>NegativeThickSpace;</code></td><td>U+0200B</td><td>​</td></tr>
+     *     <tr><td><code>NegativeThinSpace;</code></td><td>U+0200B</td><td>​</td></tr>
+     *     <tr><td><code>NegativeVeryThinSpace;</code></td><td>U+0200B</td><td>​</td></tr>
+     *     <tr><td><code>nequiv;</code></td><td>U+02262</td><td>≢</td></tr>
+     *     <tr><td><code>nesear;</code></td><td>U+02928</td><td>⤨</td></tr>
+     *     <tr><td><code>nesim;</code></td><td>U+02242 U+00338</td><td>≂̸</td></tr>
+     *     <tr><td><code>NestedGreaterGreater;</code></td><td>U+0226B</td><td>≫</td></tr>
+     *     <tr><td><code>NestedLessLess;</code></td><td>U+0226A</td><td>≪</td></tr>
+     *     <tr><td><code>NewLine;</code></td><td>U+0000A</td><td>␊</td></tr>
+     *     <tr><td><code>nexist;</code></td><td>U+02204</td><td>∄</td></tr>
+     *     <tr><td><code>nexists;</code></td><td>U+02204</td><td>∄</td></tr>
+     *     <tr><td><code>Nfr;</code></td><td>U+1D511</td><td>𝔑</td></tr>
+     *     <tr><td><code>nfr;</code></td><td>U+1D52B</td><td>𝔫</td></tr>
+     *     <tr><td><code>ngE;</code></td><td>U+02267 U+00338</td><td>≧̸</td></tr>
+     *     <tr><td><code>nge;</code></td><td>U+02271</td><td>≱</td></tr>
+     *     <tr><td><code>ngeq;</code></td><td>U+02271</td><td>≱</td></tr>
+     *     <tr><td><code>ngeqq;</code></td><td>U+02267 U+00338</td><td>≧̸</td></tr>
+     *     <tr><td><code>ngeqslant;</code></td><td>U+02A7E U+00338</td><td>⩾̸</td></tr>
+     *     <tr><td><code>nges;</code></td><td>U+02A7E U+00338</td><td>⩾̸</td></tr>
+     *     <tr><td><code>nGg;</code></td><td>U+022D9 U+00338</td><td>⋙̸</td></tr>
+     *     <tr><td><code>ngsim;</code></td><td>U+02275</td><td>≵</td></tr>
+     *     <tr><td><code>nGt;</code></td><td>U+0226B U+020D2</td><td>≫⃒</td></tr>
+     *     <tr><td><code>ngt;</code></td><td>U+0226F</td><td>≯</td></tr>
+     *     <tr><td><code>ngtr;</code></td><td>U+0226F</td><td>≯</td></tr>
+     *     <tr><td><code>nGtv;</code></td><td>U+0226B U+00338</td><td>≫̸</td></tr>
+     *     <tr><td><code>nhArr;</code></td><td>U+021CE</td><td>⇎</td></tr>
+     *     <tr><td><code>nharr;</code></td><td>U+021AE</td><td>↮</td></tr>
+     *     <tr><td><code>nhpar;</code></td><td>U+02AF2</td><td>⫲</td></tr>
+     *     <tr><td><code>ni;</code></td><td>U+0220B</td><td>∋</td></tr>
+     *     <tr><td><code>nis;</code></td><td>U+022FC</td><td>⋼</td></tr>
+     *     <tr><td><code>nisd;</code></td><td>U+022FA</td><td>⋺</td></tr>
+     *     <tr><td><code>niv;</code></td><td>U+0220B</td><td>∋</td></tr>
+     *     <tr><td><code>NJcy;</code></td><td>U+0040A</td><td>Њ</td></tr>
+     *     <tr><td><code>njcy;</code></td><td>U+0045A</td><td>њ</td></tr>
+     *     <tr><td><code>nlArr;</code></td><td>U+021CD</td><td>⇍</td></tr>
+     *     <tr><td><code>nlarr;</code></td><td>U+0219A</td><td>↚</td></tr>
+     *     <tr><td><code>nldr;</code></td><td>U+02025</td><td>‥</td></tr>
+     *     <tr><td><code>nlE;</code></td><td>U+02266 U+00338</td><td>≦̸</td></tr>
+     *     <tr><td><code>nle;</code></td><td>U+02270</td><td>≰</td></tr>
+     *     <tr><td><code>nLeftarrow;</code></td><td>U+021CD</td><td>⇍</td></tr>
+     *     <tr><td><code>nleftarrow;</code></td><td>U+0219A</td><td>↚</td></tr>
+     *     <tr><td><code>nLeftrightarrow;</code></td><td>U+021CE</td><td>⇎</td></tr>
+     *     <tr><td><code>nleftrightarrow;</code></td><td>U+021AE</td><td>↮</td></tr>
+     *     <tr><td><code>nleq;</code></td><td>U+02270</td><td>≰</td></tr>
+     *     <tr><td><code>nleqq;</code></td><td>U+02266 U+00338</td><td>≦̸</td></tr>
+     *     <tr><td><code>nleqslant;</code></td><td>U+02A7D U+00338</td><td>⩽̸</td></tr>
+     *     <tr><td><code>nles;</code></td><td>U+02A7D U+00338</td><td>⩽̸</td></tr>
+     *     <tr><td><code>nless;</code></td><td>U+0226E</td><td>≮</td></tr>
+     *     <tr><td><code>nLl;</code></td><td>U+022D8 U+00338</td><td>⋘̸</td></tr>
+     *     <tr><td><code>nlsim;</code></td><td>U+02274</td><td>≴</td></tr>
+     *     <tr><td><code>nLt;</code></td><td>U+0226A U+020D2</td><td>≪⃒</td></tr>
+     *     <tr><td><code>nlt;</code></td><td>U+0226E</td><td>≮</td></tr>
+     *     <tr><td><code>nltri;</code></td><td>U+022EA</td><td>⋪</td></tr>
+     *     <tr><td><code>nltrie;</code></td><td>U+022EC</td><td>⋬</td></tr>
+     *     <tr><td><code>nLtv;</code></td><td>U+0226A U+00338</td><td>≪̸</td></tr>
+     *     <tr><td><code>nmid;</code></td><td>U+02224</td><td>∤</td></tr>
+     *     <tr><td><code>NoBreak;</code></td><td>U+02060</td><td>⁠</td></tr>
+     *     <tr><td><code>NonBreakingSpace;</code></td><td>U+000A0</td><td>&nbsp;</td></tr>
+     *     <tr><td><code>Nopf;</code></td><td>U+02115</td><td>ℕ</td></tr>
+     *     <tr><td><code>nopf;</code></td><td>U+1D55F</td><td>𝕟</td></tr>
+     *     <tr><td><code>Not;</code></td><td>U+02AEC</td><td>⫬</td></tr>
+     *     <tr><td><code>not;</code></td><td>U+000AC</td><td>¬</td></tr>
+     *     <tr><td><code>not</code></td><td>U+000AC</td><td>¬</td></tr>
+     *     <tr><td><code>NotCongruent;</code></td><td>U+02262</td><td>≢</td></tr>
+     *     <tr><td><code>NotCupCap;</code></td><td>U+0226D</td><td>≭</td></tr>
+     *     <tr><td><code>NotDoubleVerticalBar;</code></td><td>U+02226</td><td>∦</td></tr>
+     *     <tr><td><code>NotElement;</code></td><td>U+02209</td><td>∉</td></tr>
+     *     <tr><td><code>NotEqual;</code></td><td>U+02260</td><td>≠</td></tr>
+     *     <tr><td><code>NotEqualTilde;</code></td><td>U+02242 U+00338</td><td>≂̸</td></tr>
+     *     <tr><td><code>NotExists;</code></td><td>U+02204</td><td>∄</td></tr>
+     *     <tr><td><code>NotGreater;</code></td><td>U+0226F</td><td>≯</td></tr>
+     *     <tr><td><code>NotGreaterEqual;</code></td><td>U+02271</td><td>≱</td></tr>
+     *     <tr><td><code>NotGreaterFullEqual;</code></td><td>U+02267 U+00338</td><td>≧̸</td></tr>
+     *     <tr><td><code>NotGreaterGreater;</code></td><td>U+0226B U+00338</td><td>≫̸</td></tr>
+     *     <tr><td><code>NotGreaterLess;</code></td><td>U+02279</td><td>≹</td></tr>
+     *     <tr><td><code>NotGreaterSlantEqual;</code></td><td>U+02A7E U+00338</td><td>⩾̸</td></tr>
+     *     <tr><td><code>NotGreaterTilde;</code></td><td>U+02275</td><td>≵</td></tr>
+     *     <tr><td><code>NotHumpDownHump;</code></td><td>U+0224E U+00338</td><td>≎̸</td></tr>
+     *     <tr><td><code>NotHumpEqual;</code></td><td>U+0224F U+00338</td><td>≏̸</td></tr>
+     *     <tr><td><code>notin;</code></td><td>U+02209</td><td>∉</td></tr>
+     *     <tr><td><code>notindot;</code></td><td>U+022F5 U+00338</td><td>⋵̸</td></tr>
+     *     <tr><td><code>notinE;</code></td><td>U+022F9 U+00338</td><td>⋹̸</td></tr>
+     *     <tr><td><code>notinva;</code></td><td>U+02209</td><td>∉</td></tr>
+     *     <tr><td><code>notinvb;</code></td><td>U+022F7</td><td>⋷</td></tr>
+     *     <tr><td><code>notinvc;</code></td><td>U+022F6</td><td>⋶</td></tr>
+     *     <tr><td><code>NotLeftTriangle;</code></td><td>U+022EA</td><td>⋪</td></tr>
+     *     <tr><td><code>NotLeftTriangleBar;</code></td><td>U+029CF U+00338</td><td>⧏̸</td></tr>
+     *     <tr><td><code>NotLeftTriangleEqual;</code></td><td>U+022EC</td><td>⋬</td></tr>
+     *     <tr><td><code>NotLess;</code></td><td>U+0226E</td><td>≮</td></tr>
+     *     <tr><td><code>NotLessEqual;</code></td><td>U+02270</td><td>≰</td></tr>
+     *     <tr><td><code>NotLessGreater;</code></td><td>U+02278</td><td>≸</td></tr>
+     *     <tr><td><code>NotLessLess;</code></td><td>U+0226A U+00338</td><td>≪̸</td></tr>
+     *     <tr><td><code>NotLessSlantEqual;</code></td><td>U+02A7D U+00338</td><td>⩽̸</td></tr>
+     *     <tr><td><code>NotLessTilde;</code></td><td>U+02274</td><td>≴</td></tr>
+     *     <tr><td><code>NotNestedGreaterGreater;</code></td><td>U+02AA2 U+00338</td><td>⪢̸</td></tr>
+     *     <tr><td><code>NotNestedLessLess;</code></td><td>U+02AA1 U+00338</td><td>⪡̸</td></tr>
+     *     <tr><td><code>notni;</code></td><td>U+0220C</td><td>∌</td></tr>
+     *     <tr><td><code>notniva;</code></td><td>U+0220C</td><td>∌</td></tr>
+     *     <tr><td><code>notnivb;</code></td><td>U+022FE</td><td>⋾</td></tr>
+     *     <tr><td><code>notnivc;</code></td><td>U+022FD</td><td>⋽</td></tr>
+     *     <tr><td><code>NotPrecedes;</code></td><td>U+02280</td><td>⊀</td></tr>
+     *     <tr><td><code>NotPrecedesEqual;</code></td><td>U+02AAF U+00338</td><td>⪯̸</td></tr>
+     *     <tr><td><code>NotPrecedesSlantEqual;</code></td><td>U+022E0</td><td>⋠</td></tr>
+     *     <tr><td><code>NotReverseElement;</code></td><td>U+0220C</td><td>∌</td></tr>
+     *     <tr><td><code>NotRightTriangle;</code></td><td>U+022EB</td><td>⋫</td></tr>
+     *     <tr><td><code>NotRightTriangleBar;</code></td><td>U+029D0 U+00338</td><td>⧐̸</td></tr>
+     *     <tr><td><code>NotRightTriangleEqual;</code></td><td>U+022ED</td><td>⋭</td></tr>
+     *     <tr><td><code>NotSquareSubset;</code></td><td>U+0228F U+00338</td><td>⊏̸</td></tr>
+     *     <tr><td><code>NotSquareSubsetEqual;</code></td><td>U+022E2</td><td>⋢</td></tr>
+     *     <tr><td><code>NotSquareSuperset;</code></td><td>U+02290 U+00338</td><td>⊐̸</td></tr>
+     *     <tr><td><code>NotSquareSupersetEqual;</code></td><td>U+022E3</td><td>⋣</td></tr>
+     *     <tr><td><code>NotSubset;</code></td><td>U+02282 U+020D2</td><td>⊂⃒</td></tr>
+     *     <tr><td><code>NotSubsetEqual;</code></td><td>U+02288</td><td>⊈</td></tr>
+     *     <tr><td><code>NotSucceeds;</code></td><td>U+02281</td><td>⊁</td></tr>
+     *     <tr><td><code>NotSucceedsEqual;</code></td><td>U+02AB0 U+00338</td><td>⪰̸</td></tr>
+     *     <tr><td><code>NotSucceedsSlantEqual;</code></td><td>U+022E1</td><td>⋡</td></tr>
+     *     <tr><td><code>NotSucceedsTilde;</code></td><td>U+0227F U+00338</td><td>≿̸</td></tr>
+     *     <tr><td><code>NotSuperset;</code></td><td>U+02283 U+020D2</td><td>⊃⃒</td></tr>
+     *     <tr><td><code>NotSupersetEqual;</code></td><td>U+02289</td><td>⊉</td></tr>
+     *     <tr><td><code>NotTilde;</code></td><td>U+02241</td><td>≁</td></tr>
+     *     <tr><td><code>NotTildeEqual;</code></td><td>U+02244</td><td>≄</td></tr>
+     *     <tr><td><code>NotTildeFullEqual;</code></td><td>U+02247</td><td>≇</td></tr>
+     *     <tr><td><code>NotTildeTilde;</code></td><td>U+02249</td><td>≉</td></tr>
+     *     <tr><td><code>NotVerticalBar;</code></td><td>U+02224</td><td>∤</td></tr>
+     *     <tr><td><code>npar;</code></td><td>U+02226</td><td>∦</td></tr>
+     *     <tr><td><code>nparallel;</code></td><td>U+02226</td><td>∦</td></tr>
+     *     <tr><td><code>nparsl;</code></td><td>U+02AFD U+020E5</td><td>⫽⃥</td></tr>
+     *     <tr><td><code>npart;</code></td><td>U+02202 U+00338</td><td>∂̸</td></tr>
+     *     <tr><td><code>npolint;</code></td><td>U+02A14</td><td>⨔</td></tr>
+     *     <tr><td><code>npr;</code></td><td>U+02280</td><td>⊀</td></tr>
+     *     <tr><td><code>nprcue;</code></td><td>U+022E0</td><td>⋠</td></tr>
+     *     <tr><td><code>npre;</code></td><td>U+02AAF U+00338</td><td>⪯̸</td></tr>
+     *     <tr><td><code>nprec;</code></td><td>U+02280</td><td>⊀</td></tr>
+     *     <tr><td><code>npreceq;</code></td><td>U+02AAF U+00338</td><td>⪯̸</td></tr>
+     *     <tr><td><code>nrArr;</code></td><td>U+021CF</td><td>⇏</td></tr>
+     *     <tr><td><code>nrarr;</code></td><td>U+0219B</td><td>↛</td></tr>
+     *     <tr><td><code>nrarrc;</code></td><td>U+02933 U+00338</td><td>⤳̸</td></tr>
+     *     <tr><td><code>nrarrw;</code></td><td>U+0219D U+00338</td><td>↝̸</td></tr>
+     *     <tr><td><code>nRightarrow;</code></td><td>U+021CF</td><td>⇏</td></tr>
+     *     <tr><td><code>nrightarrow;</code></td><td>U+0219B</td><td>↛</td></tr>
+     *     <tr><td><code>nrtri;</code></td><td>U+022EB</td><td>⋫</td></tr>
+     *     <tr><td><code>nrtrie;</code></td><td>U+022ED</td><td>⋭</td></tr>
+     *     <tr><td><code>nsc;</code></td><td>U+02281</td><td>⊁</td></tr>
+     *     <tr><td><code>nsccue;</code></td><td>U+022E1</td><td>⋡</td></tr>
+     *     <tr><td><code>nsce;</code></td><td>U+02AB0 U+00338</td><td>⪰̸</td></tr>
+     *     <tr><td><code>Nscr;</code></td><td>U+1D4A9</td><td>𝒩</td></tr>
+     *     <tr><td><code>nscr;</code></td><td>U+1D4C3</td><td>𝓃</td></tr>
+     *     <tr><td><code>nshortmid;</code></td><td>U+02224</td><td>∤</td></tr>
+     *     <tr><td><code>nshortparallel;</code></td><td>U+02226</td><td>∦</td></tr>
+     *     <tr><td><code>nsim;</code></td><td>U+02241</td><td>≁</td></tr>
+     *     <tr><td><code>nsime;</code></td><td>U+02244</td><td>≄</td></tr>
+     *     <tr><td><code>nsimeq;</code></td><td>U+02244</td><td>≄</td></tr>
+     *     <tr><td><code>nsmid;</code></td><td>U+02224</td><td>∤</td></tr>
+     *     <tr><td><code>nspar;</code></td><td>U+02226</td><td>∦</td></tr>
+     *     <tr><td><code>nsqsube;</code></td><td>U+022E2</td><td>⋢</td></tr>
+     *     <tr><td><code>nsqsupe;</code></td><td>U+022E3</td><td>⋣</td></tr>
+     *     <tr><td><code>nsub;</code></td><td>U+02284</td><td>⊄</td></tr>
+     *     <tr><td><code>nsubE;</code></td><td>U+02AC5 U+00338</td><td>⫅̸</td></tr>
+     *     <tr><td><code>nsube;</code></td><td>U+02288</td><td>⊈</td></tr>
+     *     <tr><td><code>nsubset;</code></td><td>U+02282 U+020D2</td><td>⊂⃒</td></tr>
+     *     <tr><td><code>nsubseteq;</code></td><td>U+02288</td><td>⊈</td></tr>
+     *     <tr><td><code>nsubseteqq;</code></td><td>U+02AC5 U+00338</td><td>⫅̸</td></tr>
+     *     <tr><td><code>nsucc;</code></td><td>U+02281</td><td>⊁</td></tr>
+     *     <tr><td><code>nsucceq;</code></td><td>U+02AB0 U+00338</td><td>⪰̸</td></tr>
+     *     <tr><td><code>nsup;</code></td><td>U+02285</td><td>⊅</td></tr>
+     *     <tr><td><code>nsupE;</code></td><td>U+02AC6 U+00338</td><td>⫆̸</td></tr>
+     *     <tr><td><code>nsupe;</code></td><td>U+02289</td><td>⊉</td></tr>
+     *     <tr><td><code>nsupset;</code></td><td>U+02283 U+020D2</td><td>⊃⃒</td></tr>
+     *     <tr><td><code>nsupseteq;</code></td><td>U+02289</td><td>⊉</td></tr>
+     *     <tr><td><code>nsupseteqq;</code></td><td>U+02AC6 U+00338</td><td>⫆̸</td></tr>
+     *     <tr><td><code>ntgl;</code></td><td>U+02279</td><td>≹</td></tr>
+     *     <tr><td><code>Ntilde;</code></td><td>U+000D1</td><td>Ñ</td></tr>
+     *     <tr><td><code>Ntilde</code></td><td>U+000D1</td><td>Ñ</td></tr>
+     *     <tr><td><code>ntilde;</code></td><td>U+000F1</td><td>ñ</td></tr>
+     *     <tr><td><code>ntilde</code></td><td>U+000F1</td><td>ñ</td></tr>
+     *     <tr><td><code>ntlg;</code></td><td>U+02278</td><td>≸</td></tr>
+     *     <tr><td><code>ntriangleleft;</code></td><td>U+022EA</td><td>⋪</td></tr>
+     *     <tr><td><code>ntrianglelefteq;</code></td><td>U+022EC</td><td>⋬</td></tr>
+     *     <tr><td><code>ntriangleright;</code></td><td>U+022EB</td><td>⋫</td></tr>
+     *     <tr><td><code>ntrianglerighteq;</code></td><td>U+022ED</td><td>⋭</td></tr>
+     *     <tr><td><code>Nu;</code></td><td>U+0039D</td><td>Ν</td></tr>
+     *     <tr><td><code>nu;</code></td><td>U+003BD</td><td>ν</td></tr>
+     *     <tr><td><code>num;</code></td><td>U+00023</td><td>#</td></tr>
+     *     <tr><td><code>numero;</code></td><td>U+02116</td><td>№</td></tr>
+     *     <tr><td><code>numsp;</code></td><td>U+02007</td><td> </td></tr>
+     *     <tr><td><code>nvap;</code></td><td>U+0224D U+020D2</td><td>≍⃒</td></tr>
+     *     <tr><td><code>nVDash;</code></td><td>U+022AF</td><td>⊯</td></tr>
+     *     <tr><td><code>nVdash;</code></td><td>U+022AE</td><td>⊮</td></tr>
+     *     <tr><td><code>nvDash;</code></td><td>U+022AD</td><td>⊭</td></tr>
+     *     <tr><td><code>nvdash;</code></td><td>U+022AC</td><td>⊬</td></tr>
+     *     <tr><td><code>nvge;</code></td><td>U+02265 U+020D2</td><td>≥⃒</td></tr>
+     *     <tr><td><code>nvgt;</code></td><td>U+0003E U+020D2</td><td>&gt;⃒</td></tr>
+     *     <tr><td><code>nvHarr;</code></td><td>U+02904</td><td>⤄</td></tr>
+     *     <tr><td><code>nvinfin;</code></td><td>U+029DE</td><td>⧞</td></tr>
+     *     <tr><td><code>nvlArr;</code></td><td>U+02902</td><td>⤂</td></tr>
+     *     <tr><td><code>nvle;</code></td><td>U+02264 U+020D2</td><td>≤⃒</td></tr>
+     *     <tr><td><code>nvlt;</code></td><td>U+0003C U+020D2</td><td>&lt;⃒</td></tr>
+     *     <tr><td><code>nvltrie;</code></td><td>U+022B4 U+020D2</td><td>⊴⃒</td></tr>
+     *     <tr><td><code>nvrArr;</code></td><td>U+02903</td><td>⤃</td></tr>
+     *     <tr><td><code>nvrtrie;</code></td><td>U+022B5 U+020D2</td><td>⊵⃒</td></tr>
+     *     <tr><td><code>nvsim;</code></td><td>U+0223C U+020D2</td><td>∼⃒</td></tr>
+     *     <tr><td><code>nwarhk;</code></td><td>U+02923</td><td>⤣</td></tr>
+     *     <tr><td><code>nwArr;</code></td><td>U+021D6</td><td>⇖</td></tr>
+     *     <tr><td><code>nwarr;</code></td><td>U+02196</td><td>↖</td></tr>
+     *     <tr><td><code>nwarrow;</code></td><td>U+02196</td><td>↖</td></tr>
+     *     <tr><td><code>nwnear;</code></td><td>U+02927</td><td>⤧</td></tr>
+     *     <tr><td><code>Oacute;</code></td><td>U+000D3</td><td>Ó</td></tr>
+     *     <tr><td><code>Oacute</code></td><td>U+000D3</td><td>Ó</td></tr>
+     *     <tr><td><code>oacute;</code></td><td>U+000F3</td><td>ó</td></tr>
+     *     <tr><td><code>oacute</code></td><td>U+000F3</td><td>ó</td></tr>
+     *     <tr><td><code>oast;</code></td><td>U+0229B</td><td>⊛</td></tr>
+     *     <tr><td><code>ocir;</code></td><td>U+0229A</td><td>⊚</td></tr>
+     *     <tr><td><code>Ocirc;</code></td><td>U+000D4</td><td>Ô</td></tr>
+     *     <tr><td><code>Ocirc</code></td><td>U+000D4</td><td>Ô</td></tr>
+     *     <tr><td><code>ocirc;</code></td><td>U+000F4</td><td>ô</td></tr>
+     *     <tr><td><code>ocirc</code></td><td>U+000F4</td><td>ô</td></tr>
+     *     <tr><td><code>Ocy;</code></td><td>U+0041E</td><td>О</td></tr>
+     *     <tr><td><code>ocy;</code></td><td>U+0043E</td><td>о</td></tr>
+     *     <tr><td><code>odash;</code></td><td>U+0229D</td><td>⊝</td></tr>
+     *     <tr><td><code>Odblac;</code></td><td>U+00150</td><td>Ő</td></tr>
+     *     <tr><td><code>odblac;</code></td><td>U+00151</td><td>ő</td></tr>
+     *     <tr><td><code>odiv;</code></td><td>U+02A38</td><td>⨸</td></tr>
+     *     <tr><td><code>odot;</code></td><td>U+02299</td><td>⊙</td></tr>
+     *     <tr><td><code>odsold;</code></td><td>U+029BC</td><td>⦼</td></tr>
+     *     <tr><td><code>OElig;</code></td><td>U+00152</td><td>Œ</td></tr>
+     *     <tr><td><code>oelig;</code></td><td>U+00153</td><td>œ</td></tr>
+     *     <tr><td><code>ofcir;</code></td><td>U+029BF</td><td>⦿</td></tr>
+     *     <tr><td><code>Ofr;</code></td><td>U+1D512</td><td>𝔒</td></tr>
+     *     <tr><td><code>ofr;</code></td><td>U+1D52C</td><td>𝔬</td></tr>
+     *     <tr><td><code>ogon;</code></td><td>U+002DB</td><td>˛</td></tr>
+     *     <tr><td><code>Ograve;</code></td><td>U+000D2</td><td>Ò</td></tr>
+     *     <tr><td><code>Ograve</code></td><td>U+000D2</td><td>Ò</td></tr>
+     *     <tr><td><code>ograve;</code></td><td>U+000F2</td><td>ò</td></tr>
+     *     <tr><td><code>ograve</code></td><td>U+000F2</td><td>ò</td></tr>
+     *     <tr><td><code>ogt;</code></td><td>U+029C1</td><td>⧁</td></tr>
+     *     <tr><td><code>ohbar;</code></td><td>U+029B5</td><td>⦵</td></tr>
+     *     <tr><td><code>ohm;</code></td><td>U+003A9</td><td>Ω</td></tr>
+     *     <tr><td><code>oint;</code></td><td>U+0222E</td><td>∮</td></tr>
+     *     <tr><td><code>olarr;</code></td><td>U+021BA</td><td>↺</td></tr>
+     *     <tr><td><code>olcir;</code></td><td>U+029BE</td><td>⦾</td></tr>
+     *     <tr><td><code>olcross;</code></td><td>U+029BB</td><td>⦻</td></tr>
+     *     <tr><td><code>oline;</code></td><td>U+0203E</td><td>‾</td></tr>
+     *     <tr><td><code>olt;</code></td><td>U+029C0</td><td>⧀</td></tr>
+     *     <tr><td><code>Omacr;</code></td><td>U+0014C</td><td>Ō</td></tr>
+     *     <tr><td><code>omacr;</code></td><td>U+0014D</td><td>ō</td></tr>
+     *     <tr><td><code>Omega;</code></td><td>U+003A9</td><td>Ω</td></tr>
+     *     <tr><td><code>omega;</code></td><td>U+003C9</td><td>ω</td></tr>
+     *     <tr><td><code>Omicron;</code></td><td>U+0039F</td><td>Ο</td></tr>
+     *     <tr><td><code>omicron;</code></td><td>U+003BF</td><td>ο</td></tr>
+     *     <tr><td><code>omid;</code></td><td>U+029B6</td><td>⦶</td></tr>
+     *     <tr><td><code>ominus;</code></td><td>U+02296</td><td>⊖</td></tr>
+     *     <tr><td><code>Oopf;</code></td><td>U+1D546</td><td>𝕆</td></tr>
+     *     <tr><td><code>oopf;</code></td><td>U+1D560</td><td>𝕠</td></tr>
+     *     <tr><td><code>opar;</code></td><td>U+029B7</td><td>⦷</td></tr>
+     *     <tr><td><code>OpenCurlyDoubleQuote;</code></td><td>U+0201C</td><td>“</td></tr>
+     *     <tr><td><code>OpenCurlyQuote;</code></td><td>U+02018</td><td>‘</td></tr>
+     *     <tr><td><code>operp;</code></td><td>U+029B9</td><td>⦹</td></tr>
+     *     <tr><td><code>oplus;</code></td><td>U+02295</td><td>⊕</td></tr>
+     *     <tr><td><code>Or;</code></td><td>U+02A54</td><td>⩔</td></tr>
+     *     <tr><td><code>or;</code></td><td>U+02228</td><td>∨</td></tr>
+     *     <tr><td><code>orarr;</code></td><td>U+021BB</td><td>↻</td></tr>
+     *     <tr><td><code>ord;</code></td><td>U+02A5D</td><td>⩝</td></tr>
+     *     <tr><td><code>order;</code></td><td>U+02134</td><td>ℴ</td></tr>
+     *     <tr><td><code>orderof;</code></td><td>U+02134</td><td>ℴ</td></tr>
+     *     <tr><td><code>ordf;</code></td><td>U+000AA</td><td>ª</td></tr>
+     *     <tr><td><code>ordf</code></td><td>U+000AA</td><td>ª</td></tr>
+     *     <tr><td><code>ordm;</code></td><td>U+000BA</td><td>º</td></tr>
+     *     <tr><td><code>ordm</code></td><td>U+000BA</td><td>º</td></tr>
+     *     <tr><td><code>origof;</code></td><td>U+022B6</td><td>⊶</td></tr>
+     *     <tr><td><code>oror;</code></td><td>U+02A56</td><td>⩖</td></tr>
+     *     <tr><td><code>orslope;</code></td><td>U+02A57</td><td>⩗</td></tr>
+     *     <tr><td><code>orv;</code></td><td>U+02A5B</td><td>⩛</td></tr>
+     *     <tr><td><code>oS;</code></td><td>U+024C8</td><td>Ⓢ</td></tr>
+     *     <tr><td><code>Oscr;</code></td><td>U+1D4AA</td><td>𝒪</td></tr>
+     *     <tr><td><code>oscr;</code></td><td>U+02134</td><td>ℴ</td></tr>
+     *     <tr><td><code>Oslash;</code></td><td>U+000D8</td><td>Ø</td></tr>
+     *     <tr><td><code>Oslash</code></td><td>U+000D8</td><td>Ø</td></tr>
+     *     <tr><td><code>oslash;</code></td><td>U+000F8</td><td>ø</td></tr>
+     *     <tr><td><code>oslash</code></td><td>U+000F8</td><td>ø</td></tr>
+     *     <tr><td><code>osol;</code></td><td>U+02298</td><td>⊘</td></tr>
+     *     <tr><td><code>Otilde;</code></td><td>U+000D5</td><td>Õ</td></tr>
+     *     <tr><td><code>Otilde</code></td><td>U+000D5</td><td>Õ</td></tr>
+     *     <tr><td><code>otilde;</code></td><td>U+000F5</td><td>õ</td></tr>
+     *     <tr><td><code>otilde</code></td><td>U+000F5</td><td>õ</td></tr>
+     *     <tr><td><code>Otimes;</code></td><td>U+02A37</td><td>⨷</td></tr>
+     *     <tr><td><code>otimes;</code></td><td>U+02297</td><td>⊗</td></tr>
+     *     <tr><td><code>otimesas;</code></td><td>U+02A36</td><td>⨶</td></tr>
+     *     <tr><td><code>Ouml;</code></td><td>U+000D6</td><td>Ö</td></tr>
+     *     <tr><td><code>Ouml</code></td><td>U+000D6</td><td>Ö</td></tr>
+     *     <tr><td><code>ouml;</code></td><td>U+000F6</td><td>ö</td></tr>
+     *     <tr><td><code>ouml</code></td><td>U+000F6</td><td>ö</td></tr>
+     *     <tr><td><code>ovbar;</code></td><td>U+0233D</td><td>⌽</td></tr>
+     *     <tr><td><code>OverBar;</code></td><td>U+0203E</td><td>‾</td></tr>
+     *     <tr><td><code>OverBrace;</code></td><td>U+023DE</td><td>⏞</td></tr>
+     *     <tr><td><code>OverBracket;</code></td><td>U+023B4</td><td>⎴</td></tr>
+     *     <tr><td><code>OverParenthesis;</code></td><td>U+023DC</td><td>⏜</td></tr>
+     *     <tr><td><code>par;</code></td><td>U+02225</td><td>∥</td></tr>
+     *     <tr><td><code>para;</code></td><td>U+000B6</td><td>¶</td></tr>
+     *     <tr><td><code>para</code></td><td>U+000B6</td><td>¶</td></tr>
+     *     <tr><td><code>parallel;</code></td><td>U+02225</td><td>∥</td></tr>
+     *     <tr><td><code>parsim;</code></td><td>U+02AF3</td><td>⫳</td></tr>
+     *     <tr><td><code>parsl;</code></td><td>U+02AFD</td><td>⫽</td></tr>
+     *     <tr><td><code>part;</code></td><td>U+02202</td><td>∂</td></tr>
+     *     <tr><td><code>PartialD;</code></td><td>U+02202</td><td>∂</td></tr>
+     *     <tr><td><code>Pcy;</code></td><td>U+0041F</td><td>П</td></tr>
+     *     <tr><td><code>pcy;</code></td><td>U+0043F</td><td>п</td></tr>
+     *     <tr><td><code>percnt;</code></td><td>U+00025</td><td>%</td></tr>
+     *     <tr><td><code>period;</code></td><td>U+0002E</td><td>.</td></tr>
+     *     <tr><td><code>permil;</code></td><td>U+02030</td><td>‰</td></tr>
+     *     <tr><td><code>perp;</code></td><td>U+022A5</td><td>⊥</td></tr>
+     *     <tr><td><code>pertenk;</code></td><td>U+02031</td><td>‱</td></tr>
+     *     <tr><td><code>Pfr;</code></td><td>U+1D513</td><td>𝔓</td></tr>
+     *     <tr><td><code>pfr;</code></td><td>U+1D52D</td><td>𝔭</td></tr>
+     *     <tr><td><code>Phi;</code></td><td>U+003A6</td><td>Φ</td></tr>
+     *     <tr><td><code>phi;</code></td><td>U+003C6</td><td>φ</td></tr>
+     *     <tr><td><code>phiv;</code></td><td>U+003D5</td><td>ϕ</td></tr>
+     *     <tr><td><code>phmmat;</code></td><td>U+02133</td><td>ℳ</td></tr>
+     *     <tr><td><code>phone;</code></td><td>U+0260E</td><td>☎</td></tr>
+     *     <tr><td><code>Pi;</code></td><td>U+003A0</td><td>Π</td></tr>
+     *     <tr><td><code>pi;</code></td><td>U+003C0</td><td>π</td></tr>
+     *     <tr><td><code>pitchfork;</code></td><td>U+022D4</td><td>⋔</td></tr>
+     *     <tr><td><code>piv;</code></td><td>U+003D6</td><td>ϖ</td></tr>
+     *     <tr><td><code>planck;</code></td><td>U+0210F</td><td>ℏ</td></tr>
+     *     <tr><td><code>planckh;</code></td><td>U+0210E</td><td>ℎ</td></tr>
+     *     <tr><td><code>plankv;</code></td><td>U+0210F</td><td>ℏ</td></tr>
+     *     <tr><td><code>plus;</code></td><td>U+0002B</td><td>+</td></tr>
+     *     <tr><td><code>plusacir;</code></td><td>U+02A23</td><td>⨣</td></tr>
+     *     <tr><td><code>plusb;</code></td><td>U+0229E</td><td>⊞</td></tr>
+     *     <tr><td><code>pluscir;</code></td><td>U+02A22</td><td>⨢</td></tr>
+     *     <tr><td><code>plusdo;</code></td><td>U+02214</td><td>∔</td></tr>
+     *     <tr><td><code>plusdu;</code></td><td>U+02A25</td><td>⨥</td></tr>
+     *     <tr><td><code>pluse;</code></td><td>U+02A72</td><td>⩲</td></tr>
+     *     <tr><td><code>PlusMinus;</code></td><td>U+000B1</td><td>±</td></tr>
+     *     <tr><td><code>plusmn;</code></td><td>U+000B1</td><td>±</td></tr>
+     *     <tr><td><code>plusmn</code></td><td>U+000B1</td><td>±</td></tr>
+     *     <tr><td><code>plussim;</code></td><td>U+02A26</td><td>⨦</td></tr>
+     *     <tr><td><code>plustwo;</code></td><td>U+02A27</td><td>⨧</td></tr>
+     *     <tr><td><code>pm;</code></td><td>U+000B1</td><td>±</td></tr>
+     *     <tr><td><code>Poincareplane;</code></td><td>U+0210C</td><td>ℌ</td></tr>
+     *     <tr><td><code>pointint;</code></td><td>U+02A15</td><td>⨕</td></tr>
+     *     <tr><td><code>Popf;</code></td><td>U+02119</td><td>ℙ</td></tr>
+     *     <tr><td><code>popf;</code></td><td>U+1D561</td><td>𝕡</td></tr>
+     *     <tr><td><code>pound;</code></td><td>U+000A3</td><td>£</td></tr>
+     *     <tr><td><code>pound</code></td><td>U+000A3</td><td>£</td></tr>
+     *     <tr><td><code>Pr;</code></td><td>U+02ABB</td><td>⪻</td></tr>
+     *     <tr><td><code>pr;</code></td><td>U+0227A</td><td>≺</td></tr>
+     *     <tr><td><code>prap;</code></td><td>U+02AB7</td><td>⪷</td></tr>
+     *     <tr><td><code>prcue;</code></td><td>U+0227C</td><td>≼</td></tr>
+     *     <tr><td><code>prE;</code></td><td>U+02AB3</td><td>⪳</td></tr>
+     *     <tr><td><code>pre;</code></td><td>U+02AAF</td><td>⪯</td></tr>
+     *     <tr><td><code>prec;</code></td><td>U+0227A</td><td>≺</td></tr>
+     *     <tr><td><code>precapprox;</code></td><td>U+02AB7</td><td>⪷</td></tr>
+     *     <tr><td><code>preccurlyeq;</code></td><td>U+0227C</td><td>≼</td></tr>
+     *     <tr><td><code>Precedes;</code></td><td>U+0227A</td><td>≺</td></tr>
+     *     <tr><td><code>PrecedesEqual;</code></td><td>U+02AAF</td><td>⪯</td></tr>
+     *     <tr><td><code>PrecedesSlantEqual;</code></td><td>U+0227C</td><td>≼</td></tr>
+     *     <tr><td><code>PrecedesTilde;</code></td><td>U+0227E</td><td>≾</td></tr>
+     *     <tr><td><code>preceq;</code></td><td>U+02AAF</td><td>⪯</td></tr>
+     *     <tr><td><code>precnapprox;</code></td><td>U+02AB9</td><td>⪹</td></tr>
+     *     <tr><td><code>precneqq;</code></td><td>U+02AB5</td><td>⪵</td></tr>
+     *     <tr><td><code>precnsim;</code></td><td>U+022E8</td><td>⋨</td></tr>
+     *     <tr><td><code>precsim;</code></td><td>U+0227E</td><td>≾</td></tr>
+     *     <tr><td><code>Prime;</code></td><td>U+02033</td><td>″</td></tr>
+     *     <tr><td><code>prime;</code></td><td>U+02032</td><td>′</td></tr>
+     *     <tr><td><code>primes;</code></td><td>U+02119</td><td>ℙ</td></tr>
+     *     <tr><td><code>prnap;</code></td><td>U+02AB9</td><td>⪹</td></tr>
+     *     <tr><td><code>prnE;</code></td><td>U+02AB5</td><td>⪵</td></tr>
+     *     <tr><td><code>prnsim;</code></td><td>U+022E8</td><td>⋨</td></tr>
+     *     <tr><td><code>prod;</code></td><td>U+0220F</td><td>∏</td></tr>
+     *     <tr><td><code>Product;</code></td><td>U+0220F</td><td>∏</td></tr>
+     *     <tr><td><code>profalar;</code></td><td>U+0232E</td><td>⌮</td></tr>
+     *     <tr><td><code>profline;</code></td><td>U+02312</td><td>⌒</td></tr>
+     *     <tr><td><code>profsurf;</code></td><td>U+02313</td><td>⌓</td></tr>
+     *     <tr><td><code>prop;</code></td><td>U+0221D</td><td>∝</td></tr>
+     *     <tr><td><code>Proportion;</code></td><td>U+02237</td><td>∷</td></tr>
+     *     <tr><td><code>Proportional;</code></td><td>U+0221D</td><td>∝</td></tr>
+     *     <tr><td><code>propto;</code></td><td>U+0221D</td><td>∝</td></tr>
+     *     <tr><td><code>prsim;</code></td><td>U+0227E</td><td>≾</td></tr>
+     *     <tr><td><code>prurel;</code></td><td>U+022B0</td><td>⊰</td></tr>
+     *     <tr><td><code>Pscr;</code></td><td>U+1D4AB</td><td>𝒫</td></tr>
+     *     <tr><td><code>pscr;</code></td><td>U+1D4C5</td><td>𝓅</td></tr>
+     *     <tr><td><code>Psi;</code></td><td>U+003A8</td><td>Ψ</td></tr>
+     *     <tr><td><code>psi;</code></td><td>U+003C8</td><td>ψ</td></tr>
+     *     <tr><td><code>puncsp;</code></td><td>U+02008</td><td> </td></tr>
+     *     <tr><td><code>Qfr;</code></td><td>U+1D514</td><td>𝔔</td></tr>
+     *     <tr><td><code>qfr;</code></td><td>U+1D52E</td><td>𝔮</td></tr>
+     *     <tr><td><code>qint;</code></td><td>U+02A0C</td><td>⨌</td></tr>
+     *     <tr><td><code>Qopf;</code></td><td>U+0211A</td><td>ℚ</td></tr>
+     *     <tr><td><code>qopf;</code></td><td>U+1D562</td><td>𝕢</td></tr>
+     *     <tr><td><code>qprime;</code></td><td>U+02057</td><td>⁗</td></tr>
+     *     <tr><td><code>Qscr;</code></td><td>U+1D4AC</td><td>𝒬</td></tr>
+     *     <tr><td><code>qscr;</code></td><td>U+1D4C6</td><td>𝓆</td></tr>
+     *     <tr><td><code>quaternions;</code></td><td>U+0210D</td><td>ℍ</td></tr>
+     *     <tr><td><code>quatint;</code></td><td>U+02A16</td><td>⨖</td></tr>
+     *     <tr><td><code>quest;</code></td><td>U+0003F</td><td>?</td></tr>
+     *     <tr><td><code>questeq;</code></td><td>U+0225F</td><td>≟</td></tr>
+     *     <tr><td><code>QUOT;</code></td><td>U+00022</td><td>"</td></tr>
+     *     <tr><td><code>QUOT</code></td><td>U+00022</td><td>"</td></tr>
+     *     <tr><td><code>quot;</code></td><td>U+00022</td><td>"</td></tr>
+     *     <tr><td><code>quot</code></td><td>U+00022</td><td>"</td></tr>
+     *     <tr><td><code>rAarr;</code></td><td>U+021DB</td><td>⇛</td></tr>
+     *     <tr><td><code>race;</code></td><td>U+0223D U+00331</td><td>∽̱</td></tr>
+     *     <tr><td><code>Racute;</code></td><td>U+00154</td><td>Ŕ</td></tr>
+     *     <tr><td><code>racute;</code></td><td>U+00155</td><td>ŕ</td></tr>
+     *     <tr><td><code>radic;</code></td><td>U+0221A</td><td>√</td></tr>
+     *     <tr><td><code>raemptyv;</code></td><td>U+029B3</td><td>⦳</td></tr>
+     *     <tr><td><code>Rang;</code></td><td>U+027EB</td><td>⟫</td></tr>
+     *     <tr><td><code>rang;</code></td><td>U+027E9</td><td>⟩</td></tr>
+     *     <tr><td><code>rangd;</code></td><td>U+02992</td><td>⦒</td></tr>
+     *     <tr><td><code>range;</code></td><td>U+029A5</td><td>⦥</td></tr>
+     *     <tr><td><code>rangle;</code></td><td>U+027E9</td><td>〉</td></tr>
+     *     <tr><td><code>raquo;</code></td><td>U+000BB</td><td>»</td></tr>
+     *     <tr><td><code>raquo</code></td><td>U+000BB</td><td>»</td></tr>
+     *     <tr><td><code>Rarr;</code></td><td>U+021A0</td><td>↠</td></tr>
+     *     <tr><td><code>rArr;</code></td><td>U+021D2</td><td>⇒</td></tr>
+     *     <tr><td><code>rarr;</code></td><td>U+02192</td><td>→</td></tr>
+     *     <tr><td><code>rarrap;</code></td><td>U+02975</td><td>⥵</td></tr>
+     *     <tr><td><code>rarrb;</code></td><td>U+021E5</td><td>⇥</td></tr>
+     *     <tr><td><code>rarrbfs;</code></td><td>U+02920</td><td>⤠</td></tr>
+     *     <tr><td><code>rarrc;</code></td><td>U+02933</td><td>⤳</td></tr>
+     *     <tr><td><code>rarrfs;</code></td><td>U+0291E</td><td>⤞</td></tr>
+     *     <tr><td><code>rarrhk;</code></td><td>U+021AA</td><td>↪</td></tr>
+     *     <tr><td><code>rarrlp;</code></td><td>U+021AC</td><td>↬</td></tr>
+     *     <tr><td><code>rarrpl;</code></td><td>U+02945</td><td>⥅</td></tr>
+     *     <tr><td><code>rarrsim;</code></td><td>U+02974</td><td>⥴</td></tr>
+     *     <tr><td><code>Rarrtl;</code></td><td>U+02916</td><td>⤖</td></tr>
+     *     <tr><td><code>rarrtl;</code></td><td>U+021A3</td><td>↣</td></tr>
+     *     <tr><td><code>rarrw;</code></td><td>U+0219D</td><td>↝</td></tr>
+     *     <tr><td><code>rAtail;</code></td><td>U+0291C</td><td>⤜</td></tr>
+     *     <tr><td><code>ratail;</code></td><td>U+0291A</td><td>⤚</td></tr>
+     *     <tr><td><code>ratio;</code></td><td>U+02236</td><td>∶</td></tr>
+     *     <tr><td><code>rationals;</code></td><td>U+0211A</td><td>ℚ</td></tr>
+     *     <tr><td><code>RBarr;</code></td><td>U+02910</td><td>⤐</td></tr>
+     *     <tr><td><code>rBarr;</code></td><td>U+0290F</td><td>⤏</td></tr>
+     *     <tr><td><code>rbarr;</code></td><td>U+0290D</td><td>⤍</td></tr>
+     *     <tr><td><code>rbbrk;</code></td><td>U+02773</td><td>❳</td></tr>
+     *     <tr><td><code>rbrace;</code></td><td>U+0007D</td><td>}</td></tr>
+     *     <tr><td><code>rbrack;</code></td><td>U+0005D</td><td>]</td></tr>
+     *     <tr><td><code>rbrke;</code></td><td>U+0298C</td><td>⦌</td></tr>
+     *     <tr><td><code>rbrksld;</code></td><td>U+0298E</td><td>⦎</td></tr>
+     *     <tr><td><code>rbrkslu;</code></td><td>U+02990</td><td>⦐</td></tr>
+     *     <tr><td><code>Rcaron;</code></td><td>U+00158</td><td>Ř</td></tr>
+     *     <tr><td><code>rcaron;</code></td><td>U+00159</td><td>ř</td></tr>
+     *     <tr><td><code>Rcedil;</code></td><td>U+00156</td><td>Ŗ</td></tr>
+     *     <tr><td><code>rcedil;</code></td><td>U+00157</td><td>ŗ</td></tr>
+     *     <tr><td><code>rceil;</code></td><td>U+02309</td><td>⌉</td></tr>
+     *     <tr><td><code>rcub;</code></td><td>U+0007D</td><td>}</td></tr>
+     *     <tr><td><code>Rcy;</code></td><td>U+00420</td><td>Р</td></tr>
+     *     <tr><td><code>rcy;</code></td><td>U+00440</td><td>р</td></tr>
+     *     <tr><td><code>rdca;</code></td><td>U+02937</td><td>⤷</td></tr>
+     *     <tr><td><code>rdldhar;</code></td><td>U+02969</td><td>⥩</td></tr>
+     *     <tr><td><code>rdquo;</code></td><td>U+0201D</td><td>”</td></tr>
+     *     <tr><td><code>rdquor;</code></td><td>U+0201D</td><td>”</td></tr>
+     *     <tr><td><code>rdsh;</code></td><td>U+021B3</td><td>↳</td></tr>
+     *     <tr><td><code>Re;</code></td><td>U+0211C</td><td>ℜ</td></tr>
+     *     <tr><td><code>real;</code></td><td>U+0211C</td><td>ℜ</td></tr>
+     *     <tr><td><code>realine;</code></td><td>U+0211B</td><td>ℛ</td></tr>
+     *     <tr><td><code>realpart;</code></td><td>U+0211C</td><td>ℜ</td></tr>
+     *     <tr><td><code>reals;</code></td><td>U+0211D</td><td>ℝ</td></tr>
+     *     <tr><td><code>rect;</code></td><td>U+025AD</td><td>▭</td></tr>
+     *     <tr><td><code>REG;</code></td><td>U+000AE</td><td>®</td></tr>
+     *     <tr><td><code>REG</code></td><td>U+000AE</td><td>®</td></tr>
+     *     <tr><td><code>reg;</code></td><td>U+000AE</td><td>®</td></tr>
+     *     <tr><td><code>reg</code></td><td>U+000AE</td><td>®</td></tr>
+     *     <tr><td><code>ReverseElement;</code></td><td>U+0220B</td><td>∋</td></tr>
+     *     <tr><td><code>ReverseEquilibrium;</code></td><td>U+021CB</td><td>⇋</td></tr>
+     *     <tr><td><code>ReverseUpEquilibrium;</code></td><td>U+0296F</td><td>⥯</td></tr>
+     *     <tr><td><code>rfisht;</code></td><td>U+0297D</td><td>⥽</td></tr>
+     *     <tr><td><code>rfloor;</code></td><td>U+0230B</td><td>⌋</td></tr>
+     *     <tr><td><code>Rfr;</code></td><td>U+0211C</td><td>ℜ</td></tr>
+     *     <tr><td><code>rfr;</code></td><td>U+1D52F</td><td>𝔯</td></tr>
+     *     <tr><td><code>rHar;</code></td><td>U+02964</td><td>⥤</td></tr>
+     *     <tr><td><code>rhard;</code></td><td>U+021C1</td><td>⇁</td></tr>
+     *     <tr><td><code>rharu;</code></td><td>U+021C0</td><td>⇀</td></tr>
+     *     <tr><td><code>rharul;</code></td><td>U+0296C</td><td>⥬</td></tr>
+     *     <tr><td><code>Rho;</code></td><td>U+003A1</td><td>Ρ</td></tr>
+     *     <tr><td><code>rho;</code></td><td>U+003C1</td><td>ρ</td></tr>
+     *     <tr><td><code>rhov;</code></td><td>U+003F1</td><td>ϱ</td></tr>
+     *     <tr><td><code>RightAngleBracket;</code></td><td>U+027E9</td><td>〉</td></tr>
+     *     <tr><td><code>RightArrow;</code></td><td>U+02192</td><td>→</td></tr>
+     *     <tr><td><code>Rightarrow;</code></td><td>U+021D2</td><td>⇒</td></tr>
+     *     <tr><td><code>rightarrow;</code></td><td>U+02192</td><td>→</td></tr>
+     *     <tr><td><code>RightArrowBar;</code></td><td>U+021E5</td><td>⇥</td></tr>
+     *     <tr><td><code>RightArrowLeftArrow;</code></td><td>U+021C4</td><td>⇄</td></tr>
+     *     <tr><td><code>rightarrowtail;</code></td><td>U+021A3</td><td>↣</td></tr>
+     *     <tr><td><code>RightCeiling;</code></td><td>U+02309</td><td>⌉</td></tr>
+     *     <tr><td><code>RightDoubleBracket;</code></td><td>U+027E7</td><td>⟧</td></tr>
+     *     <tr><td><code>RightDownTeeVector;</code></td><td>U+0295D</td><td>⥝</td></tr>
+     *     <tr><td><code>RightDownVector;</code></td><td>U+021C2</td><td>⇂</td></tr>
+     *     <tr><td><code>RightDownVectorBar;</code></td><td>U+02955</td><td>⥕</td></tr>
+     *     <tr><td><code>RightFloor;</code></td><td>U+0230B</td><td>⌋</td></tr>
+     *     <tr><td><code>rightharpoondown;</code></td><td>U+021C1</td><td>⇁</td></tr>
+     *     <tr><td><code>rightharpoonup;</code></td><td>U+021C0</td><td>⇀</td></tr>
+     *     <tr><td><code>rightleftarrows;</code></td><td>U+021C4</td><td>⇄</td></tr>
+     *     <tr><td><code>rightleftharpoons;</code></td><td>U+021CC</td><td>⇌</td></tr>
+     *     <tr><td><code>rightrightarrows;</code></td><td>U+021C9</td><td>⇉</td></tr>
+     *     <tr><td><code>rightsquigarrow;</code></td><td>U+0219D</td><td>↝</td></tr>
+     *     <tr><td><code>RightTee;</code></td><td>U+022A2</td><td>⊢</td></tr>
+     *     <tr><td><code>RightTeeArrow;</code></td><td>U+021A6</td><td>↦</td></tr>
+     *     <tr><td><code>RightTeeVector;</code></td><td>U+0295B</td><td>⥛</td></tr>
+     *     <tr><td><code>rightthreetimes;</code></td><td>U+022CC</td><td>⋌</td></tr>
+     *     <tr><td><code>RightTriangle;</code></td><td>U+022B3</td><td>⊳</td></tr>
+     *     <tr><td><code>RightTriangleBar;</code></td><td>U+029D0</td><td>⧐</td></tr>
+     *     <tr><td><code>RightTriangleEqual;</code></td><td>U+022B5</td><td>⊵</td></tr>
+     *     <tr><td><code>RightUpDownVector;</code></td><td>U+0294F</td><td>⥏</td></tr>
+     *     <tr><td><code>RightUpTeeVector;</code></td><td>U+0295C</td><td>⥜</td></tr>
+     *     <tr><td><code>RightUpVector;</code></td><td>U+021BE</td><td>↾</td></tr>
+     *     <tr><td><code>RightUpVectorBar;</code></td><td>U+02954</td><td>⥔</td></tr>
+     *     <tr><td><code>RightVector;</code></td><td>U+021C0</td><td>⇀</td></tr>
+     *     <tr><td><code>RightVectorBar;</code></td><td>U+02953</td><td>⥓</td></tr>
+     *     <tr><td><code>ring;</code></td><td>U+002DA</td><td>˚</td></tr>
+     *     <tr><td><code>risingdotseq;</code></td><td>U+02253</td><td>≓</td></tr>
+     *     <tr><td><code>rlarr;</code></td><td>U+021C4</td><td>⇄</td></tr>
+     *     <tr><td><code>rlhar;</code></td><td>U+021CC</td><td>⇌</td></tr>
+     *     <tr><td><code>rlm;</code></td><td>U+0200F</td><td>‏</td></tr>
+     *     <tr><td><code>rmoust;</code></td><td>U+023B1</td><td>⎱</td></tr>
+     *     <tr><td><code>rmoustache;</code></td><td>U+023B1</td><td>⎱</td></tr>
+     *     <tr><td><code>rnmid;</code></td><td>U+02AEE</td><td>⫮</td></tr>
+     *     <tr><td><code>roang;</code></td><td>U+027ED</td><td>⟭</td></tr>
+     *     <tr><td><code>roarr;</code></td><td>U+021FE</td><td>⇾</td></tr>
+     *     <tr><td><code>robrk;</code></td><td>U+027E7</td><td>⟧</td></tr>
+     *     <tr><td><code>ropar;</code></td><td>U+02986</td><td>⦆</td></tr>
+     *     <tr><td><code>Ropf;</code></td><td>U+0211D</td><td>ℝ</td></tr>
+     *     <tr><td><code>ropf;</code></td><td>U+1D563</td><td>𝕣</td></tr>
+     *     <tr><td><code>roplus;</code></td><td>U+02A2E</td><td>⨮</td></tr>
+     *     <tr><td><code>rotimes;</code></td><td>U+02A35</td><td>⨵</td></tr>
+     *     <tr><td><code>RoundImplies;</code></td><td>U+02970</td><td>⥰</td></tr>
+     *     <tr><td><code>rpar;</code></td><td>U+00029</td><td>)</td></tr>
+     *     <tr><td><code>rpargt;</code></td><td>U+02994</td><td>⦔</td></tr>
+     *     <tr><td><code>rppolint;</code></td><td>U+02A12</td><td>⨒</td></tr>
+     *     <tr><td><code>rrarr;</code></td><td>U+021C9</td><td>⇉</td></tr>
+     *     <tr><td><code>Rrightarrow;</code></td><td>U+021DB</td><td>⇛</td></tr>
+     *     <tr><td><code>rsaquo;</code></td><td>U+0203A</td><td>›</td></tr>
+     *     <tr><td><code>Rscr;</code></td><td>U+0211B</td><td>ℛ</td></tr>
+     *     <tr><td><code>rscr;</code></td><td>U+1D4C7</td><td>𝓇</td></tr>
+     *     <tr><td><code>Rsh;</code></td><td>U+021B1</td><td>↱</td></tr>
+     *     <tr><td><code>rsh;</code></td><td>U+021B1</td><td>↱</td></tr>
+     *     <tr><td><code>rsqb;</code></td><td>U+0005D</td><td>]</td></tr>
+     *     <tr><td><code>rsquo;</code></td><td>U+02019</td><td>’</td></tr>
+     *     <tr><td><code>rsquor;</code></td><td>U+02019</td><td>’</td></tr>
+     *     <tr><td><code>rthree;</code></td><td>U+022CC</td><td>⋌</td></tr>
+     *     <tr><td><code>rtimes;</code></td><td>U+022CA</td><td>⋊</td></tr>
+     *     <tr><td><code>rtri;</code></td><td>U+025B9</td><td>▹</td></tr>
+     *     <tr><td><code>rtrie;</code></td><td>U+022B5</td><td>⊵</td></tr>
+     *     <tr><td><code>rtrif;</code></td><td>U+025B8</td><td>▸</td></tr>
+     *     <tr><td><code>rtriltri;</code></td><td>U+029CE</td><td>⧎</td></tr>
+     *     <tr><td><code>RuleDelayed;</code></td><td>U+029F4</td><td>⧴</td></tr>
+     *     <tr><td><code>ruluhar;</code></td><td>U+02968</td><td>⥨</td></tr>
+     *     <tr><td><code>rx;</code></td><td>U+0211E</td><td>℞</td></tr>
+     *     <tr><td><code>Sacute;</code></td><td>U+0015A</td><td>Ś</td></tr>
+     *     <tr><td><code>sacute;</code></td><td>U+0015B</td><td>ś</td></tr>
+     *     <tr><td><code>sbquo;</code></td><td>U+0201A</td><td>‚</td></tr>
+     *     <tr><td><code>Sc;</code></td><td>U+02ABC</td><td>⪼</td></tr>
+     *     <tr><td><code>sc;</code></td><td>U+0227B</td><td>≻</td></tr>
+     *     <tr><td><code>scap;</code></td><td>U+02AB8</td><td>⪸</td></tr>
+     *     <tr><td><code>Scaron;</code></td><td>U+00160</td><td>Š</td></tr>
+     *     <tr><td><code>scaron;</code></td><td>U+00161</td><td>š</td></tr>
+     *     <tr><td><code>sccue;</code></td><td>U+0227D</td><td>≽</td></tr>
+     *     <tr><td><code>scE;</code></td><td>U+02AB4</td><td>⪴</td></tr>
+     *     <tr><td><code>sce;</code></td><td>U+02AB0</td><td>⪰</td></tr>
+     *     <tr><td><code>Scedil;</code></td><td>U+0015E</td><td>Ş</td></tr>
+     *     <tr><td><code>scedil;</code></td><td>U+0015F</td><td>ş</td></tr>
+     *     <tr><td><code>Scirc;</code></td><td>U+0015C</td><td>Ŝ</td></tr>
+     *     <tr><td><code>scirc;</code></td><td>U+0015D</td><td>ŝ</td></tr>
+     *     <tr><td><code>scnap;</code></td><td>U+02ABA</td><td>⪺</td></tr>
+     *     <tr><td><code>scnE;</code></td><td>U+02AB6</td><td>⪶</td></tr>
+     *     <tr><td><code>scnsim;</code></td><td>U+022E9</td><td>⋩</td></tr>
+     *     <tr><td><code>scpolint;</code></td><td>U+02A13</td><td>⨓</td></tr>
+     *     <tr><td><code>scsim;</code></td><td>U+0227F</td><td>≿</td></tr>
+     *     <tr><td><code>Scy;</code></td><td>U+00421</td><td>С</td></tr>
+     *     <tr><td><code>scy;</code></td><td>U+00441</td><td>с</td></tr>
+     *     <tr><td><code>sdot;</code></td><td>U+022C5</td><td>⋅</td></tr>
+     *     <tr><td><code>sdotb;</code></td><td>U+022A1</td><td>⊡</td></tr>
+     *     <tr><td><code>sdote;</code></td><td>U+02A66</td><td>⩦</td></tr>
+     *     <tr><td><code>searhk;</code></td><td>U+02925</td><td>⤥</td></tr>
+     *     <tr><td><code>seArr;</code></td><td>U+021D8</td><td>⇘</td></tr>
+     *     <tr><td><code>searr;</code></td><td>U+02198</td><td>↘</td></tr>
+     *     <tr><td><code>searrow;</code></td><td>U+02198</td><td>↘</td></tr>
+     *     <tr><td><code>sect;</code></td><td>U+000A7</td><td>§</td></tr>
+     *     <tr><td><code>sect</code></td><td>U+000A7</td><td>§</td></tr>
+     *     <tr><td><code>semi;</code></td><td>U+0003B</td><td>;</td></tr>
+     *     <tr><td><code>seswar;</code></td><td>U+02929</td><td>⤩</td></tr>
+     *     <tr><td><code>setminus;</code></td><td>U+02216</td><td>∖</td></tr>
+     *     <tr><td><code>setmn;</code></td><td>U+02216</td><td>∖</td></tr>
+     *     <tr><td><code>sext;</code></td><td>U+02736</td><td>✶</td></tr>
+     *     <tr><td><code>Sfr;</code></td><td>U+1D516</td><td>𝔖</td></tr>
+     *     <tr><td><code>sfr;</code></td><td>U+1D530</td><td>𝔰</td></tr>
+     *     <tr><td><code>sfrown;</code></td><td>U+02322</td><td>⌢</td></tr>
+     *     <tr><td><code>sharp;</code></td><td>U+0266F</td><td>♯</td></tr>
+     *     <tr><td><code>SHCHcy;</code></td><td>U+00429</td><td>Щ</td></tr>
+     *     <tr><td><code>shchcy;</code></td><td>U+00449</td><td>щ</td></tr>
+     *     <tr><td><code>SHcy;</code></td><td>U+00428</td><td>Ш</td></tr>
+     *     <tr><td><code>shcy;</code></td><td>U+00448</td><td>ш</td></tr>
+     *     <tr><td><code>ShortDownArrow;</code></td><td>U+02193</td><td>↓</td></tr>
+     *     <tr><td><code>ShortLeftArrow;</code></td><td>U+02190</td><td>←</td></tr>
+     *     <tr><td><code>shortmid;</code></td><td>U+02223</td><td>∣</td></tr>
+     *     <tr><td><code>shortparallel;</code></td><td>U+02225</td><td>∥</td></tr>
+     *     <tr><td><code>ShortRightArrow;</code></td><td>U+02192</td><td>→</td></tr>
+     *     <tr><td><code>ShortUpArrow;</code></td><td>U+02191</td><td>↑</td></tr>
+     *     <tr><td><code>shy;</code></td><td>U+000AD</td><td>­</td></tr>
+     *     <tr><td><code>shy</code></td><td>U+000AD</td><td>­</td></tr>
+     *     <tr><td><code>Sigma;</code></td><td>U+003A3</td><td>Σ</td></tr>
+     *     <tr><td><code>sigma;</code></td><td>U+003C3</td><td>σ</td></tr>
+     *     <tr><td><code>sigmaf;</code></td><td>U+003C2</td><td>ς</td></tr>
+     *     <tr><td><code>sigmav;</code></td><td>U+003C2</td><td>ς</td></tr>
+     *     <tr><td><code>sim;</code></td><td>U+0223C</td><td>∼</td></tr>
+     *     <tr><td><code>simdot;</code></td><td>U+02A6A</td><td>⩪</td></tr>
+     *     <tr><td><code>sime;</code></td><td>U+02243</td><td>≃</td></tr>
+     *     <tr><td><code>simeq;</code></td><td>U+02243</td><td>≃</td></tr>
+     *     <tr><td><code>simg;</code></td><td>U+02A9E</td><td>⪞</td></tr>
+     *     <tr><td><code>simgE;</code></td><td>U+02AA0</td><td>⪠</td></tr>
+     *     <tr><td><code>siml;</code></td><td>U+02A9D</td><td>⪝</td></tr>
+     *     <tr><td><code>simlE;</code></td><td>U+02A9F</td><td>⪟</td></tr>
+     *     <tr><td><code>simne;</code></td><td>U+02246</td><td>≆</td></tr>
+     *     <tr><td><code>simplus;</code></td><td>U+02A24</td><td>⨤</td></tr>
+     *     <tr><td><code>simrarr;</code></td><td>U+02972</td><td>⥲</td></tr>
+     *     <tr><td><code>slarr;</code></td><td>U+02190</td><td>←</td></tr>
+     *     <tr><td><code>SmallCircle;</code></td><td>U+02218</td><td>∘</td></tr>
+     *     <tr><td><code>smallsetminus;</code></td><td>U+02216</td><td>∖</td></tr>
+     *     <tr><td><code>smashp;</code></td><td>U+02A33</td><td>⨳</td></tr>
+     *     <tr><td><code>smeparsl;</code></td><td>U+029E4</td><td>⧤</td></tr>
+     *     <tr><td><code>smid;</code></td><td>U+02223</td><td>∣</td></tr>
+     *     <tr><td><code>smile;</code></td><td>U+02323</td><td>⌣</td></tr>
+     *     <tr><td><code>smt;</code></td><td>U+02AAA</td><td>⪪</td></tr>
+     *     <tr><td><code>smte;</code></td><td>U+02AAC</td><td>⪬</td></tr>
+     *     <tr><td><code>smtes;</code></td><td>U+02AAC U+0FE00</td><td>⪬︀</td></tr>
+     *     <tr><td><code>SOFTcy;</code></td><td>U+0042C</td><td>Ь</td></tr>
+     *     <tr><td><code>softcy;</code></td><td>U+0044C</td><td>ь</td></tr>
+     *     <tr><td><code>sol;</code></td><td>U+0002F</td><td>/</td></tr>
+     *     <tr><td><code>solb;</code></td><td>U+029C4</td><td>⧄</td></tr>
+     *     <tr><td><code>solbar;</code></td><td>U+0233F</td><td>⌿</td></tr>
+     *     <tr><td><code>Sopf;</code></td><td>U+1D54A</td><td>𝕊</td></tr>
+     *     <tr><td><code>sopf;</code></td><td>U+1D564</td><td>𝕤</td></tr>
+     *     <tr><td><code>spades;</code></td><td>U+02660</td><td>♠</td></tr>
+     *     <tr><td><code>spadesuit;</code></td><td>U+02660</td><td>♠</td></tr>
+     *     <tr><td><code>spar;</code></td><td>U+02225</td><td>∥</td></tr>
+     *     <tr><td><code>sqcap;</code></td><td>U+02293</td><td>⊓</td></tr>
+     *     <tr><td><code>sqcaps;</code></td><td>U+02293 U+0FE00</td><td>⊓︀</td></tr>
+     *     <tr><td><code>sqcup;</code></td><td>U+02294</td><td>⊔</td></tr>
+     *     <tr><td><code>sqcups;</code></td><td>U+02294 U+0FE00</td><td>⊔︀</td></tr>
+     *     <tr><td><code>Sqrt;</code></td><td>U+0221A</td><td>√</td></tr>
+     *     <tr><td><code>sqsub;</code></td><td>U+0228F</td><td>⊏</td></tr>
+     *     <tr><td><code>sqsube;</code></td><td>U+02291</td><td>⊑</td></tr>
+     *     <tr><td><code>sqsubset;</code></td><td>U+0228F</td><td>⊏</td></tr>
+     *     <tr><td><code>sqsubseteq;</code></td><td>U+02291</td><td>⊑</td></tr>
+     *     <tr><td><code>sqsup;</code></td><td>U+02290</td><td>⊐</td></tr>
+     *     <tr><td><code>sqsupe;</code></td><td>U+02292</td><td>⊒</td></tr>
+     *     <tr><td><code>sqsupset;</code></td><td>U+02290</td><td>⊐</td></tr>
+     *     <tr><td><code>sqsupseteq;</code></td><td>U+02292</td><td>⊒</td></tr>
+     *     <tr><td><code>squ;</code></td><td>U+025A1</td><td>□</td></tr>
+     *     <tr><td><code>Square;</code></td><td>U+025A1</td><td>□</td></tr>
+     *     <tr><td><code>square;</code></td><td>U+025A1</td><td>□</td></tr>
+     *     <tr><td><code>SquareIntersection;</code></td><td>U+02293</td><td>⊓</td></tr>
+     *     <tr><td><code>SquareSubset;</code></td><td>U+0228F</td><td>⊏</td></tr>
+     *     <tr><td><code>SquareSubsetEqual;</code></td><td>U+02291</td><td>⊑</td></tr>
+     *     <tr><td><code>SquareSuperset;</code></td><td>U+02290</td><td>⊐</td></tr>
+     *     <tr><td><code>SquareSupersetEqual;</code></td><td>U+02292</td><td>⊒</td></tr>
+     *     <tr><td><code>SquareUnion;</code></td><td>U+02294</td><td>⊔</td></tr>
+     *     <tr><td><code>squarf;</code></td><td>U+025AA</td><td>▪</td></tr>
+     *     <tr><td><code>squf;</code></td><td>U+025AA</td><td>▪</td></tr>
+     *     <tr><td><code>srarr;</code></td><td>U+02192</td><td>→</td></tr>
+     *     <tr><td><code>Sscr;</code></td><td>U+1D4AE</td><td>𝒮</td></tr>
+     *     <tr><td><code>sscr;</code></td><td>U+1D4C8</td><td>𝓈</td></tr>
+     *     <tr><td><code>ssetmn;</code></td><td>U+02216</td><td>∖</td></tr>
+     *     <tr><td><code>ssmile;</code></td><td>U+02323</td><td>⌣</td></tr>
+     *     <tr><td><code>sstarf;</code></td><td>U+022C6</td><td>⋆</td></tr>
+     *     <tr><td><code>Star;</code></td><td>U+022C6</td><td>⋆</td></tr>
+     *     <tr><td><code>star;</code></td><td>U+02606</td><td>☆</td></tr>
+     *     <tr><td><code>starf;</code></td><td>U+02605</td><td>★</td></tr>
+     *     <tr><td><code>straightepsilon;</code></td><td>U+003F5</td><td>ϵ</td></tr>
+     *     <tr><td><code>straightphi;</code></td><td>U+003D5</td><td>ϕ</td></tr>
+     *     <tr><td><code>strns;</code></td><td>U+000AF</td><td>¯</td></tr>
+     *     <tr><td><code>Sub;</code></td><td>U+022D0</td><td>⋐</td></tr>
+     *     <tr><td><code>sub;</code></td><td>U+02282</td><td>⊂</td></tr>
+     *     <tr><td><code>subdot;</code></td><td>U+02ABD</td><td>⪽</td></tr>
+     *     <tr><td><code>subE;</code></td><td>U+02AC5</td><td>⫅</td></tr>
+     *     <tr><td><code>sube;</code></td><td>U+02286</td><td>⊆</td></tr>
+     *     <tr><td><code>subedot;</code></td><td>U+02AC3</td><td>⫃</td></tr>
+     *     <tr><td><code>submult;</code></td><td>U+02AC1</td><td>⫁</td></tr>
+     *     <tr><td><code>subnE;</code></td><td>U+02ACB</td><td>⫋</td></tr>
+     *     <tr><td><code>subne;</code></td><td>U+0228A</td><td>⊊</td></tr>
+     *     <tr><td><code>subplus;</code></td><td>U+02ABF</td><td>⪿</td></tr>
+     *     <tr><td><code>subrarr;</code></td><td>U+02979</td><td>⥹</td></tr>
+     *     <tr><td><code>Subset;</code></td><td>U+022D0</td><td>⋐</td></tr>
+     *     <tr><td><code>subset;</code></td><td>U+02282</td><td>⊂</td></tr>
+     *     <tr><td><code>subseteq;</code></td><td>U+02286</td><td>⊆</td></tr>
+     *     <tr><td><code>subseteqq;</code></td><td>U+02AC5</td><td>⫅</td></tr>
+     *     <tr><td><code>SubsetEqual;</code></td><td>U+02286</td><td>⊆</td></tr>
+     *     <tr><td><code>subsetneq;</code></td><td>U+0228A</td><td>⊊</td></tr>
+     *     <tr><td><code>subsetneqq;</code></td><td>U+02ACB</td><td>⫋</td></tr>
+     *     <tr><td><code>subsim;</code></td><td>U+02AC7</td><td>⫇</td></tr>
+     *     <tr><td><code>subsub;</code></td><td>U+02AD5</td><td>⫕</td></tr>
+     *     <tr><td><code>subsup;</code></td><td>U+02AD3</td><td>⫓</td></tr>
+     *     <tr><td><code>succ;</code></td><td>U+0227B</td><td>≻</td></tr>
+     *     <tr><td><code>succapprox;</code></td><td>U+02AB8</td><td>⪸</td></tr>
+     *     <tr><td><code>succcurlyeq;</code></td><td>U+0227D</td><td>≽</td></tr>
+     *     <tr><td><code>Succeeds;</code></td><td>U+0227B</td><td>≻</td></tr>
+     *     <tr><td><code>SucceedsEqual;</code></td><td>U+02AB0</td><td>⪰</td></tr>
+     *     <tr><td><code>SucceedsSlantEqual;</code></td><td>U+0227D</td><td>≽</td></tr>
+     *     <tr><td><code>SucceedsTilde;</code></td><td>U+0227F</td><td>≿</td></tr>
+     *     <tr><td><code>succeq;</code></td><td>U+02AB0</td><td>⪰</td></tr>
+     *     <tr><td><code>succnapprox;</code></td><td>U+02ABA</td><td>⪺</td></tr>
+     *     <tr><td><code>succneqq;</code></td><td>U+02AB6</td><td>⪶</td></tr>
+     *     <tr><td><code>succnsim;</code></td><td>U+022E9</td><td>⋩</td></tr>
+     *     <tr><td><code>succsim;</code></td><td>U+0227F</td><td>≿</td></tr>
+     *     <tr><td><code>SuchThat;</code></td><td>U+0220B</td><td>∋</td></tr>
+     *     <tr><td><code>Sum;</code></td><td>U+02211</td><td>∑</td></tr>
+     *     <tr><td><code>sum;</code></td><td>U+02211</td><td>∑</td></tr>
+     *     <tr><td><code>sung;</code></td><td>U+0266A</td><td>♪</td></tr>
+     *     <tr><td><code>Sup;</code></td><td>U+022D1</td><td>⋑</td></tr>
+     *     <tr><td><code>sup;</code></td><td>U+02283</td><td>⊃</td></tr>
+     *     <tr><td><code>sup1;</code></td><td>U+000B9</td><td>¹</td></tr>
+     *     <tr><td><code>sup1</code></td><td>U+000B9</td><td>¹</td></tr>
+     *     <tr><td><code>sup2;</code></td><td>U+000B2</td><td>²</td></tr>
+     *     <tr><td><code>sup2</code></td><td>U+000B2</td><td>²</td></tr>
+     *     <tr><td><code>sup3;</code></td><td>U+000B3</td><td>³</td></tr>
+     *     <tr><td><code>sup3</code></td><td>U+000B3</td><td>³</td></tr>
+     *     <tr><td><code>supdot;</code></td><td>U+02ABE</td><td>⪾</td></tr>
+     *     <tr><td><code>supdsub;</code></td><td>U+02AD8</td><td>⫘</td></tr>
+     *     <tr><td><code>supE;</code></td><td>U+02AC6</td><td>⫆</td></tr>
+     *     <tr><td><code>supe;</code></td><td>U+02287</td><td>⊇</td></tr>
+     *     <tr><td><code>supedot;</code></td><td>U+02AC4</td><td>⫄</td></tr>
+     *     <tr><td><code>Superset;</code></td><td>U+02283</td><td>⊃</td></tr>
+     *     <tr><td><code>SupersetEqual;</code></td><td>U+02287</td><td>⊇</td></tr>
+     *     <tr><td><code>suphsol;</code></td><td>U+027C9</td><td>⟉</td></tr>
+     *     <tr><td><code>suphsub;</code></td><td>U+02AD7</td><td>⫗</td></tr>
+     *     <tr><td><code>suplarr;</code></td><td>U+0297B</td><td>⥻</td></tr>
+     *     <tr><td><code>supmult;</code></td><td>U+02AC2</td><td>⫂</td></tr>
+     *     <tr><td><code>supnE;</code></td><td>U+02ACC</td><td>⫌</td></tr>
+     *     <tr><td><code>supne;</code></td><td>U+0228B</td><td>⊋</td></tr>
+     *     <tr><td><code>supplus;</code></td><td>U+02AC0</td><td>⫀</td></tr>
+     *     <tr><td><code>Supset;</code></td><td>U+022D1</td><td>⋑</td></tr>
+     *     <tr><td><code>supset;</code></td><td>U+02283</td><td>⊃</td></tr>
+     *     <tr><td><code>supseteq;</code></td><td>U+02287</td><td>⊇</td></tr>
+     *     <tr><td><code>supseteqq;</code></td><td>U+02AC6</td><td>⫆</td></tr>
+     *     <tr><td><code>supsetneq;</code></td><td>U+0228B</td><td>⊋</td></tr>
+     *     <tr><td><code>supsetneqq;</code></td><td>U+02ACC</td><td>⫌</td></tr>
+     *     <tr><td><code>supsim;</code></td><td>U+02AC8</td><td>⫈</td></tr>
+     *     <tr><td><code>supsub;</code></td><td>U+02AD4</td><td>⫔</td></tr>
+     *     <tr><td><code>supsup;</code></td><td>U+02AD6</td><td>⫖</td></tr>
+     *     <tr><td><code>swarhk;</code></td><td>U+02926</td><td>⤦</td></tr>
+     *     <tr><td><code>swArr;</code></td><td>U+021D9</td><td>⇙</td></tr>
+     *     <tr><td><code>swarr;</code></td><td>U+02199</td><td>↙</td></tr>
+     *     <tr><td><code>swarrow;</code></td><td>U+02199</td><td>↙</td></tr>
+     *     <tr><td><code>swnwar;</code></td><td>U+0292A</td><td>⤪</td></tr>
+     *     <tr><td><code>szlig;</code></td><td>U+000DF</td><td>ß</td></tr>
+     *     <tr><td><code>szlig</code></td><td>U+000DF</td><td>ß</td></tr>
+     *     <tr><td><code>Tab;</code></td><td>U+00009</td><td>␉</td></tr>
+     *     <tr><td><code>target;</code></td><td>U+02316</td><td>⌖</td></tr>
+     *     <tr><td><code>Tau;</code></td><td>U+003A4</td><td>Τ</td></tr>
+     *     <tr><td><code>tau;</code></td><td>U+003C4</td><td>τ</td></tr>
+     *     <tr><td><code>tbrk;</code></td><td>U+023B4</td><td>⎴</td></tr>
+     *     <tr><td><code>Tcaron;</code></td><td>U+00164</td><td>Ť</td></tr>
+     *     <tr><td><code>tcaron;</code></td><td>U+00165</td><td>ť</td></tr>
+     *     <tr><td><code>Tcedil;</code></td><td>U+00162</td><td>Ţ</td></tr>
+     *     <tr><td><code>tcedil;</code></td><td>U+00163</td><td>ţ</td></tr>
+     *     <tr><td><code>Tcy;</code></td><td>U+00422</td><td>Т</td></tr>
+     *     <tr><td><code>tcy;</code></td><td>U+00442</td><td>т</td></tr>
+     *     <tr><td><code>tdot;</code></td><td>U+020DB</td><td>◌⃛</td></tr>
+     *     <tr><td><code>telrec;</code></td><td>U+02315</td><td>⌕</td></tr>
+     *     <tr><td><code>Tfr;</code></td><td>U+1D517</td><td>𝔗</td></tr>
+     *     <tr><td><code>tfr;</code></td><td>U+1D531</td><td>𝔱</td></tr>
+     *     <tr><td><code>there4;</code></td><td>U+02234</td><td>∴</td></tr>
+     *     <tr><td><code>Therefore;</code></td><td>U+02234</td><td>∴</td></tr>
+     *     <tr><td><code>therefore;</code></td><td>U+02234</td><td>∴</td></tr>
+     *     <tr><td><code>Theta;</code></td><td>U+00398</td><td>Θ</td></tr>
+     *     <tr><td><code>theta;</code></td><td>U+003B8</td><td>θ</td></tr>
+     *     <tr><td><code>thetasym;</code></td><td>U+003D1</td><td>ϑ</td></tr>
+     *     <tr><td><code>thetav;</code></td><td>U+003D1</td><td>ϑ</td></tr>
+     *     <tr><td><code>thickapprox;</code></td><td>U+02248</td><td>≈</td></tr>
+     *     <tr><td><code>thicksim;</code></td><td>U+0223C</td><td>∼</td></tr>
+     *     <tr><td><code>ThickSpace;</code></td><td>U+0205F U+0200A</td><td>  </td></tr>
+     *     <tr><td><code>thinsp;</code></td><td>U+02009</td><td> </td></tr>
+     *     <tr><td><code>ThinSpace;</code></td><td>U+02009</td><td> </td></tr>
+     *     <tr><td><code>thkap;</code></td><td>U+02248</td><td>≈</td></tr>
+     *     <tr><td><code>thksim;</code></td><td>U+0223C</td><td>∼</td></tr>
+     *     <tr><td><code>THORN;</code></td><td>U+000DE</td><td>Þ</td></tr>
+     *     <tr><td><code>THORN</code></td><td>U+000DE</td><td>Þ</td></tr>
+     *     <tr><td><code>thorn;</code></td><td>U+000FE</td><td>þ</td></tr>
+     *     <tr><td><code>thorn</code></td><td>U+000FE</td><td>þ</td></tr>
+     *     <tr><td><code>Tilde;</code></td><td>U+0223C</td><td>∼</td></tr>
+     *     <tr><td><code>tilde;</code></td><td>U+002DC</td><td>˜</td></tr>
+     *     <tr><td><code>TildeEqual;</code></td><td>U+02243</td><td>≃</td></tr>
+     *     <tr><td><code>TildeFullEqual;</code></td><td>U+02245</td><td>≅</td></tr>
+     *     <tr><td><code>TildeTilde;</code></td><td>U+02248</td><td>≈</td></tr>
+     *     <tr><td><code>times;</code></td><td>U+000D7</td><td>×</td></tr>
+     *     <tr><td><code>times</code></td><td>U+000D7</td><td>×</td></tr>
+     *     <tr><td><code>timesb;</code></td><td>U+022A0</td><td>⊠</td></tr>
+     *     <tr><td><code>timesbar;</code></td><td>U+02A31</td><td>⨱</td></tr>
+     *     <tr><td><code>timesd;</code></td><td>U+02A30</td><td>⨰</td></tr>
+     *     <tr><td><code>tint;</code></td><td>U+0222D</td><td>∭</td></tr>
+     *     <tr><td><code>toea;</code></td><td>U+02928</td><td>⤨</td></tr>
+     *     <tr><td><code>top;</code></td><td>U+022A4</td><td>⊤</td></tr>
+     *     <tr><td><code>topbot;</code></td><td>U+02336</td><td>⌶</td></tr>
+     *     <tr><td><code>topcir;</code></td><td>U+02AF1</td><td>⫱</td></tr>
+     *     <tr><td><code>Topf;</code></td><td>U+1D54B</td><td>𝕋</td></tr>
+     *     <tr><td><code>topf;</code></td><td>U+1D565</td><td>𝕥</td></tr>
+     *     <tr><td><code>topfork;</code></td><td>U+02ADA</td><td>⫚</td></tr>
+     *     <tr><td><code>tosa;</code></td><td>U+02929</td><td>⤩</td></tr>
+     *     <tr><td><code>tprime;</code></td><td>U+02034</td><td>‴</td></tr>
+     *     <tr><td><code>TRADE;</code></td><td>U+02122</td><td>™</td></tr>
+     *     <tr><td><code>trade;</code></td><td>U+02122</td><td>™</td></tr>
+     *     <tr><td><code>triangle;</code></td><td>U+025B5</td><td>▵</td></tr>
+     *     <tr><td><code>triangledown;</code></td><td>U+025BF</td><td>▿</td></tr>
+     *     <tr><td><code>triangleleft;</code></td><td>U+025C3</td><td>◃</td></tr>
+     *     <tr><td><code>trianglelefteq;</code></td><td>U+022B4</td><td>⊴</td></tr>
+     *     <tr><td><code>triangleq;</code></td><td>U+0225C</td><td>≜</td></tr>
+     *     <tr><td><code>triangleright;</code></td><td>U+025B9</td><td>▹</td></tr>
+     *     <tr><td><code>trianglerighteq;</code></td><td>U+022B5</td><td>⊵</td></tr>
+     *     <tr><td><code>tridot;</code></td><td>U+025EC</td><td>◬</td></tr>
+     *     <tr><td><code>trie;</code></td><td>U+0225C</td><td>≜</td></tr>
+     *     <tr><td><code>triminus;</code></td><td>U+02A3A</td><td>⨺</td></tr>
+     *     <tr><td><code>TripleDot;</code></td><td>U+020DB</td><td>◌⃛</td></tr>
+     *     <tr><td><code>triplus;</code></td><td>U+02A39</td><td>⨹</td></tr>
+     *     <tr><td><code>trisb;</code></td><td>U+029CD</td><td>⧍</td></tr>
+     *     <tr><td><code>tritime;</code></td><td>U+02A3B</td><td>⨻</td></tr>
+     *     <tr><td><code>trpezium;</code></td><td>U+023E2</td><td>⏢</td></tr>
+     *     <tr><td><code>Tscr;</code></td><td>U+1D4AF</td><td>𝒯</td></tr>
+     *     <tr><td><code>tscr;</code></td><td>U+1D4C9</td><td>𝓉</td></tr>
+     *     <tr><td><code>TScy;</code></td><td>U+00426</td><td>Ц</td></tr>
+     *     <tr><td><code>tscy;</code></td><td>U+00446</td><td>ц</td></tr>
+     *     <tr><td><code>TSHcy;</code></td><td>U+0040B</td><td>Ћ</td></tr>
+     *     <tr><td><code>tshcy;</code></td><td>U+0045B</td><td>ћ</td></tr>
+     *     <tr><td><code>Tstrok;</code></td><td>U+00166</td><td>Ŧ</td></tr>
+     *     <tr><td><code>tstrok;</code></td><td>U+00167</td><td>ŧ</td></tr>
+     *     <tr><td><code>twixt;</code></td><td>U+0226C</td><td>≬</td></tr>
+     *     <tr><td><code>twoheadleftarrow;</code></td><td>U+0219E</td><td>↞</td></tr>
+     *     <tr><td><code>twoheadrightarrow;</code></td><td>U+021A0</td><td>↠</td></tr>
+     *     <tr><td><code>Uacute;</code></td><td>U+000DA</td><td>Ú</td></tr>
+     *     <tr><td><code>Uacute</code></td><td>U+000DA</td><td>Ú</td></tr>
+     *     <tr><td><code>uacute;</code></td><td>U+000FA</td><td>ú</td></tr>
+     *     <tr><td><code>uacute</code></td><td>U+000FA</td><td>ú</td></tr>
+     *     <tr><td><code>Uarr;</code></td><td>U+0219F</td><td>↟</td></tr>
+     *     <tr><td><code>uArr;</code></td><td>U+021D1</td><td>⇑</td></tr>
+     *     <tr><td><code>uarr;</code></td><td>U+02191</td><td>↑</td></tr>
+     *     <tr><td><code>Uarrocir;</code></td><td>U+02949</td><td>⥉</td></tr>
+     *     <tr><td><code>Ubrcy;</code></td><td>U+0040E</td><td>Ў</td></tr>
+     *     <tr><td><code>ubrcy;</code></td><td>U+0045E</td><td>ў</td></tr>
+     *     <tr><td><code>Ubreve;</code></td><td>U+0016C</td><td>Ŭ</td></tr>
+     *     <tr><td><code>ubreve;</code></td><td>U+0016D</td><td>ŭ</td></tr>
+     *     <tr><td><code>Ucirc;</code></td><td>U+000DB</td><td>Û</td></tr>
+     *     <tr><td><code>Ucirc</code></td><td>U+000DB</td><td>Û</td></tr>
+     *     <tr><td><code>ucirc;</code></td><td>U+000FB</td><td>û</td></tr>
+     *     <tr><td><code>ucirc</code></td><td>U+000FB</td><td>û</td></tr>
+     *     <tr><td><code>Ucy;</code></td><td>U+00423</td><td>У</td></tr>
+     *     <tr><td><code>ucy;</code></td><td>U+00443</td><td>у</td></tr>
+     *     <tr><td><code>udarr;</code></td><td>U+021C5</td><td>⇅</td></tr>
+     *     <tr><td><code>Udblac;</code></td><td>U+00170</td><td>Ű</td></tr>
+     *     <tr><td><code>udblac;</code></td><td>U+00171</td><td>ű</td></tr>
+     *     <tr><td><code>udhar;</code></td><td>U+0296E</td><td>⥮</td></tr>
+     *     <tr><td><code>ufisht;</code></td><td>U+0297E</td><td>⥾</td></tr>
+     *     <tr><td><code>Ufr;</code></td><td>U+1D518</td><td>𝔘</td></tr>
+     *     <tr><td><code>ufr;</code></td><td>U+1D532</td><td>𝔲</td></tr>
+     *     <tr><td><code>Ugrave;</code></td><td>U+000D9</td><td>Ù</td></tr>
+     *     <tr><td><code>Ugrave</code></td><td>U+000D9</td><td>Ù</td></tr>
+     *     <tr><td><code>ugrave;</code></td><td>U+000F9</td><td>ù</td></tr>
+     *     <tr><td><code>ugrave</code></td><td>U+000F9</td><td>ù</td></tr>
+     *     <tr><td><code>uHar;</code></td><td>U+02963</td><td>⥣</td></tr>
+     *     <tr><td><code>uharl;</code></td><td>U+021BF</td><td>↿</td></tr>
+     *     <tr><td><code>uharr;</code></td><td>U+021BE</td><td>↾</td></tr>
+     *     <tr><td><code>uhblk;</code></td><td>U+02580</td><td>▀</td></tr>
+     *     <tr><td><code>ulcorn;</code></td><td>U+0231C</td><td>⌜</td></tr>
+     *     <tr><td><code>ulcorner;</code></td><td>U+0231C</td><td>⌜</td></tr>
+     *     <tr><td><code>ulcrop;</code></td><td>U+0230F</td><td>⌏</td></tr>
+     *     <tr><td><code>ultri;</code></td><td>U+025F8</td><td>◸</td></tr>
+     *     <tr><td><code>Umacr;</code></td><td>U+0016A</td><td>Ū</td></tr>
+     *     <tr><td><code>umacr;</code></td><td>U+0016B</td><td>ū</td></tr>
+     *     <tr><td><code>uml;</code></td><td>U+000A8</td><td>¨</td></tr>
+     *     <tr><td><code>uml</code></td><td>U+000A8</td><td>¨</td></tr>
+     *     <tr><td><code>UnderBar;</code></td><td>U+0005F</td><td>_</td></tr>
+     *     <tr><td><code>UnderBrace;</code></td><td>U+023DF</td><td>⏟</td></tr>
+     *     <tr><td><code>UnderBracket;</code></td><td>U+023B5</td><td>⎵</td></tr>
+     *     <tr><td><code>UnderParenthesis;</code></td><td>U+023DD</td><td>⏝</td></tr>
+     *     <tr><td><code>Union;</code></td><td>U+022C3</td><td>⋃</td></tr>
+     *     <tr><td><code>UnionPlus;</code></td><td>U+0228E</td><td>⊎</td></tr>
+     *     <tr><td><code>Uogon;</code></td><td>U+00172</td><td>Ų</td></tr>
+     *     <tr><td><code>uogon;</code></td><td>U+00173</td><td>ų</td></tr>
+     *     <tr><td><code>Uopf;</code></td><td>U+1D54C</td><td>𝕌</td></tr>
+     *     <tr><td><code>uopf;</code></td><td>U+1D566</td><td>𝕦</td></tr>
+     *     <tr><td><code>UpArrow;</code></td><td>U+02191</td><td>↑</td></tr>
+     *     <tr><td><code>Uparrow;</code></td><td>U+021D1</td><td>⇑</td></tr>
+     *     <tr><td><code>uparrow;</code></td><td>U+02191</td><td>↑</td></tr>
+     *     <tr><td><code>UpArrowBar;</code></td><td>U+02912</td><td>⤒</td></tr>
+     *     <tr><td><code>UpArrowDownArrow;</code></td><td>U+021C5</td><td>⇅</td></tr>
+     *     <tr><td><code>UpDownArrow;</code></td><td>U+02195</td><td>↕</td></tr>
+     *     <tr><td><code>Updownarrow;</code></td><td>U+021D5</td><td>⇕</td></tr>
+     *     <tr><td><code>updownarrow;</code></td><td>U+02195</td><td>↕</td></tr>
+     *     <tr><td><code>UpEquilibrium;</code></td><td>U+0296E</td><td>⥮</td></tr>
+     *     <tr><td><code>upharpoonleft;</code></td><td>U+021BF</td><td>↿</td></tr>
+     *     <tr><td><code>upharpoonright;</code></td><td>U+021BE</td><td>↾</td></tr>
+     *     <tr><td><code>uplus;</code></td><td>U+0228E</td><td>⊎</td></tr>
+     *     <tr><td><code>UpperLeftArrow;</code></td><td>U+02196</td><td>↖</td></tr>
+     *     <tr><td><code>UpperRightArrow;</code></td><td>U+02197</td><td>↗</td></tr>
+     *     <tr><td><code>Upsi;</code></td><td>U+003D2</td><td>ϒ</td></tr>
+     *     <tr><td><code>upsi;</code></td><td>U+003C5</td><td>υ</td></tr>
+     *     <tr><td><code>upsih;</code></td><td>U+003D2</td><td>ϒ</td></tr>
+     *     <tr><td><code>Upsilon;</code></td><td>U+003A5</td><td>Υ</td></tr>
+     *     <tr><td><code>upsilon;</code></td><td>U+003C5</td><td>υ</td></tr>
+     *     <tr><td><code>UpTee;</code></td><td>U+022A5</td><td>⊥</td></tr>
+     *     <tr><td><code>UpTeeArrow;</code></td><td>U+021A5</td><td>↥</td></tr>
+     *     <tr><td><code>upuparrows;</code></td><td>U+021C8</td><td>⇈</td></tr>
+     *     <tr><td><code>urcorn;</code></td><td>U+0231D</td><td>⌝</td></tr>
+     *     <tr><td><code>urcorner;</code></td><td>U+0231D</td><td>⌝</td></tr>
+     *     <tr><td><code>urcrop;</code></td><td>U+0230E</td><td>⌎</td></tr>
+     *     <tr><td><code>Uring;</code></td><td>U+0016E</td><td>Ů</td></tr>
+     *     <tr><td><code>uring;</code></td><td>U+0016F</td><td>ů</td></tr>
+     *     <tr><td><code>urtri;</code></td><td>U+025F9</td><td>◹</td></tr>
+     *     <tr><td><code>Uscr;</code></td><td>U+1D4B0</td><td>𝒰</td></tr>
+     *     <tr><td><code>uscr;</code></td><td>U+1D4CA</td><td>𝓊</td></tr>
+     *     <tr><td><code>utdot;</code></td><td>U+022F0</td><td>⋰</td></tr>
+     *     <tr><td><code>Utilde;</code></td><td>U+00168</td><td>Ũ</td></tr>
+     *     <tr><td><code>utilde;</code></td><td>U+00169</td><td>ũ</td></tr>
+     *     <tr><td><code>utri;</code></td><td>U+025B5</td><td>▵</td></tr>
+     *     <tr><td><code>utrif;</code></td><td>U+025B4</td><td>▴</td></tr>
+     *     <tr><td><code>uuarr;</code></td><td>U+021C8</td><td>⇈</td></tr>
+     *     <tr><td><code>Uuml;</code></td><td>U+000DC</td><td>Ü</td></tr>
+     *     <tr><td><code>Uuml</code></td><td>U+000DC</td><td>Ü</td></tr>
+     *     <tr><td><code>uuml;</code></td><td>U+000FC</td><td>ü</td></tr>
+     *     <tr><td><code>uuml</code></td><td>U+000FC</td><td>ü</td></tr>
+     *     <tr><td><code>uwangle;</code></td><td>U+029A7</td><td>⦧</td></tr>
+     *     <tr><td><code>vangrt;</code></td><td>U+0299C</td><td>⦜</td></tr>
+     *     <tr><td><code>varepsilon;</code></td><td>U+003F5</td><td>ϵ</td></tr>
+     *     <tr><td><code>varkappa;</code></td><td>U+003F0</td><td>ϰ</td></tr>
+     *     <tr><td><code>varnothing;</code></td><td>U+02205</td><td>∅</td></tr>
+     *     <tr><td><code>varphi;</code></td><td>U+003D5</td><td>ϕ</td></tr>
+     *     <tr><td><code>varpi;</code></td><td>U+003D6</td><td>ϖ</td></tr>
+     *     <tr><td><code>varpropto;</code></td><td>U+0221D</td><td>∝</td></tr>
+     *     <tr><td><code>vArr;</code></td><td>U+021D5</td><td>⇕</td></tr>
+     *     <tr><td><code>varr;</code></td><td>U+02195</td><td>↕</td></tr>
+     *     <tr><td><code>varrho;</code></td><td>U+003F1</td><td>ϱ</td></tr>
+     *     <tr><td><code>varsigma;</code></td><td>U+003C2</td><td>ς</td></tr>
+     *     <tr><td><code>varsubsetneq;</code></td><td>U+0228A U+0FE00</td><td>⊊︀</td></tr>
+     *     <tr><td><code>varsubsetneqq;</code></td><td>U+02ACB U+0FE00</td><td>⫋︀</td></tr>
+     *     <tr><td><code>varsupsetneq;</code></td><td>U+0228B U+0FE00</td><td>⊋︀</td></tr>
+     *     <tr><td><code>varsupsetneqq;</code></td><td>U+02ACC U+0FE00</td><td>⫌︀</td></tr>
+     *     <tr><td><code>vartheta;</code></td><td>U+003D1</td><td>ϑ</td></tr>
+     *     <tr><td><code>vartriangleleft;</code></td><td>U+022B2</td><td>⊲</td></tr>
+     *     <tr><td><code>vartriangleright;</code></td><td>U+022B3</td><td>⊳</td></tr>
+     *     <tr><td><code>Vbar;</code></td><td>U+02AEB</td><td>⫫</td></tr>
+     *     <tr><td><code>vBar;</code></td><td>U+02AE8</td><td>⫨</td></tr>
+     *     <tr><td><code>vBarv;</code></td><td>U+02AE9</td><td>⫩</td></tr>
+     *     <tr><td><code>Vcy;</code></td><td>U+00412</td><td>В</td></tr>
+     *     <tr><td><code>vcy;</code></td><td>U+00432</td><td>в</td></tr>
+     *     <tr><td><code>VDash;</code></td><td>U+022AB</td><td>⊫</td></tr>
+     *     <tr><td><code>Vdash;</code></td><td>U+022A9</td><td>⊩</td></tr>
+     *     <tr><td><code>vDash;</code></td><td>U+022A8</td><td>⊨</td></tr>
+     *     <tr><td><code>vdash;</code></td><td>U+022A2</td><td>⊢</td></tr>
+     *     <tr><td><code>Vdashl;</code></td><td>U+02AE6</td><td>⫦</td></tr>
+     *     <tr><td><code>Vee;</code></td><td>U+022C1</td><td>⋁</td></tr>
+     *     <tr><td><code>vee;</code></td><td>U+02228</td><td>∨</td></tr>
+     *     <tr><td><code>veebar;</code></td><td>U+022BB</td><td>⊻</td></tr>
+     *     <tr><td><code>veeeq;</code></td><td>U+0225A</td><td>≚</td></tr>
+     *     <tr><td><code>vellip;</code></td><td>U+022EE</td><td>⋮</td></tr>
+     *     <tr><td><code>Verbar;</code></td><td>U+02016</td><td>‖</td></tr>
+     *     <tr><td><code>verbar;</code></td><td>U+0007C</td><td>|</td></tr>
+     *     <tr><td><code>Vert;</code></td><td>U+02016</td><td>‖</td></tr>
+     *     <tr><td><code>vert;</code></td><td>U+0007C</td><td>|</td></tr>
+     *     <tr><td><code>VerticalBar;</code></td><td>U+02223</td><td>∣</td></tr>
+     *     <tr><td><code>VerticalLine;</code></td><td>U+0007C</td><td>|</td></tr>
+     *     <tr><td><code>VerticalSeparator;</code></td><td>U+02758</td><td>❘</td></tr>
+     *     <tr><td><code>VerticalTilde;</code></td><td>U+02240</td><td>≀</td></tr>
+     *     <tr><td><code>VeryThinSpace;</code></td><td>U+0200A</td><td> </td></tr>
+     *     <tr><td><code>Vfr;</code></td><td>U+1D519</td><td>𝔙</td></tr>
+     *     <tr><td><code>vfr;</code></td><td>U+1D533</td><td>𝔳</td></tr>
+     *     <tr><td><code>vltri;</code></td><td>U+022B2</td><td>⊲</td></tr>
+     *     <tr><td><code>vnsub;</code></td><td>U+02282 U+020D2</td><td>⊂⃒</td></tr>
+     *     <tr><td><code>vnsup;</code></td><td>U+02283 U+020D2</td><td>⊃⃒</td></tr>
+     *     <tr><td><code>Vopf;</code></td><td>U+1D54D</td><td>𝕍</td></tr>
+     *     <tr><td><code>vopf;</code></td><td>U+1D567</td><td>𝕧</td></tr>
+     *     <tr><td><code>vprop;</code></td><td>U+0221D</td><td>∝</td></tr>
+     *     <tr><td><code>vrtri;</code></td><td>U+022B3</td><td>⊳</td></tr>
+     *     <tr><td><code>Vscr;</code></td><td>U+1D4B1</td><td>𝒱</td></tr>
+     *     <tr><td><code>vscr;</code></td><td>U+1D4CB</td><td>𝓋</td></tr>
+     *     <tr><td><code>vsubnE;</code></td><td>U+02ACB U+0FE00</td><td>⫋︀</td></tr>
+     *     <tr><td><code>vsubne;</code></td><td>U+0228A U+0FE00</td><td>⊊︀</td></tr>
+     *     <tr><td><code>vsupnE;</code></td><td>U+02ACC U+0FE00</td><td>⫌︀</td></tr>
+     *     <tr><td><code>vsupne;</code></td><td>U+0228B U+0FE00</td><td>⊋︀</td></tr>
+     *     <tr><td><code>Vvdash;</code></td><td>U+022AA</td><td>⊪</td></tr>
+     *     <tr><td><code>vzigzag;</code></td><td>U+0299A</td><td>⦚</td></tr>
+     *     <tr><td><code>Wcirc;</code></td><td>U+00174</td><td>Ŵ</td></tr>
+     *     <tr><td><code>wcirc;</code></td><td>U+00175</td><td>ŵ</td></tr>
+     *     <tr><td><code>wedbar;</code></td><td>U+02A5F</td><td>⩟</td></tr>
+     *     <tr><td><code>Wedge;</code></td><td>U+022C0</td><td>⋀</td></tr>
+     *     <tr><td><code>wedge;</code></td><td>U+02227</td><td>∧</td></tr>
+     *     <tr><td><code>wedgeq;</code></td><td>U+02259</td><td>≙</td></tr>
+     *     <tr><td><code>weierp;</code></td><td>U+02118</td><td>℘</td></tr>
+     *     <tr><td><code>Wfr;</code></td><td>U+1D51A</td><td>𝔚</td></tr>
+     *     <tr><td><code>wfr;</code></td><td>U+1D534</td><td>𝔴</td></tr>
+     *     <tr><td><code>Wopf;</code></td><td>U+1D54E</td><td>𝕎</td></tr>
+     *     <tr><td><code>wopf;</code></td><td>U+1D568</td><td>𝕨</td></tr>
+     *     <tr><td><code>wp;</code></td><td>U+02118</td><td>℘</td></tr>
+     *     <tr><td><code>wr;</code></td><td>U+02240</td><td>≀</td></tr>
+     *     <tr><td><code>wreath;</code></td><td>U+02240</td><td>≀</td></tr>
+     *     <tr><td><code>Wscr;</code></td><td>U+1D4B2</td><td>𝒲</td></tr>
+     *     <tr><td><code>wscr;</code></td><td>U+1D4CC</td><td>𝓌</td></tr>
+     *     <tr><td><code>xcap;</code></td><td>U+022C2</td><td>⋂</td></tr>
+     *     <tr><td><code>xcirc;</code></td><td>U+025EF</td><td>◯</td></tr>
+     *     <tr><td><code>xcup;</code></td><td>U+022C3</td><td>⋃</td></tr>
+     *     <tr><td><code>xdtri;</code></td><td>U+025BD</td><td>▽</td></tr>
+     *     <tr><td><code>Xfr;</code></td><td>U+1D51B</td><td>𝔛</td></tr>
+     *     <tr><td><code>xfr;</code></td><td>U+1D535</td><td>𝔵</td></tr>
+     *     <tr><td><code>xhArr;</code></td><td>U+027FA</td><td>⟺</td></tr>
+     *     <tr><td><code>xharr;</code></td><td>U+027F7</td><td>⟷</td></tr>
+     *     <tr><td><code>Xi;</code></td><td>U+0039E</td><td>Ξ</td></tr>
+     *     <tr><td><code>xi;</code></td><td>U+003BE</td><td>ξ</td></tr>
+     *     <tr><td><code>xlArr;</code></td><td>U+027F8</td><td>⟸</td></tr>
+     *     <tr><td><code>xlarr;</code></td><td>U+027F5</td><td>⟵</td></tr>
+     *     <tr><td><code>xmap;</code></td><td>U+027FC</td><td>⟼</td></tr>
+     *     <tr><td><code>xnis;</code></td><td>U+022FB</td><td>⋻</td></tr>
+     *     <tr><td><code>xodot;</code></td><td>U+02A00</td><td>⨀</td></tr>
+     *     <tr><td><code>Xopf;</code></td><td>U+1D54F</td><td>𝕏</td></tr>
+     *     <tr><td><code>xopf;</code></td><td>U+1D569</td><td>𝕩</td></tr>
+     *     <tr><td><code>xoplus;</code></td><td>U+02A01</td><td>⨁</td></tr>
+     *     <tr><td><code>xotime;</code></td><td>U+02A02</td><td>⨂</td></tr>
+     *     <tr><td><code>xrArr;</code></td><td>U+027F9</td><td>⟹</td></tr>
+     *     <tr><td><code>xrarr;</code></td><td>U+027F6</td><td>⟶</td></tr>
+     *     <tr><td><code>Xscr;</code></td><td>U+1D4B3</td><td>𝒳</td></tr>
+     *     <tr><td><code>xscr;</code></td><td>U+1D4CD</td><td>𝓍</td></tr>
+     *     <tr><td><code>xsqcup;</code></td><td>U+02A06</td><td>⨆</td></tr>
+     *     <tr><td><code>xuplus;</code></td><td>U+02A04</td><td>⨄</td></tr>
+     *     <tr><td><code>xutri;</code></td><td>U+025B3</td><td>△</td></tr>
+     *     <tr><td><code>xvee;</code></td><td>U+022C1</td><td>⋁</td></tr>
+     *     <tr><td><code>xwedge;</code></td><td>U+022C0</td><td>⋀</td></tr>
+     *     <tr><td><code>Yacute;</code></td><td>U+000DD</td><td>Ý</td></tr>
+     *     <tr><td><code>Yacute</code></td><td>U+000DD</td><td>Ý</td></tr>
+     *     <tr><td><code>yacute;</code></td><td>U+000FD</td><td>ý</td></tr>
+     *     <tr><td><code>yacute</code></td><td>U+000FD</td><td>ý</td></tr>
+     *     <tr><td><code>YAcy;</code></td><td>U+0042F</td><td>Я</td></tr>
+     *     <tr><td><code>yacy;</code></td><td>U+0044F</td><td>я</td></tr>
+     *     <tr><td><code>Ycirc;</code></td><td>U+00176</td><td>Ŷ</td></tr>
+     *     <tr><td><code>ycirc;</code></td><td>U+00177</td><td>ŷ</td></tr>
+     *     <tr><td><code>Ycy;</code></td><td>U+0042B</td><td>Ы</td></tr>
+     *     <tr><td><code>ycy;</code></td><td>U+0044B</td><td>ы</td></tr>
+     *     <tr><td><code>yen;</code></td><td>U+000A5</td><td>¥</td></tr>
+     *     <tr><td><code>yen</code></td><td>U+000A5</td><td>¥</td></tr>
+     *     <tr><td><code>Yfr;</code></td><td>U+1D51C</td><td>𝔜</td></tr>
+     *     <tr><td><code>yfr;</code></td><td>U+1D536</td><td>𝔶</td></tr>
+     *     <tr><td><code>YIcy;</code></td><td>U+00407</td><td>Ї</td></tr>
+     *     <tr><td><code>yicy;</code></td><td>U+00457</td><td>ї</td></tr>
+     *     <tr><td><code>Yopf;</code></td><td>U+1D550</td><td>𝕐</td></tr>
+     *     <tr><td><code>yopf;</code></td><td>U+1D56A</td><td>𝕪</td></tr>
+     *     <tr><td><code>Yscr;</code></td><td>U+1D4B4</td><td>𝒴</td></tr>
+     *     <tr><td><code>yscr;</code></td><td>U+1D4CE</td><td>𝓎</td></tr>
+     *     <tr><td><code>YUcy;</code></td><td>U+0042E</td><td>Ю</td></tr>
+     *     <tr><td><code>yucy;</code></td><td>U+0044E</td><td>ю</td></tr>
+     *     <tr><td><code>Yuml;</code></td><td>U+00178</td><td>Ÿ</td></tr>
+     *     <tr><td><code>yuml;</code></td><td>U+000FF</td><td>ÿ</td></tr>
+     *     <tr><td><code>yuml</code></td><td>U+000FF</td><td>ÿ</td></tr>
+     *     <tr><td><code>Zacute;</code></td><td>U+00179</td><td>Ź</td></tr>
+     *     <tr><td><code>zacute;</code></td><td>U+0017A</td><td>ź</td></tr>
+     *     <tr><td><code>Zcaron;</code></td><td>U+0017D</td><td>Ž</td></tr>
+     *     <tr><td><code>zcaron;</code></td><td>U+0017E</td><td>ž</td></tr>
+     *     <tr><td><code>Zcy;</code></td><td>U+00417</td><td>З</td></tr>
+     *     <tr><td><code>zcy;</code></td><td>U+00437</td><td>з</td></tr>
+     *     <tr><td><code>Zdot;</code></td><td>U+0017B</td><td>Ż</td></tr>
+     *     <tr><td><code>zdot;</code></td><td>U+0017C</td><td>ż</td></tr>
+     *     <tr><td><code>zeetrf;</code></td><td>U+02128</td><td>ℨ</td></tr>
+     *     <tr><td><code>ZeroWidthSpace;</code></td><td>U+0200B</td><td>​</td></tr>
+     *     <tr><td><code>Zeta;</code></td><td>U+00396</td><td>Ζ</td></tr>
+     *     <tr><td><code>zeta;</code></td><td>U+003B6</td><td>ζ</td></tr>
+     *     <tr><td><code>Zfr;</code></td><td>U+02128</td><td>ℨ</td></tr>
+     *     <tr><td><code>zfr;</code></td><td>U+1D537</td><td>𝔷</td></tr>
+     *     <tr><td><code>ZHcy;</code></td><td>U+00416</td><td>Ж</td></tr>
+     *     <tr><td><code>zhcy;</code></td><td>U+00436</td><td>ж</td></tr>
+     *     <tr><td><code>zigrarr;</code></td><td>U+021DD</td><td>⇝</td></tr>
+     *     <tr><td><code>Zopf;</code></td><td>U+02124</td><td>ℤ</td></tr>
+     *     <tr><td><code>zopf;</code></td><td>U+1D56B</td><td>𝕫</td></tr>
+     *     <tr><td><code>Zscr;</code></td><td>U+1D4B5</td><td>𝒵</td></tr>
+     *     <tr><td><code>zscr;</code></td><td>U+1D4CF</td><td>𝓏</td></tr>
+     *     <tr><td><code>zwj;</code></td><td>U+0200D</td><td>‍</td></tr>
+     *     <tr><td><code>zwnj;</code></td><td>U+0200C</td><td>‌</td></tr>
+     *   </tbody>
+     * </table>
      * 
      * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#named-character-references">8.5 Named character references</a>
      */
