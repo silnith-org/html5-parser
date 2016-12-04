@@ -16,9 +16,41 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-inframeset">8.2.5.4
- *      .20 The "in frameset" insertion mode</a>
+ * Applies the in frameset insertion mode logic.
+ * <p>
+ * When the user agent is to apply the rules for the "in frameset" insertion mode, the user agent must handle the token as follows:
+ * <dl>
+ *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
+ *   <dd>Insert the character.
+ *   <dt>A comment token
+ *   <dd>Insert a comment.
+ *   <dt>A DOCTYPE token
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>A start tag whose tag name is "html"
+ *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dt>A start tag whose tag name is "frameset"
+ *   <dd>Insert an HTML element for the token.
+ *   <dt>An end tag whose tag name is "frameset"
+ *   <dd>
+ *     If the current node is the root html element, then this is a parse error; ignore the token. (fragment case)
+ *     <p>Otherwise, pop the current node from the stack of open elements.
+ *     <p>If the parser was not originally created as part of the HTML fragment parsing algorithm (fragment case), and the current node is no longer a frameset element, then switch the insertion mode to "after frameset".
+ *   <dt>A start tag whose tag name is "frame"
+ *   <dd>
+ *     Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
+ *     <p>Acknowledge the token's self-closing flag, if it is set.
+ *   <dt>A start tag whose tag name is "noframes"
+ *   <dd>Process the token using the rules for the "in head" insertion mode.
+ *   <dt>An end-of-file token
+ *   <dd>
+ *     If the current node is not the root html element, then this is a parse error.
+ *     <p>Stop parsing.
+ *   <dt>Anything else
+ *   <dd>Parse error. Ignore the token.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.Parser.Mode#IN_FRAMESET
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inframeset">8.2.5.4.20 The "in frameset" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InFramesetInsertionMode extends InsertionMode {

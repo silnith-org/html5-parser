@@ -16,8 +16,26 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#tag-open-state">8.2.4.8
- *      Tag open state</a>
+ * Applies the tag open state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"!" (U+0021)
+ *   <dd>Switch to the markup declaration open state.
+ *   <dt>"/" (U+002F)
+ *   <dd>Switch to the end tag open state.
+ *   <dt>Uppercase ASCII letter
+ *   <dd>Create a new start tag token, set its tag name to the lowercase version of the current input character (add 0x0020 to the character's code point), then switch to the tag name state. (Don't emit the token yet; further details will be filled in before it is emitted.)
+ *   <dt>Lowercase ASCII letter
+ *   <dd>Create a new start tag token, set its tag name to the current input character, then switch to the tag name state. (Don't emit the token yet; further details will be filled in before it is emitted.)
+ *   <dt>"?" (U+003F)
+ *   <dd>Parse error. Switch to the bogus comment state.
+ *   <dt>Anything else
+ *   <dd>Parse error. Switch to the data state. Emit a U+003C LESS-THAN SIGN character token. Reconsume the current input character.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#TAG_OPEN
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#tag-open-state">8.2.4.8 Tag open state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class TagOpenState extends TokenizerState {

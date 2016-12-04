@@ -12,9 +12,20 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#self-closing-start-tag-state">8.
- *      2.4.43 Self-closing start tag state</a>
+ * Applies the self closing start tag state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>">" (U+003E)
+ *   <dd>Set the self-closing flag of the current tag token. Switch to the data state. Emit the current tag token.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Parse error. Switch to the before attribute name state. Reconsume the character.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#SELF_CLOSING_START_TAG
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#self-closing-start-tag-state">8.2.4.43 Self-closing start tag state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class SelfClosingStartTagState extends TokenizerState {

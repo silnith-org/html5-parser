@@ -16,8 +16,24 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#comment-end-bang-state">
- *      8.2.4.51 Comment end bang state</a>
+ * Applies the comment end bang state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"-" (U+002D)
+ *   <dd>Append two "-" (U+002D) characters and a "!" (U+0021) character to the comment token's data. Switch to the comment end dash state.
+ *   <dt>">" (U+003E)
+ *   <dd>Switch to the data state. Emit the comment token.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Append two "-" (U+002D) characters, a "!" (U+0021) character, and a U+FFFD REPLACEMENT CHARACTER character to the comment token's data. Switch to the comment state.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Emit the comment token. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Append two "-" (U+002D) characters, a "!" (U+0021) character, and the current input character to the comment token's data. Switch to the comment state.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#COMMENT_END_BANG
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#comment-end-bang-state">8.2.4.51 Comment end bang state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class CommentEndBangState extends TokenizerState {

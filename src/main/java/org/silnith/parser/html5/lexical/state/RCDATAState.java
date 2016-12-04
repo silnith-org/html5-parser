@@ -16,8 +16,24 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#rcdata-state">8.2.4.3
- *      RCDATA state</a>
+ * Applies the rcdata state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>U+0026 AMPERSAND (&)
+ *   <dd>Switch to the character reference in RCDATA state.
+ *   <dt>"<" (U+003C)
+ *   <dd>Switch to the RCDATA less-than sign state.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Emit a U+FFFD REPLACEMENT CHARACTER character token.
+ *   <dt>EOF
+ *   <dd>Emit an end-of-file token.
+ *   <dt>Anything else
+ *   <dd>Emit the current input character as a character token.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#RCDATA
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#rcdata-state">8.2.4.3 RCDATA state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class RCDATAState extends TokenizerState {

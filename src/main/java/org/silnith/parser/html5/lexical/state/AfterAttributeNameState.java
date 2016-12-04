@@ -23,9 +23,37 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#after-attribute-name-state">8.2.
- *      4.36 After attribute name state</a>
+ * Applies the after attribute name state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>Ignore the character.
+ *   <dt>"/" (U+002F)
+ *   <dd>Switch to the self-closing start tag state.
+ *   <dt>"=" (U+003D)
+ *   <dd>Switch to the before attribute value state.
+ *   <dt>">" (U+003E)
+ *   <dd>Switch to the data state. Emit the current tag token.
+ *   <dt>Uppercase ASCII letter
+ *   <dd>Start a new attribute in the current tag token. Set that attribute's name to the lowercase version of the current input character (add 0x0020 to the character's code point), and its value to the empty string. Switch to the attribute name state.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Start a new attribute in the current tag token. Set that attribute's name to a U+FFFD REPLACEMENT CHARACTER character, and its value to the empty string. Switch to the attribute name state.
+ *   <dt>U+0022 QUOTATION MARK (")
+ *   <dt>"'" (U+0027)
+ *   <dt>"<" (U+003C)
+ *   <dd>Parse error. Treat it as per the "anything else" entry below.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Start a new attribute in the current tag token. Set that attribute's name to the current input character, and its value to the empty string. Switch to the attribute name state.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#AFTER_ATTRIBUTE_NAME
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#after-attribute-name-state">8.2.4.36 After attribute name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterAttributeNameState extends TokenizerState {

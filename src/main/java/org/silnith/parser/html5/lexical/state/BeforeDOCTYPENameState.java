@@ -18,9 +18,29 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#before-doctype-name-state">8.2.4
- *      .53 Before DOCTYPE name state</a>
+ * Applies the before doctype name state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>Ignore the character.
+ *   <dt>Uppercase ASCII letter
+ *   <dd>Create a new DOCTYPE token. Set the token's name to the lowercase version of the current input character (add 0x0020 to the character's code point). Switch to the DOCTYPE name state.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Create a new DOCTYPE token. Set the token's name to a U+FFFD REPLACEMENT CHARACTER character. Switch to the DOCTYPE name state.
+ *   <dt>">" (U+003E)
+ *   <dd>Parse error. Create a new DOCTYPE token. Set its force-quirks flag to on. Switch to the data state. Emit the token.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Create a new DOCTYPE token. Set its force-quirks flag to on. Emit the token. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Create a new DOCTYPE token. Set the token's name to the current input character. Switch to the DOCTYPE name state.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#BEFORE_DOCTYPE_NAME
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#before-doctype-name-state">8.2.4.53 Before DOCTYPE name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class BeforeDOCTYPENameState extends TokenizerState {

@@ -12,9 +12,18 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#markup-declaration-open-state">8
- *      .2.4.45 Markup declaration open state</a>
+ * Applies the markup declaration open state logic.
+ * <p>
+ * If the next two characters are both "-" (U+002D) characters, consume those two characters, create a comment token whose data is the empty string, and switch to the comment start state.
+ * <p>
+ * Otherwise, if the next seven characters are an ASCII case-insensitive match for the word "DOCTYPE", then consume those characters and switch to the DOCTYPE state.
+ * <p>
+ * Otherwise, if there is an adjusted current node and it is not an element in the HTML namespace and the next seven characters are a case-sensitive match for the string "[CDATA[" (the five uppercase letters "CDATA" with a U+005B LEFT SQUARE BRACKET character before and after), then consume those characters and switch to the CDATA section state.
+ * <p>
+ * Otherwise, this is a parse error. Switch to the bogus comment state. The next character that is consumed, if any, is the first character that will be in the comment.
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#MARKUP_DECLARATION_OPEN
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#markup-declaration-open-state">8.2.4.45 Markup declaration open state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class MarkupDeclarationOpenState extends TokenizerState {

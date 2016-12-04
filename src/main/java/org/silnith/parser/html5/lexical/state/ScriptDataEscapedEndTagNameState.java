@@ -17,9 +17,29 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#script-data-escaped-end-tag-name-state">
- *      8.2.4.27 Script data escaped end tag name state</a>
+ * Applies the script data escaped end tag name state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>If the current end tag token is an appropriate end tag token, then switch to the before attribute name state. Otherwise, treat it as per the "anything else" entry below.
+ *   <dt>"/" (U+002F)
+ *   <dd>If the current end tag token is an appropriate end tag token, then switch to the self-closing start tag state. Otherwise, treat it as per the "anything else" entry below.
+ *   <dt>">" (U+003E)
+ *   <dd>If the current end tag token is an appropriate end tag token, then switch to the data state and emit the current tag token. Otherwise, treat it as per the "anything else" entry below.
+ *   <dt>Uppercase ASCII letter
+ *   <dd>Append the lowercase version of the current input character (add 0x0020 to the character's code point) to the current tag token's tag name. Append the current input character to the temporary buffer.
+ *   <dt>Lowercase ASCII letter
+ *   <dd>Append the current input character to the current tag token's tag name. Append the current input character to the temporary buffer.
+ *   <dt>Anything else
+ *   <dd>Switch to the script data escaped state. Emit a U+003C LESS-THAN SIGN character token, a U+002F SOLIDUS character token, and a character token for each of the characters in the temporary buffer (in the order they were added to the buffer). Reconsume the current input character.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#SCRIPT_DATA_ESCAPED_END_TAG_NAME
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#script-data-escaped-end-tag-name-state">8.2.4.27 Script data escaped end tag name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ScriptDataEscapedEndTagNameState extends TokenizerState {

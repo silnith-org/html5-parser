@@ -13,8 +13,64 @@ import org.w3c.dom.Element;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-inselect">8
- *      .2.5.4.16 The "in select" insertion mode</a>
+ * Applies the in select insertion mode logic.
+ * <p>
+ * When the user agent is to apply the rules for the "in select" insertion mode, the user agent must handle the token as follows:
+ * <dl>
+ *   <dt>A character token that is U+0000 NULL
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>Any other character token
+ *   <dd>Insert the token's character.
+ *   <dt>A comment token
+ *   <dd>Insert a comment.
+ *   <dt>A DOCTYPE token
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>A start tag whose tag name is "html"
+ *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dt>A start tag whose tag name is "option"
+ *   <dd>
+ *     If the current node is an option element, pop that node from the stack of open elements.
+ *     <p>Insert an HTML element for the token.
+ *   <dt>A start tag whose tag name is "optgroup"
+ *   <dd>
+ *     If the current node is an option element, pop that node from the stack of open elements.
+ *     <p>If the current node is an optgroup element, pop that node from the stack of open elements.
+ *     <p>Insert an HTML element for the token.
+ *   <dt>An end tag whose tag name is "optgroup"
+ *   <dd>
+ *     First, if the current node is an option element, and the node immediately before it in the stack of open elements is an optgroup element, then pop the current node from the stack of open elements.
+ *     <p>If the current node is an optgroup element, then pop that node from the stack of open elements. Otherwise, this is a parse error; ignore the token.
+ *   <dt>An end tag whose tag name is "option"
+ *   <dd>If the current node is an option element, then pop that node from the stack of open elements. Otherwise, this is a parse error; ignore the token.
+ *   <dt>An end tag whose tag name is "select"
+ *   <dd>
+ *     If the stack of open elements does not have a select element in select scope, this is a parse error; ignore the token. (fragment case)
+ *     <p>Otherwise:
+ *     <p>Pop elements from the stack of open elements until a select element has been popped from the stack.
+ *     <p>Reset the insertion mode appropriately.
+ *   <dt>A start tag whose tag name is "select"
+ *   <dd>
+ *     Parse error.
+ *     <p>Pop elements from the stack of open elements until a select element has been popped from the stack.
+ *     <p>Reset the insertion mode appropriately.
+ *   <dt>A start tag whose tag name is one of: "input", "keygen", "textarea"
+ *   <dd>
+ *     Parse error.
+ *     <p>If the stack of open elements does not have a select element in select scope, ignore the token. (fragment case)
+ *     <p>Pop elements from the stack of open elements until a select element has been popped from the stack.
+ *     <p>Reset the insertion mode appropriately.
+ *     <p>Reprocess the token.
+ *   <dt>A start tag whose tag name is one of: "script", "template"
+ *   <dt>An end tag whose tag name is "template"
+ *   <dd>Process the token using the rules for the "in head" insertion mode.
+ *   <dt>An end-of-file token
+ *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dt>Anything else
+ *   <dd>Parse error. Ignore the token.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.Parser.Mode#IN_SELECT
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inselect">8.2.5.4.16 The "in select" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InSelectInsertionMode extends InsertionMode {

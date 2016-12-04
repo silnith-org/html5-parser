@@ -15,9 +15,24 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#attribute-value-%28double-quoted%29-state">
- *      8.2.4.38 Attribute value (double-quoted) state</a>
+ * Applies the attribute value double quoted state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>U+0022 QUOTATION MARK (")
+ *   <dd>Switch to the after attribute value (quoted) state.
+ *   <dt>U+0026 AMPERSAND (&)
+ *   <dd>Switch to the character reference in attribute value state, with the additional allowed character being U+0022 QUOTATION MARK (").
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the current attribute's value.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Append the current input character to the current attribute's value.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#ATTRIBUTE_VALUE_DOUBLE_QUOTED
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#attribute-value-(double-quoted)-state">8.2.4.38 Attribute value (double-quoted) state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AttributeValueDoubleQuotedState extends TokenizerState {

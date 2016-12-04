@@ -15,9 +15,24 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#doctype-system-identifier-%28single-quoted%29-state">
- *      8.2.4.65 DOCTYPE system identifier (single-quoted) state</a>
+ * Applies the doctype system identifier single quoted state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"'" (U+0027)
+ *   <dd>Switch to the after DOCTYPE system identifier state.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the current DOCTYPE token's system identifier.
+ *   <dt>">" (U+003E)
+ *   <dd>Parse error. Set the DOCTYPE token's force-quirks flag to on. Switch to the data state. Emit that DOCTYPE token.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Set the DOCTYPE token's force-quirks flag to on. Emit that DOCTYPE token. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Append the current input character to the current DOCTYPE token's system identifier.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#doctype-system-identifier-(single-quoted)-state">8.2.4.65 DOCTYPE system identifier (single-quoted) state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class DOCTYPESystemIdentifierSingleQuotedState extends TokenizerState {

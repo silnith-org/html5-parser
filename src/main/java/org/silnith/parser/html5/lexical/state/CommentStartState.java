@@ -15,8 +15,24 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#comment-start-state">8.2
- *      .4.46 Comment start state</a>
+ * Applies the comment start state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"-" (U+002D)
+ *   <dd>Switch to the comment start dash state.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the comment token's data. Switch to the comment state.
+ *   <dt>">" (U+003E)
+ *   <dd>Parse error. Switch to the data state. Emit the comment token.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Emit the comment token. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Append the current input character to the comment token's data. Switch to the comment state.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#COMMENT_START
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#comment-start-state">8.2.4.46 Comment start state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class CommentStartState extends TokenizerState {

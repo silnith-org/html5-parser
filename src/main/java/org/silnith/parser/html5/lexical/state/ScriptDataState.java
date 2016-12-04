@@ -15,8 +15,22 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#script-data-state">8.2.4
- *      .6 Script data state</a>
+ * Applies the script data state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"<" (U+003C)
+ *   <dd>Switch to the script data less-than sign state.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Emit a U+FFFD REPLACEMENT CHARACTER character token.
+ *   <dt>EOF
+ *   <dd>Emit an end-of-file token.
+ *   <dt>Anything else
+ *   <dd>Emit the current input character as a character token.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#SCRIPT_DATA
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#script-data-state">8.2.4.6 Script data state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ScriptDataState extends TokenizerState {

@@ -11,8 +11,20 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#bogus-doctype-state">8.2
- *      .4.67 Bogus DOCTYPE state</a>
+ * Applies the bogus doctype state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>">" (U+003E)
+ *   <dd>Switch to the data state. Emit the DOCTYPE token.
+ *   <dt>EOF
+ *   <dd>Switch to the data state. Emit the DOCTYPE token. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Ignore the character.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#BOGUS_DOCTYPE
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#bogus-doctype-state">8.2.4.67 Bogus DOCTYPE state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class BogusDOCTYPEState extends TokenizerState {

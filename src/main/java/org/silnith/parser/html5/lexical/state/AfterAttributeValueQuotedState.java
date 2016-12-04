@@ -17,9 +17,27 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#after-attribute-value-%28quoted%29-state">
- *      8.2.4.42 After attribute value (quoted) state</a>
+ * Applies the after attribute value quoted state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>Switch to the before attribute name state.
+ *   <dt>"/" (U+002F)
+ *   <dd>Switch to the self-closing start tag state.
+ *   <dt>">" (U+003E)
+ *   <dd>Switch to the data state. Emit the current tag token.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Parse error. Switch to the before attribute name state. Reconsume the character.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#AFTER_ATTRIBUTE_VALUE_QUOTED
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#after-attribute-value-(quoted)-state">8.2.4.42 After attribute value (quoted) state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterAttributeValueQuotedState extends TokenizerState {

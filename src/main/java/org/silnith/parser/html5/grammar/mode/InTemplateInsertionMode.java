@@ -9,9 +9,57 @@ import org.w3c.dom.Element;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-intemplate">8.2.5.4
- *      .18 The "in template" insertion mode</a>
+ * Applies the in template insertion mode logic.
+ * <p>
+ * When the user agent is to apply the rules for the "in template" insertion mode, the user agent must handle the token as follows:
+ * <dl>
+ *   <dt>A character token
+ *   <dt>A comment token
+ *   <dt>A DOCTYPE token
+ *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dt>A start tag whose tag name is one of: "base", "basefont", "bgsound", "link", "meta", "noframes", "script", "style", "template", "title"
+ *   <dt>An end tag whose tag name is "template"
+ *   <dd>Process the token using the rules for the "in head" insertion mode.
+ *   <dt>A start tag whose tag name is one of: "caption", "colgroup", "tbody", "tfoot", "thead"
+ *   <dd>
+ *     Pop the current template insertion mode off the stack of template insertion modes.
+ *     <p>Push "in table" onto the stack of template insertion modes so that it is the new current template insertion mode.
+ *     <p>Switch the insertion mode to "in table", and reprocess the token.
+ *   <dt>A start tag whose tag name is "col"
+ *   <dd>
+ *     Pop the current template insertion mode off the stack of template insertion modes.
+ *     <p>Push "in column group" onto the stack of template insertion modes so that it is the new current template insertion mode.
+ *     <p>Switch the insertion mode to "in column group", and reprocess the token.
+ *   <dt>A start tag whose tag name is "tr"
+ *   <dd>
+ *     Pop the current template insertion mode off the stack of template insertion modes.
+ *     <p>Push "in table body" onto the stack of template insertion modes so that it is the new current template insertion mode.
+ *     <p>Switch the insertion mode to "in table body", and reprocess the token.
+ *   <dt>A start tag whose tag name is one of: "td", "th"
+ *   <dd>
+ *     Pop the current template insertion mode off the stack of template insertion modes.
+ *     <p>Push "in row" onto the stack of template insertion modes so that it is the new current template insertion mode.
+ *     <p>Switch the insertion mode to "in row", and reprocess the token.
+ *   <dt>Any other start tag
+ *   <dd>
+ *     Pop the current template insertion mode off the stack of template insertion modes.
+ *     <p>Push "in body" onto the stack of template insertion modes so that it is the new current template insertion mode.
+ *     <p>Switch the insertion mode to "in body", and reprocess the token.
+ *   <dt>Any other end tag
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>An end-of-file token
+ *   <dd>
+ *     If there is no template element on the stack of open elements, then stop parsing. (fragment case)
+ *     <p>Otherwise, this is a parse error.
+ *     <p>Pop elements from the stack of open elements until a template element has been popped from the stack.
+ *     <p>Clear the list of active formatting elements up to the last marker.
+ *     <p>Pop the current template insertion mode off the stack of template insertion modes.
+ *     <p>Reset the insertion mode appropriately.
+ *     <p>Reprocess the token.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.Parser.Mode#IN_TEMPLATE
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-intemplate">8.2.5.4.18 The "in template" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InTemplateInsertionMode extends InsertionMode {

@@ -21,9 +21,183 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#tokenizing-character-references">
- *      8.2.4.69 Tokenizing character references</a>
+ * Tokenizes a character reference.
+ * <p>
+ * This section defines how to consume a character reference, optionally with an additional allowed character, which, if specified where the algorithm is invoked, adds a character to the list of characters that cause there to not be a character reference.
+ * <p>
+ * This definition is used when parsing character references in text and in attributes.
+ * <p>
+ * The behavior depends on the identity of the next character (the one immediately after the U+0026 AMPERSAND character), as follows:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dt>U+003C LESS-THAN SIGN
+ *   <dt>U+0026 AMPERSAND
+ *   <dt>EOF
+ *   <dt>The additional allowed character, if there is one
+ *   <dd>Not a character reference. No characters are consumed, and nothing is returned. (This is not an error, either.)
+ *   <dt>"#" (U+0023)
+ *   <dd>
+ *     Consume the U+0023 NUMBER SIGN.
+ *     <p>The behavior further depends on the character after the U+0023 NUMBER SIGN:
+ *     <dl>
+ *       <dt>U+0078 LATIN SMALL LETTER X
+ *       <dt>U+0058 LATIN CAPITAL LETTER X
+ *       <dd>
+ *         Consume the X.
+ *         <p>Follow the steps below, but using ASCII hex digits.
+ *         <p>When it comes to interpreting the number, interpret it as a hexadecimal number.
+ *       <dt>Anything else
+ *       <dd>
+ *         Follow the steps below, but using ASCII digits.
+ *         <p>When it comes to interpreting the number, interpret it as a decimal number.
+ *     </dl>
+ *     <p>
+ *     Consume as many characters as match the range of characters given above (ASCII hex digits or ASCII digits).
+ *     <p>
+ *     If no characters match the range, then don't consume any characters (and unconsume the U+0023 NUMBER SIGN character and, if appropriate, the X character). This is a parse error; nothing is returned.
+ *     <p>
+ *     Otherwise, if the next character is a U+003B SEMICOLON, consume that too. If it isn't, there is a parse error.
+ *     <p>
+ *     If one or more characters match the range, then take them all and interpret the string of characters as a number (either hexadecimal or decimal as appropriate).
+ *     <p>If that number is one of the numbers in the first column of the following table, then this is a parse error. Find the row with that number in the first column, and return a character token for the Unicode character given in the second column of that row.
+ *     <table>
+ *       <thead>
+ *         <tr>
+ *           <th>Number
+ *           <th colspan="2">Unicode character
+ *       </thead>
+ *       <tbody>
+ *         <tr>
+ *           <td>0x00
+ *           <td>U+FFFD
+ *           <td>REPLACEMENT CHARACTER
+ *         <tr>
+ *           <td>0x80
+ *           <td>U+20AC
+ *           <td>EURO SIGN (€)
+ *         <tr>
+ *           <td>0x82
+ *           <td>U+201A
+ *           <td>SINGLE LOW-9 QUOTATION MARK (‚)
+ *         <tr>
+ *           <td>0x83
+ *           <td>U+0192
+ *           <td>LATIN SMALL LETTER F WITH HOOK (ƒ)
+ *         <tr>
+ *           <td>0x84
+ *           <td>U+201E
+ *           <td>DOUBLE LOW-9 QUOTATION MARK („)
+ *         <tr>
+ *           <td>0x85
+ *           <td>U+2026
+ *           <td>HORIZONTAL ELLIPSIS (…)
+ *         <tr>
+ *           <td>0x86
+ *           <td>U+2020
+ *           <td>DAGGER (†)
+ *         <tr>
+ *           <td>0x87
+ *           <td>U+2021
+ *           <td>DOUBLE DAGGER (‡)
+ *         <tr>
+ *           <td>0x88
+ *           <td>U+02C6
+ *           <td>MODIFIER LETTER CIRCUMFLEX ACCENT (ˆ)
+ *         <tr>
+ *           <td>0x89
+ *           <td>U+2030
+ *           <td>PER MILLE SIGN (‰)
+ *         <tr>
+ *           <td>0x8A
+ *           <td>U+0160
+ *           <td>LATIN CAPITAL LETTER S WITH CARON (Š)
+ *         <tr>
+ *           <td>0x8B
+ *           <td>U+2039
+ *           <td>SINGLE LEFT-POINTING ANGLE QUOTATION MARK (‹)
+ *         <tr>
+ *           <td>0x8C
+ *           <td>U+0152
+ *           <td>LATIN CAPITAL LIGATURE OE (Œ)
+ *         <tr>
+ *           <td>0x8E
+ *           <td>U+017D
+ *           <td>LATIN CAPITAL LETTER Z WITH CARON (Ž)
+ *         <tr>
+ *           <td>0x91
+ *           <td>U+2018
+ *           <td>LEFT SINGLE QUOTATION MARK (‘)
+ *         <tr>
+ *           <td>0x92
+ *           <td>U+2019
+ *           <td>RIGHT SINGLE QUOTATION MARK (’)
+ *         <tr>
+ *           <td>0x93
+ *           <td>U+201C
+ *           <td>LEFT DOUBLE QUOTATION MARK (“)
+ *         <tr>
+ *           <td>0x94
+ *           <td>U+201D
+ *           <td>RIGHT DOUBLE QUOTATION MARK (”)
+ *         <tr>
+ *           <td>0x95
+ *           <td>U+2022
+ *           <td>BULLET (•)
+ *         <tr>
+ *           <td>0x96
+ *           <td>U+2013
+ *           <td>EN DASH (–)
+ *         <tr>
+ *           <td>0x97
+ *           <td>U+2014
+ *           <td>EM DASH (—)
+ *         <tr>
+ *           <td>0x98
+ *           <td>U+02DC
+ *           <td>SMALL TILDE (˜)
+ *         <tr>
+ *           <td>0x99
+ *           <td>U+2122
+ *           <td>TRADE MARK SIGN (™)
+ *         <tr>
+ *           <td>0x9A
+ *           <td>U+0161
+ *           <td>LATIN SMALL LETTER S WITH CARON (š)
+ *         <tr>
+ *           <td>0x9B
+ *           <td>U+203A
+ *           <td>SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (›)
+ *         <tr>
+ *           <td>0x9C
+ *           <td>U+0153
+ *           <td>LATIN SMALL LIGATURE OE (œ)
+ *         <tr>
+ *           <td>0x9E
+ *           <td>U+017E
+ *           <td>LATIN SMALL LETTER Z WITH CARON (ž)
+ *         <tr>
+ *           <td>0x9F
+ *           <td>U+0178
+ *           <td>LATIN CAPITAL LETTER Y WITH DIAERESIS (Ÿ)
+ *       </tbody>
+ *     </table>
+ *     <p>
+ *     Otherwise, if the number is in the range 0xD800 to 0xDFFF or is greater than 0x10FFFF, then this is a parse error. Return a U+FFFD REPLACEMENT CHARACTER character token.
+ *     <p>
+ *     Otherwise, return a character token for the Unicode character whose code point is that number. Additionally, if the number is in the range 0x0001 to 0x0008, 0x000D to 0x001F, 0x007F to 0x009F, 0xFDD0 to 0xFDEF, or is one of 0x000B, 0xFFFE, 0xFFFF, 0x1FFFE, 0x1FFFF, 0x2FFFE, 0x2FFFF, 0x3FFFE, 0x3FFFF, 0x4FFFE, 0x4FFFF, 0x5FFFE, 0x5FFFF, 0x6FFFE, 0x6FFFF, 0x7FFFE, 0x7FFFF, 0x8FFFE, 0x8FFFF, 0x9FFFE, 0x9FFFF, 0xAFFFE, 0xAFFFF, 0xBFFFE, 0xBFFFF, 0xCFFFE, 0xCFFFF, 0xDFFFE, 0xDFFFF, 0xEFFFE, 0xEFFFF, 0xFFFFE, 0xFFFFF, 0x10FFFE, or 0x10FFFF, then this is a parse error.
+ *   <dt>Anything else
+ *   <dd>
+ *     Consume the maximum number of characters possible, with the consumed characters matching one of the identifiers in the first column of the named character references table (in a case-sensitive manner).
+ *     <p>If no match can be made, then no characters are consumed, and nothing is returned. In this case, if the characters after the U+0026 AMPERSAND character (&) consist of a sequence of one or more alphanumeric ASCII characters followed by a U+003B SEMICOLON character (;), then this is a parse error.
+ *     <p>If the character reference is being consumed as part of an attribute, and the last character matched is not a ";" (U+003B) character, and the next character is either a "=" (U+003D) character or an alphanumeric ASCII character, then, for historical reasons, all the characters that were matched after the U+0026 AMPERSAND character (&) must be unconsumed, and nothing is returned. However, if this next character is in fact a "=" (U+003D) character, then this is a parse error, because some legacy user agents will misinterpret the markup in those cases.
+ *     <p>Otherwise, a character reference is parsed. If the last character matched is not a ";" (U+003B) character, there is a parse error.
+ *     <p>Return one or two character tokens for the character(s) corresponding to the character reference name (as given by the second column of the named character references table).
+ * </dl>
+ * 
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#tokenizing-character-references">8.2.4.69 Tokenizing character references</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class CharacterReferenceState extends TokenizerState {

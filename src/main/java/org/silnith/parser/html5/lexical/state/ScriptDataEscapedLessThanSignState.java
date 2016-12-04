@@ -12,9 +12,22 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#script-data-escaped-less-than-sign-state">
- *      8.2.4.25 Script data escaped less-than sign state</a>
+ * Applies the script data escaped less than sign state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"/" (U+002F)
+ *   <dd>Set the temporary buffer to the empty string. Switch to the script data escaped end tag open state.
+ *   <dt>Uppercase ASCII letter
+ *   <dd>Set the temporary buffer to the empty string. Append the lowercase version of the current input character (add 0x0020 to the character's code point) to the temporary buffer. Switch to the script data double escape start state. Emit a U+003C LESS-THAN SIGN character token and the current input character as a character token.
+ *   <dt>Lowercase ASCII letter
+ *   <dd>Set the temporary buffer to the empty string. Append the current input character to the temporary buffer. Switch to the script data double escape start state. Emit a U+003C LESS-THAN SIGN character token and the current input character as a character token.
+ *   <dt>Anything else
+ *   <dd>Switch to the script data escaped state. Emit a U+003C LESS-THAN SIGN character token. Reconsume the current input character.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#SCRIPT_DATA_ESCAPED_LESS_THAN_SIGN
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#script-data-escaped-less-than-sign-state">8.2.4.25 Script data escaped less-than sign state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ScriptDataEscapedLessThanSignState extends TokenizerState {

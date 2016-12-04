@@ -9,8 +9,43 @@ import org.w3c.dom.Element;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intd">8.2.5
- *      .4.15 The "in cell" insertion mode</a>
+ * Applies the in cell insertion mode logic.
+ * <p>
+ * When the user agent is to apply the rules for the "in cell" insertion mode, the user agent must handle the token as follows:
+ * <dl>
+ *   <dt>An end tag whose tag name is one of: "td", "th"
+ *   <dd>
+ *     If the stack of open elements does not have an element in table scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.
+ *     <p>Otherwise:
+ *     <p>Generate implied end tags.
+ *     <p>Now, if the current node is not an HTML element with the same tag name as the token, then this is a parse error.
+ *     <p>Pop elements from the stack of open elements stack until an HTML element with the same tag name as the token has been popped from the stack.
+ *     <p>Clear the list of active formatting elements up to the last marker.
+ *     <p>Switch the insertion mode to "in row".
+ *   <dt>A start tag whose tag name is one of: "caption", "col", "colgroup", "tbody", "td", "tfoot", "th", "thead", "tr"
+ *   <dd>
+ *     If the stack of open elements does not have a td or th element in table scope, then this is a parse error; ignore the token. (fragment case)
+ *     <p>Otherwise, close the cell (see below) and reprocess the token.
+ *   <dt>An end tag whose tag name is one of: "body", "caption", "col", "colgroup", "html"
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>An end tag whose tag name is one of: "table", "tbody", "tfoot", "thead", "tr"
+ *   <dd>
+ *     If the stack of open elements does not have an element in table scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.
+ *     <p>Otherwise, close the cell (see below) and reprocess the token.
+ *   <dt>Anything else
+ *   <dd>Process the token using the rules for the "in body" insertion mode.
+ * </dl>
+ * <p>Where the steps above say to close the cell, they mean to run the following algorithm:
+ * <ol>
+ *   <li>Generate implied end tags.
+ *   <li>If the current node is not now a td element or a th element, then this is a parse error.
+ *   <li>Pop elements from the stack of open elements stack until a td element or a th element has been popped from the stack.
+ *   <li>Clear the list of active formatting elements up to the last marker.
+ *   <li>Switch the insertion mode to "in row".
+ * </ol>
+ * 
+ * @see org.silnith.parser.html5.Parser.Mode#IN_CELL
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-intd">8.2.5.4.15 The "in cell" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InCellInsertionMode extends InsertionMode {

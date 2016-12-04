@@ -13,9 +13,20 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#rawtext-end-tag-open-state">8.2.
- *      4.15 RAWTEXT end tag open state</a>
+ * Applies the rawtext end tag open state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>Uppercase ASCII letter
+ *   <dd>Create a new end tag token, and set its tag name to the lowercase version of the current input character (add 0x0020 to the character's code point). Append the current input character to the temporary buffer. Finally, switch to the RAWTEXT end tag name state. (Don't emit the token yet; further details will be filled in before it is emitted.)
+ *   <dt>Lowercase ASCII letter
+ *   <dd>Create a new end tag token, and set its tag name to the current input character. Append the current input character to the temporary buffer. Finally, switch to the RAWTEXT end tag name state. (Don't emit the token yet; further details will be filled in before it is emitted.)
+ *   <dt>Anything else
+ *   <dd>Switch to the RAWTEXT state. Emit a U+003C LESS-THAN SIGN character token and a U+002F SOLIDUS character token. Reconsume the current input character.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#RAWTEXT_END_TAG_OPEN
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#rawtext-end-tag-open-state">8.2.4.15 RAWTEXT end tag open state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class RAWTEXTEndTagOpenState extends TokenizerState {

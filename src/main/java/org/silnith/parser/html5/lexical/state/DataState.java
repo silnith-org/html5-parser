@@ -15,12 +15,24 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * Implements
- * <a href="http://www.w3.org/TR/html5/syntax.html#data-state">8.2.4.1 Data
- * state</a>.
- *
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#data-state">8.2.4.1 Data
- *      state</a>
+ * Applies the data state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>U+0026 AMPERSAND (&)
+ *   <dd>Switch to the character reference in data state.
+ *   <dt>"<" (U+003C)
+ *   <dd>Switch to the tag open state.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Emit the current input character as a character token.
+ *   <dt>EOF
+ *   <dd>Emit an end-of-file token.
+ *   <dt>Anything else
+ *   <dd>Emit the current input character as a character token.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#DATA
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#data-state">8.2.4.1 Data state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class DataState extends TokenizerState {

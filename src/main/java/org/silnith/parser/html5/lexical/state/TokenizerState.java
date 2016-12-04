@@ -195,9 +195,7 @@ public abstract class TokenizerState {
      * 
      * @return whether the end tag is appropriate
      * @see Tokenizer#isAppropriateEndTagToken(TagToken)
-     * @see <a href=
-     *      "http://www.w3.org/TR/html5/syntax.html#appropriate-end-tag-token">
-     *      appropriate end tag token</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#appropriate-end-tag-token">appropriate end tag token</a>
      */
     protected boolean isAppropriateEndTag() {
         return tokenizer.isAppropriateEndTagToken(tokenizer.getPendingToken());

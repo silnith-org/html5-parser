@@ -11,9 +11,15 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#character-reference-in-rcdata-state">
- *      8.2.4.4 Character reference in RCDATA state</a>
+ * Applies the character reference in rcdata state logic.
+ * <p>
+ * Switch to the RCDATA state.
+ * <p>Attempt to consume a character reference, with no additional allowed character.
+ * <p>If nothing is returned, emit a U+0026 AMPERSAND character (&) token.
+ * <p>Otherwise, emit the character tokens that were returned.
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#CHARACTER_REFERENCE_IN_RCDATA
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#character-reference-in-rcdata-state">8.2.4.4 Character reference in RCDATA state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class CharacterReferenceInRCDATAState extends TokenizerState {

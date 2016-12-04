@@ -14,10 +14,19 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * Currently unused.
+ * Applies the plaintext state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Emit a U+FFFD REPLACEMENT CHARACTER character token.
+ *   <dt>EOF
+ *   <dd>Emit an end-of-file token.
+ *   <dt>Anything else
+ *   <dd>Emit the current input character as a character token.
+ * </dl> 
  *
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#plaintext-state">8.2.4.7
- *      PLAINTEXT state</a>
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#plaintext-state">8.2.4.7 PLAINTEXT state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class PLAINTEXTState extends TokenizerState {

@@ -24,9 +24,37 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#before-attribute-value-state">8.
- *      2.4.37 Before attribute value state</a>
+ * Applies the before attribute value state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>Ignore the character.
+ *   <dt>U+0022 QUOTATION MARK (")
+ *   <dd>Switch to the attribute value (double-quoted) state.
+ *   <dt>U+0026 AMPERSAND (&)
+ *   <dd>Switch to the attribute value (unquoted) state. Reconsume the current input character.
+ *   <dt>"'" (U+0027)
+ *   <dd>Switch to the attribute value (single-quoted) state.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the current attribute's value. Switch to the attribute value (unquoted) state.
+ *   <dt>">" (U+003E)
+ *   <dd>Parse error. Switch to the data state. Emit the current tag token.
+ *   <dt>"<" (U+003C)
+ *   <dt>"=" (U+003D)
+ *   <dt>"`" (U+0060)
+ *   <dd>Parse error. Treat it as per the "anything else" entry below.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Append the current input character to the current attribute's value. Switch to the attribute value (unquoted) state.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#BEFORE_ATTRIBUTE_VALUE
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#before-attribute-value-state">8.2.4.37 Before attribute value state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class BeforeAttributeValueState extends TokenizerState {

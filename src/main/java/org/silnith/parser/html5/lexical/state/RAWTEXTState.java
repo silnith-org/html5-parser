@@ -15,8 +15,22 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#rawtext-state">8.2.4.5
- *      RAWTEXT state</a>
+ * Applies the rawtext state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"<" (U+003C)
+ *   <dd>Switch to the RAWTEXT less-than sign state.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Emit a U+FFFD REPLACEMENT CHARACTER character token.
+ *   <dt>EOF
+ *   <dd>Emit an end-of-file token.
+ *   <dt>Anything else
+ *   <dd>Emit the current input character as a character token.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#RAWTEXT
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#rawtext-state">8.2.4.5 RAWTEXT state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class RAWTEXTState extends TokenizerState {

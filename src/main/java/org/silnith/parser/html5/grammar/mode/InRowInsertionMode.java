@@ -8,8 +8,46 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-intr">8.2.5
- *      .4.14 The "in row" insertion mode</a>
+ * Applies the in row insertion mode logic.
+ * <p>
+ * When the user agent is to apply the rules for the "in row" insertion mode, the user agent must handle the token as follows:
+ * <dl>
+ *   <dt>A start tag whose tag name is one of: "th", "td"
+ *   <dd>
+ *     Clear the stack back to a table row context. (See below.)
+ *     <p>Insert an HTML element for the token, then switch the insertion mode to "in cell".
+ *     <p>Insert a marker at the end of the list of active formatting elements.
+ *   <dt>An end tag whose tag name is "tr"
+ *   <dd>
+ *     If the stack of open elements does not have a tr element in table scope, this is a parse error; ignore the token.
+ *     <p>Otherwise:
+ *     <p>Clear the stack back to a table row context. (See below.)
+ *     <p>Pop the current node (which will be a tr element) from the stack of open elements. Switch the insertion mode to "in table body".
+ *   <dt>A start tag whose tag name is one of: "caption", "col", "colgroup", "tbody", "tfoot", "thead", "tr"
+ *   <dt>An end tag whose tag name is "table"
+ *   <dd>
+ *     If the stack of open elements does not have a tr element in table scope, this is a parse error; ignore the token.
+ *     <p>Otherwise:
+ *     <p>Clear the stack back to a table row context. (See below.)
+ *     <p>Pop the current node (which will be a tr element) from the stack of open elements. Switch the insertion mode to "in table body".
+ *     <p>Reprocess the token.
+ *   <dt>An end tag whose tag name is one of: "tbody", "tfoot", "thead"
+ *   <dd>
+ *     If the stack of open elements does not have an element in table scope that is an HTML element and with the same tag name as the token, this is a parse error; ignore the token.
+ *     <p>If the stack of open elements does not have a tr element in table scope, ignore the token.
+ *     <p>Otherwise:
+ *     <p>Clear the stack back to a table row context. (See below.)
+ *     <p>Pop the current node (which will be a tr element) from the stack of open elements. Switch the insertion mode to "in table body".
+ *     <p>Reprocess the token.
+ *   <dt>An end tag whose tag name is one of: "body", "caption", "col", "colgroup", "html", "td", "th"
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>Anything else
+ *   <dd>Process the token using the rules for the "in table" insertion mode.
+ * </dl>
+ * <p>When the steps above require the UA to clear the stack back to a table row context, it means that the UA must, while the current node is not a tr, template, or html element, pop elements from the stack of open elements.
+ * 
+ * @see org.silnith.parser.html5.Parser.Mode#IN_ROW
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-intr">8.2.5.4.14 The "in row" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InRowInsertionMode extends InsertionMode {

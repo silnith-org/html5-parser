@@ -11,9 +11,18 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#script-data-escape-start-state">
- *      8.2.4.20 Script data escape start state</a>
+ * Applies the script data escape start state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"-" (U+002D)
+ *   <dd>Switch to the script data escape start dash state. Emit a U+002D HYPHEN-MINUS character token.
+ *   <dt>Anything else
+ *   <dd>Switch to the script data state. Reconsume the current input character.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#SCRIPT_DATA_ESCAPE_START
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#script-data-escape-start-state">8.2.4.20 Script data escape start state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ScriptDataEscapeStartState extends TokenizerState {

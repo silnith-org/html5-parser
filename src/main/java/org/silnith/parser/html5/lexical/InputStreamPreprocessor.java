@@ -8,14 +8,26 @@ import java.io.Reader;
 
 
 /**
- * This class handles preprocessing the input stream as described in <a href=
- * "http://www.w3.org/TR/html5/syntax.html#preprocessing-the-input-stream" >8.2.
- * 2.5 Preprocessing the input stream</a>.
+ * Preprocesses the input stream.
+ * <p>
+ * The input stream consists of the characters pushed into it as the input byte stream is decoded or from the various APIs that directly manipulate the input stream.
+ * <p>
+ * One leading U+FEFF BYTE ORDER MARK character must be ignored if any are present in the input stream.
+ * <p>
+ * Any occurrences of any characters in the ranges U+0001 to U+0008, U+000E to U+001F, U+007F to U+009F, U+FDD0 to U+FDEF, and characters U+000B, U+FFFE, U+FFFF, U+1FFFE, U+1FFFF, U+2FFFE, U+2FFFF, U+3FFFE, U+3FFFF, U+4FFFE, U+4FFFF, U+5FFFE, U+5FFFF, U+6FFFE, U+6FFFF, U+7FFFE, U+7FFFF, U+8FFFE, U+8FFFF, U+9FFFE, U+9FFFF, U+AFFFE, U+AFFFF, U+BFFFE, U+BFFFF, U+CFFFE, U+CFFFF, U+DFFFE, U+DFFFF, U+EFFFE, U+EFFFF, U+FFFFE, U+FFFFF, U+10FFFE, and U+10FFFF are parse errors. These are all control characters or permanently undefined Unicode characters (noncharacters).
+ * <p>
+ * Any character that is a not a Unicode character, i.e. any isolated surrogate, is a parse error. (These can only find their way into the input stream via script APIs such as document.write().)
+ * <p>
+ * "CR" (U+000D) characters and "LF" (U+000A) characters are treated specially. All CR characters must be converted to LF characters, and any LF characters that immediately follow a CR character must be ignored. Thus, newlines in HTML DOMs are represented by LF characters, and there are never any CR characters in the input to the tokenization stage.
+ * <p>
+ * The next input character is the first character in the input stream that has not yet been consumed or explicitly ignored by the requirements in this section. Initially, the next input character is the first character in the input. The current input character is the last character to have been consumed.
+ * <p>
+ * The insertion point is the position (just before a character or just before the end of the input stream) where content inserted using document.write() is actually inserted. The insertion point is relative to the position of the character immediately after it, it is not an absolute offset into the input stream. Initially, the insertion point is undefined.
+ * <p>
+ * The "EOF" character in the tables below is a conceptual character representing the end of the input stream. If the parser is a script-created parser, then the end of the input stream is reached when an explicit "EOF" character (inserted by the document.close() method) is consumed. Otherwise, the "EOF" character is not a real character in the stream, but rather the lack of any further characters.
  *
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#preprocessing-the-input-stream">8.2.2.5 Preprocessing the input stream</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#preprocessing-the-input-stream">
- *      8.2.2.5 Preprocessing the input stream</a>
  */
 public class InputStreamPreprocessor extends Reader {
     

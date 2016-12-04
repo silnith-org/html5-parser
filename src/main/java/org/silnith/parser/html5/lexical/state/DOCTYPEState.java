@@ -15,8 +15,23 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#doctype-state">8.2.4.52
- *      DOCTYPE state</a>
+ * Applies the doctype state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>Switch to the before DOCTYPE name state.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Create a new DOCTYPE token. Set its force-quirks flag to on. Emit the token. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Parse error. Switch to the before DOCTYPE name state. Reconsume the character.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#DOCTYPE
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#doctype-state">8.2.4.52 DOCTYPE state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class DOCTYPEState extends TokenizerState {

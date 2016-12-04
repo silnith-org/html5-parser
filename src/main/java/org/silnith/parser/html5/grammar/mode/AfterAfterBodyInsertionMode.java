@@ -16,9 +16,24 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#the-after-after-body-insertion-mode">
- *      8.2.5.4.22 The "after after body" insertion mode</a>
+ * Applies the after after body insertion mode logic.
+ * <p>
+ * When the user agent is to apply the rules for the "after after body" insertion mode, the user agent must handle the token as follows:
+ * <dl>
+ *   <dt>A comment token
+ *   <dd>Insert a comment as the last child of the Document object.
+ *   <dt>A DOCTYPE token
+ *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
+ *   <dt>A start tag whose tag name is "html"
+ *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dt>An end-of-file token
+ *   <dd>Stop parsing.
+ *   <dt>Anything else
+ *   <dd>Parse error. Switch the insertion mode to "in body" and reprocess the token.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.Parser.Mode#AFTER_AFTER_BODY
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#the-after-after-body-insertion-mode">8.2.5.4.22 The "after after body" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterAfterBodyInsertionMode extends InsertionMode {

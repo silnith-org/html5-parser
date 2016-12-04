@@ -15,9 +15,24 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#script-data-escaped-state">8.2.4
- *      .22 Script data escaped state</a>
+ * Applies the script data escaped state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"-" (U+002D)
+ *   <dd>Switch to the script data escaped dash state. Emit a U+002D HYPHEN-MINUS character token.
+ *   <dt>"<" (U+003C)
+ *   <dd>Switch to the script data escaped less-than sign state.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Emit a U+FFFD REPLACEMENT CHARACTER character token.
+ *   <dt>EOF
+ *   <dd>Switch to the data state. Parse error. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Emit the current input character as a character token.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#SCRIPT_DATA_ESCAPED
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#script-data-escaped-state">8.2.4.22 Script data escaped state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ScriptDataEscapedState extends TokenizerState {

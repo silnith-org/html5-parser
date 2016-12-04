@@ -11,9 +11,18 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#script-data-double-escaped-less-than-sign-state">
- *      8.2.4.32 Script data double escaped less-than sign state</a>
+ * Applies the script data double escaped less than sign state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"/" (U+002F)
+ *   <dd>Set the temporary buffer to the empty string. Switch to the script data double escape end state. Emit a U+002F SOLIDUS character token.
+ *   <dt>Anything else
+ *   <dd>Switch to the script data double escaped state. Reconsume the current input character.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#script-data-double-escaped-less-than-sign-state">8.2.4.32 Script data double escaped less-than sign state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ScriptDataDoubleEscapedLessThanSignState extends TokenizerState {

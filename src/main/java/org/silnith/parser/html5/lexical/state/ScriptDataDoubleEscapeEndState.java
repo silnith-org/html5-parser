@@ -16,9 +16,27 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#script-data-double-escape-end-state">
- *      8.2.4.33 Script data double escape end state</a>
+ * Applies the script data double escape end state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dt>"/" (U+002F)
+ *   <dt>">" (U+003E)
+ *   <dd>If the temporary buffer is the string "script", then switch to the script data escaped state. Otherwise, switch to the script data double escaped state. Emit the current input character as a character token.
+ *   <dt>Uppercase ASCII letter
+ *   <dd>Append the lowercase version of the current input character (add 0x0020 to the character's code point) to the temporary buffer. Emit the current input character as a character token.
+ *   <dt>Lowercase ASCII letter
+ *   <dd>Append the current input character to the temporary buffer. Emit the current input character as a character token.
+ *   <dt>Anything else
+ *   <dd>Switch to the script data double escaped state. Reconsume the current input character.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#SCRIPT_DATA_DOUBLE_ESCAPE_END
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#script-data-double-escape-end-state">8.2.4.33 Script data double escape end state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class ScriptDataDoubleEscapeEndState extends TokenizerState {

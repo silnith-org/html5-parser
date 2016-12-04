@@ -18,9 +18,29 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#after-doctype-public-identifier-state">
- *      8.2.4.60 After DOCTYPE public identifier state</a>
+ * Applies the after doctype public identifier state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>Switch to the between DOCTYPE public and system identifiers state.
+ *   <dt>">" (U+003E)
+ *   <dd>Switch to the data state. Emit the current DOCTYPE token.
+ *   <dt>U+0022 QUOTATION MARK (")
+ *   <dd>Parse error. Set the DOCTYPE token's system identifier to the empty string (not missing), then switch to the DOCTYPE system identifier (double-quoted) state.
+ *   <dt>"'" (U+0027)
+ *   <dd>Parse error. Set the DOCTYPE token's system identifier to the empty string (not missing), then switch to the DOCTYPE system identifier (single-quoted) state.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Set the DOCTYPE token's force-quirks flag to on. Emit that DOCTYPE token. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Parse error. Set the DOCTYPE token's force-quirks flag to on. Switch to the bogus DOCTYPE state.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#AFTER_DOCTYPE_PUBLIC_IDENTIFIER
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#after-doctype-public-identifier-state">8.2.4.60 After DOCTYPE public identifier state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterDOCTYPEPublicIdentifierState extends TokenizerState {

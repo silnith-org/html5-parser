@@ -12,9 +12,18 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#rcdata-less-than-sign-state">8.2
- *      .4.11 RCDATA less-than sign state</a>
+ * Applies the rcdata less than sign state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"/" (U+002F)
+ *   <dd>Set the temporary buffer to the empty string. Switch to the RCDATA end tag open state.
+ *   <dt>Anything else
+ *   <dd>Switch to the RCDATA state. Emit a U+003C LESS-THAN SIGN character token. Reconsume the current input character.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#RCDATA_LESS_THAN_SIGN
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#rcdata-less-than-sign-state">8.2.4.11 RCDATA less-than sign state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class RCDATALessThanSignState extends TokenizerState {

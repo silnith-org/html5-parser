@@ -18,8 +18,29 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#doctype-name-state">8.2.
- *      4.54 DOCTYPE name state</a>
+ * Applies the doctype name state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>Switch to the after DOCTYPE name state.
+ *   <dt>">" (U+003E)
+ *   <dd>Switch to the data state. Emit the current DOCTYPE token.
+ *   <dt>Uppercase ASCII letter
+ *   <dd>Append the lowercase version of the current input character (add 0x0020 to the character's code point) to the current DOCTYPE token's name.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the current DOCTYPE token's name.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Set the DOCTYPE token's force-quirks flag to on. Emit that DOCTYPE token. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Append the current input character to the current DOCTYPE token's name.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#DOCTYPE_NAME
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#doctype-name-state">8.2.4.54 DOCTYPE name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class DOCTYPENameState extends TokenizerState {

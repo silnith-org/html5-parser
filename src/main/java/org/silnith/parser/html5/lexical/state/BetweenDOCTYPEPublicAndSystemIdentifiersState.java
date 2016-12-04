@@ -18,9 +18,29 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#between-doctype-public-and-system-identifiers-state">
- *      8.2.4.61 Between DOCTYPE public and system identifiers state</a>
+ * Applies the between doctype public and system identifiers state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>Ignore the character.
+ *   <dt>">" (U+003E)
+ *   <dd>Switch to the data state. Emit the current DOCTYPE token.
+ *   <dt>U+0022 QUOTATION MARK (")
+ *   <dd>Set the DOCTYPE token's system identifier to the empty string (not missing), then switch to the DOCTYPE system identifier (double-quoted) state.
+ *   <dt>"'" (U+0027)
+ *   <dd>Set the DOCTYPE token's system identifier to the empty string (not missing), then switch to the DOCTYPE system identifier (single-quoted) state.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Set the DOCTYPE token's force-quirks flag to on. Emit that DOCTYPE token. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Parse error. Set the DOCTYPE token's force-quirks flag to on. Switch to the bogus DOCTYPE state.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#BETWEEN_DOCTYPE_PUBLIC_AND_SYSTEM_IDENTIFIERS
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#between-doctype-public-and-system-identifiers-state">8.2.4.61 Between DOCTYPE public and system identifiers state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class BetweenDOCTYPEPublicAndSystemIdentifiersState extends TokenizerState {

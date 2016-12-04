@@ -25,9 +25,35 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#attribute-value-%28unquoted%29-state">
- *      8.2.4.40 Attribute value (unquoted) state</a>
+ * Applies the attribute value unquoted state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>Switch to the before attribute name state.
+ *   <dt>U+0026 AMPERSAND (&)
+ *   <dd>Switch to the character reference in attribute value state, with the additional allowed character being ">" (U+003E).
+ *   <dt>">" (U+003E)
+ *   <dd>Switch to the data state. Emit the current tag token.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the current attribute's value.
+ *   <dt>U+0022 QUOTATION MARK (")
+ *   <dt>"'" (U+0027)
+ *   <dt>"<" (U+003C)
+ *   <dt>"=" (U+003D)
+ *   <dt>"`" (U+0060)
+ *   <dd>Parse error. Treat it as per the "anything else" entry below.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Append the current input character to the current attribute's value.
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#ATTRIBUTE_VALUE_UNQUOTED
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#attribute-value-(unquoted)-state">8.2.4.40 Attribute value (unquoted) state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AttributeValueUnquotedState extends TokenizerState {

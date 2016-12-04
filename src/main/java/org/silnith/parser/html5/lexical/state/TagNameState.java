@@ -19,8 +19,31 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#tag-name-state">8.2.4.10
- *      Tag name state</a>
+ * Applies the tag name state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>Switch to the before attribute name state.
+ *   <dt>"/" (U+002F)
+ *   <dd>Switch to the self-closing start tag state.
+ *   <dt>">" (U+003E)
+ *   <dd>Switch to the data state. Emit the current tag token.
+ *   <dt>Uppercase ASCII letter
+ *   <dd>Append the lowercase version of the current input character (add 0x0020 to the character's code point) to the current tag token's tag name.
+ *   <dt>U+0000 NULL
+ *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the current tag token's tag name.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Append the current input character to the current tag token's tag name.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#TAG_NAME
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#tag-name-state">8.2.4.10 Tag name state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class TagNameState extends TokenizerState {

@@ -9,9 +9,23 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#parsing-main-intabletext">8.2.5.
- *      4.10 The "in table text" insertion mode</a>
+ * Applies the in table text insertion mode logic.
+ * <p>
+ * When the user agent is to apply the rules for the "in table text" insertion mode, the user agent must handle the token as follows:
+ * <dl>
+ *   <dt>A character token that is U+0000 NULL
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>Any other character token
+ *   <dd>Append the character token to the pending table character tokens list.
+ *   <dt>Anything else
+ *   <dd>
+ *     If any of the tokens in the pending table character tokens list are character tokens that are not space characters, then reprocess the character tokens in the pending table character tokens list using the rules given in the "anything else" entry in the "in table" insertion mode.
+ *     <p>Otherwise, insert the characters given by the pending table character tokens list.
+ *     <p>Switch the insertion mode to the original insertion mode and reprocess the token.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.Parser.Mode#IN_TABLE_TEXT
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-intabletext">8.2.5.4.10 The "in table text" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InTableTextInsertionMode extends InsertionMode {

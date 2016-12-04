@@ -9,8 +9,37 @@ import org.w3c.dom.Element;
 
 
 /**
- * @see <a href="http://www.w3.org/TR/html5/syntax.html#parsing-main-incaption">
- *      8.2.5.4.11 The "in caption" insertion mode</a>
+ * Applies the rules for the in caption insertion mode.
+ * <p>
+ * When the user agent is to apply the rules for the "in caption" insertion mode, the user agent must handle the token as follows:
+ * <dl>
+ *   <dt>An end tag whose tag name is "caption"
+ *   <dd>
+ *     If the stack of open elements does not have a caption element in table scope, this is a parse error; ignore the token. (fragment case)
+ *     <p>Otherwise:
+ *     <p>Generate implied end tags.
+ *     <p>Now, if the current node is not a caption element, then this is a parse error.
+ *     <p>Pop elements from this stack until a caption element has been popped from the stack.
+ *     <p>Clear the list of active formatting elements up to the last marker.
+ *     <p>Switch the insertion mode to "in table".
+ *   <dt>A start tag whose tag name is one of: "caption", "col", "colgroup", "tbody", "td", "tfoot", "th", "thead", "tr"
+ *   <dt>An end tag whose tag name is "table"
+ *   <dd>
+ *     Parse error.
+ *     <p>If the stack of open elements does not have a caption element in table scope, ignore the token. (fragment case)
+ *     <p>Otherwise:
+ *     <p>Pop elements from this stack until a caption element has been popped from the stack.
+ *     <p>Clear the list of active formatting elements up to the last marker.
+ *     <p>Switch the insertion mode to "in table".
+ *     <p>Reprocess the token.
+ *   <dt>An end tag whose tag name is one of: "body", "col", "colgroup", "html", "tbody", "td", "tfoot", "th", "thead", "tr"
+ *   <dd>Parse error. Ignore the token.
+ *   <dt>Anything else
+ *   <dd>Process the token using the rules for the "in body" insertion mode.
+ * </dl>
+ * 
+ * @see org.silnith.parser.html5.Parser.Mode#IN_CAPTION
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-incaption">8.2.5.4.11 The "in caption" insertion mode</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class InCaptionInsertionMode extends InsertionMode {

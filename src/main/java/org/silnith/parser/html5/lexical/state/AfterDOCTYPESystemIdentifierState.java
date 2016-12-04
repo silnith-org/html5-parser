@@ -16,9 +16,25 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 
 /**
- * @see <a href=
- *      "http://www.w3.org/TR/html5/syntax.html#after-doctype-system-identifier-state">
- *      8.2.4.66 After DOCTYPE system identifier state</a>
+ * Applies the after doctype system identifier state logic.
+ * <p>
+ * Consume the next input character:
+ * <dl>
+ *   <dt>"tab" (U+0009)
+ *   <dt>"LF" (U+000A)
+ *   <dt>"FF" (U+000C)
+ *   <dt>U+0020 SPACE
+ *   <dd>Ignore the character.
+ *   <dt>">" (U+003E)
+ *   <dd>Switch to the data state. Emit the current DOCTYPE token.
+ *   <dt>EOF
+ *   <dd>Parse error. Switch to the data state. Set the DOCTYPE token's force-quirks flag to on. Emit that DOCTYPE token. Reconsume the EOF character.
+ *   <dt>Anything else
+ *   <dd>Parse error. Switch to the bogus DOCTYPE state. (This does not set the DOCTYPE token's force-quirks flag to on.)
+ * </dl> 
+ * 
+ * @see org.silnith.parser.html5.lexical.Tokenizer.State#AFTER_DOCTYPE_SYSTEM_IDENTIFIER
+ * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#after-doctype-system-identifier-state">8.2.4.66 After DOCTYPE system identifier state</a>
  * @author <a href="mailto:silnith@gmail.com">Kent Rosenkoetter</a>
  */
 public class AfterDOCTYPESystemIdentifierState extends TokenizerState {
