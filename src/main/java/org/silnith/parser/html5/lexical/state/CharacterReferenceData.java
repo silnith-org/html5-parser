@@ -166,7 +166,6 @@ import java.util.TreeMap;
      *       <th>Name
      *       <th>Character(s)
      *       <th>Glyph
-     *     </tr>
      *   </thead>
      *   <tbody>
      *     <tr><td><code>Aacute;</code><td>U+000C1<td>&#x000C1;
