@@ -15,27 +15,33 @@ import org.w3c.dom.Element;
  * <dl>
  *   <dt>An end tag whose tag name is "caption"
  *   <dd>
- *     If the stack of open elements does not have a caption element in table scope, this is a parse error; ignore the token. (fragment case)
+ *     <p>If the stack of open elements does not have a caption element in table scope, this is a parse error; ignore the token. (fragment case)
  *     <p>Otherwise:
  *     <p>Generate implied end tags.
  *     <p>Now, if the current node is not a caption element, then this is a parse error.
  *     <p>Pop elements from this stack until a caption element has been popped from the stack.
  *     <p>Clear the list of active formatting elements up to the last marker.
  *     <p>Switch the insertion mode to "in table".
+ *   </dd>
  *   <dt>A start tag whose tag name is one of: "caption", "col", "colgroup", "tbody", "td", "tfoot", "th", "thead", "tr"
  *   <dt>An end tag whose tag name is "table"
  *   <dd>
- *     Parse error.
+ *     <p>Parse error.
  *     <p>If the stack of open elements does not have a caption element in table scope, ignore the token. (fragment case)
  *     <p>Otherwise:
  *     <p>Pop elements from this stack until a caption element has been popped from the stack.
  *     <p>Clear the list of active formatting elements up to the last marker.
  *     <p>Switch the insertion mode to "in table".
  *     <p>Reprocess the token.
+ *   </dd>
  *   <dt>An end tag whose tag name is one of: "body", "col", "colgroup", "html", "tbody", "td", "tfoot", "th", "thead", "tr"
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>Anything else
- *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.
+ *   </dd>
  * </dl>
  * 
  * @see org.silnith.parser.html5.Parser.Mode#IN_CAPTION

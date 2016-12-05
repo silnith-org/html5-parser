@@ -18,74 +18,96 @@ import org.w3c.dom.Element;
  * <dl>
  *   <dt>A character token, if the current node is table, tbody, tfoot, thead, or tr element
  *   <dd>
- *     Let the pending table character tokens be an empty list of tokens.
+ *     <p>Let the pending table character tokens be an empty list of tokens.
  *     <p>Let the original insertion mode be the current insertion mode.
  *     <p>Switch the insertion mode to "in table text" and reprocess the token.
+ *   </dd>
  *   <dt>A comment token
- *   <dd>Insert a comment.
+ *   <dd>
+ *     <p>Insert a comment.
+ *   </dd>
  *   <dt>A DOCTYPE token
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>A start tag whose tag name is "caption"
  *   <dd>
- *     Clear the stack back to a table context. (See below.)
+ *     <p>Clear the stack back to a table context. (See below.)
  *     <p>Insert a marker at the end of the list of active formatting elements.
  *     <p>Insert an HTML element for the token, then switch the insertion mode to "in caption".
+ *   </dd>
  *   <dt>A start tag whose tag name is "colgroup"
  *   <dd>
- *     Clear the stack back to a table context. (See below.)
+ *     <p>Clear the stack back to a table context. (See below.)
  *     <p>Insert an HTML element for the token, then switch the insertion mode to "in column group".
+ *   </dd>
  *   <dt>A start tag whose tag name is "col"
  *   <dd>
- *     Clear the stack back to a table context. (See below.)
+ *     <p>Clear the stack back to a table context. (See below.)
  *     <p>Insert an HTML element for a "colgroup" start tag token with no attributes, then switch the insertion mode to "in column group".
  *     <p>Reprocess the current token.
+ *   </dd>
  *   <dt>A start tag whose tag name is one of: "tbody", "tfoot", "thead"
  *   <dd>
- *     Clear the stack back to a table context. (See below.)
+ *     <p>Clear the stack back to a table context. (See below.)
  *     <p>Insert an HTML element for the token, then switch the insertion mode to "in table body".
+ *   </dd>
  *   <dt>A start tag whose tag name is one of: "td", "th", "tr"
  *   <dd>
- *     Clear the stack back to a table context. (See below.)
+ *     <p>Clear the stack back to a table context. (See below.)
  *     <p>Insert an HTML element for a "tbody" start tag token with no attributes, then switch the insertion mode to "in table body".
  *     <p>Reprocess the current token.
+ *   </dd>
  *   <dt>A start tag whose tag name is "table"
  *   <dd>
- *     Parse error.
+ *     <p>Parse error.
  *     <p>If the stack of open elements does not have a table element in table scope, ignore the token.
  *     <p>Otherwise:
  *     <p>Pop elements from this stack until a table element has been popped from the stack.
  *     <p>Reset the insertion mode appropriately.
  *     <p>Reprocess the token.
+ *   </dd>
  *   <dt>An end tag whose tag name is "table"
  *   <dd>
- *     If the stack of open elements does not have a table element in table scope, this is a parse error; ignore the token.
+ *     <p>If the stack of open elements does not have a table element in table scope, this is a parse error; ignore the token.
  *     <p>Otherwise:
  *     <p>Pop elements from this stack until a table element has been popped from the stack.
  *     <p>Reset the insertion mode appropriately.
+ *   </dd>
  *   <dt>An end tag whose tag name is one of: "body", "caption", "col", "colgroup", "html", "tbody", "td", "tfoot", "th", "thead", "tr"
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>A start tag whose tag name is one of: "style", "script", "template"
  *   <dt>An end tag whose tag name is "template"
- *   <dd>Process the token using the rules for the "in head" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in head" insertion mode.
+ *   </dd>
  *   <dt>A start tag whose tag name is "input"
  *   <dd>
- *     If the token does not have an attribute with the name "type", or if it does, but that attribute's value is not an ASCII case-insensitive match for the string "hidden", then: act as described in the "anything else" entry below.
+ *     <p>If the token does not have an attribute with the name "type", or if it does, but that attribute's value is not an ASCII case-insensitive match for the string "hidden", then: act as described in the "anything else" entry below.
  *     <p>Otherwise:
  *     <p>Parse error.
  *     <p>Insert an HTML element for the token.
  *     <p>Pop that input element off the stack of open elements.
  *     <p>Acknowledge the token's self-closing flag, if it is set.
+ *   </dd>
  *   <dt>A start tag whose tag name is "form"
  *   <dd>
- *     Parse error.
+ *     <p>Parse error.
  *     <p>If there is a template element on the stack of open elements, or if the form element pointer is not null, ignore the token.
  *     <p>Otherwise:
  *     <p>Insert an HTML element for the token, and set the form element pointer to point to the element created.
  *     <p>Pop that form element off the stack of open elements.
+ *   </dd>
  *   <dt>An end-of-file token
- *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.
+ *   </dd>
  *   <dt>Anything else
- *   <dd>Parse error. Enable foster parenting, process the token using the rules for the "in body" insertion mode, and then disable foster parenting.
+ *   <dd>
+ *     <p>Parse error. Enable foster parenting, process the token using the rules for the "in body" insertion mode, and then disable foster parenting.
+ *   </dd>
  * </dl>
  * <p>When the steps above require the UA to clear the stack back to a table context, it means that the UA must, while the current node is not a table, template, or html element, pop elements from the stack of open elements.
  * 

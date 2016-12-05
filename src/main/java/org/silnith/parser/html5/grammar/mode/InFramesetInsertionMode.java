@@ -21,32 +21,49 @@ import org.silnith.parser.html5.lexical.token.Token;
  * When the user agent is to apply the rules for the "in frameset" insertion mode, the user agent must handle the token as follows:
  * <dl>
  *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
- *   <dd>Insert the character.
+ *   <dd>
+ *     <p>Insert the character.
+ *   </dd>
  *   <dt>A comment token
- *   <dd>Insert a comment.
+ *   <dd>
+ *     <p>Insert a comment.
+ *   </dd>
  *   <dt>A DOCTYPE token
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>A start tag whose tag name is "html"
- *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.
+ *   </dd>
  *   <dt>A start tag whose tag name is "frameset"
- *   <dd>Insert an HTML element for the token.
+ *   <dd>
+ *     <p>Insert an HTML element for the token.
+ *   </dd>
  *   <dt>An end tag whose tag name is "frameset"
  *   <dd>
- *     If the current node is the root html element, then this is a parse error; ignore the token. (fragment case)
+ *     <p>If the current node is the root html element, then this is a parse error; ignore the token. (fragment case)
  *     <p>Otherwise, pop the current node from the stack of open elements.
  *     <p>If the parser was not originally created as part of the HTML fragment parsing algorithm (fragment case), and the current node is no longer a frameset element, then switch the insertion mode to "after frameset".
+ *   </dd>
  *   <dt>A start tag whose tag name is "frame"
  *   <dd>
- *     Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
+ *     <p>Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
  *     <p>Acknowledge the token's self-closing flag, if it is set.
+ *   </dd>
  *   <dt>A start tag whose tag name is "noframes"
- *   <dd>Process the token using the rules for the "in head" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in head" insertion mode.
+ *   </dd>
  *   <dt>An end-of-file token
  *   <dd>
- *     If the current node is not the root html element, then this is a parse error.
+ *     <p>If the current node is not the root html element, then this is a parse error.
  *     <p>Stop parsing.
+ *   </dd>
  *   <dt>Anything else
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  * </dl>
  * 
  * @see org.silnith.parser.html5.Parser.Mode#IN_FRAMESET

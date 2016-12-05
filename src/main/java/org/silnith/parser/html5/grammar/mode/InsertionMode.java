@@ -9,6 +9,7 @@ import java.util.ListIterator;
 import java.util.Set;
 
 import org.silnith.parser.ParseErrorException;
+import org.silnith.parser.html5.ParseErrors;
 import org.silnith.parser.html5.Parser;
 import org.silnith.parser.html5.Parser.FormattingElement;
 import org.silnith.parser.html5.Parser.Mode;
@@ -173,15 +174,40 @@ public abstract class InsertionMode {
         return parser.processUsingRulesFor(mode, token);
     }
     
+    protected void reportParseError(final ParseErrors errorType, final String message) {
+        if (isAllowParseErrors(errorType)) {
+            /*
+             * Log error and continue.
+             */
+        } else {
+            throw new ParseErrorException(message);
+        }
+    }
+    
     /**
      * Whether to allow parse errors and use error-handling behavior.
+     * <p>This specification defines the parsing rules for HTML documents, whether they are syntactically correct or not. Certain points in the parsing algorithm are said to be parse errors. The error handling for parse errors is well-defined (that's the processing rules described throughout this specification), but user agents, while parsing an HTML document, may abort the parser at the first parse error that they encounter for which they do not wish to apply the rules described in this specification.</p>
+     * <p>Conformance checkers must report at least one parse error condition to the user if one or more parse error conditions exist in the document and must not report parse error conditions if none exist in the document. Conformance checkers may report more than one parse error condition if more than one parse error condition exists in the document.</p>
      * 
      * @return whether parse errors will be suppressed
-     * @see <a href="http://www.w3.org/TR/html5/syntax.html#parse-error">parse
-     *      errors</a>
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parse-error">parse errors</a>
      */
     protected boolean isAllowParseErrors() {
         return parser.isAllowParseErrors();
+    }
+    
+    /**
+     * Whether to allow a specific type of parse error and use error-handling
+     * behavior for that error type only.
+     * <p>This specification defines the parsing rules for HTML documents, whether they are syntactically correct or not. Certain points in the parsing algorithm are said to be parse errors. The error handling for parse errors is well-defined (that's the processing rules described throughout this specification), but user agents, while parsing an HTML document, may abort the parser at the first parse error that they encounter for which they do not wish to apply the rules described in this specification.</p>
+     * <p>Conformance checkers must report at least one parse error condition to the user if one or more parse error conditions exist in the document and must not report parse error conditions if none exist in the document. Conformance checkers may report more than one parse error condition if more than one parse error condition exists in the document.</p>
+     * 
+     * @param errorType the type of error
+     * @return whether parse errors will be suppressed
+     * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parse-error">parse errors</a>
+     */
+    protected boolean isAllowParseErrors(final ParseErrors errorType) {
+        return isAllowParseErrors();
     }
     
     /**

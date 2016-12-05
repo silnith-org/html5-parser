@@ -22,12 +22,16 @@ import org.w3c.dom.Document;
  * When the user agent is to apply the rules for the "initial" insertion mode, the user agent must handle the token as follows:
  * <dl>
  *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
- *   <dd>Ignore the token.
+ *   <dd>
+ *     <p>Ignore the token.
+ *   </dd>
  *   <dt>A comment token
- *   <dd>Insert a comment as the last child of the Document object.
+ *   <dd>
+ *     <p>Insert a comment as the last child of the Document object.
+ *   </dd>
  *   <dt>A DOCTYPE token
  *   <dd>
- *     If the DOCTYPE token's name is not a case-sensitive match for the string "html", or the token's public identifier is not missing, or the token's system identifier is neither missing nor a case-sensitive match for the string "about:legacy-compat", and none of the sets of conditions in the following list are matched, then there is a parse error.
+ *     <p>If the DOCTYPE token's name is not a case-sensitive match for the string "html", or the token's public identifier is not missing, or the token's system identifier is neither missing nor a case-sensitive match for the string "about:legacy-compat", and none of the sets of conditions in the following list are matched, then there is a parse error.
  *     <ul>
  *       <li>The DOCTYPE token's name is a case-sensitive match for the string "html", the token's public identifier is the case-sensitive string "-//W3C//DTD HTML 4.0//EN", and the token's system identifier is either missing or the case-sensitive string "http://www.w3.org/TR/REC-html40/strict.dtd".
  *       <li>The DOCTYPE token's name is a case-sensitive match for the string "html", the token's public identifier is the case-sensitive string "-//W3C//DTD HTML 4.01//EN", and the token's system identifier is either missing or the case-sensitive string "http://www.w3.org/TR/html4/strict.dtd".
@@ -114,7 +118,7 @@ import org.w3c.dom.Document;
  *   </dd>
  *   <dt>Anything else
  *   <dd>
- *     If the document is not an iframe srcdoc document, then this is a parse error; set the Document to quirks mode.
+ *     <p>If the document is not an iframe srcdoc document, then this is a parse error; set the Document to quirks mode.
  *     <p>In any case, switch the insertion mode to "before html", then reprocess the token.
  *   </dd>
  * </dl>

@@ -16,16 +16,19 @@ import org.w3c.dom.Element;
  * When the user agent is to apply the rules for the "text" insertion mode, the user agent must handle the token as follows:
  * <dl>
  *   <dt>A character token
- *   <dd>Insert the token's character.
+ *   <dd>
+ *     <p>Insert the token's character.
+ *   </dd>
  *   <dt>An end-of-file token
  *   <dd>
- *     Parse error.
+ *     <p>Parse error.
  *     <p>If the current node is a script element, mark the script element as "already started".
  *     <p>Pop the current node off the stack of open elements.
  *     <p>Switch the insertion mode to the original insertion mode and reprocess the token.
+ *   </dd>
  *   <dt>An end tag whose tag name is "script"
  *   <dd>
- *     Perform a microtask checkpoint.
+ *     <p>Perform a microtask checkpoint.
  *     <p>Provide a stable state.
  *     <p>Let script be the current node (which will be a script element).
  *     <p>Pop the current node off the stack of open elements.
@@ -39,11 +42,12 @@ import org.w3c.dom.Element;
  *     <dl>
  *       <dt>If the script nesting level is not zero:
  *       <dd>
- *         Set the parser pause flag to true, and abort the processing of any nested invocations of the tokenizer, yielding control back to the caller. (Tokenization will resume when the caller returns to the "outer" tree construction stage.)
+ *         <p>Set the parser pause flag to true, and abort the processing of any nested invocations of the tokenizer, yielding control back to the caller. (Tokenization will resume when the caller returns to the "outer" tree construction stage.)
  *         <p>The tree construction stage of this particular parser is being called reentrantly, say from a call to document.write().
+ *       </dd>
  *       <dt>Otherwise:
  *       <dd>
- *         Run these steps:
+ *         <p>Run these steps:
  *         <ol>
  *           <li>Let the script be the pending parsing-blocking script. There is no longer a pending parsing-blocking script.
  *           <li>Block the tokenizer for this instance of the HTML parser, such that the event loop will not run tasks that invoke the tokenizer.
@@ -57,11 +61,13 @@ import org.w3c.dom.Element;
  *           <li>Let the insertion point be undefined again.
  *           <li>If there is once again a pending parsing-blocking script, then repeat these steps from step 1.
  *         </ol>
+ *       </dd>
  *     </dl>
  *   <dt>Any other end tag
  *   <dd>
- *     Pop the current node off the stack of open elements.
+ *     <p>Pop the current node off the stack of open elements.
  *     <p>Switch the insertion mode to the original insertion mode.
+ *   </dd>
  * </dl>
  * 
  * @see org.silnith.parser.html5.Parser.Mode#TEXT

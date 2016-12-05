@@ -7,6 +7,7 @@ import static org.silnith.parser.util.UnicodeCodePoints.LINE_FEED;
 import static org.silnith.parser.util.UnicodeCodePoints.SPACE;
 
 import org.silnith.parser.ParseErrorException;
+import org.silnith.parser.html5.ParseErrors;
 import org.silnith.parser.html5.Parser;
 import org.silnith.parser.html5.grammar.dom.AfterLastChildInsertionPosition;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
@@ -14,29 +15,42 @@ import org.silnith.parser.html5.lexical.token.CommentToken;
 import org.silnith.parser.html5.lexical.token.EndTagToken;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.Token;
+import org.w3c.dom.Element;
 
 
 /**
  * Applies the after body insertion mode logic.
- * <p>
- * When the user agent is to apply the rules for the "after body" insertion mode, the user agent must handle the token as follows:
+ * <p>When the user agent is to apply the rules for the "after body" insertion mode, the user agent must handle the token as follows:</p>
  * <dl>
- *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
- *   <dd>Process the token using the rules for the "in body" insertion mode.
- *   <dt>A comment token
- *   <dd>Insert a comment as the last child of the first element in the stack of open elements (the html element).
- *   <dt>A DOCTYPE token
- *   <dd>Parse error. Ignore the token.
- *   <dt>A start tag whose tag name is "html"
- *   <dd>Process the token using the rules for the "in body" insertion mode.
- *   <dt>An end tag whose tag name is "html"
+ *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE</dt>
  *   <dd>
- *     If the parser was originally created as part of the HTML fragment parsing algorithm, this is a parse error; ignore the token. (fragment case)
- *     <p>Otherwise, switch the insertion mode to "after after body".
- *   <dt>An end-of-file token
- *   <dd>Stop parsing.
- *   <dt>Anything else
- *   <dd>Parse error. Switch the insertion mode to "in body" and reprocess the token.
+ *     <p>Process the token using the rules for the "in body" insertion mode.</p>
+ *   </dd>
+ *   <dt>A comment token</dt>
+ *   <dd>
+ *     <p>Insert a comment as the last child of the first element in the stack of open elements (the html element).</p>
+ *   </dd>
+ *   <dt>A DOCTYPE token</dt>
+ *   <dd>
+ *     <p>Parse error. Ignore the token.</p>
+ *   </dd>
+ *   <dt>A start tag whose tag name is "html"</dt>
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.</p>
+ *   </dd>
+ *   <dt>An end tag whose tag name is "html"</dt>
+ *   <dd>
+ *     <p>If the parser was originally created as part of the HTML fragment parsing algorithm, this is a parse error; ignore the token. (fragment case)</p>
+ *     <p>Otherwise, switch the insertion mode to "after after body".</p>
+ *   </dd>
+ *   <dt>An end-of-file token</dt>
+ *   <dd>
+ *     <p>Stop parsing.</p>
+ *   </dd>
+ *   <dt>Anything else</dt>
+ *   <dd>
+ *     <p>Parse error. Switch the insertion mode to "in body" and reprocess the token.</p>
+ *   </dd>
  * </dl>
  * 
  * @see org.silnith.parser.html5.Parser.Mode#AFTER_BODY
@@ -70,15 +84,15 @@ public class AfterBodyInsertionMode extends InsertionMode {
         } // break;
         case COMMENT: {
             final CommentToken commentToken = (CommentToken) token;
-            insertComment(commentToken, new AfterLastChildInsertionPosition(getFirstElementInStackOfOpenElements()));
+            final Element htmlElement = getFirstElementInStackOfOpenElements();
+            assert htmlElement.getTagName().equals("html");
+            insertComment(commentToken, new AfterLastChildInsertionPosition(htmlElement));
             return TOKEN_HANDLED;
         } // break;
         case DOCTYPE: {
-            if (isAllowParseErrors()) {
-                return IGNORE_TOKEN;
-            } else {
-                throw new ParseErrorException("Unexpected DOCTYPE token after body: " + token);
-            }
+            reportParseError(ParseErrors.UNEXPECTED_DOCTYPE_FOLLOWING_BODY, "Unexpected DOCTYPE token after body: " + token);
+            
+            return IGNORE_TOKEN;
         } // break;
         case START_TAG: {
             final StartTagToken startTagToken = (StartTagToken) token;
@@ -97,9 +111,14 @@ public class AfterBodyInsertionMode extends InsertionMode {
             final String tagName = endTagToken.getTagName();
             switch (tagName) {
             case "html": {
-                // if fragment, parse error
-                setInsertionMode(Parser.Mode.AFTER_AFTER_BODY);
-                return TOKEN_HANDLED;
+                if (isHTMLFragmentParsingAlgorithm()) {
+                    reportParseError(ParseErrors.UNEXPECTED_HTML_CLOSE_TAG_FOLLOWING_BODY_IN_HTML_FRAGMENT, "Unexpected html close tag following body while parsing an HTML fragment.");
+                    
+                    return IGNORE_TOKEN;
+                } else {
+                    setInsertionMode(Parser.Mode.AFTER_AFTER_BODY);
+                    return TOKEN_HANDLED;
+                }
             } // break;
             default: {
                 return anythingElse(endTagToken);
@@ -117,12 +136,10 @@ public class AfterBodyInsertionMode extends InsertionMode {
     }
     
     private boolean anythingElse(final Token token) {
-        if (isAllowParseErrors()) {
-            setInsertionMode(Parser.Mode.IN_BODY);
-            return REPROCESS_TOKEN;
-        } else {
-            throw new ParseErrorException("Unexpected token after body: " + token);
-        }
+        reportParseError(ParseErrors.UNEXPECTED_TOKEN_FOLLOWING_BODY, "Unexpected token after body: " + token);
+        
+        setInsertionMode(Parser.Mode.IN_BODY);
+        return REPROCESS_TOKEN;
     }
     
 }

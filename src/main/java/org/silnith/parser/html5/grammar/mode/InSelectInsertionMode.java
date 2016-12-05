@@ -18,55 +18,79 @@ import org.w3c.dom.Element;
  * When the user agent is to apply the rules for the "in select" insertion mode, the user agent must handle the token as follows:
  * <dl>
  *   <dt>A character token that is U+0000 NULL
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>Any other character token
- *   <dd>Insert the token's character.
+ *   <dd>
+ *     <p>Insert the token's character.
+ *   </dd>
  *   <dt>A comment token
- *   <dd>Insert a comment.
+ *   <dd>
+ *     <p>Insert a comment.
+ *   </dd>
  *   <dt>A DOCTYPE token
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>A start tag whose tag name is "html"
- *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.
+ *   </dd>
  *   <dt>A start tag whose tag name is "option"
  *   <dd>
- *     If the current node is an option element, pop that node from the stack of open elements.
+ *     <p>If the current node is an option element, pop that node from the stack of open elements.
  *     <p>Insert an HTML element for the token.
+ *   </dd>
  *   <dt>A start tag whose tag name is "optgroup"
  *   <dd>
- *     If the current node is an option element, pop that node from the stack of open elements.
+ *     <p>If the current node is an option element, pop that node from the stack of open elements.
  *     <p>If the current node is an optgroup element, pop that node from the stack of open elements.
  *     <p>Insert an HTML element for the token.
+ *   </dd>
  *   <dt>An end tag whose tag name is "optgroup"
  *   <dd>
- *     First, if the current node is an option element, and the node immediately before it in the stack of open elements is an optgroup element, then pop the current node from the stack of open elements.
+ *     <p>First, if the current node is an option element, and the node immediately before it in the stack of open elements is an optgroup element, then pop the current node from the stack of open elements.
  *     <p>If the current node is an optgroup element, then pop that node from the stack of open elements. Otherwise, this is a parse error; ignore the token.
+ *   </dd>
  *   <dt>An end tag whose tag name is "option"
- *   <dd>If the current node is an option element, then pop that node from the stack of open elements. Otherwise, this is a parse error; ignore the token.
+ *   <dd>
+ *     <p>If the current node is an option element, then pop that node from the stack of open elements. Otherwise, this is a parse error; ignore the token.
+ *   </dd>
  *   <dt>An end tag whose tag name is "select"
  *   <dd>
- *     If the stack of open elements does not have a select element in select scope, this is a parse error; ignore the token. (fragment case)
+ *     <p>If the stack of open elements does not have a select element in select scope, this is a parse error; ignore the token. (fragment case)
  *     <p>Otherwise:
  *     <p>Pop elements from the stack of open elements until a select element has been popped from the stack.
  *     <p>Reset the insertion mode appropriately.
+ *   </dd>
  *   <dt>A start tag whose tag name is "select"
  *   <dd>
- *     Parse error.
+ *     <p>Parse error.
  *     <p>Pop elements from the stack of open elements until a select element has been popped from the stack.
  *     <p>Reset the insertion mode appropriately.
+ *   </dd>
  *   <dt>A start tag whose tag name is one of: "input", "keygen", "textarea"
  *   <dd>
- *     Parse error.
+ *     <p>Parse error.
  *     <p>If the stack of open elements does not have a select element in select scope, ignore the token. (fragment case)
  *     <p>Pop elements from the stack of open elements until a select element has been popped from the stack.
  *     <p>Reset the insertion mode appropriately.
  *     <p>Reprocess the token.
+ *   </dd>
  *   <dt>A start tag whose tag name is one of: "script", "template"
  *   <dt>An end tag whose tag name is "template"
- *   <dd>Process the token using the rules for the "in head" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in head" insertion mode.
+ *   </dd>
  *   <dt>An end-of-file token
- *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.
+ *   </dd>
  *   <dt>Anything else
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  * </dl>
  * 
  * @see org.silnith.parser.html5.Parser.Mode#IN_SELECT

@@ -15,25 +15,32 @@ import org.w3c.dom.Element;
  * <dl>
  *   <dt>An end tag whose tag name is one of: "td", "th"
  *   <dd>
- *     If the stack of open elements does not have an element in table scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.
+ *     <p>If the stack of open elements does not have an element in table scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.
  *     <p>Otherwise:
  *     <p>Generate implied end tags.
  *     <p>Now, if the current node is not an HTML element with the same tag name as the token, then this is a parse error.
  *     <p>Pop elements from the stack of open elements stack until an HTML element with the same tag name as the token has been popped from the stack.
  *     <p>Clear the list of active formatting elements up to the last marker.
  *     <p>Switch the insertion mode to "in row".
+ *   </dd>
  *   <dt>A start tag whose tag name is one of: "caption", "col", "colgroup", "tbody", "td", "tfoot", "th", "thead", "tr"
  *   <dd>
- *     If the stack of open elements does not have a td or th element in table scope, then this is a parse error; ignore the token. (fragment case)
+ *     <p>If the stack of open elements does not have a td or th element in table scope, then this is a parse error; ignore the token. (fragment case)
  *     <p>Otherwise, close the cell (see below) and reprocess the token.
+ *   </dd>
  *   <dt>An end tag whose tag name is one of: "body", "caption", "col", "colgroup", "html"
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>An end tag whose tag name is one of: "table", "tbody", "tfoot", "thead", "tr"
  *   <dd>
- *     If the stack of open elements does not have an element in table scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.
+ *     <p>If the stack of open elements does not have an element in table scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.
  *     <p>Otherwise, close the cell (see below) and reprocess the token.
+ *   </dd>
  *   <dt>Anything else
- *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.
+ *   </dd>
  * </dl>
  * <p>Where the steps above say to close the cell, they mean to run the following algorithm:
  * <ol>

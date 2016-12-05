@@ -15,20 +15,24 @@ import org.w3c.dom.Element;
  * <dl>
  *   <dt>A start tag whose tag name is one of: "caption", "table", "tbody", "tfoot", "thead", "tr", "td", "th"
  *   <dd>
- *     Parse error.
+ *     <p>Parse error.
  *     <p>Pop elements from the stack of open elements until a select element has been popped from the stack.
  *     <p>Reset the insertion mode appropriately.
  *     <p>Reprocess the token.
+ *   </dd>
  *   <dt>An end tag whose tag name is one of: "caption", "table", "tbody", "tfoot", "thead", "tr", "td", "th"
  *   <dd>
- *     Parse error.
+ *     <p>Parse error.
  *     <p>If the stack of open elements does not have an element in table scope that is an HTML element and with the same tag name as that of the token, then ignore the token.
  *     <p>Otherwise:
  *     <p>Pop elements from the stack of open elements until a select element has been popped from the stack.
  *     <p>Reset the insertion mode appropriately.
  *     <p>Reprocess the token.
+ *   </dd>
  *   <dt>Anything else
- *   <dd>Process the token using the rules for the "in select" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in select" insertion mode.
+ *   </dd>
  * <dl>
  * 
  * @see org.silnith.parser.html5.Parser.Mode#IN_SELECT_IN_TABLE

@@ -24,38 +24,50 @@ import org.w3c.dom.Element;
  * When the user agent is to apply the rules for the "in head" insertion mode, the user agent must handle the token as follows:
  * <dl>
  *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
- *   <dd>Insert the character.
+ *   <dd>
+ *     <p>Insert the character.
+ *   </dd>
  *   <dt>A comment token
- *   <dd>Insert a comment.
+ *   <dd>
+ *     <p>Insert a comment.
+ *   </dd>
  *   <dt>A DOCTYPE token
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>A start tag whose tag name is "html"
- *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.
+ *   </dd>
  *   <dt>A start tag whose tag name is one of: "base", "basefont", "bgsound", "link"
  *   <dd>
- *     Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
+ *     <p>Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
  *     <p>Acknowledge the token's self-closing flag, if it is set.
  *   </dd>
  *   <dt>A start tag whose tag name is "meta"
  *   <dd>
- *     Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
+ *     <p>Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
  *     <p>Acknowledge the token's self-closing flag, if it is set.
  *     <p>If the element has a charset attribute, and getting an encoding from its value results in a supported ASCII-compatible character encoding or a UTF-16 encoding, and the confidence is currently tentative, then change the encoding to the resulting encoding.
  *     <p>Otherwise, if the element has an http-equiv attribute whose value is an ASCII case-insensitive match for the string "Content-Type", and the element has a content attribute, and applying the algorithm for extracting a character encoding from a meta element to that attribute's value returns a supported ASCII-compatible character encoding or a UTF-16 encoding, and the confidence is currently tentative, then change the encoding to the extracted encoding.
  *   </dd>
  *   <dt>A start tag whose tag name is "title"
- *   <dd>Follow the generic RCDATA element parsing algorithm.
+ *   <dd>
+ *     <p>Follow the generic RCDATA element parsing algorithm.
+ *   </dd>
  *   <dt>A start tag whose tag name is "noscript", if the scripting flag is enabled
  *   <dt>A start tag whose tag name is one of: "noframes", "style"
- *   <dd>Follow the generic raw text element parsing algorithm.
+ *   <dd>
+ *     <p>Follow the generic raw text element parsing algorithm.
+ *   </dd>
  *   <dt>A start tag whose tag name is "noscript", if the scripting flag is disabled
  *   <dd>
- *     Insert an HTML element for the token.
+ *     <p>Insert an HTML element for the token.
  *     <p>Switch the insertion mode to "in head noscript".
  *   </dd>
  *   <dt>A start tag whose tag name is "script"
  *   <dd>
- *     Run these steps:
+ *     <p>Run these steps:
  *     <ol>
  *       <li>Let the adjusted insertion location be the appropriate place for inserting a node.
  *       <li>Create an element for the token in the HTML namespace, with the intended parent being the element in which the adjusted insertion location finds itself.
@@ -70,14 +82,16 @@ import org.w3c.dom.Element;
  *   </dd>
  *   <dt>An end tag whose tag name is "head"
  *   <dd>
- *     Pop the current node (which will be the head element) off the stack of open elements.
+ *     <p>Pop the current node (which will be the head element) off the stack of open elements.
  *     <p>Switch the insertion mode to "after head".
  *   </dd>
  *   <dt>An end tag whose tag name is one of: "body", "html", "br"
- *   <dd>Act as described in the "anything else" entry below.
+ *   <dd>
+ *     <p>Act as described in the "anything else" entry below.
+ *   </dd>
  *   <dt>A start tag whose tag name is "template"
  *   <dd>
- *     Insert an HTML element for the token.
+ *     <p>Insert an HTML element for the token.
  *     <p>Insert a marker at the end of the list of active formatting elements.
  *     <p>Set the frameset-ok flag to "not ok".
  *     <p>Switch the insertion mode to "in template".
@@ -85,7 +99,7 @@ import org.w3c.dom.Element;
  *   </dd>
  *   <dt>An end tag whose tag name is "template"
  *   <dd>
- *     If there is no template element on the stack of open elements, then this is a parse error; ignore the token.
+ *     <p>If there is no template element on the stack of open elements, then this is a parse error; ignore the token.
  *     <p>Otherwise, run these steps:
  *     <ol>
  *       <li>Generate implied end tags.
@@ -98,10 +112,12 @@ import org.w3c.dom.Element;
  *   </dd>
  *   <dt>A start tag whose tag name is "head"
  *   <dt>Any other end tag
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>Anything else
  *   <dd>
- *     Pop the current node (which will be the head element) off the stack of open elements.
+ *     <p>Pop the current node (which will be the head element) off the stack of open elements.
  *     <p>Switch the insertion mode to "after head".
  *     <p>Reprocess the token.
  *   </dd>

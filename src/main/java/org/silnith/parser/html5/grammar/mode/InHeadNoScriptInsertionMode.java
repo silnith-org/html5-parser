@@ -22,26 +22,36 @@ import org.w3c.dom.Element;
  * When the user agent is to apply the rules for the "in head noscript" insertion mode, the user agent must handle the token as follows:
  * <dl>
  *   <dt>A DOCTYPE token
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>A start tag whose tag name is "html"
- *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.
+ *   </dd>
  *   <dt>An end tag whose tag name is "noscript"
  *   <dd>
- *     Pop the current node (which will be a noscript element) from the stack of open elements; the new current node will be a head element.
+ *     <p>Pop the current node (which will be a noscript element) from the stack of open elements; the new current node will be a head element.
  *     <p>Switch the insertion mode to "in head".
  *   </dd>
  *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
  *   <dt>A comment token
  *   <dt>A start tag whose tag name is one of: "basefont", "bgsound", "link", "meta", "noframes", "style"
- *   <dd>Process the token using the rules for the "in head" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in head" insertion mode.
+ *   </dd>
  *   <dt>An end tag whose tag name is "br"
- *   <dd>Act as described in the "anything else" entry below.
+ *   <dd>
+ *     <p>Act as described in the "anything else" entry below.
+ *   </dd>
  *   <dt>A start tag whose tag name is one of: "head", "noscript"
  *   <dt>Any other end tag
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>Anything else
  *   <dd>
- *     Parse error.
+ *     <p>Parse error.
  *     <p>Pop the current node (which will be a noscript element) from the stack of open elements; the new current node will be a head element.
  *     <p>Switch the insertion mode to "in head".
  *     <p>Reprocess the token.

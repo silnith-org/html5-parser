@@ -7,6 +7,7 @@ import static org.silnith.parser.util.UnicodeCodePoints.LINE_FEED;
 import static org.silnith.parser.util.UnicodeCodePoints.SPACE;
 
 import org.silnith.parser.ParseErrorException;
+import org.silnith.parser.html5.ParseErrors;
 import org.silnith.parser.html5.Parser;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.CommentToken;
@@ -18,47 +19,60 @@ import org.w3c.dom.Element;
 
 /**
  * Applies the after head insertion mode logic.
- * <p>
- * When the user agent is to apply the rules for the "after head" insertion mode, the user agent must handle the token as follows:
+ * <p>When the user agent is to apply the rules for the "after head" insertion mode, the user agent must handle the token as follows:</p>
  * <dl>
- *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
- *   <dd>Insert the character.
- *   <dt>A comment token
- *   <dd>Insert a comment.
- *   <dt>A DOCTYPE token
- *   <dd>Parse error. Ignore the token.
- *   <dt>A start tag whose tag name is "html"
- *   <dd>Process the token using the rules for the "in body" insertion mode.
- *   <dt>A start tag whose tag name is "body"
+ *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE</dt>
  *   <dd>
- *     Insert an HTML element for the token.
- *     <p>Set the frameset-ok flag to "not ok".
- *     <p>Switch the insertion mode to "in body".
- *   <dd>
- *   <dt>A start tag whose tag name is "frameset"
- *   <dd>
- *     Insert an HTML element for the token.
- *     <p>Switch the insertion mode to "in frameset".
- *   <dd>
- *   <dt>A start tag whose tag name is one of: "base", "basefont", "bgsound", "link", "meta", "noframes", "script", "style", "template", "title"
- *   <dd>
- *     Parse error.
- *     <p>Push the node pointed to by the head element pointer onto the stack of open elements.
- *     <p>Process the token using the rules for the "in head" insertion mode.
- *     <p>Remove the node pointed to by the head element pointer from the stack of open elements. (It might not be the current node at this point.)
+ *     <p>Insert the character.</p>
  *   </dd>
- *   <dt>An end tag whose tag name is "template"
- *   <dd>Process the token using the rules for the "in head" insertion mode.
- *   <dt>An end tag whose tag name is one of: "body", "html", "br"
- *   <dd>Act as described in the "anything else" entry below.
- *   <dt>A start tag whose tag name is "head"
- *   <dt>Any other end tag
- *   <dd>Parse error. Ignore the token.
- *   <dt>Anything else
+ *   <dt>A comment token</dt>
  *   <dd>
- *     Insert an HTML element for a "body" start tag token with no attributes.
- *     <p>Switch the insertion mode to "in body".
- *     <p>Reprocess the current token.
+ *     <p>Insert a comment.</p>
+ *   </dd>
+ *   <dt>A DOCTYPE token</dt>
+ *   <dd>
+ *     <p>Parse error. Ignore the token.</p>
+ *   </dd>
+ *   <dt>A start tag whose tag name is "html"</dt>
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.</p>
+ *   </dd>
+ *   <dt>A start tag whose tag name is "body"</dt>
+ *   <dd>
+ *     <p>Insert an HTML element for the token.</p>
+ *     <p>Set the frameset-ok flag to "not ok".</p>
+ *     <p>Switch the insertion mode to "in body".</p>
+ *   </dd>
+ *   <dt>A start tag whose tag name is "frameset"</dt>
+ *   <dd>
+ *     <p>Insert an HTML element for the token.</p>
+ *     <p>Switch the insertion mode to "in frameset".</p>
+ *   </dd>
+ *   <dt>A start tag whose tag name is one of: "base", "basefont", "bgsound", "link", "meta", "noframes", "script", "style", "template", "title"</dt>
+ *   <dd>
+ *     <p>Parse error.</p>
+ *     <p>Push the node pointed to by the head element pointer onto the stack of open elements.</p>
+ *     <p>Process the token using the rules for the "in head" insertion mode.</p>
+ *     <p>Remove the node pointed to by the head element pointer from the stack of open elements. (It might not be the current node at this point.)</p>
+ *   </dd>
+ *   <dt>An end tag whose tag name is "template"</dt>
+ *   <dd>
+ *     <p>Process the token using the rules for the "in head" insertion mode.</p>
+ *   </dd>
+ *   <dt>An end tag whose tag name is one of: "body", "html", "br"</dt>
+ *   <dd>
+ *     <p>Act as described in the "anything else" entry below.</p>
+ *   </dd>
+ *   <dt>A start tag whose tag name is "head"</dt>
+ *   <dt>Any other end tag</dt>
+ *   <dd>
+ *     <p>Parse error. Ignore the token.</p>
+ *   </dd>
+ *   <dt>Anything else</dt>
+ *   <dd>
+ *     <p>Insert an HTML element for a "body" start tag token with no attributes.</p>
+ *     <p>Switch the insertion mode to "in body".</p>
+ *     <p>Reprocess the current token.</p>
  *   </dd>
  * </dl>
  * 
@@ -98,11 +112,9 @@ public class AfterHeadInsertionMode extends InsertionMode {
             return TOKEN_HANDLED;
         } // break;
         case DOCTYPE: {
-            if (isAllowParseErrors()) {
-                return IGNORE_TOKEN;
-            } else {
-                throw new ParseErrorException("Unexpected DOCTYPE after head: " + token);
-            }
+            reportParseError(ParseErrors.DOCTYPE_FOLLOWING_HEAD, "Unexpected DOCTYPE after head: " + token);
+            
+            return IGNORE_TOKEN;
         } // break;
         case START_TAG: {
             final StartTagToken startTagToken = (StartTagToken) token;
@@ -132,26 +144,27 @@ public class AfterHeadInsertionMode extends InsertionMode {
             case "style": // fall through
             case "template": // fall through
             case "title": {
-                if (isAllowParseErrors()) {
-                    assert getHeadElementPointer() != null;
-                    addToStackOfOpenElements(getHeadElementPointer());
-                    final boolean returnValue = processUsingRulesFor(Parser.Mode.IN_HEAD, startTagToken);
-                    Element popped;
-                    do {
-                        // TODO: remove all elements above this, or only this one element?
-                        popped = popCurrentNode();
-                    } while (popped != getHeadElementPointer());
-                    return returnValue;
-                } else {
-                    throw new ParseErrorException("Unexpected start tag token after head: " + startTagToken);
-                }
+                reportParseError(ParseErrors.UNEXPECTED_METADATA_ELEMENT_FOLLOWING_HEAD, "Unexpected start tag token after head: " + startTagToken);
+                
+                assert getHeadElementPointer() != null;
+                addToStackOfOpenElements(getHeadElementPointer());
+                final boolean returnValue = processUsingRulesFor(Parser.Mode.IN_HEAD, startTagToken);
+                Element popped;
+                do {
+                    /*
+                     * TODO:
+                     * From the verbiage it seems only the head element should be removed.
+                     * Need to implement it that way, right now it removes everything
+                     * above and including the head.
+                     */
+                    popped = popCurrentNode();
+                } while (popped != getHeadElementPointer());
+                return returnValue;
             } // break;
             case "head": {
-                if (isAllowParseErrors()) {
-                    return IGNORE_TOKEN;
-                } else {
-                    throw new ParseErrorException("Unexpected start tag token after head: " + startTagToken);
-                }
+                reportParseError(ParseErrors.HEAD_FOLLOWING_HEAD, "Unexpected start tag token after head: " + startTagToken);
+                
+                return IGNORE_TOKEN;
             } // break;
             default: {
                 return anythingElse(startTagToken);
@@ -171,11 +184,9 @@ public class AfterHeadInsertionMode extends InsertionMode {
                 return anythingElse(endTagToken);
             } // break;
             default: {
-                if (isAllowParseErrors()) {
-                    return IGNORE_TOKEN;
-                } else {
-                    throw new ParseErrorException("Unexpected end tag token after head: " + endTagToken);
-                }
+                reportParseError(ParseErrors.UNEXPECTED_END_TAG_FOLLOWING_HEAD, "Unexpected end tag token after head: " + endTagToken);
+                
+                return IGNORE_TOKEN;
             } // break;
             }
         } // break;

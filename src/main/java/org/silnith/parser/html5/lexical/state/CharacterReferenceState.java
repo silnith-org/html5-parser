@@ -37,22 +37,26 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dt>U+0026 AMPERSAND
  *   <dt>EOF
  *   <dt>The additional allowed character, if there is one
- *   <dd>Not a character reference. No characters are consumed, and nothing is returned. (This is not an error, either.)
+ *   <dd>
+ *     <p>Not a character reference. No characters are consumed, and nothing is returned. (This is not an error, either.)
+ *   </dd>
  *   <dt>"#" (U+0023)
  *   <dd>
- *     Consume the U+0023 NUMBER SIGN.
+ *     <p>Consume the U+0023 NUMBER SIGN.
  *     <p>The behavior further depends on the character after the U+0023 NUMBER SIGN:
  *     <dl>
  *       <dt>U+0078 LATIN SMALL LETTER X
  *       <dt>U+0058 LATIN CAPITAL LETTER X
  *       <dd>
- *         Consume the X.
+ *         <p>Consume the X.
  *         <p>Follow the steps below, but using ASCII hex digits.
  *         <p>When it comes to interpreting the number, interpret it as a hexadecimal number.
+ *       </dd>
  *       <dt>Anything else
  *       <dd>
- *         Follow the steps below, but using ASCII digits.
+ *         <p>Follow the steps below, but using ASCII digits.
  *         <p>When it comes to interpreting the number, interpret it as a decimal number.
+ *       </dd>
  *     </dl>
  *     <p>
  *     Consume as many characters as match the range of characters given above (ASCII hex digits or ASCII digits).
@@ -190,11 +194,12 @@ import org.silnith.parser.html5.lexical.token.Token;
  *     Otherwise, return a character token for the Unicode character whose code point is that number. Additionally, if the number is in the range 0x0001 to 0x0008, 0x000D to 0x001F, 0x007F to 0x009F, 0xFDD0 to 0xFDEF, or is one of 0x000B, 0xFFFE, 0xFFFF, 0x1FFFE, 0x1FFFF, 0x2FFFE, 0x2FFFF, 0x3FFFE, 0x3FFFF, 0x4FFFE, 0x4FFFF, 0x5FFFE, 0x5FFFF, 0x6FFFE, 0x6FFFF, 0x7FFFE, 0x7FFFF, 0x8FFFE, 0x8FFFF, 0x9FFFE, 0x9FFFF, 0xAFFFE, 0xAFFFF, 0xBFFFE, 0xBFFFF, 0xCFFFE, 0xCFFFF, 0xDFFFE, 0xDFFFF, 0xEFFFE, 0xEFFFF, 0xFFFFE, 0xFFFFF, 0x10FFFE, or 0x10FFFF, then this is a parse error.
  *   <dt>Anything else
  *   <dd>
- *     Consume the maximum number of characters possible, with the consumed characters matching one of the identifiers in the first column of the named character references table (in a case-sensitive manner).
- *     <p>If no match can be made, then no characters are consumed, and nothing is returned. In this case, if the characters after the U+0026 AMPERSAND character (&) consist of a sequence of one or more alphanumeric ASCII characters followed by a U+003B SEMICOLON character (;), then this is a parse error.
- *     <p>If the character reference is being consumed as part of an attribute, and the last character matched is not a ";" (U+003B) character, and the next character is either a "=" (U+003D) character or an alphanumeric ASCII character, then, for historical reasons, all the characters that were matched after the U+0026 AMPERSAND character (&) must be unconsumed, and nothing is returned. However, if this next character is in fact a "=" (U+003D) character, then this is a parse error, because some legacy user agents will misinterpret the markup in those cases.
+ *     <p>Consume the maximum number of characters possible, with the consumed characters matching one of the identifiers in the first column of the named character references table (in a case-sensitive manner).
+ *     <p>If no match can be made, then no characters are consumed, and nothing is returned. In this case, if the characters after the U+0026 AMPERSAND character (&amp;) consist of a sequence of one or more alphanumeric ASCII characters followed by a U+003B SEMICOLON character (;), then this is a parse error.
+ *     <p>If the character reference is being consumed as part of an attribute, and the last character matched is not a ";" (U+003B) character, and the next character is either a "=" (U+003D) character or an alphanumeric ASCII character, then, for historical reasons, all the characters that were matched after the U+0026 AMPERSAND character (&amp;) must be unconsumed, and nothing is returned. However, if this next character is in fact a "=" (U+003D) character, then this is a parse error, because some legacy user agents will misinterpret the markup in those cases.
  *     <p>Otherwise, a character reference is parsed. If the last character matched is not a ";" (U+003B) character, there is a parse error.
  *     <p>Return one or two character tokens for the character(s) corresponding to the character reference name (as given by the second column of the named character references table).
+ *   </dd>
  * </dl>
  * 
  * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#tokenizing-character-references">8.2.4.69 Tokenizing character references</a>

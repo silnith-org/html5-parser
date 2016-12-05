@@ -28,47 +28,54 @@ import org.w3c.dom.NodeList;
 
 /**
  * Applies the in body insertion mode logic.
- * <p>
- * When the user agent is to apply the rules for the "in body" insertion mode, the user agent must handle the token as follows:
+ * <p>When the user agent is to apply the rules for the "in body" insertion mode, the user agent must handle the token as follows:</p>
  * <dl>
  *   <dt>A character token that is U+0000 NULL
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.</p>
+ *   </dd>
  *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
  *   <dd>
- *     Reconstruct the active formatting elements, if any.
- *     <p>Insert the token's character.
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert the token's character.</p>
  *   </dd>
  *   <dt>Any other character token
  *   <dd>
- *     Reconstruct the active formatting elements, if any.
- *     <p>Insert the token's character.
- *     <p>Set the frameset-ok flag to "not ok".
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert the token's character.</p>
+ *     <p>Set the frameset-ok flag to "not ok".</p>
  *   </dd>
  *   <dt>A comment token
- *   <dd>Insert a comment.
+ *   <dd>
+ *     <p>Insert a comment.</p>
+ *   </dd>
  *   <dt>A DOCTYPE token
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.</p>
+ *   </dd>
  *   <dt>A start tag whose tag name is "html"
  *   <dd>
- *     Parse error.
- *     <p>If there is a template element on the stack of open elements, then ignore the token.
- *     <p>Otherwise, for each attribute on the token, check to see if the attribute is already present on the top element of the stack of open elements. If it is not, add the attribute and its corresponding value to that element.
+ *     <p>Parse error.</p>
+ *     <p>If there is a template element on the stack of open elements, then ignore the token.</p>
+ *     <p>Otherwise, for each attribute on the token, check to see if the attribute is already present on the top element of the stack of open elements. If it is not, add the attribute and its corresponding value to that element.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is one of: "base", "basefont", "bgsound", "link", "meta", "noframes", "script", "style", "template", "title"
  *   <dt>An end tag whose tag name is "template"
- *   <dd>Process the token using the rules for the "in head" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in head" insertion mode.</p>
+ *   </dd>
  *   <dt>A start tag whose tag name is "body"
  *   <dd>
- *     Parse error.
- *     <p>If the second element on the stack of open elements is not a body element, if the stack of open elements has only one node on it, or if there is a template element on the stack of open elements, then ignore the token. (fragment case)
- *     <p>Otherwise, set the frameset-ok flag to "not ok"; then, for each attribute on the token, check to see if the attribute is already present on the body element (the second element) on the stack of open elements, and if it is not, add the attribute and its corresponding value to that element.
+ *     <p>Parse error.</p>
+ *     <p>If the second element on the stack of open elements is not a body element, if the stack of open elements has only one node on it, or if there is a template element on the stack of open elements, then ignore the token. (fragment case)</p>
+ *     <p>Otherwise, set the frameset-ok flag to "not ok"; then, for each attribute on the token, check to see if the attribute is already present on the body element (the second element) on the stack of open elements, and if it is not, add the attribute and its corresponding value to that element.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "frameset"
  *   <dd>
- *     Parse error.
- *     <p>If the stack of open elements has only one node on it, or if the second element on the stack of open elements is not a body element, then ignore the token. (fragment case)
- *     <p>If the frameset-ok flag is set to "not ok", ignore the token.
- *     <p>Otherwise, run the following steps:
+ *     <p>Parse error.</p>
+ *     <p>If the stack of open elements has only one node on it, or if the second element on the stack of open elements is not a body element, then ignore the token. (fragment case)</p>
+ *     <p>If the frameset-ok flag is set to "not ok", ignore the token.</p>
+ *     <p>Otherwise, run the following steps:</p>
  *     <ol>
  *       <li>Remove the second element on the stack of open elements from its parent node, if it has one.
  *       <li>Pop all the nodes from the bottom of the stack of open elements, from the current node up to, but not including, the root html element.
@@ -78,51 +85,51 @@ import org.w3c.dom.NodeList;
  *   </dd>
  *   <dt>An end-of-file token
  *   <dd>
- *     If there is a node in the stack of open elements that is not either a dd element, a dt element, an li element, a p element, a tbody element, a td element, a tfoot element, a th element, a thead element, a tr element, the body element, or the html element, then this is a parse error.
- *     <p>If the stack of template insertion modes is not empty, then process the token using the rules for the "in template" insertion mode.
- *     <p>Otherwise, stop parsing.
+ *     <p>If there is a node in the stack of open elements that is not either a dd element, a dt element, an li element, a p element, a tbody element, a td element, a tfoot element, a th element, a thead element, a tr element, the body element, or the html element, then this is a parse error.</p>
+ *     <p>If the stack of template insertion modes is not empty, then process the token using the rules for the "in template" insertion mode.</p>
+ *     <p>Otherwise, stop parsing.</p>
  *   </dd>
  *   <dt>An end tag whose tag name is "body"
  *   <dd>
- *     If the stack of open elements does not have a body element in scope, this is a parse error; ignore the token.
- *     <p>Otherwise, if there is a node in the stack of open elements that is not either a dd element, a dt element, an li element, an optgroup element, an option element, a p element, an rb element, an rp element, an rt element, an rtc element, a tbody element, a td element, a tfoot element, a th element, a thead element, a tr element, the body element, or the html element, then this is a parse error.
- *     <p>Switch the insertion mode to "after body".
+ *     <p>If the stack of open elements does not have a body element in scope, this is a parse error; ignore the token.</p>
+ *     <p>Otherwise, if there is a node in the stack of open elements that is not either a dd element, a dt element, an li element, an optgroup element, an option element, a p element, an rb element, an rp element, an rt element, an rtc element, a tbody element, a td element, a tfoot element, a th element, a thead element, a tr element, the body element, or the html element, then this is a parse error.</p>
+ *     <p>Switch the insertion mode to "after body".</p>
  *   </dd>
  *   <dt>An end tag whose tag name is "html"
  *   <dd>
- *     If the stack of open elements does not have a body element in scope, this is a parse error; ignore the token.
- *     <p>Otherwise, if there is a node in the stack of open elements that is not either a dd element, a dt element, an li element, an optgroup element, an option element, a p element, an rb element, an rp element, an rt element, an rtc element, a tbody element, a td element, a tfoot element, a th element, a thead element, a tr element, the body element, or the html element, then this is a parse error.
- *     <p>Switch the insertion mode to "after body".
- *     <p>Reprocess the token.
+ *     <p>If the stack of open elements does not have a body element in scope, this is a parse error; ignore the token.</p>
+ *     <p>Otherwise, if there is a node in the stack of open elements that is not either a dd element, a dt element, an li element, an optgroup element, an option element, a p element, an rb element, an rp element, an rt element, an rtc element, a tbody element, a td element, a tfoot element, a th element, a thead element, a tr element, the body element, or the html element, then this is a parse error.</p>
+ *     <p>Switch the insertion mode to "after body".</p>
+ *     <p>Reprocess the token.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is one of: "address", "article", "aside", "blockquote", "center", "details", "dialog", "dir", "div", "dl", "fieldset", "figcaption", "figure", "footer", "header", "hgroup", "main", "nav", "ol", "p", "section", "summary", "ul"
  *   <dd>
- *     If the stack of open elements has a p element in button scope, then close a p element.
- *     <p>Insert an HTML element for the token.
+ *     <p>If the stack of open elements has a p element in button scope, then close a p element.</p>
+ *     <p>Insert an HTML element for the token.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is one of: "h1", "h2", "h3", "h4", "h5", "h6"
  *   <dd>
- *     If the stack of open elements has a p element in button scope, then close a p element.
- *     <p>If the current node is an HTML element whose tag name is one of "h1", "h2", "h3", "h4", "h5", or "h6", then this is a parse error; pop the current node off the stack of open elements.
- *     <p>Insert an HTML element for the token.
+ *     <p>If the stack of open elements has a p element in button scope, then close a p element.</p>
+ *     <p>If the current node is an HTML element whose tag name is one of "h1", "h2", "h3", "h4", "h5", or "h6", then this is a parse error; pop the current node off the stack of open elements.</p>
+ *     <p>Insert an HTML element for the token.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is one of: "pre", "listing"
  *   <dd>
- *     If the stack of open elements has a p element in button scope, then close a p element.
- *     <p>Insert an HTML element for the token.
- *     <p>If the next token is a "LF" (U+000A) character token, then ignore that token and move on to the next one. (Newlines at the start of pre blocks are ignored as an authoring convenience.)
- *     <p>Set the frameset-ok flag to "not ok".
+ *     <p>If the stack of open elements has a p element in button scope, then close a p element.</p>
+ *     <p>Insert an HTML element for the token.</p>
+ *     <p>If the next token is a "LF" (U+000A) character token, then ignore that token and move on to the next one. (Newlines at the start of pre blocks are ignored as an authoring convenience.)</p>
+ *     <p>Set the frameset-ok flag to "not ok".</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "form"
  *   <dd>
- *     If the form element pointer is not null, and there is no template element on the stack of open elements, then this is a parse error; ignore the token.
- *     <p>Otherwise:
- *     <p>If the stack of open elements has a p element in button scope, then close a p element.
- *     <p>Insert an HTML element for the token, and, if there is no template element on the stack of open elements, set the form element pointer to point to the element created.
+ *     <p>If the form element pointer is not null, and there is no template element on the stack of open elements, then this is a parse error; ignore the token.</p>
+ *     <p>Otherwise:</p>
+ *     <p>If the stack of open elements has a p element in button scope, then close a p element.</p>
+ *     <p>Insert an HTML element for the token, and, if there is no template element on the stack of open elements, set the form element pointer to point to the element created.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "li"
  *   <dd>
- *     Run these steps:
+ *     <p>Run these steps:</p>
  *     <ol>
  *       <li>Set the frameset-ok flag to "not ok".
  *       <li>Initialize node to be the current node (the bottommost node of the stack).
@@ -143,7 +150,7 @@ import org.w3c.dom.NodeList;
  *   </dd>
  *   <dt>A start tag whose tag name is one of: "dd", "dt"
  *   <dd>
- *     Run these steps:
+ *     <p>Run these steps:</p>
  *     <ol>
  *       <li>Set the frameset-ok flag to "not ok".
  *       <li>Initialize node to be the current node (the bottommost node of the stack).
@@ -173,9 +180,9 @@ import org.w3c.dom.NodeList;
  *   </dd>
  *   <dt>A start tag whose tag name is "plaintext"
  *   <dd>
- *     If the stack of open elements has a p element in button scope, then close a p element.
- *     <p>Insert an HTML element for the token.
- *     <p>Switch the tokenizer to the PLAINTEXT state.
+ *     <p>If the stack of open elements has a p element in button scope, then close a p element.</p>
+ *     <p>Insert an HTML element for the token.</p>
+ *     <p>Switch the tokenizer to the PLAINTEXT state.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "button"
  *   <dd>
@@ -195,8 +202,8 @@ import org.w3c.dom.NodeList;
  *   </dd>
  *   <dt>An end tag whose tag name is one of: "address", "article", "aside", "blockquote", "button", "center", "details", "dialog", "dir", "div", "dl", "fieldset", "figcaption", "figure", "footer", "header", "hgroup", "listing", "main", "nav", "ol", "pre", "section", "summary", "ul"
  *   <dd>
- *     If the stack of open elements does not have an element in scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.
- *     <p>Otherwise, run these steps:
+ *     <p>If the stack of open elements does not have an element in scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.</p>
+ *     <p>Otherwise, run these steps:</p>
  *     <ol>
  *       <li>Generate implied end tags.
  *       <li>If the current node is not an HTML element with the same tag name as that of the token, then this is a parse error.
@@ -205,7 +212,7 @@ import org.w3c.dom.NodeList;
  *   </dd>
  *   <dt>An end tag whose tag name is "form"
  *   <dd>
- *     If there is no template element on the stack of open elements, then run these substeps:
+ *     <p>If there is no template element on the stack of open elements, then run these substeps:</p>
  *     <ol>
  *       <li>Let node be the element that the form element pointer is set to, or null if it is not set to an element.
  *       <li>Set the form element pointer to null. Otherwise, let node be null.
@@ -214,7 +221,7 @@ import org.w3c.dom.NodeList;
  *       <li>If the current node is not node, then this is a parse error.
  *       <li>Remove node from the stack of open elements.
  *     </ol>
- *     <p>If there is a template element on the stack of open elements, then run these substeps instead:
+ *     <p>If there is a template element on the stack of open elements, then run these substeps instead:</p>
  *     <ol>
  *       <li>If the stack of open elements does not have a form element in scope, then this is a parse error; abort these steps and ignore the token.
  *       <li>Generate implied end tags.
@@ -224,13 +231,13 @@ import org.w3c.dom.NodeList;
  *   </dd>
  *   <dt>An end tag whose tag name is "p"
  *   <dd>
- *     If the stack of open elements does not have a p element in button scope, then this is a parse error; insert an HTML element for a "p" start tag token with no attributes.
- *     <p>Close a p element.
+ *     <p>If the stack of open elements does not have a p element in button scope, then this is a parse error; insert an HTML element for a "p" start tag token with no attributes.</p>
+ *     <p>Close a p element.</p>
  *   </dd>
  *   <dt>An end tag whose tag name is "li"
  *   <dd>
- *     If the stack of open elements does not have an li element in list item scope, then this is a parse error; ignore the token.
- *     <p>Otherwise, run these steps:
+ *     <p>If the stack of open elements does not have an li element in list item scope, then this is a parse error; ignore the token.</p>
+ *     <p>Otherwise, run these steps:</p>
  *     <ol>
  *       <li>Generate implied end tags, except for li elements.
  *       <li>If the current node is not an li element, then this is a parse error.
@@ -239,8 +246,8 @@ import org.w3c.dom.NodeList;
  *   </dd>
  *   <dt>An end tag whose tag name is one of: "dd", "dt"
  *   <dd>
- *     If the stack of open elements does not have an element in scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.
- *     <p>Otherwise, run these steps:
+ *     <p>If the stack of open elements does not have an element in scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.</p>
+ *     <p>Otherwise, run these steps:</p>
  *     <ol>
  *       <li>Generate implied end tags, except for HTML elements with the same tag name as the token.
  *       <li>If the current node is not an HTML element with the same tag name as that of the token, then this is a parse error.
@@ -249,8 +256,8 @@ import org.w3c.dom.NodeList;
  *   </dd>
  *   <dt>An end tag whose tag name is one of: "h1", "h2", "h3", "h4", "h5", "h6"
  *   <dd>
- *     If the stack of open elements does not have an element in scope that is an HTML element and whose tag name is one of "h1", "h2", "h3", "h4", "h5", or "h6", then this is a parse error; ignore the token.
- *     <p>Otherwise, run these steps:
+ *     <p>If the stack of open elements does not have an element in scope that is an HTML element and whose tag name is one of "h1", "h2", "h3", "h4", "h5", or "h6", then this is a parse error; ignore the token.</p>
+ *     <p>Otherwise, run these steps:</p>
  *     <ol>
  *       <li>Generate implied end tags.
  *       <li>If the current node is not an HTML element with the same tag name as that of the token, then this is a parse error.
@@ -258,37 +265,41 @@ import org.w3c.dom.NodeList;
  *     </ol>
  *   </dd>
  *   <dt>An end tag whose tag name is "sarcasm"
- *   <dd>Take a deep breath, then act as described in the "any other end tag" entry below.
+ *   <dd>
+ *     <p>Take a deep breath, then act as described in the "any other end tag" entry below.</p>
+ *   </dd>
  *   <dt>A start tag whose tag name is "a"
  *   <dd>
- *     If the list of active formatting elements contains an a element between the end of the list and the last marker on the list (or the start of the list if there is no marker on the list), then this is a parse error; run the adoption agency algorithm for the tag name "a", then remove that element from the list of active formatting elements and the stack of open elements if the adoption agency algorithm didn't already remove it (it might not have if the element is not in table scope).
- *     <p>Reconstruct the active formatting elements, if any.
- *     <p>Insert an HTML element for the token. Push onto the list of active formatting elements that element.
+ *     <p>If the list of active formatting elements contains an a element between the end of the list and the last marker on the list (or the start of the list if there is no marker on the list), then this is a parse error; run the adoption agency algorithm for the tag name "a", then remove that element from the list of active formatting elements and the stack of open elements if the adoption agency algorithm didn't already remove it (it might not have if the element is not in table scope).</p>
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert an HTML element for the token. Push onto the list of active formatting elements that element.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is one of: "b", "big", "code", "em", "font", "i", "s", "small", "strike", "strong", "tt", "u"
  *   <dd>
- *     Reconstruct the active formatting elements, if any.
- *     <p>Insert an HTML element for the token. Push onto the list of active formatting elements that element.
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert an HTML element for the token. Push onto the list of active formatting elements that element.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "nobr"
  *   <dd>
- *     Reconstruct the active formatting elements, if any.
- *     <p>If the stack of open elements has a nobr element in scope, then this is a parse error; run the adoption agency algorithm for the tag name "nobr", then once again reconstruct the active formatting elements, if any.
- *     <p>Insert an HTML element for the token. Push onto the list of active formatting elements that element.
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>If the stack of open elements has a nobr element in scope, then this is a parse error; run the adoption agency algorithm for the tag name "nobr", then once again reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert an HTML element for the token. Push onto the list of active formatting elements that element.</p>
  *   </dd>
  *   <dt>An end tag whose tag name is one of: "a", "b", "big", "code", "em", "font", "i", "nobr", "s", "small", "strike", "strong", "tt", "u"
- *   <dd>Run the adoption agency algorithm for the token's tag name.
+ *   <dd>
+ *     <p>Run the adoption agency algorithm for the token's tag name.</p>
+ *   </dd>
  *   <dt>A start tag whose tag name is one of: "applet", "marquee", "object"
  *   <dd>
- *     Reconstruct the active formatting elements, if any.
- *     <p>Insert an HTML element for the token.
- *     <p>Insert a marker at the end of the list of active formatting elements.
- *     <p>Set the frameset-ok flag to "not ok".
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert an HTML element for the token.</p>
+ *     <p>Insert a marker at the end of the list of active formatting elements.</p>
+ *     <p>Set the frameset-ok flag to "not ok".</p>
  *   </dd>
  *   <dt>An end tag token whose tag name is one of: "applet", "marquee", "object"
  *   <dd>
- *     If the stack of open elements does not have an element in scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.
- *     <p>Otherwise, run these steps:
+ *     <p>If the stack of open elements does not have an element in scope that is an HTML element and with the same tag name as that of the token, then this is a parse error; ignore the token.</p>
+ *     <p>Otherwise, run these steps:</p>
  *     <ol>
  *       <li>Generate implied end tags.
  *       <li>If the current node is not an HTML element with the same tag name as that of the token, then this is a parse error.
@@ -298,65 +309,68 @@ import org.w3c.dom.NodeList;
  *   </dd>
  *   <dt>A start tag whose tag name is "table"
  *   <dd>
- *     If the Document is not set to quirks mode, and the stack of open elements has a p element in button scope, then close a p element.
- *     <p>Insert an HTML element for the token.
- *     <p>Set the frameset-ok flag to "not ok".
- *     <p>Switch the insertion mode to "in table".
+ *     <p>If the Document is not set to quirks mode, and the stack of open elements has a p element in button scope, then close a p element.</p>
+ *     <p>Insert an HTML element for the token.</p>
+ *     <p>Set the frameset-ok flag to "not ok".</p>
+ *     <p>Switch the insertion mode to "in table".</p>
  *   </dd>
  *   <dt>An end tag whose tag name is "br"
- *   <dd>Parse error. Act as described in the next entry, as if this was a "br" start tag token, rather than an end tag token.
+ *   <dd>
+ *     <p>Parse error. Act as described in the next entry, as if this was a "br" start tag token, rather than an end tag token.</p>
+ *   </dd>
  *   <dt>A start tag whose tag name is one of: "area", "br", "embed", "img", "keygen", "wbr"
  *   <dd>
- *     Reconstruct the active formatting elements, if any.
- *     <p>Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
- *     <p>Acknowledge the token's self-closing flag, if it is set.
- *     <p>Set the frameset-ok flag to "not ok".
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.</p>
+ *     <p>Acknowledge the token's self-closing flag, if it is set.</p>
+ *     <p>Set the frameset-ok flag to "not ok".</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "input"
  *   <dd>
- *     Reconstruct the active formatting elements, if any.
- *     <p>Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
- *     <p>Acknowledge the token's self-closing flag, if it is set.
- *     <p>If the token does not have an attribute with the name "type", or if it does, but that attribute's value is not an ASCII case-insensitive match for the string "hidden", then: set the frameset-ok flag to "not ok".
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.</p>
+ *     <p>Acknowledge the token's self-closing flag, if it is set.</p>
+ *     <p>If the token does not have an attribute with the name "type", or if it does, but that attribute's value is not an ASCII case-insensitive match for the string "hidden", then: set the frameset-ok flag to "not ok".</p>
  *   </dd>
  *   <dt>A start tag whose tag name is one of: "param", "source", "track"
  *   <dd>
- *     Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
- *     <p>Acknowledge the token's self-closing flag, if it is set.
+ *     <p>Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.</p>
+ *     <p>Acknowledge the token's self-closing flag, if it is set.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "hr"
  *   <dd>
- *     If the stack of open elements has a p element in button scope, then close a p element.
- *     <p>Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
- *     <p>Acknowledge the token's self-closing flag, if it is set.
- *     <p>Set the frameset-ok flag to "not ok".
+ *     <p>If the stack of open elements has a p element in button scope, then close a p element.</p>
+ *     <p>Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.</p>
+ *     <p>Acknowledge the token's self-closing flag, if it is set.</p>
+ *     <p>Set the frameset-ok flag to "not ok".</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "image"
- *   <dd>Parse error. Change the token's tag name to "img" and reprocess it. (Don't ask.)
+ *   <dd>
+ *     <p>Parse error. Change the token's tag name to "img" and reprocess it. (Don't ask.)</p>
  *   <dt>A start tag whose tag name is "isindex"
  *   <dd>
- *     Parse error.
- *     <p>If there is no template element on the stack of open elements and the form element pointer is not null, then ignore the token.
- *     <p>Otherwise:
- *     <p>Acknowledge the token's self-closing flag, if it is set.
- *     <p>Set the frameset-ok flag to "not ok".
- *     <p>If the stack of open elements has a p element in button scope, then close a p element.
- *     <p>Insert an HTML element for a "form" start tag token with no attributes, and, if there is no template element on the stack of open elements, set the form element pointer to point to the element created.
- *     <p>If the token has an attribute called "action", set the action attribute on the resulting form element to the value of the "action" attribute of the token.
- *     <p>Insert an HTML element for an "hr" start tag token with no attributes. Immediately pop the current node off the stack of open elements.
- *     <p>Reconstruct the active formatting elements, if any.
- *     <p>Insert an HTML element for a "label" start tag token with no attributes.
- *     <p>Insert characters (see below for what they should say).
- *     <p>Insert an HTML element for an "input" start tag token with all the attributes from the "isindex" token except "name", "action", and "prompt", and with an attribute named "name" with the value "isindex". (This creates an input element with the name attribute set to the magic balue "isindex".) Immediately pop the current node off the stack of open elements.
- *     <p>Insert more characters (see below for what they should say).
- *     <p>Pop the current node (which will be the label element created earlier) off the stack of open elements.
- *     <p>Insert an HTML element for an "hr" start tag token with no attributes. Immediately pop the current node off the stack of open elements.
- *     <p>Pop the current node (which will be the form element created earlier) off the stack of open elements, and, if there is no template element on the stack of open elements, set the form element pointer back to null.
- *     <p>Prompt: If the token has an attribute with the name "prompt", then the first stream of characters must be the same string as given in that attribute, and the second stream of characters must be empty. Otherwise, the two streams of character tokens together should, together with the input element, express the equivalent of "This is a searchable index. Enter search keywords: (input field)" in the user's preferred language.
+ *     <p>Parse error.</p>
+ *     <p>If there is no template element on the stack of open elements and the form element pointer is not null, then ignore the token.</p>
+ *     <p>Otherwise:</p>
+ *     <p>Acknowledge the token's self-closing flag, if it is set.</p>
+ *     <p>Set the frameset-ok flag to "not ok".</p>
+ *     <p>If the stack of open elements has a p element in button scope, then close a p element.</p>
+ *     <p>Insert an HTML element for a "form" start tag token with no attributes, and, if there is no template element on the stack of open elements, set the form element pointer to point to the element created.</p>
+ *     <p>If the token has an attribute called "action", set the action attribute on the resulting form element to the value of the "action" attribute of the token.</p>
+ *     <p>Insert an HTML element for an "hr" start tag token with no attributes. Immediately pop the current node off the stack of open elements.</p>
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert an HTML element for a "label" start tag token with no attributes.</p>
+ *     <p>Insert characters (see below for what they should say).</p>
+ *     <p>Insert an HTML element for an "input" start tag token with all the attributes from the "isindex" token except "name", "action", and "prompt", and with an attribute named "name" with the value "isindex". (This creates an input element with the name attribute set to the magic balue "isindex".) Immediately pop the current node off the stack of open elements.</p>
+ *     <p>Insert more characters (see below for what they should say).</p>
+ *     <p>Pop the current node (which will be the label element created earlier) off the stack of open elements.</p>
+ *     <p>Insert an HTML element for an "hr" start tag token with no attributes. Immediately pop the current node off the stack of open elements.</p>
+ *     <p>Pop the current node (which will be the form element created earlier) off the stack of open elements, and, if there is no template element on the stack of open elements, set the form element pointer back to null.</p>
+ *     <p>Prompt: If the token has an attribute with the name "prompt", then the first stream of characters must be the same string as given in that attribute, and the second stream of characters must be empty. Otherwise, the two streams of character tokens together should, together with the input element, express the equivalent of "This is a searchable index. Enter search keywords: (input field)" in the user's preferred language.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "textarea"
  *   <dd>
- *     Run these steps:
+ *     <p>Run these steps:</p>
  *     <ol>
  *       <li>Insert an HTML element for the token.
  *       <li>If the next token is a "LF" (U+000A) character token, then ignore that token and move on to the next one. (Newlines at the start of textarea elements are ignored as an authoring convenience.)
@@ -368,68 +382,72 @@ import org.w3c.dom.NodeList;
  *   </dd>
  *   <dt>A start tag whose tag name is "xmp"
  *   <dd>
- *     If the stack of open elements has a p element in button scope, then close a p element.
- *     <p>Reconstruct the active formatting elements, if any.
- *     <p>Set the frameset-ok flag to "not ok".
- *     <p>Follow the generic raw text element parsing algorithm.
+ *     <p>If the stack of open elements has a p element in button scope, then close a p element.</p>
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Set the frameset-ok flag to "not ok".</p>
+ *     <p>Follow the generic raw text element parsing algorithm.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "iframe"
  *   <dd>
- *     Set the frameset-ok flag to "not ok".
- *     <p>Follow the generic raw text element parsing algorithm.
+ *     <p>Set the frameset-ok flag to "not ok".</p>
+ *     <p>Follow the generic raw text element parsing algorithm.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "noembed"
  *   <dt>A start tag whose tag name is "noscript", if the scripting flag is enabled
- *   <dd>Follow the generic raw text element parsing algorithm.
+ *   <dd>
+ *     <p>Follow the generic raw text element parsing algorithm.</p>
+ *   </dd>
  *   <dt>A start tag whose tag name is "select"
  *   <dd>
- *     Reconstruct the active formatting elements, if any.
- *     <p>Insert an HTML element for the token.
- *     <p>Set the frameset-ok flag to "not ok".
- *     <p>If the insertion mode is one of "in table", "in caption", "in table body", "in row", or "in cell", then switch the insertion mode to "in select in table". Otherwise, switch the insertion mode to "in select".
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert an HTML element for the token.</p>
+ *     <p>Set the frameset-ok flag to "not ok".</p>
+ *     <p>If the insertion mode is one of "in table", "in caption", "in table body", "in row", or "in cell", then switch the insertion mode to "in select in table". Otherwise, switch the insertion mode to "in select".</p>
  *   </dd>
  *   <dt>A start tag whose tag name is one of: "optgroup", "option"
  *   <dd>
- *     If the current node is an option element, then pop the current node off the stack of open elements.
- *     <p>Reconstruct the active formatting elements, if any.
- *     <p>Insert an HTML element for the token.
+ *     <p>If the current node is an option element, then pop the current node off the stack of open elements.</p>
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert an HTML element for the token.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is one of: "rb", "rp", "rtc"
  *   <dd>
- *     If the stack of open elements has a ruby element in scope, then generate implied end tags. If the current node is not then a ruby element, this is a parse error.
- *     <p>Insert an HTML element for the token.
+ *     <p>If the stack of open elements has a ruby element in scope, then generate implied end tags. If the current node is not then a ruby element, this is a parse error.</p>
+ *     <p>Insert an HTML element for the token.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "rt"
  *   <dd>
- *     If the stack of open elements has a ruby element in scope, then generate implied end tags, except for rtc elements. If the current node is not then a ruby element or an rtc element, this is a parse error.
- *     <p>Insert an HTML element for the token.
+ *     <p>If the stack of open elements has a ruby element in scope, then generate implied end tags, except for rtc elements. If the current node is not then a ruby element or an rtc element, this is a parse error.</p>
+ *     <p>Insert an HTML element for the token.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "math"
  *   <dd>
- *     Reconstruct the active formatting elements, if any.
- *     <p>Adjust MathML attributes for the token. (This fixes the case of MathML attributes that are not all lowercase.)
- *     <p>Adjust foreign attributes for the token. (This fixes the use of namespaced attributes, in particular XLink.)
- *     <p>Insert a foreign element for the token, in the MathML namespace.
- *     <p>If the token has its self-closing flag set, pop the current node off the stack of open elements and acknowledge the token's self-closing flag.
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Adjust MathML attributes for the token. (This fixes the case of MathML attributes that are not all lowercase.)</p>
+ *     <p>Adjust foreign attributes for the token. (This fixes the use of namespaced attributes, in particular XLink.)</p>
+ *     <p>Insert a foreign element for the token, in the MathML namespace.</p>
+ *     <p>If the token has its self-closing flag set, pop the current node off the stack of open elements and acknowledge the token's self-closing flag.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is "svg"
  *   <dd>
- *     Reconstruct the active formatting elements, if any.
- *     <p>Adjust SVG attributes for the token. (This fixes the case of SVG attributes that are not all lowercase.)
- *     <p>Adjust foreign attributes for the token. (This fixes the use of namespaced attributes, in particular XLink in SVG.)
- *     <p>Insert a foreign element for the token, in the SVG namespace.
- *     <p>If the token has its self-closing flag set, pop the current node off the stack of open elements and acknowledge the token's self-closing flag.
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Adjust SVG attributes for the token. (This fixes the case of SVG attributes that are not all lowercase.)</p>
+ *     <p>Adjust foreign attributes for the token. (This fixes the use of namespaced attributes, in particular XLink in SVG.)</p>
+ *     <p>Insert a foreign element for the token, in the SVG namespace.</p>
+ *     <p>If the token has its self-closing flag set, pop the current node off the stack of open elements and acknowledge the token's self-closing flag.</p>
  *   </dd>
  *   <dt>A start tag whose tag name is one of: "caption", "col", "colgroup", "frame", "head", "tbody", "td", "tfoot", "th", "thead", "tr"
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.</p>
+ *   </dd>
  *   <dt>Any other start tag
  *   <dd>
- *     Reconstruct the active formatting elements, if any.
- *     <p>Insert an HTML element for the token.
+ *     <p>Reconstruct the active formatting elements, if any.</p>
+ *     <p>Insert an HTML element for the token.</p>
  *   </dd>
  *   <dt>Any other end tag
  *   <dd>
- *     Run these steps:
+ *     <p>Run these steps:</p>
  *     <ol>
  *       <li>Initialize node to be the current node (the bottommost node of the stack).
  *       <li>
@@ -446,13 +464,13 @@ import org.w3c.dom.NodeList;
  *     </ol>
  *   </dd>
  * </dl>
- * <p>When the steps above say the user agent is to close a p element, it means that the user agent must run the following steps:
+ * <p>When the steps above say the user agent is to close a p element, it means that the user agent must run the following steps:</p>
  * <ol>
  *   <li>Generate implied end tags, except for p elements.
  *   <li>If the current node is not a p element, then this is a parse error.
  *   <li>Pop elements from the stack of open elements until a p element has been popped from the stack.
  * </ol>
- * <p>The adoption agency algorithm, which takes as its only argument a tag name subject for which the algorithm is being run, consists of the following steps:
+ * <p>The adoption agency algorithm, which takes as its only argument a tag name subject for which the algorithm is being run, consists of the following steps:</p>
  * <ol>
  *   <li>
  *     If the current node is an HTML element whose tag name is subject, then run these substeps:

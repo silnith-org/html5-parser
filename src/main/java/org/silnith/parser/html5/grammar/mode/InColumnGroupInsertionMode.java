@@ -21,34 +21,51 @@ import org.silnith.parser.html5.lexical.token.Token;
  * When the user agent is to apply the rules for the "in column group" insertion mode, the user agent must handle the token as follows:
  * <dl>
  *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
- *   <dd>Insert the character.
+ *   <dd>
+ *     <p>Insert the character.
+ *   </dd>
  *   <dt>A comment token
- *   <dd>Insert a comment.
+ *   <dd>
+ *     <p>Insert a comment.
+ *   </dd>
  *   <dt>A DOCTYPE token
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>A start tag whose tag name is "html"
- *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.
+ *   </dd>
  *   <dt>A start tag whose tag name is "col"
  *   <dd>
- *     Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
+ *     <p>Insert an HTML element for the token. Immediately pop the current node off the stack of open elements.
  *     <p>Acknowledge the token's self-closing flag, if it is set.
+ *   </dd>
  *   <dt>An end tag whose tag name is "colgroup"
  *   <dd>
- *     If the current node is not a colgroup element, then this is a parse error; ignore the token.
+ *     <p>If the current node is not a colgroup element, then this is a parse error; ignore the token.
  *     <p>Otherwise, pop the current node from the stack of open elements. Switch the insertion mode to "in table".
+ *   </dd>
  *   <dt>An end tag whose tag name is "col"
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>A start tag whose tag name is "template"
  *   <dt>An end tag whose tag name is "template"
- *   <dd>Process the token using the rules for the "in head" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in head" insertion mode.
+ *   </dd>
  *   <dt>An end-of-file token
- *   <dd>Process the token using the rules for the "in body" insertion mode.
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.
+ *   </dd>
  *   <dt>Anything else
  *   <dd>
- *     If the current node is not a colgroup element, then this is a parse error; ignore the token.
+ *     <p>If the current node is not a colgroup element, then this is a parse error; ignore the token.
  *     <p>Otherwise, pop the current node from the stack of open elements.
  *     <p>Switch the insertion mode to "in table".
  *     <p>Reprocess the token.
+ *   </dd>
  * </dl>
  * 
  * @see org.silnith.parser.html5.Parser.Mode#IN_COLUMN_GROUP

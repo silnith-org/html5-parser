@@ -7,6 +7,7 @@ import static org.silnith.parser.util.UnicodeCodePoints.LINE_FEED;
 import static org.silnith.parser.util.UnicodeCodePoints.SPACE;
 
 import org.silnith.parser.ParseErrorException;
+import org.silnith.parser.html5.ParseErrors;
 import org.silnith.parser.html5.Parser;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
 import org.silnith.parser.html5.lexical.token.CommentToken;
@@ -18,33 +19,44 @@ import org.w3c.dom.Element;
 
 /**
  * Applies the before head insertion mode logic.
- * <p>
- * When the user agent is to apply the rules for the "before head" insertion mode, the user agent must handle the token as follows:
+ * <p>When the user agent is to apply the rules for the "before head" insertion mode, the user agent must handle the token as follows:</p>
  * <dl>
- *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
- *   <dd>Ignore the token.
- *   <dt>A comment token
- *   <dd>Insert a comment.
- *   <dt>A DOCTYPE token
- *   <dd>Parse error. Ignore the token.
- *   <dt>A start tag whose tag name is "html"
- *   <dd>Process the token using the rules for the "in body" insertion mode.
- *   <dt>A start tag whose tag name is "head"
+ *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE</dt>
  *   <dd>
- *     Insert an HTML element for the token.
- *     <p>Set the head element pointer to the newly created head element.
- *     <p>Switch the insertion mode to "in head".
+ *     <p>Ignore the token.</p>
  *   </dd>
- *   <dt>An end tag whose tag name is one of: "head", "body", "html", "br"
- *   <dd>Act as described in the "anything else" entry below.
- *   <dt>Any other end tag
- *   <dd>Parse error. Ignore the token.
- *   <dt>Anything else
+ *   <dt>A comment token</dt>
  *   <dd>
- *     Insert an HTML element for a "head" start tag token with no attributes.
- *     <p>Set the head element pointer to the newly created head element.
- *     <p>Switch the insertion mode to "in head".
- *     <p>Reprocess the current token.
+ *     <p>Insert a comment.</p>
+ *   </dd>
+ *   <dt>A DOCTYPE token</dt>
+ *   <dd>
+ *     <p>Parse error. Ignore the token.</p>
+ *   </dd>
+ *   <dt>A start tag whose tag name is "html"</dt>
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.</p>
+ *   </dd>
+ *   <dt>A start tag whose tag name is "head"</dt>
+ *   <dd>
+ *     <p>Insert an HTML element for the token.</p>
+ *     <p>Set the head element pointer to the newly created head element.</p>
+ *     <p>Switch the insertion mode to "in head".</p>
+ *   </dd>
+ *   <dt>An end tag whose tag name is one of: "head", "body", "html", "br"</dt>
+ *   <dd>
+ *     <p>Act as described in the "anything else" entry below.</p>
+ *   </dd>
+ *   <dt>Any other end tag</dt>
+ *   <dd>
+ *     <p>Parse error. Ignore the token.</p>
+ *   </dd>
+ *   <dt>Anything else</dt>
+ *   <dd>
+ *     <p>Insert an HTML element for a "head" start tag token with no attributes.</p>
+ *     <p>Set the head element pointer to the newly created head element.</p>
+ *     <p>Switch the insertion mode to "in head".</p>
+ *     <p>Reprocess the current token.</p>
  *   </dd>
  * </dl>
  * 
@@ -83,11 +95,9 @@ public class BeforeHeadInsertionMode extends InsertionMode {
             return TOKEN_HANDLED;
         } // break;
         case DOCTYPE: {
-            if (isAllowParseErrors()) {
-                return IGNORE_TOKEN;
-            } else {
-                throw new ParseErrorException("Unexpected DOCTYPE token before head: " + token);
-            }
+            reportParseError(ParseErrors.DOCTYPE_BEFORE_HEAD, "Unexpected DOCTYPE token before head: " + token);
+            
+            return IGNORE_TOKEN;
         } // break;
         case START_TAG: {
             final StartTagToken startTagToken = (StartTagToken) token;
@@ -118,11 +128,9 @@ public class BeforeHeadInsertionMode extends InsertionMode {
                 return anythingElse(endTagToken);
             } // break;
             default: {
-                if (isAllowParseErrors()) {
-                    return IGNORE_TOKEN;
-                } else {
-                    throw new ParseErrorException("Unexpected end tag token before head: " + endTagToken);
-                }
+                reportParseError(ParseErrors.UNEXPECTED_END_TAG_BEFORE_HEAD, "Unexpected end tag token before head: " + endTagToken);
+                
+                return IGNORE_TOKEN;
             } // break;
             }
         } // break;

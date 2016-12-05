@@ -7,6 +7,7 @@ import static org.silnith.parser.util.UnicodeCodePoints.LINE_FEED;
 import static org.silnith.parser.util.UnicodeCodePoints.SPACE;
 
 import org.silnith.parser.ParseErrorException;
+import org.silnith.parser.html5.ParseErrors;
 import org.silnith.parser.html5.Parser;
 import org.silnith.parser.html5.grammar.dom.AfterLastChildInsertionPosition;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
@@ -17,21 +18,30 @@ import org.silnith.parser.html5.lexical.token.Token;
 
 /**
  * Applies the after after frameset insertion mode logic.
- * <p>
- * When the user agent is to apply the rules for the "after after frameset" insertion mode, the user agent must handle the token as follows:
+ * <p>When the user agent is to apply the rules for the "after after frameset" insertion mode, the user agent must handle the token as follows:</p>
  * <dl>
- *   <dt>A comment token
- *   <dd>Insert a comment as the last child of the Document object.
- *   <dt>A DOCTYPE token
- *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE
- *   <dt>A start tag whose tag name is "html"
- *   <dd>Process the token using the rules for the "in body" insertion mode.
- *   <dt>An end-of-file token
- *   <dd>Stop parsing.
- *   <dt>A start tag whose tag name is "noframes"
- *   <dd>Process the token using the rules for the "in head" insertion mode.
- *   <dt>Anything else
- *   <dd>Parse error. Ignore the token.
+ *   <dt>A comment token</dt>
+ *   <dd>
+ *     <p>Insert a comment as the last child of the Document object.</p>
+ *   </dd>
+ *   <dt>A DOCTYPE token</dt>
+ *   <dt>A character token that is one of U+0009 CHARACTER TABULATION, "LF" (U+000A), "FF" (U+000C), "CR" (U+000D), or U+0020 SPACE</dt>
+ *   <dt>A start tag whose tag name is "html"</dt>
+ *   <dd>
+ *     <p>Process the token using the rules for the "in body" insertion mode.</p>
+ *   </dd>
+ *   <dt>An end-of-file token</dt>
+ *   <dd>
+ *     <p>Stop parsing.</p>
+ *   </dd>
+ *   <dt>A start tag whose tag name is "noframes"</dt>
+ *   <dd>
+ *     <p>Process the token using the rules for the "in head" insertion mode.</p>
+ *   </dd>
+ *   <dt>Anything else</dt>
+ *   <dd>
+ *     <p>Parse error. Ignore the token.</dt>
+ *   </dd>
  * </dl>
  * 
  * @see org.silnith.parser.html5.Parser.Mode#AFTER_AFTER_FRAMESET
@@ -97,11 +107,9 @@ public class AfterAfterFramesetInsertionMode extends InsertionMode {
     }
     
     private boolean anythingElse(final Token token) {
-        if (isAllowParseErrors()) {
-            return IGNORE_TOKEN;
-        } else {
-            throw new ParseErrorException("Unexpected token after after frameset: " + token);
-        }
+        reportParseError(ParseErrors.UNEXPECTED_TOKEN_FOLLOWING_FRAMESET_DOCUMENT, "Unexpected token after after frameset: " + token);
+        
+        return IGNORE_TOKEN;
     }
     
 }

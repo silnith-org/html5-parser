@@ -14,14 +14,19 @@ import org.silnith.parser.html5.lexical.token.Token;
  * When the user agent is to apply the rules for the "in table text" insertion mode, the user agent must handle the token as follows:
  * <dl>
  *   <dt>A character token that is U+0000 NULL
- *   <dd>Parse error. Ignore the token.
+ *   <dd>
+ *     <p>Parse error. Ignore the token.
+ *   </dd>
  *   <dt>Any other character token
- *   <dd>Append the character token to the pending table character tokens list.
+ *   <dd>
+ *     <p>Append the character token to the pending table character tokens list.
+ *   </dd>
  *   <dt>Anything else
  *   <dd>
- *     If any of the tokens in the pending table character tokens list are character tokens that are not space characters, then reprocess the character tokens in the pending table character tokens list using the rules given in the "anything else" entry in the "in table" insertion mode.
+ *     <p>If any of the tokens in the pending table character tokens list are character tokens that are not space characters, then reprocess the character tokens in the pending table character tokens list using the rules given in the "anything else" entry in the "in table" insertion mode.
  *     <p>Otherwise, insert the characters given by the pending table character tokens list.
  *     <p>Switch the insertion mode to the original insertion mode and reprocess the token.
+ *   </dd>
  * </dl>
  * 
  * @see org.silnith.parser.html5.Parser.Mode#IN_TABLE_TEXT
