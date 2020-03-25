@@ -10,7 +10,6 @@ import static org.silnith.parser.util.UnicodeCodePoints.SPACE;
 
 import java.util.Locale;
 
-import org.silnith.parser.ParseErrorException;
 import org.silnith.parser.html5.ParseErrors;
 import org.silnith.parser.html5.Parser;
 import org.silnith.parser.html5.lexical.token.CharacterToken;
@@ -18,8 +17,8 @@ import org.silnith.parser.html5.lexical.token.CommentToken;
 import org.silnith.parser.html5.lexical.token.EndTagToken;
 import org.silnith.parser.html5.lexical.token.StartTagToken;
 import org.silnith.parser.html5.lexical.token.TagToken.Attribute;
-import org.w3c.dom.Element;
 import org.silnith.parser.html5.lexical.token.Token;
+import org.w3c.dom.Element;
 
 
 /**
@@ -61,10 +60,12 @@ import org.silnith.parser.html5.lexical.token.Token;
  *     <p>If the adjusted current node is an element in the MathML namespace, adjust MathML attributes for the token. (This fixes the case of MathML attributes that are not all lowercase.)</p>
  *     <p>If the adjusted current node is an element in the SVG namespace, and the token's tag name is one of the ones in the first column of the following table, change the tag name to the name given in the corresponding cell in the second column. (This fixes the case of SVG elements that are not all lowercase.)</p>
  *     <table>
+ *       <caption>SVG tag replacements.</caption>
  *       <thead>
  *         <tr>
  *           <th>Tag name
  *           <th>Element name
+ *       </thead>
  *       <tbody>
  *         <tr>
  *           <td>altglyph
@@ -177,6 +178,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *         <tr>
  *           <td>textpath
  *           <td>textPath
+ *       </tbody>
  *     </table>
  *     <p>If the adjusted current node is an element in the SVG namespace, adjust SVG attributes for the token. (This fixes the case of SVG attributes that are not all lowercase.)</p>
  *     <p>Adjust foreign attributes for the token. (This fixes the use of namespaced attributes, in particular XLink in SVG.)</p>

@@ -33,7 +33,7 @@ import org.w3c.dom.Element;
  *   <dd>
  *     <p>Process the token using the rules for the "in select" insertion mode.
  *   </dd>
- * <dl>
+ * </dl>
  * 
  * @see org.silnith.parser.html5.Parser.Mode#IN_SELECT_IN_TABLE
  * @see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/syntax.html#parsing-main-inselectintable">8.2.5.4.17 The "in select in table" insertion mode</a>

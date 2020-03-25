@@ -6,7 +6,6 @@ import static org.silnith.parser.util.UnicodeCodePoints.FORM_FEED;
 import static org.silnith.parser.util.UnicodeCodePoints.LINE_FEED;
 import static org.silnith.parser.util.UnicodeCodePoints.SPACE;
 
-import org.silnith.parser.ParseErrorException;
 import org.silnith.parser.html5.ParseErrors;
 import org.silnith.parser.html5.Parser;
 import org.silnith.parser.html5.grammar.dom.AfterLastChildInsertionPosition;
@@ -40,7 +39,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   </dd>
  *   <dt>Anything else</dt>
  *   <dd>
- *     <p>Parse error. Ignore the token.</dt>
+ *     <p>Parse error. Ignore the token.</p>
  *   </dd>
  * </dl>
  * 
