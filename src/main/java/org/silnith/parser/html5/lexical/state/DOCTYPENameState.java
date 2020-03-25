@@ -27,7 +27,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dt>"FF" (U+000C)
  *   <dt>U+0020 SPACE
  *   <dd>Switch to the after DOCTYPE name state.
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Switch to the data state. Emit the current DOCTYPE token.
  *   <dt>Uppercase ASCII letter
  *   <dd>Append the lowercase version of the current input character (add 0x0020 to the character's code point) to the current DOCTYPE token's name.

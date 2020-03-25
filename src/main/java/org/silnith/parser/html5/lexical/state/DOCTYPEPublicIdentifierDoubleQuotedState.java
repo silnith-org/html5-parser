@@ -23,7 +23,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dd>Switch to the after DOCTYPE public identifier state.
  *   <dt>U+0000 NULL
  *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the current DOCTYPE token's public identifier.
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Parse error. Set the DOCTYPE token's force-quirks flag to on. Switch to the data state. Emit that DOCTYPE token.
  *   <dt>EOF
  *   <dd>Parse error. Switch to the data state. Set the DOCTYPE token's force-quirks flag to on. Emit that DOCTYPE token. Reconsume the EOF character.

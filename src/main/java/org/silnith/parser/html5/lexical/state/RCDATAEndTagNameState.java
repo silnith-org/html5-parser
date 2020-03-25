@@ -31,7 +31,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dd>If the current end tag token is an appropriate end tag token, then switch to the before attribute name state. Otherwise, treat it as per the "anything else" entry below.
  *   <dt>"/" (U+002F)
  *   <dd>If the current end tag token is an appropriate end tag token, then switch to the self-closing start tag state. Otherwise, treat it as per the "anything else" entry below.
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>If the current end tag token is an appropriate end tag token, then switch to the data state and emit the current tag token. Otherwise, treat it as per the "anything else" entry below.
  *   <dt>Uppercase ASCII letter
  *   <dd>Append the lowercase version of the current input character (add 0x0020 to the character's code point) to the current tag token's tag name. Append the current input character to the temporary buffer.

@@ -27,7 +27,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dt>"FF" (U+000C)
  *   <dt>U+0020 SPACE
  *   <dd>Switch to the between DOCTYPE public and system identifiers state.
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Switch to the data state. Emit the current DOCTYPE token.
  *   <dt>U+0022 QUOTATION MARK (")
  *   <dd>Parse error. Set the DOCTYPE token's system identifier to the empty string (not missing), then switch to the DOCTYPE system identifier (double-quoted) state.

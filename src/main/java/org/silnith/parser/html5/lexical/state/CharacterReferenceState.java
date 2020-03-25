@@ -68,6 +68,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *     If one or more characters match the range, then take them all and interpret the string of characters as a number (either hexadecimal or decimal as appropriate).
  *     <p>If that number is one of the numbers in the first column of the following table, then this is a parse error. Find the row with that number in the first column, and return a character token for the Unicode character given in the second column of that row.
  *     <table>
+ *       <caption>Character replacement table.</caption>
  *       <thead>
  *         <tr>
  *           <th>Number

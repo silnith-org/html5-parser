@@ -21,7 +21,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  * <dl>
  *   <dt>U+0022 QUOTATION MARK (")
  *   <dd>Switch to the after attribute value (quoted) state.
- *   <dt>U+0026 AMPERSAND (&)
+ *   <dt>U+0026 AMPERSAND (&amp;)
  *   <dd>Switch to the character reference in attribute value state, with the additional allowed character being U+0022 QUOTATION MARK (").
  *   <dt>U+0000 NULL
  *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the current attribute's value.

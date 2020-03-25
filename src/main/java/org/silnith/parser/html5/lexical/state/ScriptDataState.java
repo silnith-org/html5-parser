@@ -19,7 +19,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  * <p>
  * Consume the next input character:
  * <dl>
- *   <dt>"<" (U+003C)
+ *   <dt>"&lt;" (U+003C)
  *   <dd>Switch to the script data less-than sign state.
  *   <dt>U+0000 NULL
  *   <dd>Parse error. Emit a U+FFFD REPLACEMENT CHARACTER character token.

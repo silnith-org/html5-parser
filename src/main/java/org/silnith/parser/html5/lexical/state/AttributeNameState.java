@@ -36,7 +36,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dd>Switch to the self-closing start tag state.
  *   <dt>"=" (U+003D)
  *   <dd>Switch to the before attribute value state.
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Switch to the data state. Emit the current tag token.
  *   <dt>Uppercase ASCII letter
  *   <dd>Append the lowercase version of the current input character (add 0x0020 to the character's code point) to the current attribute's name.
@@ -44,7 +44,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the current attribute's name.
  *   <dt>U+0022 QUOTATION MARK (")
  *   <dt>"'" (U+0027)
- *   <dt>"<" (U+003C)
+ *   <dt>"&lt;" (U+003C)
  *   <dd>Parse error. Treat it as per the "anything else" entry below.
  *   <dt>EOF
  *   <dd>Parse error. Switch to the data state. Reconsume the EOF character.

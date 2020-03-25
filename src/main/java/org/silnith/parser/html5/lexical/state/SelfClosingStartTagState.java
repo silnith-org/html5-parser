@@ -16,7 +16,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  * <p>
  * Consume the next input character:
  * <dl>
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Set the self-closing flag of the current tag token. Switch to the data state. Emit the current tag token.
  *   <dt>EOF
  *   <dd>Parse error. Switch to the data state. Reconsume the EOF character.

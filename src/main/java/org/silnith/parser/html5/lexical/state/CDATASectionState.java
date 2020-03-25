@@ -13,7 +13,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  * Applies the cdata section state logic.
  * <p>
  * Switch to the data state.
- * <p>Consume every character up to the next occurrence of the three character sequence U+005D RIGHT SQUARE BRACKET U+005D RIGHT SQUARE BRACKET U+003E GREATER-THAN SIGN (]]>), or the end of the file (EOF), whichever comes first. Emit a series of character tokens consisting of all the characters consumed except the matching three character sequence at the end (if one was found before the end of the file).
+ * <p>Consume every character up to the next occurrence of the three character sequence U+005D RIGHT SQUARE BRACKET U+005D RIGHT SQUARE BRACKET U+003E GREATER-THAN SIGN (]]&gt;), or the end of the file (EOF), whichever comes first. Emit a series of character tokens consisting of all the characters consumed except the matching three character sequence at the end (if one was found before the end of the file).
  * <p>If the end of the file was reached, reconsume the EOF character.
  * 
  * @see org.silnith.parser.html5.lexical.Tokenizer.State#CDATA_SECTION

@@ -35,15 +35,15 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dd>Ignore the character.
  *   <dt>U+0022 QUOTATION MARK (")
  *   <dd>Switch to the attribute value (double-quoted) state.
- *   <dt>U+0026 AMPERSAND (&)
+ *   <dt>U+0026 AMPERSAND (&amp;)
  *   <dd>Switch to the attribute value (unquoted) state. Reconsume the current input character.
  *   <dt>"'" (U+0027)
  *   <dd>Switch to the attribute value (single-quoted) state.
  *   <dt>U+0000 NULL
  *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the current attribute's value. Switch to the attribute value (unquoted) state.
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Parse error. Switch to the data state. Emit the current tag token.
- *   <dt>"<" (U+003C)
+ *   <dt>"&lt;" (U+003C)
  *   <dt>"=" (U+003D)
  *   <dt>"`" (U+0060)
  *   <dd>Parse error. Treat it as per the "anything else" entry below.

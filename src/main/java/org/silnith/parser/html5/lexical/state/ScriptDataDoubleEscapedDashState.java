@@ -21,7 +21,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  * <dl>
  *   <dt>"-" (U+002D)
  *   <dd>Switch to the script data double escaped dash dash state. Emit a U+002D HYPHEN-MINUS character token.
- *   <dt>"<" (U+003C)
+ *   <dt>"&lt;" (U+003C)
  *   <dd>Switch to the script data double escaped less-than sign state. Emit a U+003C LESS-THAN SIGN character token.
  *   <dt>U+0000 NULL
  *   <dd>Parse error. Switch to the script data double escaped state. Emit a U+FFFD REPLACEMENT CHARACTER character token.

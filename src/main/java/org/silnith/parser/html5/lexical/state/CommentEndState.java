@@ -20,7 +20,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  * <p>
  * Consume the next input character:
  * <dl>
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Switch to the data state. Emit the comment token.
  *   <dt>U+0000 NULL
  *   <dd>Parse error. Append two "-" (U+002D) characters and a U+FFFD REPLACEMENT CHARACTER character to the comment token's data. Switch to the comment state.

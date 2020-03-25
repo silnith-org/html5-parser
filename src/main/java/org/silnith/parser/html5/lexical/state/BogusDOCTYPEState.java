@@ -15,7 +15,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  * <p>
  * Consume the next input character:
  * <dl>
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Switch to the data state. Emit the DOCTYPE token.
  *   <dt>EOF
  *   <dd>Switch to the data state. Emit the DOCTYPE token. Reconsume the EOF character.

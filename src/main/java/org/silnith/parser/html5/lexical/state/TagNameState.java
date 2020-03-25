@@ -30,7 +30,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dd>Switch to the before attribute name state.
  *   <dt>"/" (U+002F)
  *   <dd>Switch to the self-closing start tag state.
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Switch to the data state. Emit the current tag token.
  *   <dt>Uppercase ASCII letter
  *   <dd>Append the lowercase version of the current input character (add 0x0020 to the character's code point) to the current tag token's tag name.

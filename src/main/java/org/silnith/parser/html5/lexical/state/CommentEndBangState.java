@@ -22,7 +22,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  * <dl>
  *   <dt>"-" (U+002D)
  *   <dd>Append two "-" (U+002D) characters and a "!" (U+0021) character to the comment token's data. Switch to the comment end dash state.
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Switch to the data state. Emit the comment token.
  *   <dt>U+0000 NULL
  *   <dd>Parse error. Append two "-" (U+002D) characters, a "!" (U+0021) character, and a U+FFFD REPLACEMENT CHARACTER character to the comment token's data. Switch to the comment state.

@@ -15,7 +15,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  * <p>
  * Switch to the data state.
  * <p>Attempt to consume a character reference, with no additional allowed character.
- * <p>If nothing is returned, emit a U+0026 AMPERSAND character (&) token.
+ * <p>If nothing is returned, emit a U+0026 AMPERSAND character (&amp;) token.
  * <p>Otherwise, emit the character tokens that were returned.
  * 
  * @see org.silnith.parser.html5.lexical.Tokenizer.State#CHARACTER_REFERENCE_IN_DATA

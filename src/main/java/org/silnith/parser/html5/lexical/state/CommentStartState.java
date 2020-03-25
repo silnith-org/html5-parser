@@ -23,7 +23,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dd>Switch to the comment start dash state.
  *   <dt>U+0000 NULL
  *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the comment token's data. Switch to the comment state.
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Parse error. Switch to the data state. Emit the comment token.
  *   <dt>EOF
  *   <dd>Parse error. Switch to the data state. Emit the comment token. Reconsume the EOF character.

@@ -23,7 +23,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dd>Create a new end tag token, set its tag name to the lowercase version of the current input character (add 0x0020 to the character's code point), then switch to the tag name state. (Don't emit the token yet; further details will be filled in before it is emitted.)
  *   <dt>Lowercase ASCII letter
  *   <dd>Create a new end tag token, set its tag name to the current input character, then switch to the tag name state. (Don't emit the token yet; further details will be filled in before it is emitted.)
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Parse error. Switch to the data state.
  *   <dt>EOF
  *   <dd>Parse error. Switch to the data state. Emit a U+003C LESS-THAN SIGN character token and a U+002F SOLIDUS character token. Reconsume the EOF character.

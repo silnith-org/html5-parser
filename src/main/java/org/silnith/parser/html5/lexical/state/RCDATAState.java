@@ -20,9 +20,9 @@ import org.silnith.parser.html5.lexical.token.Token;
  * <p>
  * Consume the next input character:
  * <dl>
- *   <dt>U+0026 AMPERSAND (&)
+ *   <dt>U+0026 AMPERSAND (&amp;)
  *   <dd>Switch to the character reference in RCDATA state.
- *   <dt>"<" (U+003C)
+ *   <dt>"&lt;" (U+003C)
  *   <dd>Switch to the RCDATA less-than sign state.
  *   <dt>U+0000 NULL
  *   <dd>Parse error. Emit a U+FFFD REPLACEMENT CHARACTER character token.

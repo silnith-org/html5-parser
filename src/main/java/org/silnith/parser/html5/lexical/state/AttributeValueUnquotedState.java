@@ -34,15 +34,15 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dt>"FF" (U+000C)
  *   <dt>U+0020 SPACE
  *   <dd>Switch to the before attribute name state.
- *   <dt>U+0026 AMPERSAND (&)
- *   <dd>Switch to the character reference in attribute value state, with the additional allowed character being ">" (U+003E).
- *   <dt>">" (U+003E)
+ *   <dt>U+0026 AMPERSAND (&amp;)
+ *   <dd>Switch to the character reference in attribute value state, with the additional allowed character being "&gt;" (U+003E).
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Switch to the data state. Emit the current tag token.
  *   <dt>U+0000 NULL
  *   <dd>Parse error. Append a U+FFFD REPLACEMENT CHARACTER character to the current attribute's value.
  *   <dt>U+0022 QUOTATION MARK (")
  *   <dt>"'" (U+0027)
- *   <dt>"<" (U+003C)
+ *   <dt>"&lt;" (U+003C)
  *   <dt>"=" (U+003D)
  *   <dt>"`" (U+0060)
  *   <dd>Parse error. Treat it as per the "anything else" entry below.

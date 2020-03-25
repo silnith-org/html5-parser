@@ -25,7 +25,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dt>"FF" (U+000C)
  *   <dt>U+0020 SPACE
  *   <dd>Ignore the character.
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>Switch to the data state. Emit the current DOCTYPE token.
  *   <dt>EOF
  *   <dd>Parse error. Switch to the data state. Set the DOCTYPE token's force-quirks flag to on. Emit that DOCTYPE token. Reconsume the EOF character.

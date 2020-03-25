@@ -25,7 +25,7 @@ import org.silnith.parser.html5.lexical.token.Token;
  *   <dt>"FF" (U+000C)
  *   <dt>U+0020 SPACE
  *   <dt>"/" (U+002F)
- *   <dt>">" (U+003E)
+ *   <dt>"&gt;" (U+003E)
  *   <dd>If the temporary buffer is the string "script", then switch to the script data escaped state. Otherwise, switch to the script data double escaped state. Emit the current input character as a character token.
  *   <dt>Uppercase ASCII letter
  *   <dd>Append the lowercase version of the current input character (add 0x0020 to the character's code point) to the temporary buffer. Emit the current input character as a character token.
